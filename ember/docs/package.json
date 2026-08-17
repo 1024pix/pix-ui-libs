@@ -41,6 +41,7 @@
     "@glint/template": "^1.7.8",
     "@glint/tsserver-plugin": "^2.5.7",
     "@rollup/plugin-babel": "^7.1.0",
+    "@universal-ember/docs-support": "^0.9.12",
     "babel-plugin-ember-template-compilation": "^4.0.0",
     "concurrently": "^9.2.3",
     "decorator-transforms": "^2.3.2",

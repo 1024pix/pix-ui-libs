@@ -1,6 +1,7 @@
 packages:
   - "ember/*"
 allowBuilds:
+  core-js: false
   esbuild: true
 overrides:
   "@glint/template": ^1.8.0
