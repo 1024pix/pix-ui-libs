@@ -1,5 +1,5 @@
 import { pageTitle } from 'ember-page-title';
-import Block from "@1024pix/nebulix-ember/block";
+import Block from '@1024pix/nebulix-ember/block';
 
 const greeting = 'hello';
 

@@ -1,12 +1,10 @@
 import { pageTitle } from 'ember-page-title';
-import { WelcomePage } from 'ember-welcome-page';
+import { PageNav } from 'kolay/components';
 
 <template>
   {{pageTitle "Docs"}}
 
-  {{outlet}}
+  <PageNav />
 
-  {{! The following component displays Ember's default welcome message. }}
-  <WelcomePage @extension="gts" />
-  {{! Feel free to remove this! }}
+  {{outlet}}
 </template>

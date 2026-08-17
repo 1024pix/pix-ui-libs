@@ -1,11 +1,11 @@
-import EmberRouter from '@embroider/router';
-import config from 'docs/config/environment';
+import { addRoutes } from 'kolay';
+import EmberRouter from '@ember/routing/router';
 
 export default class Router extends EmberRouter {
-  location = config.locationType;
-  rootURL = config.rootURL;
+  location = 'history';
+  rootURL = '/';
 }
 
 Router.map(function () {
-  // Add route declarations here
+  addRoutes(this);
 });

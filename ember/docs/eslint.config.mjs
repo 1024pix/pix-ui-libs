@@ -24,7 +24,6 @@ import ts from 'typescript-eslint';
 import ember from 'eslint-plugin-ember/recommended';
 
 import eslintConfigPrettier from 'eslint-config-prettier';
-import qunit from 'eslint-plugin-qunit';
 import n from 'eslint-plugin-n';
 
 import babelParser from '@babel/eslint-parser/experimental-worker';
@@ -82,13 +81,6 @@ export default defineConfig([
       },
     },
     extends: [...ts.configs.recommendedTypeChecked, ember.configs.gts],
-  },
-  {
-    ...qunit.configs.recommended,
-    files: ['tests/**/*-test.{js,gjs,ts,gts}'],
-    plugins: {
-      qunit,
-    },
   },
   /**
    * CJS node files

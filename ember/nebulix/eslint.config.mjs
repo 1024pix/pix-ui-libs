@@ -63,6 +63,9 @@ export default defineConfig([
     rules: {
       // require relative imports use full extensions
       'import/extensions': ['error', 'always', { ignorePackages: true }],
+      // components carry a backing class solely to hold the JSDoc typing their
+      // signature, which is what <ComponentSignature /> renders in the docs
+      'ember/no-empty-glimmer-component-classes': 'off',
     },
   },
   /**
