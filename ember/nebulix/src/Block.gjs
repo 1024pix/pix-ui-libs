@@ -10,6 +10,6 @@ import Component from '@glimmer/component';
  */
 export default class Block extends Component {
   <template>
-    <div ...attributes>Hello {{@name}}</div>
+    <div ...attributes>Coucou {{@name}}</div>
   </template>
 }
