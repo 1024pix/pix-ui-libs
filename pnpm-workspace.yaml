@@ -1,2 +1,4 @@
 packages:
   - "ember/*"
+allowBuilds:
+  esbuild: true
