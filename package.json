@@ -1,0 +1,27 @@
+{
+  "name": "@1024pix/nebulix",
+  "version": "0.0.0",
+  "private": true,
+  "repository": "",
+  "license": "MIT",
+  "author": "",
+  "scripts": {
+    "build": "pnpm --filter ember/nebulix build",
+    "format": "pnpm --filter \"*\" format",
+    "lint": "pnpm --filter \"*\" lint",
+    "lint:fix": "pnpm --filter \"*\" lint:fix",
+    "prepare": "pnpm build",
+    "start": "concurrently \"pnpm:start:*\" --restart-after 5000 --prefix-colors cyan,white,yellow",
+    "start:addon": "pnpm --filter ember/nebulix start",
+    "start:test-app": "pnpm --filter ember/test-app start",
+    "test": "pnpm --filter \"*\" test"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  },
+  "packageManager": "pnpm@11.22.0",
+  "engines": {
+    "node": "24.*",
+    "pnpm": ">= 11"
+  }
+}
