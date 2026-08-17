@@ -13,6 +13,6 @@ export default defineConfig({
       babelHelpers: 'runtime',
       extensions,
     }),
-docfyVite(),
+    docfyVite(),
   ],
 });

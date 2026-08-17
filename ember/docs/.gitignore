@@ -16,3 +16,8 @@
 
 # broccoli-debug
 /DEBUG/
+
+
+#docfy
+app/templates/*
+docs/public/*
