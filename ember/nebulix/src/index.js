@@ -1,1 +1,1 @@
-export { default as Block } from './Block.gjs';
+export { default as PixBlock } from './layout/pix-block.gjs';

@@ -1,14 +1,12 @@
 import { pageTitle } from 'ember-page-title';
-import Block from "@1024pix/nebulix-ember/block";
-
-const greeting = 'hello';
+import PixBlock from "../../src/layout/pix-block.gjs";
 
 <template>
   {{pageTitle "Demo App"}}
 
-  <h1>Welcome to ember!</h1>
+  <h1>Addon DEMO APP Nebulix !</h1>
 
-  <Block />
-
-  {{greeting}}, world!
+  <PixBlock>
+      Coucou c'est nous !
+  </PixBlock>
 </template>

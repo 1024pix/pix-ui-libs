@@ -2,6 +2,9 @@ import EmberApp from 'ember-strict-application-resolver';
 import EmberRouter from '@ember/routing/router';
 import PageTitleService from 'ember-page-title/services/page-title';
 
+import '../src/styles/normalize-reset/index.scss';
+import '../src/styles/pix-design-tokens/index.scss';
+
 class Router extends EmberRouter {
   location = 'history';
   rootURL = '/';
