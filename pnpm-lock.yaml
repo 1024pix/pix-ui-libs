@@ -1,7 +1,7 @@
 lockfileVersion: '9.0'
 
 settings:
-  autoInstallPeers: true
+  autoInstallPeers: false
   excludeLinksFromLockfile: false
 
 importers:
@@ -11,9 +11,6 @@ importers:
       concurrently:
         specifier: ^9.2.1
         version: 9.2.4
-      sass-embedded:
-        specifier: ^1.102.0
-        version: 1.102.0
 
   ember/nebulix:
     dependencies:
@@ -129,6 +126,9 @@ importers:
       rollup:
         specifier: ^4.22.5
         version: 4.62.4
+      sass-embedded:
+        specifier: ^1.102.0
+        version: 1.102.0
       testem:
         specifier: ^3.15.1
         version: 3.20.1(@babel/core@7.29.7(supports-color@8.1.1))(debug@4.4.3(supports-color@8.1.1))(handlebars@4.7.9)(supports-color@8.1.1)(underscore@1.13.8)

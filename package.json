@@ -6,19 +6,12 @@
   "license": "MIT",
   "author": "",
   "scripts": {
-    "build": "pnpm --filter @1024pix/nebulix-ember build",
-    "format": "pnpm --filter \"*\" format",
-    "lint": "pnpm --filter \"*\" lint",
-    "lint:fix": "pnpm --filter \"*\" lint:fix",
-    "prepare": "pnpm build",
-    "start": "concurrently \"pnpm:start:*\" --restart-after 5000 --prefix-colors cyan,white,yellow",
-    "start:addon": "pnpm --filter ember/nebulix start",
-    "start:test-app": "pnpm --filter @1024pix/nebulix-ember start",
-    "test": "pnpm --filter \"*\" test"
+    "start": "pnpm --filter @1024pix/nebulix-ember start",
+    "test": "pnpm --filter @1024pix/nebulix-ember test",
+    "build": "pnpm --filter @1024pix/nebulix-ember build"
   },
   "devDependencies": {
-    "concurrently": "^9.2.1",
-    "sass-embedded": "^1.102.0"
+    "concurrently": "^9.2.1"
   },
   "packageManager": "pnpm@11.22.0",
   "engines": {
