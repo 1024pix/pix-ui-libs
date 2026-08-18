@@ -1,4 +1,7 @@
 export { default as PixButton } from './actions/pix-button.gjs';
+export { default as PixButtonLink } from './actions/pix-button-link.gjs';
+export { default as PixButtonUpload } from './actions/pix-button-upload.gjs';
+export { default as PixIconButton } from './actions/pix-icon-button.gjs';
 
 export { default as PixIcon } from './graphics/pix-icon.gjs';
 
