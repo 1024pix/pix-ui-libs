@@ -1,4 +1,4 @@
-import { ICONS } from '../helpers/icons.js';
+import { ICONS } from '../../helpers/icons.js';
 import { warn } from '@ember/debug';
 import { uniqueId } from '@ember/helper';
 import Component from '@glimmer/component';

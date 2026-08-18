@@ -1,16 +1,16 @@
 import { pageTitle } from 'ember-page-title';
 
-import PixBlock from "../../src/layout/pix-block.gjs";
-import PixIcon from "../../src/graphics/pix-icon.gjs";
-import PixButton from "../../src/actions/pix-button.gjs";
-import PixButtonLink from "../../src/actions/pix-button-link.gjs";
-import PixButtonUpload from "../../src/actions/pix-button-upload.gjs";
-import PixLabel from "../../src/forms/pix-label.gjs";
-import PixInput from "../../src/forms/pix-input.gjs";
-import PixInputCode from "../../src/forms/pix-input-code.gjs";
-import PixCode from "../../src/forms/pix-code.gjs";
-import PixInputPassword from "../../src/forms/pix-input-password.gjs";
-import PixSearchInput from "../../src/forms/pix-search-input.gjs";
+import PixBlock from "../../src/components/layout/pix-block.gjs";
+import PixIcon from "../../src/components/graphics/pix-icon.gjs";
+import PixButton from "../../src/components/actions/pix-button.gjs";
+import PixButtonLink from "../../src/components/actions/pix-button-link.gjs";
+import PixButtonUpload from "../../src/components/actions/pix-button-upload.gjs";
+import PixLabel from "../../src/components/forms/pix-label.gjs";
+import PixInput from "../../src/components/forms/pix-input.gjs";
+import PixInputCode from "../../src/components/forms/pix-input-code.gjs";
+import PixCode from "../../src/components/forms/pix-code.gjs";
+import PixInputPassword from "../../src/components/forms/pix-input-password.gjs";
+import PixSearchInput from "../../src/components/forms/pix-search-input.gjs";
 
 function noop(event) {
   console.log('noop noop!');

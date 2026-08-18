@@ -95,6 +95,22 @@
     "type": "addon",
     "main": "addon-main.cjs",
     "app-js": {
+      "./components/actions/pix-button-base.js": "./dist/_app_/components/actions/pix-button-base.js",
+      "./components/actions/pix-button-content.js": "./dist/_app_/components/actions/pix-button-content.js",
+      "./components/actions/pix-button-link.js": "./dist/_app_/components/actions/pix-button-link.js",
+      "./components/actions/pix-button-upload.js": "./dist/_app_/components/actions/pix-button-upload.js",
+      "./components/actions/pix-button.js": "./dist/_app_/components/actions/pix-button.js",
+      "./components/actions/pix-icon-button.js": "./dist/_app_/components/actions/pix-icon-button.js",
+      "./components/forms/pix-code.js": "./dist/_app_/components/forms/pix-code.js",
+      "./components/forms/pix-input-base.js": "./dist/_app_/components/forms/pix-input-base.js",
+      "./components/forms/pix-input-code.js": "./dist/_app_/components/forms/pix-input-code.js",
+      "./components/forms/pix-input-password.js": "./dist/_app_/components/forms/pix-input-password.js",
+      "./components/forms/pix-input.js": "./dist/_app_/components/forms/pix-input.js",
+      "./components/forms/pix-label-wrapped.js": "./dist/_app_/components/forms/pix-label-wrapped.js",
+      "./components/forms/pix-label.js": "./dist/_app_/components/forms/pix-label.js",
+      "./components/forms/pix-search-input.js": "./dist/_app_/components/forms/pix-search-input.js",
+      "./components/graphics/pix-icon.js": "./dist/_app_/components/graphics/pix-icon.js",
+      "./components/layout/pix-block.js": "./dist/_app_/components/layout/pix-block.js",
       "./helpers/icons.js": "./dist/_app_/helpers/icons.js",
       "./helpers/variants.js": "./dist/_app_/helpers/variants.js"
     }

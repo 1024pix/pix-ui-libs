@@ -1,4 +1,4 @@
-import { VARIANTS } from '../helpers/variants.js';
+import { VARIANTS } from '../../helpers/variants.js';
 import { warn } from '@ember/debug';
 import Component from '@glimmer/component';
 
