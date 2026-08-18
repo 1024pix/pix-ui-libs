@@ -64,6 +64,7 @@
     "@rollup/plugin-babel": "^6.0.4",
     "babel-plugin-ember-template-compilation": "^4.0.0",
     "concurrently": "^9.0.1",
+    "ember-lifeline": "^7.1.0",
     "ember-page-title": "^9.0.3",
     "ember-qunit": "^9.0.2",
     "ember-source": "^6.7.0",

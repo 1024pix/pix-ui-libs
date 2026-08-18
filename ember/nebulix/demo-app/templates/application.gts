@@ -5,6 +5,12 @@ import PixIcon from "../../src/graphics/pix-icon.gjs";
 import PixButton from "../../src/actions/pix-button.gjs";
 import PixButtonLink from "../../src/actions/pix-button-link.gjs";
 import PixButtonUpload from "../../src/actions/pix-button-upload.gjs";
+import PixLabel from "../../src/forms/pix-label.gjs";
+import PixInput from "../../src/forms/pix-input.gjs";
+import PixInputCode from "../../src/forms/pix-input-code.gjs";
+import PixCode from "../../src/forms/pix-code.gjs";
+import PixInputPassword from "../../src/forms/pix-input-password.gjs";
+import PixSearchInput from "../../src/forms/pix-search-input.gjs";
 
 function noop(event) {
   console.log('noop noop!');
@@ -32,5 +38,29 @@ function noop(event) {
     Upload me if you can
   </PixButtonUpload>
 
+  <PixLabel @requiredLabel="Obligatoire" @subLabel="Ceci est un sous-titre">
+    Je suis label :)
+  </PixLabel>
+
+  <PixInput @validationStatus="error" placeholder="Ça marche pas">
+    <:label>Error input</:label>
+  </PixInput>
+  <PixInput @validationStatus="success" placeholder="Ça marche">
+    <:label>Success input</:label>
+  </PixInput>
+
+  <PixInputCode @ariaLabel="Champ" @legend="Code"  @numInputs={{6}} @inputType="number" />
+
+  <PixCode @length={{4}}>
+    <:label>Code carte bleue</:label>
+  </PixCode>
+
+  <PixInputPassword>
+    <:label>Label pour Lionel</:label>
+  </PixInputPassword>
+
+  <PixSearchInput @debounceTimeInMs={{500}} @triggerFiltering={{noop}} >
+    <:label>Search input</:label>
+  </PixSearchInput>
 
 </template>
