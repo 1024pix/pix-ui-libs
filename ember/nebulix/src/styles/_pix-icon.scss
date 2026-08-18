@@ -1,0 +1,9 @@
+.pix-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: currentcolor;
+
+  &--no-shrink {
+    flex-shrink: 0;
+  }
+}

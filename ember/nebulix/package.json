@@ -91,6 +91,10 @@
   "ember-addon": {
     "version": 2,
     "type": "addon",
-    "main": "addon-main.cjs"
+    "main": "addon-main.cjs",
+    "app-js": {
+      "./helpers/icons.js": "./dist/_app_/helpers/icons.js",
+      "./helpers/variants.js": "./dist/_app_/helpers/variants.js"
+    }
   }
 }
