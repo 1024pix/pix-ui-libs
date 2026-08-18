@@ -75,6 +75,9 @@ importers:
       concurrently:
         specifier: ^9.0.1
         version: 9.2.4
+      ember-lifeline:
+        specifier: ^7.1.0
+        version: 7.1.0(@ember/test-helpers@5.4.3(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(supports-color@8.1.1)
       ember-page-title:
         specifier: ^9.0.3
         version: 9.0.3(supports-color@8.1.1)
@@ -2209,6 +2212,15 @@ packages:
       '@typescript-eslint/parser': '*'
     peerDependenciesMeta:
       '@typescript-eslint/parser':
+        optional: true
+
+  ember-lifeline@7.1.0:
+    resolution: {integrity: sha512-hd3r0jwZLgXNn3l2YSX6wVnD1KD5h+WUG6P/xo4rJXFboy7nOwix38fZt9SbuO66QVZSkdqMeUqW6Z/NPWa9kg==}
+    engines: {node: 16.* || >= 18}
+    peerDependencies:
+      '@ember/test-helpers': '>= 1.0.0'
+    peerDependenciesMeta:
+      '@ember/test-helpers':
         optional: true
 
   ember-page-title@9.0.3:
@@ -6931,6 +6943,14 @@ snapshots:
     transitivePeerDependencies:
       - eslint
       - typescript
+
+  ember-lifeline@7.1.0(@ember/test-helpers@5.4.3(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(supports-color@8.1.1):
+    dependencies:
+      '@embroider/addon-shim': 1.10.3(supports-color@8.1.1)
+    optionalDependencies:
+      '@ember/test-helpers': 5.4.3(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1)
+    transitivePeerDependencies:
+      - supports-color
 
   ember-page-title@9.0.3(supports-color@8.1.1):
     dependencies:
