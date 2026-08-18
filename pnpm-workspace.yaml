@@ -1,4 +1,5 @@
 packages:
   - "ember/*"
 allowBuilds:
+  '@parcel/watcher': true
   esbuild: true

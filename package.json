@@ -17,7 +17,8 @@
     "test": "pnpm --filter \"*\" test"
   },
   "devDependencies": {
-    "concurrently": "^9.2.1"
+    "concurrently": "^9.2.1",
+    "sass-embedded": "^1.102.0"
   },
   "packageManager": "pnpm@11.22.0",
   "engines": {
