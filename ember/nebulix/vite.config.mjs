@@ -20,7 +20,7 @@ export default defineConfig({
       scss: {
         api: 'modern',
         implementation: sassEmbedded,
-        includePaths: ['src/styles'],
+        loadPaths: ['src/styles'],
       },
     },
   },

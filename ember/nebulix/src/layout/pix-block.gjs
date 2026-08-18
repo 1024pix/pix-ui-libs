@@ -7,6 +7,7 @@ import './pix-block.scss';
 export default class PixBlockComponent extends Component {
   get variant() {
     const value = this.args.variant ?? 'primary';
+
     warn(
       `PixBlock: @variant "${value}" should be ${VARIANTS.join(', ')}`,
       VARIANTS.includes(value),
@@ -19,7 +20,7 @@ export default class PixBlockComponent extends Component {
   }
 
   get cssClass() {
-    const cssClass = ['pix-block', `pix-block--${this.variant}`];
+    const cssClass = ['pix-block', `pix-block--variant-${this.variant}`];
 
     if (this.args.condensed) {
       cssClass.push('pix-block--condensed');

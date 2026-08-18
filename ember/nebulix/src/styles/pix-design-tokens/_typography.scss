@@ -1,4 +1,4 @@
-@use "breakpoints";
+@use "pix-design-tokens/breakpoints";
 
 // See https://www.figma.com/file/8RJ3aCSfdeQ8AZZVBBYKS8/Design-System-Pix?node-id=24%3A8
 
@@ -167,6 +167,24 @@
 
   @include breakpoints.device-is('desktop') {
     --font-size-subtitle: 1.125rem;
+  }
+}
+
+%pix-subtitle-xxs,
+.pix-subtitle-xxs {
+  @extend %-pix-subtitle;
+
+  --font-size-subtitle: 0.875rem;
+
+  font-size: var(--font-size-subtitle);
+  line-height: 1.5;
+
+  @include breakpoints.device-is('tablet') {
+    --font-size-subtitle: 0.875rem;
+  }
+
+  @include breakpoints.device-is('desktop') {
+    --font-size-subtitle: 1rem;
   }
 }
 
