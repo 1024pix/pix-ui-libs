@@ -36,5 +36,6 @@ export { default as PixToastContainer } from './components/feedback/pix-toast-co
 
 export { default as PixTag } from './components/data-display/pix-tag.gjs';
 export { default as PixGauge } from './components/data-display/pix-gauge.gjs';
+export { default as PixProgressBar } from './components/data-display/pix-progress-bar.gjs';
 
 export { default as PixAccordions } from './components/content/pix-accordions.gjs';

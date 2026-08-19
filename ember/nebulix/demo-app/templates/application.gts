@@ -36,6 +36,7 @@ import PixToastContainer from "../../src/components/feedback/pix-toast-container
 import PixTag from "../../src/components/data-display/pix-tag.gjs";
 import PixAccordions from "../../src/components/content/pix-accordions.gjs";
 import PixGauge from "../../src/components/data-display/pix-gauge.gjs";
+import PixProgressBar from "../../src/components/data-display/pix-progress-bar.gjs";
 
 function noop(event) {
   console.log('noop noop!');
@@ -65,143 +66,152 @@ const levels = ["Novice","Intermédiaire","Avancé","Expert"]
 <template>
   {{pageTitle "Demo App"}}
 
-<PixAppLayout @variant="certif">
-  <:banner>
-    <PixBannerAlert @type="environment">
-      Attention c'est la bannière
-    </PixBannerAlert>
-  </:banner>
-  <:navigation>
-    <PixNavigation @navigationAriaLabel="navigation principale" @openLabel="Ouvrir le menu" @closeLabel="Fermer le menu">
-        <:navElements>
-          <TestSidePanel/>
-          <TestModale />
-          <TestToast />
+  <PixAppLayout @variant="certif">
+    <:banner>
+      <PixBannerAlert @type="environment">
+        Attention c'est la bannière
+      </PixBannerAlert>
+    </:banner>
+    <:navigation>
+      <PixNavigation @navigationAriaLabel="navigation principale" @openLabel="Ouvrir le menu" @closeLabel="Fermer le menu">
+          <:navElements>
+            <TestSidePanel/>
+            <TestModale />
+            <TestToast />
 
-          <PixNavigationButton href="https://pix.fr" @icon="book">Documentation</PixNavigationButton>
-          <PixNavigationButton
-            href="https://pix.fr"
-            title="Pix.fr"
-            @target="_blank"
-            @icon="help"
-          >Centre d'aide</PixNavigationButton>
-        </:navElements>
-        <:footer>
-          <!-- Affichage du bloc de pied de page de la navigation -->
-          <p>
-            1 000 places disponibles
-          </p>
-          <PixNavigationSeparator />
-          <p>
-            Martin Dupond
-          </p>
-        </:footer>
-    </PixNavigation>
-  </:navigation>
-  <:main>
-    <PixToastContainer @closeButtonAriaLabel="kolay"/>
-    <PixNotificationAlert @withIcon={{true}} @type="communication-certif">
-      Ceci est une notification d'alerte pour notifier et alerter.
-    </PixNotificationAlert>
-      <PixStepper @steps={{steps}} @currentStep={{2}} />
+            <PixNavigationButton href="https://pix.fr" @icon="book">Documentation</PixNavigationButton>
+            <PixNavigationButton
+              href="https://pix.fr"
+              title="Pix.fr"
+              @target="_blank"
+              @icon="help"
+            >Centre d'aide</PixNavigationButton>
+          </:navElements>
+          <:footer>
+            <!-- Affichage du bloc de pied de page de la navigation -->
+            <p>
+              1 000 places disponibles
+            </p>
+            <PixNavigationSeparator />
+            <p>
+              Martin Dupond
+            </p>
+          </:footer>
+      </PixNavigation>
+    </:navigation>
+    <:main>
+      <PixToastContainer @closeButtonAriaLabel="kolay"/>
+      <PixNotificationAlert @withIcon={{true}} @type="communication-certif">
+        Ceci est une notification d'alerte pour notifier et alerter.
+      </PixNotificationAlert>
+        <PixStepper @steps={{steps}} @currentStep={{2}} />
 
-      <PixBreadcrumb @links={{breadCrumblinks}}/>
+        <PixBreadcrumb @links={{breadCrumblinks}}/>
 
-      <PixTabs>
-        <a href="#">Tab 1</a>
-        <a href="#">Tab 2</a>
-        <a href="#">Tab 3</a>
-      </PixTabs>
+        <PixTabs>
+          <a href="#">Tab 1</a>
+          <a href="#">Tab 2</a>
+          <a href="#">Tab 3</a>
+        </PixTabs>
 
-      <PixTooltip @id="tooltip-1">
-        <:triggerElement>
-          <span>Fait fonctionner le tooltip</span>
-        </:triggerElement>
-        <:tooltip>
-          My tooltip
-        </:tooltip>
-      </PixTooltip>
+        <PixTooltip @id="tooltip-1">
+          <:triggerElement>
+            <span>Fait fonctionner le tooltip</span>
+          </:triggerElement>
+          <:tooltip>
+            My tooltip
+          </:tooltip>
+        </PixTooltip>
 
-        <PixBlock>
-          <PixIcon @name="brick" @plainIcon="true"/>
-            Coucou c'est nous !
-        </PixBlock>
+          <PixBlock>
+            <PixIcon @name="brick" @plainIcon="true"/>
+              Coucou c'est nous !
+          </PixBlock>
 
-        <PixButton>
-          Dont click me!
-        </PixButton>
+          <PixButton>
+            Dont click me!
+          </PixButton>
 
-        <PixButtonLink @href="https://www.pix.fr">
-          I am a link !
-        </PixButtonLink>
+          <PixButtonLink @href="https://www.pix.fr">
+            I am a link !
+          </PixButtonLink>
 
-        <PixButtonUpload @id="upload-button" @onChange={{noop}}>
-          Upload me if you can
-        </PixButtonUpload>
+          <PixButtonUpload @id="upload-button" @onChange={{noop}}>
+            Upload me if you can
+          </PixButtonUpload>
 
-        <PixLabel @requiredLabel="Obligatoire" @subLabel="Ceci est un sous-titre">
-          Je suis label :)
-        </PixLabel>
+          <PixLabel @requiredLabel="Obligatoire" @subLabel="Ceci est un sous-titre">
+            Je suis label :)
+          </PixLabel>
 
-        <PixInput @validationStatus="error" placeholder="Ça marche pas">
-          <:label>Error input</:label>
-        </PixInput>
-        <PixInput @validationStatus="success" placeholder="Ça marche">
-          <:label>Success input</:label>
-        </PixInput>
+          <PixInput @validationStatus="error" placeholder="Ça marche pas">
+            <:label>Error input</:label>
+          </PixInput>
+          <PixInput @validationStatus="success" placeholder="Ça marche">
+            <:label>Success input</:label>
+          </PixInput>
 
-        <PixInputCode @ariaLabel="Champ" @legend="Code"  @numInputs={{6}} @inputType="number" />
+          <PixInputCode @ariaLabel="Champ" @legend="Code"  @numInputs={{6}} @inputType="number" />
 
-        <PixCode @length={{4}}>
-          <:label>Code carte bleue</:label>
-        </PixCode>
+          <PixCode @length={{4}}>
+            <:label>Code carte bleue</:label>
+          </PixCode>
 
-        <PixInputPassword>
-          <:label>Label pour Lionel</:label>
-        </PixInputPassword>
+          <PixInputPassword>
+            <:label>Label pour Lionel</:label>
+          </PixInputPassword>
 
-        <PixSearchInput @debounceTimeInMs={{500}} @triggerFiltering={{noop}} >
-          <:label>Search input</:label>
-        </PixSearchInput>
-        <div>
-          <PixTextarea @value="Bon matin" @maxlength=100><:label> MOOD DU JOUR</:label></PixTextarea>
-        </div>
-        <PixSelectList @options={{selectListOptions}} />
+          <PixSearchInput @debounceTimeInMs={{500}} @triggerFiltering={{noop}} >
+            <:label>Search input</:label>
+          </PixSearchInput>
+          <div>
+            <PixTextarea @value="Bon matin" @maxlength=100><:label> MOOD DU JOUR</:label></PixTextarea>
+          </div>
+          <PixSelectList @options={{selectListOptions}} />
 
-        <fieldset>
-          <legend>Ma gaga préférée</legend>
-          <PixRadioButton name="radioprefere"><:label>RADIO gaga</:label></PixRadioButton>
-          <PixRadioButton name="radioprefere"><:label>LADY gaga</:label></PixRadioButton>
-        </fieldset>
+          <fieldset>
+            <legend>Ma gaga préférée</legend>
+            <PixRadioButton name="radioprefere"><:label>RADIO gaga</:label></PixRadioButton>
+            <PixRadioButton name="radioprefere"><:label>LADY gaga</:label></PixRadioButton>
+          </fieldset>
 
-        <fieldset>
-          <legend>Ma gaga préférée ( choix multiple t'as vu )</legend>
-          <PixCheckbox @variant="modulix" name="radioprefere"><:label>RADIO gaga</:label></PixCheckbox>
-          <PixCheckbox @variant="modulix" name="radioprefere"><:label>LADY gaga</:label></PixCheckbox>
-        </fieldset>
+          <fieldset>
+            <legend>Ma gaga préférée ( choix multiple t'as vu )</legend>
+            <PixCheckbox @variant="modulix" name="radioprefere"><:label>RADIO gaga</:label></PixCheckbox>
+            <PixCheckbox @variant="modulix" name="radioprefere"><:label>LADY gaga</:label></PixCheckbox>
+          </fieldset>
 
-        <PixSegmentedControl>
-          <:label>Mon super label</:label>
-          <:viewA>Option 1</:viewA>
-          <:viewB>Option 2</:viewB>
-        </PixSegmentedControl>
+          <PixSegmentedControl>
+            <:label>Mon super label</:label>
+            <:viewA>Option 1</:viewA>
+            <:viewB>Option 2</:viewB>
+          </PixSegmentedControl>
 
-        <PixBlock>
-        </PixBlock>
+          <PixBlock>
+          </PixBlock>
 
-        <PixTag @color="purple">Je suis un tag, hihi</PixTag>
+          <PixTag @color="purple">Je suis un tag, hihi</PixTag>
 
-    <PixAccordions @iconName="users" @isV2Version={{true}} @tagColor="purple" @tagContent="Pourquoi c'est pas un yield ?">
-      <:title>Titre du contenu à dérouler en cliquant</:title>
-      <:content>
-        <div>Contenu du PixAccordions</div>
-      </:content>
-    </PixAccordions>
+      <PixAccordions @iconName="users" @isV2Version={{true}} @tagColor="purple" @tagContent="Pourquoi c'est pas un yield ?">
+        <:title>Titre du contenu à dérouler en cliquant</:title>
+        <:content>
+          <div>Contenu du PixAccordions</div>
+        </:content>
+      </PixAccordions>
 
-    <PixGauge @label="Niveau atteint de ... sur un niveau maximum atteignable de ..." @reachedLevel={{1}} @maxLevel={{4}} @stepLabels={{levels}}/>
-
-    </:main>
-  </PixAppLayout>
+      <PixGauge @label="Niveau atteint de ... sur un niveau maximum atteignable de ..." @reachedLevel={{1}} @maxLevel={{4}} @stepLabels={{levels}}/>
+      <PixProgressBar
+        @value={{0.25}}
+        @percentageValue={{"25%"}}
+        @label="Chargement"
+        @color="blue"
+        @themeMode="light"
+        @subTitle="Un sous titre"
+        @hidePercentage={{false}}
+        @isDecorative={{false}}
+      />
+      </:main>
+    </PixAppLayout>
 </template>
 
 
