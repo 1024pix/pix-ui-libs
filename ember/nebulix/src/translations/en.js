@@ -1,0 +1,31 @@
+export default {
+  input: {
+    state: {
+      success: 'Correct selection',
+      error: 'Incorrect selection',
+    },
+  },
+  select: {
+    search: 'Search',
+  },
+  pagination: {
+    beforeResultsPerPage: 'See',
+    selectPageSizeLabel: 'Select the number of items by page',
+    pageResults: '{total, plural, =0 {0 items} =1 {1 item} other {{total, number} items}}',
+    pageInfo:
+      '{start, number}-{end, number} of {total, plural, =0 {0 items} =1 {1 item} other {{total, number} items}}',
+    previousPageLabel: 'Go to previous page',
+    pageNumber: 'Page {current, number} / {total, number}',
+    nextPageLabel: 'Go to next page',
+  },
+  tag: {
+    removeButton: 'Remove',
+  },
+  stepper: {
+    ariaLabel: 'Step {current, number} of {total, number}',
+  },
+  pixNavigation: {
+    shrinkNavigationAriaLabel: 'Reduce the width of the navigation menu',
+    expandNavigationAriaLabel: 'Return to the initial width of the navigation menu',
+  },
+};
