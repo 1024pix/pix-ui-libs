@@ -1,4 +1,7 @@
 import { pageTitle } from 'ember-page-title';
+import Component from "@glimmer/component";
+import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
 import PixBlock from "../../src/components/layout/pix-block.gjs";
 import PixIcon from "../../src/components/graphics/pix-icon.gjs";
@@ -21,6 +24,8 @@ import PixNavigationButton from "../../src/components/navigation/pix-navigation-
 import PixNavigationSeparator from "../../src/components/navigation/pix-navigation-separator.gjs";
 import PixBreadcrumb from "../../src/components/navigation/pix-breadcrumb.gjs";
 import PixSegmentedControl from "../../src/components/navigation/pix-segmented-control.gjs";
+import PixModal from "../../src/components/overlay/pix-modal.gjs";
+import PixSidePanel from "../../src/components/overlay/pix-side-panel.gjs";
 
 function noop(event) {
   console.log('noop noop!');
@@ -73,7 +78,6 @@ const breadCrumblinks = [
   <:main>
     <h1>Addon DEMO APP Nebulix !</h1>
       <PixBreadcrumb @links={{breadCrumblinks}}/>
-      <PixBlock>
         <PixBlock>
           <PixIcon @name="brick" @plainIcon="true"/>
             Coucou c'est nous !
@@ -115,9 +119,9 @@ const breadCrumblinks = [
         <PixSearchInput @debounceTimeInMs={{500}} @triggerFiltering={{noop}} >
           <:label>Search input</:label>
         </PixSearchInput>
-
-        <PixTextarea @value="Bon matin" @maxlength=100><:label> MOOD DU JOUR</:label></PixTextarea>
-
+        <div>
+          <PixTextarea @value="Bon matin" @maxlength=100><:label> MOOD DU JOUR</:label></PixTextarea>
+        </div>
         <PixSelectList @options={{selectListOptions}} />
 
         <fieldset>
@@ -137,7 +141,101 @@ const breadCrumblinks = [
           <:viewA>Option 1</:viewA>
           <:viewB>Option 2</:viewB>
         </PixSegmentedControl>
-      </PixBlock>
+
+        <PixBlock>
+          <TestSidePanel/>
+          <TestModale />
+        </PixBlock>
     </:main>
   </PixAppLayout>
 </template>
+
+
+class TestModale extends Component {
+  @tracked isModaleVisible = false;
+
+  @action
+  openModale() {
+    this.isModaleVisible = true;
+  }
+  @action
+  closeModale() {
+    this.isModaleVisible = false;
+  }
+
+
+  <template>
+    <PixButton
+      @iconBefore="brick"
+      @variant="secondary"
+      @size="small"
+      @triggerAction={{this.openModale}}
+    >
+      Afficher la modale
+    </PixButton>
+    <PixModal
+      @title="Qu'est-ce qu'une modale ?"
+      @showModal={{this.isModaleVisible}}
+      @onCloseButtonClick={{this.closeModale}}
+    >
+     <:content>
+      <p>
+        Une fenêtre modale est, dans une interface graphique, une fenêtre qui prend le contrôle total du clavier et
+        de l'écran. Elle est en général associée à une question à laquelle il est impératif que l'utilisateur
+        réponde avant de poursuivre, ou de modifier quoi que ce soit. La fenêtre modale a pour propos : d'obtenir
+        des informations de l'utilisateur (ces informations sont nécessaires pour réaliser une opération) ; de
+        fournir une information à l'utilisateur (ce dernier doit en prendre connaissance avant de pouvoir continuer
+        à utiliser l'application).
+      </p>
+     </:content>
+     <:footer>
+      <PixButton
+        @variant="secondary"
+        @isBorderVisible={{true}}
+        @triggerAction={{this.closeModale}}
+      >
+        Annuler
+      </PixButton>
+     </:footer>
+    </PixModal>
+  </template>
+}
+
+class TestSidePanel extends Component {
+  @tracked isSidePanelVisible = false;
+
+  @action
+  openSidePanel() {
+    this.isSidePanelVisible = true;
+  }
+  @action
+  closeSidePanel() {
+    this.isSidePanelVisible = false;
+  }
+
+
+  <template>
+    <PixButton
+      @iconBefore="brick"
+      @variant="secondary"
+      @size="small"
+      @triggerAction={{this.openSidePanel}}
+    >
+      Afficher le sidePanel
+    </PixButton>
+    <PixSidePanel
+      @showSidePanel={{this.isSidePanelVisible}}
+      @title="Filtrer"
+      @subtitle="Sous-titre"
+      @iconName="lightBulb"
+      @onClose={{this.closeSidePanel}}
+    >
+     <:content>
+      <p>
+        Un SidePanel est, dans une interface graphique, une fenêtre qui prend le contrôle total du clavier et
+        de l'écran. Elle est en général associée à du paramétrage d'écran.
+      </p>
+     </:content>
+    </PixSidePanel>
+  </template>
+}
