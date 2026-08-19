@@ -2,6 +2,7 @@ import { pageTitle } from 'ember-page-title';
 import Component from "@glimmer/component";
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import {service} from '@ember/service';
 
 import PixBlock from "../../src/components/layout/pix-block.gjs";
 import PixIcon from "../../src/components/graphics/pix-icon.gjs";
@@ -31,6 +32,7 @@ import PixStepper from "../../src/components/navigation/pix-stepper.gjs";
 import PixTooltip from "../../src/components/overlay/pix-tooltip.gjs";
 import PixBannerAlert from "../../src/components/feedback/pix-banner-alert.gjs";
 import PixNotificationAlert from "../../src/components/feedback/pix-notification-alert.gjs";
+import PixToastContainer from "../../src/components/feedback/pix-toast-container.gjs";
 
 function noop(event) {
   console.log('noop noop!');
@@ -67,6 +69,10 @@ const steps = [
   <:navigation>
     <PixNavigation @navigationAriaLabel="navigation principale" @openLabel="Ouvrir le menu" @closeLabel="Fermer le menu">
         <:navElements>
+          <TestSidePanel/>
+          <TestModale />
+          <TestToast />
+
           <PixNavigationButton href="https://pix.fr" @icon="book">Documentation</PixNavigationButton>
           <PixNavigationButton
             href="https://pix.fr"
@@ -88,6 +94,7 @@ const steps = [
     </PixNavigation>
   </:navigation>
   <:main>
+    <PixToastContainer @closeButtonAriaLabel="kolay"/>
     <PixNotificationAlert @withIcon={{true}} @type="communication-certif">
       Ceci est une notification d'alerte pour notifier et alerter.
     </PixNotificationAlert>
@@ -175,8 +182,6 @@ const steps = [
         </PixSegmentedControl>
 
         <PixBlock>
-          <TestSidePanel/>
-          <TestModale />
         </PixBlock>
     </:main>
   </PixAppLayout>
@@ -269,5 +274,27 @@ class TestSidePanel extends Component {
       </p>
      </:content>
     </PixSidePanel>
+  </template>
+}
+
+class TestToast extends Component {
+  @service pixToast
+
+  @action
+  addToast() {
+    this.pixToast.addNotification({type: "warning", message: "WARNING !!!"});
+  }
+
+
+  <template>
+    <PixButton
+      @iconBefore="brick"
+      @variant="secondary"
+      @size="small"
+      @triggerAction={{this.addToast}}
+    >
+      Afficher le toast
+    </PixButton>
+
   </template>
 }

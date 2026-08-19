@@ -32,3 +32,4 @@ export { default as PixTooltip } from './components/overlay/pix-tooltip.gjs';
 
 export { default as PixBannerAlert } from './components/feedback/pix-banner-alert.gjs';
 export { default as PixNotificationAlert } from './components/feedback/pix-notification-alert.gjs';
+export { default as PixToastContainer } from './components/feedback/pix-toast-container.gjs';
