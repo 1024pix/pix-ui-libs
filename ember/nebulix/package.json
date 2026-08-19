@@ -108,6 +108,7 @@
       "./components/content/pix-accordions.js": "./dist/_app_/components/content/pix-accordions.js",
       "./components/data-display/pix-gauge.js": "./dist/_app_/components/data-display/pix-gauge.js",
       "./components/data-display/pix-progress-bar.js": "./dist/_app_/components/data-display/pix-progress-bar.js",
+      "./components/data-display/pix-stars.js": "./dist/_app_/components/data-display/pix-stars.js",
       "./components/data-display/pix-tag.js": "./dist/_app_/components/data-display/pix-tag.js",
       "./components/feedback/pix-banner-alert.js": "./dist/_app_/components/feedback/pix-banner-alert.js",
       "./components/feedback/pix-notification-alert.js": "./dist/_app_/components/feedback/pix-notification-alert.js",

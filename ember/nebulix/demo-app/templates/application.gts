@@ -37,6 +37,7 @@ import PixTag from "../../src/components/data-display/pix-tag.gjs";
 import PixAccordions from "../../src/components/content/pix-accordions.gjs";
 import PixGauge from "../../src/components/data-display/pix-gauge.gjs";
 import PixProgressBar from "../../src/components/data-display/pix-progress-bar.gjs";
+import PixStars from "../../src/components/data-display/pix-stars.gjs";
 
 function noop(event) {
   console.log('noop noop!');
@@ -210,6 +211,7 @@ const levels = ["Novice","Intermédiaire","Avancé","Expert"]
         @hidePercentage={{false}}
         @isDecorative={{false}}
       />
+      <PixStars @count={{2}} @total={{5}} @alt="message alternatif" @color="blue" />
       </:main>
     </PixAppLayout>
 </template>
