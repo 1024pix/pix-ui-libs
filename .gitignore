@@ -1,15 +1,31 @@
 # compiled output
 dist/
 tmp/
+declarations/
 
 # dependencies
 node_modules/
 
-# misc
-.DS_Store
-.env*
+# cache
 .eslintcache
+.prettiercache
+
+# envs
+.env*
+!.env.development
+
+# logs
+testem.log
 pnpm-debug.log
 
 # Webstorm
 .idea/
+
+# broccoli-debug
+DEBUG/
+
+# misc
+*.tgz
+.DS_Store
+.pnp*
+coverage/

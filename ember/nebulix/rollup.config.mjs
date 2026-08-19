@@ -2,7 +2,6 @@ import { babel } from '@rollup/plugin-babel';
 import { Addon } from '@embroider/addon-dev/rollup';
 import { fileURLToPath } from 'node:url';
 import { resolve, dirname } from 'node:path';
-
 const addon = new Addon({
   srcDir: 'src',
   destDir: 'dist',
@@ -24,7 +23,15 @@ export default {
     // up your addon's public API. Also make sure your package.json#exports
     // is aligned to the config here.
     // See https://github.com/embroider-build/embroider/blob/main/docs/v2-faq.md#how-can-i-define-the-public-exports-of-my-addon
-    addon.publicEntrypoints(['**/*.js', 'index.js']),
+    addon.publicEntrypoints([
+      'index.js',
+      '**/*.js',
+      // NO SURE: added sass files to be available into the dist folder
+      'components/forms/forms.scss',
+      'styles/component-state/*.scss',
+      'styles/normalize-reset/*.scss',
+      'styles/pix-design-tokens/*.scss',
+    ]),
 
     // These are the modules that should get reexported into the traditional
     // "app" tree. Things in here should also be in publicEntrypoints above, but
