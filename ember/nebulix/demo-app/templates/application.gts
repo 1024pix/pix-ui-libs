@@ -19,6 +19,7 @@ import PixAppLayout from "../../src/components/navigation/pix-app-layout.gjs";
 import PixNavigation from "../../src/components/navigation/pix-navigation.gjs";
 import PixNavigationButton from "../../src/components/navigation/pix-navigation-button.gjs";
 import PixNavigationSeparator from "../../src/components/navigation/pix-navigation-separator.gjs";
+import PixBreadcrumb from "../../src/components/navigation/pix-breadcrumb.gjs";
 
 function noop(event) {
   console.log('noop noop!');
@@ -34,6 +35,12 @@ const selectListOptions = [{
   category: "Clair"
 }
 ]
+
+const breadCrumblinks = [
+    {
+      label: 'Picoti, picota'
+    },
+  ];
 
 <template>
   {{pageTitle "Demo App"}}
@@ -64,6 +71,7 @@ const selectListOptions = [{
   </:navigation>
   <:main>
     <h1>Addon DEMO APP Nebulix !</h1>
+      <PixBreadcrumb @links={{breadCrumblinks}}/>
       <PixBlock>
         <PixBlock>
           <PixIcon @name="brick" @plainIcon="true"/>

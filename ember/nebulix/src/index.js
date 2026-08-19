@@ -19,6 +19,7 @@ export { default as PixBlock } from './components/layout/pix-block.gjs';
 
 
 export { default as PixAppLayout } from './components/navigation/pix-app-layout.gjs';
+export { default as PixBreadcrumb } from './components/navigation/pix-breadcrumb.gjs';
 export { default as PixNavigation } from './components/navigation/pix-navigation.gjs';
 export { default as PixNavigationSeparator } from './components/navigation/pix-navigation-separator.gjs';
 export { default as PixNavigationButton } from './components/navigation/pix-navigation-button.gjs';
