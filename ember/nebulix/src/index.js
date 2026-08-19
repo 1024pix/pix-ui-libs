@@ -31,3 +31,4 @@ export { default as PixSidePanel } from './components/overlay/pix-side-panel.gjs
 export { default as PixTooltip } from './components/overlay/pix-tooltip.gjs';
 
 export { default as PixBannerAlert } from './components/feedback/pix-banner-alert.gjs';
+export { default as PixNotificationAlert } from './components/feedback/pix-notification-alert.gjs';

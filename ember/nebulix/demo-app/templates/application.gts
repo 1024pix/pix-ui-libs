@@ -30,6 +30,7 @@ import PixTabs from "../../src/components/navigation/pix-tabs.gjs";
 import PixStepper from "../../src/components/navigation/pix-stepper.gjs";
 import PixTooltip from "../../src/components/overlay/pix-tooltip.gjs";
 import PixBannerAlert from "../../src/components/feedback/pix-banner-alert.gjs";
+import PixNotificationAlert from "../../src/components/feedback/pix-notification-alert.gjs";
 
 function noop(event) {
   console.log('noop noop!');
@@ -87,6 +88,9 @@ const steps = [
     </PixNavigation>
   </:navigation>
   <:main>
+    <PixNotificationAlert @withIcon={{true}} @type="communication-certif">
+      Ceci est une notification d'alerte pour notifier et alerter.
+    </PixNotificationAlert>
       <PixStepper @steps={{steps}} @currentStep={{2}} />
 
       <PixBreadcrumb @links={{breadCrumblinks}}/>
