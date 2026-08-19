@@ -13,6 +13,7 @@ import PixInputPassword from "../../src/components/forms/pix-input-password.gjs"
 import PixSearchInput from "../../src/components/forms/pix-search-input.gjs";
 import PixTextarea from "../../src/components/forms/pix-textarea.gjs";
 import PixSelectList from "../../src/components/forms/pix-select-list.gjs";
+import PixRadioButton from "../../src/components/forms/pix-radio-button.gjs";
 
 function noop(event) {
   console.log('noop noop!');
@@ -79,5 +80,11 @@ const selectListOptions = [{
     <PixTextarea @value="Bon matin" @maxlength=100><:label> MOOD DU JOUR</:label></PixTextarea>
 
     <PixSelectList @options={{selectListOptions}} />
+
+    <fieldset>
+      <legend>Ma gaga préférée</legend>
+      <PixRadioButton name="radioprefere"><:label>RADIO gaga</:label></PixRadioButton>
+      <PixRadioButton name="radioprefere"><:label>LADY gaga</:label></PixRadioButton>
+    </fieldset>
   </PixBlock>
 </template>

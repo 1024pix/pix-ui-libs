@@ -10,6 +10,7 @@ export { default as PixInputPassword } from './components/forms/pix-input-passwo
 export { default as PixSearchInput } from './components/forms/pix-search-input.gjs';
 export { default as PixLabel } from './components/forms/pix-label.gjs';
 export { default as PixTextarea } from './components/forms/pix-textarea.gjs';
+export { default as PixRadioButton } from './components/forms/pix-radio-button.gjs';
 
 export { default as PixIcon } from './components/graphics/pix-icon.gjs';
 
