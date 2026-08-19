@@ -29,6 +29,7 @@ import PixSidePanel from "../../src/components/overlay/pix-side-panel.gjs";
 import PixTabs from "../../src/components/navigation/pix-tabs.gjs";
 import PixStepper from "../../src/components/navigation/pix-stepper.gjs";
 import PixTooltip from "../../src/components/overlay/pix-tooltip.gjs";
+import PixBannerAlert from "../../src/components/feedback/pix-banner-alert.gjs";
 
 function noop(event) {
   console.log('noop noop!');
@@ -57,6 +58,11 @@ const steps = [
   {{pageTitle "Demo App"}}
 
 <PixAppLayout @variant="certif">
+  <:banner>
+    <PixBannerAlert @type="environment">
+      Attention c'est la bannière
+    </PixBannerAlert>
+  </:banner>
   <:navigation>
     <PixNavigation @navigationAriaLabel="navigation principale" @openLabel="Ouvrir le menu" @closeLabel="Fermer le menu">
         <:navElements>
