@@ -41,6 +41,7 @@ import PixProgressBar from "../../src/components/data-display/pix-progress-bar.g
 import PixStars from "../../src/components/data-display/pix-stars.gjs";
 import PixTable from "../../src/components/data-display/pix-table.gjs";
 import PixTableColumn from "../../src/components/data-display/pix-table-column.gjs";
+import PixFilterBanner from "../../src/components/data-display/pix-filter-banner.gjs";
 
 function noop(event) {
   console.log('noop noop!');
@@ -104,21 +105,34 @@ const levels = ["Novice","Intermédiaire","Avancé","Expert"]
       </PixNavigation>
     </:navigation>
     <:main>
+    <PixFilterBanner @title="Filtrer les campagnes" aria-label="Filtres sur les campagnes">
+        <PixSegmentedControl>
+          <:label>Campagnes</:label>
+          <:viewA>Mes Campagnes</:viewA>
+          <:viewB>Tes Campagnes</:viewB>
+        </PixSegmentedControl>
+        <PixInput aria-label="Filtrer par ID">
+          <:label>Filtrer par id</:label>
+        </PixInput>
+        <PixInput aria-label="Filtrer par nom">
+          <:label>Filtrer par nom</:label>
+        </PixInput>
+    </PixFilterBanner>
     <div style="max-width:280px">
-    <PixCard
-      @variant="orga"
-      @title="Nom du parcours"
-      @subtitle="Catégorie"
-      @image="https://assets.pix.org/sites/orga/parcours-apprenant.png">
-      <:tag><PixTag @color="green">Parcours apprenants</PixTag></:tag>
-      <:description>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vestibulum nisl sapien, at
-        viverra lorem facilisis in.
-      </:description>
-      <:footer>
-        12 sujets • Accès sans compte
-      </:footer>
-    </PixCard>
+      <PixCard
+        @variant="orga"
+        @title="Nom du parcours"
+        @subtitle="Catégorie"
+        @image="https://assets.pix.org/sites/orga/parcours-apprenant.png">
+        <:tag><PixTag @color="green">Parcours apprenants</PixTag></:tag>
+        <:description>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vestibulum nisl sapien, at
+          viverra lorem facilisis in.
+        </:description>
+        <:footer>
+          12 sujets • Accès sans compte
+        </:footer>
+      </PixCard>
     </div>
     <PixTable @variant="orga" @data={{steps}} @caption="Cette table affiche les étapes du stepper">
       <:columns as |row context|>
