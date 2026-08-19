@@ -109,6 +109,7 @@
       "./components/content/pix-card.js": "./dist/_app_/components/content/pix-card.js",
       "./components/data-display/pix-filter-banner.js": "./dist/_app_/components/data-display/pix-filter-banner.js",
       "./components/data-display/pix-gauge.js": "./dist/_app_/components/data-display/pix-gauge.js",
+      "./components/data-display/pix-indicator-card.js": "./dist/_app_/components/data-display/pix-indicator-card.js",
       "./components/data-display/pix-progress-bar.js": "./dist/_app_/components/data-display/pix-progress-bar.js",
       "./components/data-display/pix-stars.js": "./dist/_app_/components/data-display/pix-stars.js",
       "./components/data-display/pix-table-column.js": "./dist/_app_/components/data-display/pix-table-column.js",

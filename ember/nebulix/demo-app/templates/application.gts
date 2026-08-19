@@ -42,6 +42,7 @@ import PixStars from "../../src/components/data-display/pix-stars.gjs";
 import PixTable from "../../src/components/data-display/pix-table.gjs";
 import PixTableColumn from "../../src/components/data-display/pix-table-column.gjs";
 import PixFilterBanner from "../../src/components/data-display/pix-filter-banner.gjs";
+import PixIndicatorCard from "../../src/components/data-display/pix-indicator-card.gjs";
 
 function noop(event) {
   console.log('noop noop!');
@@ -105,6 +106,21 @@ const levels = ["Novice","Intermédiaire","Avancé","Expert"]
       </PixNavigation>
     </:navigation>
     <:main>
+    <PixIndicatorCard
+          @title="Vive les frites!"
+          @color="warning"
+          @iconName="brick"
+          @plainIcon={{true}}
+          @info="Parce que MH"
+          @infoLabel="Pourquoi les frites ?"
+          @isLoading={{false}}
+          @loadingMessage="Ça cuit..."
+        >
+          <:default>42</:default>
+          <:sub>
+            <span>En cours : 13</span><span>Dans l'assiette : 23</span><span>Digérées : 3</span>
+          </:sub>
+        </PixIndicatorCard>
     <PixFilterBanner @title="Filtrer les campagnes" aria-label="Filtres sur les campagnes">
         <PixSegmentedControl>
           <:label>Campagnes</:label>
