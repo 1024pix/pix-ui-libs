@@ -14,6 +14,7 @@ import PixSearchInput from "../../src/components/forms/pix-search-input.gjs";
 import PixTextarea from "../../src/components/forms/pix-textarea.gjs";
 import PixSelectList from "../../src/components/forms/pix-select-list.gjs";
 import PixRadioButton from "../../src/components/forms/pix-radio-button.gjs";
+import PixCheckbox from "../../src/components/forms/pix-checkbox.gjs";
 
 function noop(event) {
   console.log('noop noop!');
@@ -85,6 +86,12 @@ const selectListOptions = [{
       <legend>Ma gaga préférée</legend>
       <PixRadioButton name="radioprefere"><:label>RADIO gaga</:label></PixRadioButton>
       <PixRadioButton name="radioprefere"><:label>LADY gaga</:label></PixRadioButton>
+    </fieldset>
+
+    <fieldset>
+      <legend>Ma gaga préférée ( choix multiple t'as vu )</legend>
+      <PixCheckbox @variant="modulix" name="radioprefere"><:label>RADIO gaga</:label></PixCheckbox>
+      <PixCheckbox @variant="modulix" name="radioprefere"><:label>LADY gaga</:label></PixCheckbox>
     </fieldset>
   </PixBlock>
 </template>
