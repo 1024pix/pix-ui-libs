@@ -1,5 +1,6 @@
 import { babel } from '@rollup/plugin-babel';
 import { Addon } from '@embroider/addon-dev/rollup';
+import { publishedSources } from './rollup-plugin-published-sources.mjs';
 import { fileURLToPath } from 'node:url';
 import { resolve, dirname } from 'node:path';
 const addon = new Addon({
@@ -23,25 +24,27 @@ export default {
     // up your addon's public API. Also make sure your package.json#exports
     // is aligned to the config here.
     // See https://github.com/embroider-build/embroider/blob/main/docs/v2-faq.md#how-can-i-define-the-public-exports-of-my-addon
-    addon.publicEntrypoints([
-      'index.js',
-      '**/*.js',
-      // NO SURE: added sass files to be available into the dist folder
-      'components/forms/forms.scss',
-      'styles/component-state/*.scss',
-      'styles/normalize-reset/*.scss',
-      'styles/pix-design-tokens/*.scss',
-    ]),
+    addon.publicEntrypoints(['index.js', '**/*.js']),
 
     // These are the modules that should get reexported into the traditional
     // "app" tree. Things in here should also be in publicEntrypoints above, but
     // not everything in publicEntrypoints necessarily needs to go here.
-    addon.appReexports([
-      'components/**/*.js',
-      'helpers/**/*.js',
-      'modifiers/**/*.js',
-      'services/**/*.js',
-    ]),
+    addon.appReexports(
+      [
+        'components/**/*.js',
+        'helpers/**/*.js',
+        'modifiers/**/*.js',
+        'services/**/*.js',
+      ],
+      {
+        // Components are grouped in subfolders (actions/, forms/, ...) purely
+        // for readability. The classic resolver looks components up by a flat
+        // name, so `<PixBlock>` must not become `<Layout::PixBlock>` in
+        // consuming apps.
+        mapFilename: (fileName) =>
+          fileName.replace(/^components\/[^/]+\//, 'components/'),
+      },
+    ),
 
     // Follow the V2 Addon rules about dependencies. Your code can import from
     // `dependencies` and `peerDependencies` as well as standard Ember-provided
@@ -69,6 +72,17 @@ export default {
     // addons are allowed to contain imports of .css files, which we want rollup
     // to leave alone and keep in the published output.
     addon.keepAssets(['**/*.css', '**/*.scss']),
+
+    // Sass reachable only through `@use`, and the fonts its `@font-face` rules
+    // point at, are invisible to rollup's module graph, so they have to be
+    // copied over explicitly. See the plugin for why `publicEntrypoints`
+    // cannot do this.
+    publishedSources({ srcDir: 'src' }),
+
+    // Fonts and the icon sprite are served at a stable absolute URL rather than
+    // bundled: Sass reached through `loadPaths` keeps its `url()` verbatim, so
+    // a relative path would never resolve in the consuming app.
+    addon.publicAssets('src/assets'),
 
     // Remove leftover build artifacts when starting a new build.
     addon.clean(),

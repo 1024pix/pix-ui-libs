@@ -62,7 +62,7 @@ export default class PixIcon extends Component {
         {{#if this.title}}
           <title id={{titleId}}>{{this.title}}</title>
         {{/if}}
-        <use href="svg/pix-sprite.svg#{{this.iconName}}" />
+        <use href="/@1024pix/nebulix-ember/svg/pix-sprite.svg#{{this.iconName}}" />
       </svg>
     {{/let}}
   </template>

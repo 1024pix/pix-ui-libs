@@ -5,6 +5,8 @@ import loadInitializers from 'ember-load-initializers';
 import config from 'test-app/config/environment';
 import setupInspector from '@embroider/legacy-inspector-support/ember-source-4.12';
 
+import './styles/app.scss';
+
 export default class App extends Application {
   modulePrefix = config.modulePrefix;
   podModulePrefix = config.podModulePrefix;
