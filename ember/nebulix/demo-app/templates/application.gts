@@ -35,6 +35,7 @@ import PixNotificationAlert from "../../src/components/feedback/pix-notification
 import PixToastContainer from "../../src/components/feedback/pix-toast-container.gjs";
 import PixTag from "../../src/components/data-display/pix-tag.gjs";
 import PixAccordions from "../../src/components/content/pix-accordions.gjs";
+import PixCard from "../../src/components/content/pix-card.gjs";
 import PixGauge from "../../src/components/data-display/pix-gauge.gjs";
 import PixProgressBar from "../../src/components/data-display/pix-progress-bar.gjs";
 import PixStars from "../../src/components/data-display/pix-stars.gjs";
@@ -103,6 +104,22 @@ const levels = ["Novice","Intermédiaire","Avancé","Expert"]
       </PixNavigation>
     </:navigation>
     <:main>
+    <div style="max-width:280px">
+    <PixCard
+      @variant="orga"
+      @title="Nom du parcours"
+      @subtitle="Catégorie"
+      @image="https://assets.pix.org/sites/orga/parcours-apprenant.png">
+      <:tag><PixTag @color="green">Parcours apprenants</PixTag></:tag>
+      <:description>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vestibulum nisl sapien, at
+        viverra lorem facilisis in.
+      </:description>
+      <:footer>
+        12 sujets • Accès sans compte
+      </:footer>
+    </PixCard>
+    </div>
     <PixTable @variant="orga" @data={{steps}} @caption="Cette table affiche les étapes du stepper">
       <:columns as |row context|>
         <PixTableColumn @context={{context}}>

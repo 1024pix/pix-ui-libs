@@ -42,3 +42,4 @@ export { default as PixTable } from './components/data-display/pix-table.gjs';
 export { default as PixTableColumn } from './components/data-display/pix-table-column.gjs';
 
 export { default as PixAccordions } from './components/content/pix-accordions.gjs';
+export { default as PixCard } from './components/content/pix-card.gjs';
