@@ -15,6 +15,7 @@ import PixTextarea from "../../src/components/forms/pix-textarea.gjs";
 import PixSelectList from "../../src/components/forms/pix-select-list.gjs";
 import PixRadioButton from "../../src/components/forms/pix-radio-button.gjs";
 import PixCheckbox from "../../src/components/forms/pix-checkbox.gjs";
+import PixAppLayout from "../../src/components/navigation/pix-app-layout.gjs";
 
 function noop(event) {
   console.log('noop noop!');
@@ -34,64 +35,68 @@ const selectListOptions = [{
 <template>
   {{pageTitle "Demo App"}}
 
-  <h1>Addon DEMO APP Nebulix !</h1>
-  <PixBlock>
-    <PixBlock>
-      <PixIcon @name="brick" @plainIcon="true"/>
-        Coucou c'est nous !
-    </PixBlock>
+<PixAppLayout>
+  <:main>
+    <h1>Addon DEMO APP Nebulix !</h1>
+      <PixBlock>
+        <PixBlock>
+          <PixIcon @name="brick" @plainIcon="true"/>
+            Coucou c'est nous !
+        </PixBlock>
 
-    <PixButton>
-      Dont click me!
-    </PixButton>
+        <PixButton>
+          Dont click me!
+        </PixButton>
 
-    <PixButtonLink @href="https://www.pix.fr">
-      I am a link !
-    </PixButtonLink>
+        <PixButtonLink @href="https://www.pix.fr">
+          I am a link !
+        </PixButtonLink>
 
-    <PixButtonUpload @id="upload-button" @onChange={{noop}}>
-      Upload me if you can
-    </PixButtonUpload>
+        <PixButtonUpload @id="upload-button" @onChange={{noop}}>
+          Upload me if you can
+        </PixButtonUpload>
 
-    <PixLabel @requiredLabel="Obligatoire" @subLabel="Ceci est un sous-titre">
-      Je suis label :)
-    </PixLabel>
+        <PixLabel @requiredLabel="Obligatoire" @subLabel="Ceci est un sous-titre">
+          Je suis label :)
+        </PixLabel>
 
-    <PixInput @validationStatus="error" placeholder="Ça marche pas">
-      <:label>Error input</:label>
-    </PixInput>
-    <PixInput @validationStatus="success" placeholder="Ça marche">
-      <:label>Success input</:label>
-    </PixInput>
+        <PixInput @validationStatus="error" placeholder="Ça marche pas">
+          <:label>Error input</:label>
+        </PixInput>
+        <PixInput @validationStatus="success" placeholder="Ça marche">
+          <:label>Success input</:label>
+        </PixInput>
 
-    <PixInputCode @ariaLabel="Champ" @legend="Code"  @numInputs={{6}} @inputType="number" />
+        <PixInputCode @ariaLabel="Champ" @legend="Code"  @numInputs={{6}} @inputType="number" />
 
-    <PixCode @length={{4}}>
-      <:label>Code carte bleue</:label>
-    </PixCode>
+        <PixCode @length={{4}}>
+          <:label>Code carte bleue</:label>
+        </PixCode>
 
-    <PixInputPassword>
-      <:label>Label pour Lionel</:label>
-    </PixInputPassword>
+        <PixInputPassword>
+          <:label>Label pour Lionel</:label>
+        </PixInputPassword>
 
-    <PixSearchInput @debounceTimeInMs={{500}} @triggerFiltering={{noop}} >
-      <:label>Search input</:label>
-    </PixSearchInput>
+        <PixSearchInput @debounceTimeInMs={{500}} @triggerFiltering={{noop}} >
+          <:label>Search input</:label>
+        </PixSearchInput>
 
-    <PixTextarea @value="Bon matin" @maxlength=100><:label> MOOD DU JOUR</:label></PixTextarea>
+        <PixTextarea @value="Bon matin" @maxlength=100><:label> MOOD DU JOUR</:label></PixTextarea>
 
-    <PixSelectList @options={{selectListOptions}} />
+        <PixSelectList @options={{selectListOptions}} />
 
-    <fieldset>
-      <legend>Ma gaga préférée</legend>
-      <PixRadioButton name="radioprefere"><:label>RADIO gaga</:label></PixRadioButton>
-      <PixRadioButton name="radioprefere"><:label>LADY gaga</:label></PixRadioButton>
-    </fieldset>
+        <fieldset>
+          <legend>Ma gaga préférée</legend>
+          <PixRadioButton name="radioprefere"><:label>RADIO gaga</:label></PixRadioButton>
+          <PixRadioButton name="radioprefere"><:label>LADY gaga</:label></PixRadioButton>
+        </fieldset>
 
-    <fieldset>
-      <legend>Ma gaga préférée ( choix multiple t'as vu )</legend>
-      <PixCheckbox @variant="modulix" name="radioprefere"><:label>RADIO gaga</:label></PixCheckbox>
-      <PixCheckbox @variant="modulix" name="radioprefere"><:label>LADY gaga</:label></PixCheckbox>
-    </fieldset>
-  </PixBlock>
+        <fieldset>
+          <legend>Ma gaga préférée ( choix multiple t'as vu )</legend>
+          <PixCheckbox @variant="modulix" name="radioprefere"><:label>RADIO gaga</:label></PixCheckbox>
+          <PixCheckbox @variant="modulix" name="radioprefere"><:label>LADY gaga</:label></PixCheckbox>
+        </fieldset>
+      </PixBlock>
+    </:main>
+  </PixAppLayout>
 </template>
