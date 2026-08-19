@@ -28,6 +28,7 @@ import PixModal from "../../src/components/overlay/pix-modal.gjs";
 import PixSidePanel from "../../src/components/overlay/pix-side-panel.gjs";
 import PixTabs from "../../src/components/navigation/pix-tabs.gjs";
 import PixStepper from "../../src/components/navigation/pix-stepper.gjs";
+import PixTooltip from "../../src/components/overlay/pix-tooltip.gjs";
 
 function noop(event) {
   console.log('noop noop!');
@@ -90,7 +91,14 @@ const steps = [
         <a href="#">Tab 3</a>
       </PixTabs>
 
-
+      <PixTooltip @id="tooltip-1">
+        <:triggerElement>
+          <span>Fait fonctionner le tooltip</span>
+        </:triggerElement>
+        <:tooltip>
+          My tooltip
+        </:tooltip>
+      </PixTooltip>
 
         <PixBlock>
           <PixIcon @name="brick" @plainIcon="true"/>

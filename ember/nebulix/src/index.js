@@ -25,3 +25,7 @@ export { default as PixNavigationButton } from './components/navigation/pix-navi
 export { default as PixNavigationShrunkButton } from './components/navigation/pix-navigation-shrunk-button.gjs';
 export { default as PixSegmentedControl } from './components/navigation/pix-segmented-control.gjs';
 export { default as PixTabs } from './components/navigation/pix-tabs.gjs';
+
+export { default as PixModal } from './components/overlay/pix-modal.gjs';
+export { default as PixSidePanel } from './components/overlay/pix-side-panel.gjs';
+export { default as PixTooltip } from './components/overlay/pix-tooltip.gjs';
