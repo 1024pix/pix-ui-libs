@@ -16,6 +16,9 @@ import PixSelectList from "../../src/components/forms/pix-select-list.gjs";
 import PixRadioButton from "../../src/components/forms/pix-radio-button.gjs";
 import PixCheckbox from "../../src/components/forms/pix-checkbox.gjs";
 import PixAppLayout from "../../src/components/navigation/pix-app-layout.gjs";
+import PixNavigation from "../../src/components/navigation/pix-navigation.gjs";
+import PixNavigationButton from "../../src/components/navigation/pix-navigation-button.gjs";
+import PixNavigationSeparator from "../../src/components/navigation/pix-navigation-separator.gjs";
 
 function noop(event) {
   console.log('noop noop!');
@@ -35,7 +38,30 @@ const selectListOptions = [{
 <template>
   {{pageTitle "Demo App"}}
 
-<PixAppLayout>
+<PixAppLayout @variant="certif">
+  <:navigation>
+    <PixNavigation @navigationAriaLabel="navigation principale" @openLabel="Ouvrir le menu" @closeLabel="Fermer le menu">
+        <:navElements>
+          <PixNavigationButton href="https://pix.fr" @icon="book">Documentation</PixNavigationButton>
+          <PixNavigationButton
+            href="https://pix.fr"
+            title="Pix.fr"
+            @target="_blank"
+            @icon="help"
+          >Centre d'aide</PixNavigationButton>
+        </:navElements>
+        <:footer>
+          <!-- Affichage du bloc de pied de page de la navigation -->
+          <p>
+            1 000 places disponibles
+          </p>
+          <PixNavigationSeparator />
+          <p>
+            Martin Dupond
+          </p>
+        </:footer>
+    </PixNavigation>
+  </:navigation>
   <:main>
     <h1>Addon DEMO APP Nebulix !</h1>
       <PixBlock>
