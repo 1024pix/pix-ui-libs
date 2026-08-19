@@ -34,6 +34,7 @@ import PixBannerAlert from "../../src/components/feedback/pix-banner-alert.gjs";
 import PixNotificationAlert from "../../src/components/feedback/pix-notification-alert.gjs";
 import PixToastContainer from "../../src/components/feedback/pix-toast-container.gjs";
 import PixTag from "../../src/components/data-display/pix-tag.gjs";
+import PixAccordions from "../../src/components/content/pix-accordions.gjs";
 
 function noop(event) {
   console.log('noop noop!');
@@ -186,6 +187,14 @@ const steps = [
         </PixBlock>
 
         <PixTag @color="purple">Je suis un tag, hihi</PixTag>
+
+    <PixAccordions @iconName="users" @isV2Version={{true}} @tagColor="purple" @tagContent="Pourquoi c'est pas un yield ?">
+      <:title>Titre du contenu à dérouler en cliquant</:title>
+      <:content>
+        <div>Contenu du PixAccordions</div>
+      </:content>
+    </PixAccordions>
+
     </:main>
   </PixAppLayout>
 </template>
