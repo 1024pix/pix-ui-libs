@@ -24,3 +24,4 @@ export { default as PixNavigation } from './components/navigation/pix-navigation
 export { default as PixNavigationSeparator } from './components/navigation/pix-navigation-separator.gjs';
 export { default as PixNavigationButton } from './components/navigation/pix-navigation-button.gjs';
 export { default as PixNavigationShrunkButton } from './components/navigation/pix-navigation-shrunk-button.gjs';
+export { default as PixSegmentedControl } from './components/navigation/pix-segmented-control.gjs';

@@ -20,6 +20,7 @@ import PixNavigation from "../../src/components/navigation/pix-navigation.gjs";
 import PixNavigationButton from "../../src/components/navigation/pix-navigation-button.gjs";
 import PixNavigationSeparator from "../../src/components/navigation/pix-navigation-separator.gjs";
 import PixBreadcrumb from "../../src/components/navigation/pix-breadcrumb.gjs";
+import PixSegmentedControl from "../../src/components/navigation/pix-segmented-control.gjs";
 
 function noop(event) {
   console.log('noop noop!');
@@ -130,6 +131,12 @@ const breadCrumblinks = [
           <PixCheckbox @variant="modulix" name="radioprefere"><:label>RADIO gaga</:label></PixCheckbox>
           <PixCheckbox @variant="modulix" name="radioprefere"><:label>LADY gaga</:label></PixCheckbox>
         </fieldset>
+
+        <PixSegmentedControl>
+          <:label>Mon super label</:label>
+          <:viewA>Option 1</:viewA>
+          <:viewB>Option 2</:viewB>
+        </PixSegmentedControl>
       </PixBlock>
     </:main>
   </PixAppLayout>
