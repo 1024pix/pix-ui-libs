@@ -11,6 +11,7 @@ import PixInputCode from "../../src/components/forms/pix-input-code.gjs";
 import PixCode from "../../src/components/forms/pix-code.gjs";
 import PixInputPassword from "../../src/components/forms/pix-input-password.gjs";
 import PixSearchInput from "../../src/components/forms/pix-search-input.gjs";
+import PixTextarea from "../../src/components/forms/pix-textarea.gjs";
 
 function noop(event) {
   console.log('noop noop!');
@@ -20,7 +21,7 @@ function noop(event) {
   {{pageTitle "Demo App"}}
 
   <h1>Addon DEMO APP Nebulix !</h1>
-
+<PixBlock>
   <PixBlock>
     <PixIcon @name="brick" @plainIcon="true"/>
       Coucou c'est nous !
@@ -63,4 +64,6 @@ function noop(event) {
     <:label>Search input</:label>
   </PixSearchInput>
 
+  <PixTextarea @value="Bon matin" @maxlength=100><:label> MOOD DU JOUR</:label></PixTextarea>
+</PixBlock>
 </template>
