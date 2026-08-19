@@ -33,6 +33,7 @@ import PixTooltip from "../../src/components/overlay/pix-tooltip.gjs";
 import PixBannerAlert from "../../src/components/feedback/pix-banner-alert.gjs";
 import PixNotificationAlert from "../../src/components/feedback/pix-notification-alert.gjs";
 import PixToastContainer from "../../src/components/feedback/pix-toast-container.gjs";
+import PixTag from "../../src/components/data-display/pix-tag.gjs";
 
 function noop(event) {
   console.log('noop noop!');
@@ -183,6 +184,8 @@ const steps = [
 
         <PixBlock>
         </PixBlock>
+
+        <PixTag @color="purple">Je suis un tag, hihi</PixTag>
     </:main>
   </PixAppLayout>
 </template>
