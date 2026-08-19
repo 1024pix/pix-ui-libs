@@ -35,5 +35,6 @@ export { default as PixNotificationAlert } from './components/feedback/pix-notif
 export { default as PixToastContainer } from './components/feedback/pix-toast-container.gjs';
 
 export { default as PixTag } from './components/data-display/pix-tag.gjs';
+export { default as PixGauge } from './components/data-display/pix-gauge.gjs';
 
 export { default as PixAccordions } from './components/content/pix-accordions.gjs';

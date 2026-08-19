@@ -35,6 +35,7 @@ import PixNotificationAlert from "../../src/components/feedback/pix-notification
 import PixToastContainer from "../../src/components/feedback/pix-toast-container.gjs";
 import PixTag from "../../src/components/data-display/pix-tag.gjs";
 import PixAccordions from "../../src/components/content/pix-accordions.gjs";
+import PixGauge from "../../src/components/data-display/pix-gauge.gjs";
 
 function noop(event) {
   console.log('noop noop!');
@@ -58,6 +59,8 @@ const steps = [
   { title: 'Confirmation', subtitle: 'Vérifiez vos données' },
   { title: 'Validation', subtitle: 'Finalisez votre inscription' },
 ];
+
+const levels = ["Novice","Intermédiaire","Avancé","Expert"]
 
 <template>
   {{pageTitle "Demo App"}}
@@ -194,6 +197,8 @@ const steps = [
         <div>Contenu du PixAccordions</div>
       </:content>
     </PixAccordions>
+
+    <PixGauge @label="Niveau atteint de ... sur un niveau maximum atteignable de ..." @reachedLevel={{1}} @maxLevel={{4}} @stepLabels={{levels}}/>
 
     </:main>
   </PixAppLayout>
