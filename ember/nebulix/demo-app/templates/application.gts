@@ -38,6 +38,8 @@ import PixAccordions from "../../src/components/content/pix-accordions.gjs";
 import PixGauge from "../../src/components/data-display/pix-gauge.gjs";
 import PixProgressBar from "../../src/components/data-display/pix-progress-bar.gjs";
 import PixStars from "../../src/components/data-display/pix-stars.gjs";
+import PixTable from "../../src/components/data-display/pix-table.gjs";
+import PixTableColumn from "../../src/components/data-display/pix-table-column.gjs";
 
 function noop(event) {
   console.log('noop noop!');
@@ -54,7 +56,7 @@ const selectListOptions = [{
 }
 ]
 
-const breadCrumblinks = [{ label: 'Picoti, picota' }];
+const breadCrumblinks = [{ label: 'Picoti', route:'application' } , { label: 'Picota' }];
 
 const steps = [
   { title: 'Informations', subtitle: 'Renseignez vos informations' },
@@ -101,6 +103,26 @@ const levels = ["Novice","Intermédiaire","Avancé","Expert"]
       </PixNavigation>
     </:navigation>
     <:main>
+    <PixTable @variant="orga" @data={{steps}} @caption="Cette table affiche les étapes du stepper">
+      <:columns as |row context|>
+        <PixTableColumn @context={{context}}>
+          <:header>
+            Nom
+          </:header>
+          <:cell>
+            {{row.title}}
+          </:cell>
+        </PixTableColumn>
+        <PixTableColumn @context={{context}}  class='table__column--wide'>
+          <:header>
+            Description
+          </:header>
+          <:cell>
+            <i>{{row.subtitle}}</i>
+          </:cell>
+        </PixTableColumn>
+      </:columns>
+    </PixTable>
       <PixToastContainer @closeButtonAriaLabel="kolay"/>
       <PixNotificationAlert @withIcon={{true}} @type="communication-certif">
         Ceci est une notification d'alerte pour notifier et alerter.

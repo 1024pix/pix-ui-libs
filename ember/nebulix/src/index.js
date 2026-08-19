@@ -38,5 +38,7 @@ export { default as PixTag } from './components/data-display/pix-tag.gjs';
 export { default as PixGauge } from './components/data-display/pix-gauge.gjs';
 export { default as PixProgressBar } from './components/data-display/pix-progress-bar.gjs';
 export { default as PixStars } from './components/data-display/pix-stars.gjs';
+export { default as PixTable } from './components/data-display/pix-table.gjs';
+export { default as PixTableColumn } from './components/data-display/pix-table-column.gjs';
 
 export { default as PixAccordions } from './components/content/pix-accordions.gjs';
