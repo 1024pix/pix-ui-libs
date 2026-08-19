@@ -26,6 +26,8 @@ import PixBreadcrumb from "../../src/components/navigation/pix-breadcrumb.gjs";
 import PixSegmentedControl from "../../src/components/navigation/pix-segmented-control.gjs";
 import PixModal from "../../src/components/overlay/pix-modal.gjs";
 import PixSidePanel from "../../src/components/overlay/pix-side-panel.gjs";
+import PixTabs from "../../src/components/navigation/pix-tabs.gjs";
+import PixStepper from "../../src/components/navigation/pix-stepper.gjs";
 
 function noop(event) {
   console.log('noop noop!');
@@ -42,11 +44,13 @@ const selectListOptions = [{
 }
 ]
 
-const breadCrumblinks = [
-    {
-      label: 'Picoti, picota'
-    },
-  ];
+const breadCrumblinks = [{ label: 'Picoti, picota' }];
+
+const steps = [
+  { title: 'Informations', subtitle: 'Renseignez vos informations' },
+  { title: 'Confirmation', subtitle: 'Vérifiez vos données' },
+  { title: 'Validation', subtitle: 'Finalisez votre inscription' },
+];
 
 <template>
   {{pageTitle "Demo App"}}
@@ -76,8 +80,18 @@ const breadCrumblinks = [
     </PixNavigation>
   </:navigation>
   <:main>
-    <h1>Addon DEMO APP Nebulix !</h1>
+      <PixStepper @steps={{steps}} @currentStep={{2}} />
+
       <PixBreadcrumb @links={{breadCrumblinks}}/>
+
+      <PixTabs>
+        <a href="#">Tab 1</a>
+        <a href="#">Tab 2</a>
+        <a href="#">Tab 3</a>
+      </PixTabs>
+
+
+
         <PixBlock>
           <PixIcon @name="brick" @plainIcon="true"/>
             Coucou c'est nous !

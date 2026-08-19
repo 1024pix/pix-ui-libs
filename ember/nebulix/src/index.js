@@ -17,7 +17,6 @@ export { default as PixIcon } from './components/graphics/pix-icon.gjs';
 
 export { default as PixBlock } from './components/layout/pix-block.gjs';
 
-
 export { default as PixAppLayout } from './components/navigation/pix-app-layout.gjs';
 export { default as PixBreadcrumb } from './components/navigation/pix-breadcrumb.gjs';
 export { default as PixNavigation } from './components/navigation/pix-navigation.gjs';
@@ -25,3 +24,4 @@ export { default as PixNavigationSeparator } from './components/navigation/pix-n
 export { default as PixNavigationButton } from './components/navigation/pix-navigation-button.gjs';
 export { default as PixNavigationShrunkButton } from './components/navigation/pix-navigation-shrunk-button.gjs';
 export { default as PixSegmentedControl } from './components/navigation/pix-segmented-control.gjs';
+export { default as PixTabs } from './components/navigation/pix-tabs.gjs';
