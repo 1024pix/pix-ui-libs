@@ -12,6 +12,9 @@ export { default as PixLabel } from './components/forms/pix-label.gjs';
 export { default as PixTextarea } from './components/forms/pix-textarea.gjs';
 export { default as PixRadioButton } from './components/forms/pix-radio-button.gjs';
 export { default as PixCheckbox } from './components/forms/pix-checkbox.gjs';
+export { default as PixSelect } from './components/forms/pix-select.gjs';
+export { default as PixMultiSelect } from './components/forms/pix-multi-select.gjs';
+export { default as PixFilterableAndSearchableSelect } from './components/forms/pix-filterable-and-searchable-select.gjs';
 
 export { default as PixIcon } from './components/graphics/pix-icon.gjs';
 
@@ -26,6 +29,8 @@ export { default as PixNavigationShrunkButton } from './components/navigation/pi
 export { default as PixSegmentedControl } from './components/navigation/pix-segmented-control.gjs';
 export { default as PixStepper } from './components/navigation/pix-stepper.gjs';
 export { default as PixTabs } from './components/navigation/pix-tabs.gjs';
+export { default as PixPagination } from './components/navigation/pix-pagination.gjs';
+export { default as PixStructureSwitcher } from './components/navigation/pix-structure-switcher.gjs';
 
 export { default as PixModal } from './components/overlay/pix-modal.gjs';
 export { default as PixOverlay } from './components/overlay/pix-overlay.gjs';
