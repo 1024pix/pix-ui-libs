@@ -1,4 +1,4 @@
-import { render } from '@1024pix/ember-testing-library';
+import { render, within } from '@1024pix/ember-testing-library';
 import { PixModal } from '@1024pix/nebulix-ember';
 import { click, triggerEvent } from '@ember/test-helpers';
 import { setupRenderingTest } from 'ember-qunit';
@@ -139,6 +139,7 @@ module('Integration | Component | modal', function (hooks) {
         const dialog = screen.getByRole('dialog', { name: 'Modal with no variant' });
 
         assert.dom(dialog.querySelector('.pix-modal')).hasClass('pix-modal--default');
+        assert.dom(dialog.querySelector('.pix-modal-header')).hasClass('pix-modal-header--default');
       });
     });
 
@@ -166,6 +167,7 @@ module('Integration | Component | modal', function (hooks) {
         const dialog = screen.getByRole('dialog', { name: 'Modal with "default" variant' });
 
         assert.dom(dialog.querySelector('.pix-modal')).hasClass('pix-modal--default');
+        assert.dom(dialog.querySelector('.pix-modal-header')).hasClass('pix-modal-header--default');
       });
     });
 
@@ -193,6 +195,7 @@ module('Integration | Component | modal', function (hooks) {
         const dialog = screen.getByRole('dialog', { name: 'Modal with "orga" variant' });
 
         assert.dom(dialog.querySelector('.pix-modal')).hasClass('pix-modal--orga');
+        assert.dom(dialog.querySelector('.pix-modal-header')).hasClass('pix-modal-header--orga');
       });
     });
 
@@ -220,7 +223,62 @@ module('Integration | Component | modal', function (hooks) {
         const dialog = screen.getByRole('dialog', { name: 'Modal with "certif" variant' });
 
         assert.dom(dialog.querySelector('.pix-modal')).hasClass('pix-modal--certif');
+        assert.dom(dialog.querySelector('.pix-modal-header')).hasClass('pix-modal-header--certif');
       });
+    });
+  });
+
+  module('when @iconName is provided', function () {
+    test('it should render icon in header', async function (assert) {
+      // when
+      await render(<template><PixModal @title="Titre" @iconName="lightBulb" /></template>);
+
+      // then
+      const headerTitleSection = this.element.querySelector('.pix-modal-header__title-section');
+
+      const icon = within(headerTitleSection).getByRole('img', { hidden: true });
+
+      assert.true(icon.innerHTML.includes('lightBulb'));
+    });
+  });
+
+  module('when @iconName is not provided', function () {
+    test('it should not render icon', async function (assert) {
+      // when
+      await render(<template><PixModal @title="Titre" /></template>);
+
+      // then
+      const headerTitleSection = this.element.querySelector('.pix-modal-header__title-section');
+
+      const icon = within(headerTitleSection).queryByRole('img', { hidden: true });
+
+      assert.dom(icon).doesNotExist();
+    });
+  });
+
+  module('when @subtitle is provided', function () {
+    test('it should render subtitle in header', async function (assert) {
+      // when
+      await render(<template><PixModal @title="Titre" @subtitle="Sous titre" /></template>);
+
+      // then
+      const headerTitleSection = this.element.querySelector('.pix-modal-header__title-section');
+
+      const subtitle = within(headerTitleSection).getByText('Sous titre');
+
+      assert.dom(subtitle).exists();
+    });
+  });
+
+  module('when @subtitle is not provided', function () {
+    test('it should not render subtitle', async function (assert) {
+      // when
+      await render(<template><PixModal @title="Titre" /></template>);
+
+      // then
+      const subtitleElement = this.element.querySelector('.pix-modal-headersubtitle');
+
+      assert.dom(subtitleElement).doesNotExist();
     });
   });
 });
