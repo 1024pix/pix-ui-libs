@@ -1,8 +1,4 @@
-import {
-  clickByName,
-  fillByLabel,
-  render,
-} from '@1024pix/ember-testing-library';
+import { clickByName, fillByLabel, render } from '@1024pix/ember-testing-library';
 import { click } from '@ember/test-helpers';
 import { fireEvent, waitForElementToBeRemoved } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
@@ -245,10 +241,7 @@ module('Integration | Component | multi-select', function (hooks) {
 
         // then
         assert.true(screen.getByLabelText('Salade').checked);
-        assert.ok(
-          this.onChange.calledOnce,
-          'the callback should be called once',
-        );
+        assert.ok(this.onChange.calledOnce, 'the callback should be called once');
         sinon.assert.calledWithMatch(this.onChange, ['1']);
       });
 
@@ -462,14 +455,8 @@ module('Integration | Component | multi-select', function (hooks) {
         // then
         await waitForElementToBeRemoved(() => screen.queryByRole('menu'));
         assert.strictEqual(screen.queryByRole('menu'), null);
-        assert.ok(
-          this.onChange.calledOnce,
-          'the callback should be called once',
-        );
-        assert.strictEqual(
-          document.activeElement,
-          screen.getByLabelText('multiSelectLabel'),
-        );
+        assert.ok(this.onChange.calledOnce, 'the callback should be called once');
+        assert.strictEqual(document.activeElement, screen.getByLabelText('multiSelectLabel'));
       });
 
       test('it should close menu on escape press, focus multiselect element', async function (assert) {
@@ -503,10 +490,7 @@ module('Integration | Component | multi-select', function (hooks) {
         await userEvent.keyboard('[Escape]');
 
         // then
-        assert.strictEqual(
-          document.activeElement,
-          screen.getByLabelText('multiSelectLabel'),
-        );
+        assert.strictEqual(document.activeElement, screen.getByLabelText('multiSelectLabel'));
         await waitForElementToBeRemoved(() => screen.queryByRole('menu'));
         assert.strictEqual(screen.queryByRole('menu'), null);
       });
@@ -545,10 +529,7 @@ module('Integration | Component | multi-select', function (hooks) {
 
       // then
 
-      assert.strictEqual(
-        screen.getByLabelText('multiSelectLabel').innerText,
-        this.placeholder,
-      );
+      assert.strictEqual(screen.getByLabelText('multiSelectLabel').innerText, this.placeholder);
       assert.strictEqual(screen.getAllByRole('checkbox').length, 3);
     });
 
@@ -691,10 +672,7 @@ module('Integration | Component | multi-select', function (hooks) {
       await fillByLabel('multiSelectLabel', '');
 
       // then
-      assert.strictEqual(
-        screen.getByRole('menu').className.trim(),
-        'pix-multi-select-list',
-      );
+      assert.strictEqual(screen.getByRole('menu').className.trim(), 'pix-multi-select-list');
     });
 
     test('should be disabled', async function (assert) {
@@ -763,10 +741,7 @@ module('Integration | Component | multi-select', function (hooks) {
         await fillByLabel('Rechercher', 'tomate');
 
         // then
-        assert.ok(
-          this.onSearch.calledOnce,
-          'the search callback should be called once',
-        );
+        assert.ok(this.onSearch.calledOnce, 'the search callback should be called once');
         assert.deepEqual(this.onSearch.args[0], ['tomate']);
       });
 
@@ -803,10 +778,7 @@ module('Integration | Component | multi-select', function (hooks) {
         await fillByLabel('multiSelectLabel', 'tomate');
 
         // then
-        assert.strictEqual(
-          screen.getAllByRole('checkbox').length,
-          this.options.length,
-        );
+        assert.strictEqual(screen.getAllByRole('checkbox').length, this.options.length);
       });
     });
   });

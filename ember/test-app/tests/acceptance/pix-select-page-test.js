@@ -38,10 +38,7 @@ module('Acceptance | PixSelectPageTest', function (hooks) {
       // when
       const multiSelect = screen.getByRole('button', { name: 'Kebab' });
       await click(multiSelect);
-      await fillIn(
-        await screen.findByRole('textbox', { name: 'Rechercher' }),
-        '[A-Z]{1}[a-z]{6}',
-      );
+      await fillIn(await screen.findByRole('textbox', { name: 'Rechercher' }), '[A-Z]{1}[a-z]{6}');
       await screen.findByRole('menu');
 
       // then
@@ -83,10 +80,7 @@ module('Acceptance | PixSelectPageTest', function (hooks) {
       const select = screen.getByRole('button', { name: 'Fruits' });
       await click(select);
       await screen.findByRole('listbox');
-      await fillIn(
-        await screen.findByRole('textbox', { name: 'Rechercher' }),
-        'K[a-z]{3}',
-      );
+      await fillIn(await screen.findByRole('textbox', { name: 'Rechercher' }), 'K[a-z]{3}');
 
       // then
       assert.strictEqual(screen.getAllByRole('option').length, 1);

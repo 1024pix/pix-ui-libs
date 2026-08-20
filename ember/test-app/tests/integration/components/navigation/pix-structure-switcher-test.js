@@ -65,9 +65,7 @@ module('Integration | Component | pix-structure-switcher', function (hooks) {
       await userEvent.click(button);
 
       // then
-      assert.notOk(
-        screen.queryByRole('option', { name: 'Changer de structure' }),
-      );
+      assert.notOk(screen.queryByRole('option', { name: 'Changer de structure' }));
     });
   });
 
@@ -334,10 +332,7 @@ module('Integration | Component | pix-structure-switcher', function (hooks) {
         await screen.findByRole('listbox');
         await userEvent.keyboard('[ArrowDown]');
 
-        assert.strictEqual(
-          document.activeElement,
-          screen.getByRole('option', { name: 'Salade' }),
-        );
+        assert.strictEqual(document.activeElement, screen.getByRole('option', { name: 'Salade' }));
 
         //  when
         const externalButton = screen.getByRole('button', {
@@ -360,19 +355,13 @@ module('Integration | Component | pix-structure-switcher', function (hooks) {
         await userEvent.click(button);
         await screen.findByRole('listbox');
         await userEvent.keyboard('[ArrowDown]');
-        assert.strictEqual(
-          document.activeElement,
-          screen.getByRole('option', { name: 'Salade' }),
-        );
+        assert.strictEqual(document.activeElement, screen.getByRole('option', { name: 'Salade' }));
 
         //when
         await userEvent.keyboard('[Tab]');
 
         //then
-        assert.strictEqual(
-          document.activeElement,
-          screen.getByRole('option', { name: 'Salade' }),
-        );
+        assert.strictEqual(document.activeElement, screen.getByRole('option', { name: 'Salade' }));
       });
     });
   });

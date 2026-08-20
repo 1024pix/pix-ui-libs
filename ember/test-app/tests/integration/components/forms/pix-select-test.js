@@ -1,10 +1,6 @@
-import {
-  clickByName,
-  fillByLabel,
-  render,
-} from '@1024pix/ember-testing-library';
-import { fireEvent, waitForElementToBeRemoved } from '@testing-library/dom';
+import { clickByName, fillByLabel, render } from '@1024pix/ember-testing-library';
 import { click, fillIn } from '@ember/test-helpers';
+import { fireEvent, waitForElementToBeRemoved } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 import { hbs } from 'ember-cli-htmlbars';
 import { setupRenderingTest } from 'ember-qunit';
@@ -62,9 +58,7 @@ module('Integration | Component | PixSelect', function (hooks) {
       );
 
       // then
-      assert
-        .dom(screen.queryByRole('option', { name: 'Oignon' }))
-        .doesNotExist();
+      assert.dom(screen.queryByRole('option', { name: 'Oignon' })).doesNotExist();
     });
 
     test('it opens the dropdown', async function (assert) {
@@ -95,10 +89,7 @@ module('Integration | Component | PixSelect', function (hooks) {
 
       await screen.findByRole('listbox');
       // then
-      assert.strictEqual(
-        screen.queryByRole('option', { name: this.placeholder }),
-        null,
-      );
+      assert.strictEqual(screen.queryByRole('option', { name: this.placeholder }), null);
     });
   });
 
@@ -138,9 +129,7 @@ module('Integration | Component | PixSelect', function (hooks) {
         await click(await screen.getByLabelText('Mon menu déroulant'));
 
         // then
-        assert
-          .dom(await screen.findByRole('listbox', { hidden: true }))
-          .exists();
+        assert.dom(await screen.findByRole('listbox', { hidden: true })).exists();
       });
     });
 
@@ -157,10 +146,7 @@ module('Integration | Component | PixSelect', function (hooks) {
         await userEvent.keyboard('[ArrowUp]');
 
         await screen.findByRole('listbox');
-        fireEvent(
-          document.querySelector('.pix-select__dropdown'),
-          new Event('transitionend'),
-        );
+        fireEvent(document.querySelector('.pix-select__dropdown'), new Event('transitionend'));
 
         const selectedOption = screen.getByRole('option', { name: 'Oignon' });
 
@@ -180,10 +166,7 @@ module('Integration | Component | PixSelect', function (hooks) {
         await userEvent.keyboard('[ArrowDown]');
 
         await screen.findByRole('listbox');
-        fireEvent(
-          document.querySelector('.pix-select__dropdown'),
-          new Event('transitionend'),
-        );
+        fireEvent(document.querySelector('.pix-select__dropdown'), new Event('transitionend'));
 
         const selectedOption = screen.getByRole('option', { name: 'Tomate' });
 
@@ -203,10 +186,7 @@ module('Integration | Component | PixSelect', function (hooks) {
         await userEvent.keyboard('[Space]');
 
         await screen.findByRole('listbox');
-        fireEvent(
-          document.querySelector('.pix-select__dropdown'),
-          new Event('transitionend'),
-        );
+        fireEvent(document.querySelector('.pix-select__dropdown'), new Event('transitionend'));
 
         const selectedOption = screen.getByRole('option', { name: 'Salade' });
 
@@ -277,10 +257,7 @@ module('Integration | Component | PixSelect', function (hooks) {
         await userEvent.keyboard('[Escape]');
 
         // then
-        assert.strictEqual(
-          document.activeElement,
-          screen.getByLabelText('Mon menu déroulant'),
-        );
+        assert.strictEqual(document.activeElement, screen.getByLabelText('Mon menu déroulant'));
         await waitForElementToBeRemoved(() => screen.queryByRole('listbox'));
         assert.strictEqual(screen.queryByRole('listbox'), null);
       });
@@ -315,8 +292,7 @@ module('Integration | Component | PixSelect', function (hooks) {
         // given
         this.onChange = sinon.spy();
 
-        const screen =
-          await render(hbs`<button id='focus' type='button'>Focus me</button><PixSelect
+        const screen = await render(hbs`<button id='focus' type='button'>Focus me</button><PixSelect
   @options={{this.options}}
   @placeholder={{this.placeholder}}
   @onChange={{this.onChange}}
@@ -334,9 +310,7 @@ module('Integration | Component | PixSelect', function (hooks) {
         await click(screen.getByRole('button', { name: 'Focus me' }));
 
         // then
-        assert
-          .dom(screen.getByRole('button', { name: 'Focus me' }))
-          .isFocused();
+        assert.dom(screen.getByRole('button', { name: 'Focus me' })).isFocused();
       });
 
       test('it should call on select on space press', async function (assert) {
@@ -402,10 +376,7 @@ module('Integration | Component | PixSelect', function (hooks) {
         await userEvent.keyboard('[ArrowDown]');
 
         await screen.findByRole('listbox');
-        fireEvent(
-          document.querySelector('.pix-select__dropdown'),
-          new Event('transitionend'),
-        );
+        fireEvent(document.querySelector('.pix-select__dropdown'), new Event('transitionend'));
 
         await userEvent.keyboard('[Escape]');
 
@@ -434,10 +405,7 @@ module('Integration | Component | PixSelect', function (hooks) {
         await userEvent.keyboard('[ArrowDown]');
 
         await screen.findByRole('listbox');
-        fireEvent(
-          document.querySelector('.pix-select__dropdown'),
-          new Event('transitionend'),
-        );
+        fireEvent(document.querySelector('.pix-select__dropdown'), new Event('transitionend'));
 
         const option = screen.getByRole('option', {
           name: 'Choisissez une option',
@@ -492,10 +460,7 @@ module('Integration | Component | PixSelect', function (hooks) {
       await screen.findByRole('listbox');
 
       // then
-      assert.strictEqual(
-        screen.getByRole('option', { selected: true }).innerText,
-        'Oignon',
-      );
+      assert.strictEqual(screen.getByRole('option', { selected: true }).innerText, 'Oignon');
     });
   });
 
@@ -516,9 +481,7 @@ module('Integration | Component | PixSelect', function (hooks) {
 
       await screen.findByRole('listbox');
 
-      await click(
-        screen.getByRole('option', { name: 'Choisissez une option' }),
-      );
+      await click(screen.getByRole('option', { name: 'Choisissez une option' }));
 
       // then
       sinon.assert.calledWithMatch(this.onChange, '');
@@ -557,10 +520,7 @@ module('Integration | Component | PixSelect', function (hooks) {
       // when
       await clickByName('Mon menu déroulant');
       await screen.findByRole('listbox');
-      fireEvent(
-        document.querySelector('.pix-select__dropdown'),
-        new Event('transitionend'),
-      );
+      fireEvent(document.querySelector('.pix-select__dropdown'), new Event('transitionend'));
       assert.dom(screen.getByLabelText('Rechercher')).isFocused();
     });
 
@@ -635,9 +595,7 @@ module('Integration | Component | PixSelect', function (hooks) {
       await clickByName('Mon menu déroulant');
 
       await screen.findByRole('listbox');
-      assert
-        .dom(screen.getByPlaceholderText('Placeholder de la recherche'))
-        .exists();
+      assert.dom(screen.getByPlaceholderText('Placeholder de la recherche')).exists();
     });
 
     test('when there is no options found it displays the empty search result message', async function (assert) {
@@ -655,10 +613,7 @@ module('Integration | Component | PixSelect', function (hooks) {
       // when
       await click(screen.getByRole('button', { name: 'Mon menu déroulant' }));
 
-      await fillIn(
-        await screen.findByRole('textbox', { name: 'Rechercher' }),
-        'Cheddar',
-      );
+      await fillIn(await screen.findByRole('textbox', { name: 'Rechercher' }), 'Cheddar');
       assert.ok(screen.getByText('Aucune option'));
     });
 
@@ -830,10 +785,7 @@ module('Integration | Component | PixSelect', function (hooks) {
 
       // then
       const selectorElement = this.element.querySelector(DIV_ROOT_SELECTOR);
-      assert.strictEqual(
-        selectorElement.classList.value,
-        'pix-select pix-select--full-width',
-      );
+      assert.strictEqual(selectorElement.classList.value, 'pix-select pix-select--full-width');
     });
 
     test('it should compute correct class for root when @inlineLabel param is true', async function (assert) {
@@ -845,10 +797,7 @@ module('Integration | Component | PixSelect', function (hooks) {
 
       // then
       const selectorElement = this.element.querySelector(DIV_ROOT_SELECTOR);
-      assert.strictEqual(
-        selectorElement.classList.value,
-        'pix-select pix-select--inline',
-      );
+      assert.strictEqual(selectorElement.classList.value, 'pix-select pix-select--inline');
     });
 
     test('it should compute correct class for root when @inlineLabel and @isFullWidth params are true', async function (assert) {

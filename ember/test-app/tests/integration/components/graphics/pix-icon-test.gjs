@@ -21,9 +21,7 @@ module('Integration | Component | pix-icon', function (hooks) {
 
   test('it renders the plain variant of an icon', async function (assert) {
     // when
-    await render(
-      <template><PixIcon @name="bell" @plainIcon={{true}} /></template>,
-    );
+    await render(<template><PixIcon @name="bell" @plainIcon={{true}} /></template>);
     const use = this.element.querySelector('.pix-icon use');
 
     // then
@@ -32,7 +30,7 @@ module('Integration | Component | pix-icon', function (hooks) {
 
   test('it renders the default PixIcon title', async function (assert) {
     // when
-    const screen = await render(<template><PixIcon @title='my-title' @icon='help' /></template>);
+    const screen = await render(<template><PixIcon @title="my-title" @icon="help" /></template>);
 
     // then
     assert.ok(screen.getByRole('img', { name: 'my-title' }));

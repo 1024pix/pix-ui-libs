@@ -1,5 +1,5 @@
 import { render } from '@1024pix/ember-testing-library';
-import {PixSidePanel} from '@1024pix/nebulix-ember';
+import { PixSidePanel } from '@1024pix/nebulix-ember';
 import { click, triggerEvent } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { setupRenderingTest } from 'ember-qunit';

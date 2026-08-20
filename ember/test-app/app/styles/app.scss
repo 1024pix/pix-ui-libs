@@ -1,7 +1,7 @@
 // Global styles from Nebulix, resolved through the Sass load path configured
 // in vite.config.mjs. Component styles come in on their own, pulled by each
 // component's JavaScript module.
-@use "normalize-reset";
-@use "pix-design-tokens";
-@use "a11y";
-@use "trap-focus";
+@use 'normalize-reset';
+@use 'pix-design-tokens';
+@use 'a11y';
+@use 'trap-focus';

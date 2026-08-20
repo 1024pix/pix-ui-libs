@@ -1,4 +1,4 @@
-import { PixAppLayout, PixNavigationButton, PixNavigation } from '@1024pix/nebulix-ember';
+import { PixAppLayout, PixNavigation, PixNavigationButton } from '@1024pix/nebulix-ember';
 
 <template>
   <PixAppLayout>

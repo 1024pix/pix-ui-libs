@@ -1,7 +1,7 @@
-import { dasherize } from '@ember/string';
-import { module, test } from 'qunit';
 import * as nebulix from '@1024pix/nebulix-ember';
 import nebulixManifest from '@1024pix/nebulix-ember/package.json';
+import { dasherize } from '@ember/string';
+import { module, test } from 'qunit';
 
 /**
  * Nebulix exposes each component twice, through two lists maintained
@@ -15,15 +15,10 @@ import nebulixManifest from '@1024pix/nebulix-ember/package.json';
  */
 module('Integration | public API', function () {
   const exportedComponents = Object.keys(nebulix);
-  const appJsModules = new Set(
-    Object.keys(nebulixManifest['ember-addon']['app-js']),
-  );
+  const appJsModules = new Set(Object.keys(nebulixManifest['ember-addon']['app-js']));
 
   test('the package index resolves and exports components', function (assert) {
-    assert.true(
-      exportedComponents.length > 0,
-      'the addon built and its main entry point resolved',
-    );
+    assert.true(exportedComponents.length > 0, 'the addon built and its main entry point resolved');
   });
 
   for (const name of exportedComponents) {
