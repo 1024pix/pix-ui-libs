@@ -12,13 +12,14 @@
  *     npx eslint --inspect-config
  *
  */
+import pixRecommendedConfig from '@1024pix/eslint-plugin/config';
 import babelParser from '@babel/eslint-parser/experimental-worker';
 import js from '@eslint/js';
 import { defineConfig, globalIgnores } from 'eslint/config';
-import prettier from 'eslint-config-prettier';
 import ember from 'eslint-plugin-ember/recommended';
 import importPlugin from 'eslint-plugin-import';
 import n from 'eslint-plugin-n';
+import prettierRecommendedConfig from 'eslint-plugin-prettier/recommended';
 import globals from 'globals';
 
 const esmParserOptions = {
@@ -27,9 +28,10 @@ const esmParserOptions = {
 };
 
 export default defineConfig([
+  ...pixRecommendedConfig,
   globalIgnores(['dist/', 'dist-*/', 'declarations/', 'coverage/', '!**/.*']),
   js.configs.recommended,
-  prettier,
+  prettierRecommendedConfig,
   ember.configs.base,
   ember.configs.gjs,
   /**
