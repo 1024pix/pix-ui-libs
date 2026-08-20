@@ -3,7 +3,6 @@ import Component from '@glimmer/component';
 import PixIcon from '../graphics/pix-icon.gjs';
 
 // FIXME: should not be dependent on pix-label.scss
-import './pix-label.scss';
 import './pix-label-wrapped.scss';
 
 export default class PixLabelWrapped extends Component {

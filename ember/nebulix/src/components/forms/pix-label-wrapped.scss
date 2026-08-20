@@ -1,3 +1,6 @@
+// FIXME should not be dependant on pix label
+@use 'pix-label';
+
 .pix-label-wrapped {
   display: flex;
   gap: var(--pix-spacing-2x);
