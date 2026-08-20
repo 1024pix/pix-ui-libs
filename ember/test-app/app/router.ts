@@ -7,5 +7,7 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function () {
-  // Add route declarations here
+  // Route for the EmberJS route link tests
+  this.route('hello');
+  this.route('bye', { path: '/bye/:id' });
 });
