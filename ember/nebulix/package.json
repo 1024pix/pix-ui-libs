@@ -32,7 +32,11 @@
     "lint:js:fix": "eslint . --fix",
     "lint:publish": "pnpm build && publint run --level error",
     "prepack": "rollup --config",
-    "prepare": "rollup --config"
+    "prepare": "rollup --config",
+    "svg:generate-sprite": "pnpm svg:compile && pnpm svg:optimize && pnpm run svg:rename-id",
+    "svg:compile": "svg-sprite -C 'tooling/generate-svg-sprite/svg-sprite.config.json' 'tooling/generate-svg-sprite/icons/*.svg'",
+    "svg:optimize": "svgo --config='./tooling/generate-svg-sprite/svgo.config.js' -i 'src/assets/svg/' -o 'src/assets/svg/'",
+    "svg:rename-id": "bash ./tooling/generate-svg-sprite/rename-icon-id-in-sprite.sh"
   },
   "peerDependencies": {
     "@glimmer/component": ">= 2.0.0",
@@ -72,7 +76,9 @@
     "prettier": "^3.4.2",
     "prettier-plugin-ember-template-tag": "^2.0.4",
     "publint": "^0.3.16",
-    "rollup": "^4.22.5"
+    "rollup": "^4.22.5",
+    "svg-sprite": "^2.0.4",
+    "svgo": "^4.0.2"
   },
   "ember": {
     "edition": "octane"
