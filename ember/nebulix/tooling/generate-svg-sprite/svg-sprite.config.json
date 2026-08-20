@@ -1,0 +1,11 @@
+{
+  "log": "info",
+  "mode": {
+    "defs": {
+      "dest": "src/assets/svg",
+      "sprite": "pix-sprite.svg",
+      "inline": true,
+      "bust": false
+    }
+  }
+}
