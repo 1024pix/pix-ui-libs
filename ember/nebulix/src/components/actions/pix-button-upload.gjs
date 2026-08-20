@@ -1,10 +1,10 @@
+import './pix-button-upload.scss';
+
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 import PixButtonBase from './pix-button-base.gjs';
-
-import './pix-button-upload.scss';
 
 export default class PixButtonUpload extends PixButtonBase {
   @tracked

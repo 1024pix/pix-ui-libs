@@ -1,7 +1,7 @@
+import './pix-tabs.scss';
+
 import { warn } from '@ember/debug';
 import Component from '@glimmer/component';
-
-import './pix-tabs.scss';
 
 export default class PixTabs extends Component {
   get variant() {

@@ -1,3 +1,5 @@
+import './pix-structure-switcher.scss';
+
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
@@ -10,8 +12,6 @@ import onArrowDownUpAction from '../../modifiers/on-arrow-down-up-action.js';
 import onEscapeAction from '../../modifiers/on-escape-action.js';
 import PixButton from '../actions/pix-button.gjs';
 import PixSelectList from '../forms/pix-select-list.gjs';
-
-import './pix-structure-switcher.scss'
 
 export default class PixStructureSwitcher extends Component {
   constructor(...args) {

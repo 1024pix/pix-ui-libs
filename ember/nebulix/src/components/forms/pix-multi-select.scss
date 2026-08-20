@@ -1,6 +1,6 @@
-@use "pix-design-tokens/typography";
-@use "pix-design-tokens/shadows";
-@use "forms";
+@use 'pix-design-tokens/typography';
+@use 'pix-design-tokens/shadows';
+@use 'forms';
 
 .pix-multi-select {
   position: relative;
@@ -68,8 +68,7 @@
     @extend %pix-body-s;
 
     position: relative;
-    padding: var(--pix-spacing-2x) var(--pix-spacing-3x) var(--pix-spacing-2x)
-      var(--pix-spacing-9x);
+    padding: var(--pix-spacing-2x) var(--pix-spacing-3x) var(--pix-spacing-2x) var(--pix-spacing-9x);
     background-color: transparent;
     border: none;
 

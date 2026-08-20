@@ -1,8 +1,8 @@
 import { array } from '@ember/helper';
 import { LinkTo } from '@ember/routing';
 
-import PixButtonContent from './pix-button-content.gjs';
 import PixButtonBase from './pix-button-base.gjs';
+import PixButtonContent from './pix-button-content.gjs';
 
 export default class PixButtonLink extends PixButtonBase {
   defaultModel = [];

@@ -1,3 +1,5 @@
+import './pix-search-input.scss';
+
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import { debounceTask } from 'ember-lifeline';
@@ -5,8 +7,6 @@ import { debounceTask } from 'ember-lifeline';
 import PixIcon from '../graphics/pix-icon.gjs';
 import PixInputBase from './pix-input-base.gjs';
 import PixLabel from './pix-label.gjs';
-
-import './pix-search-input.scss';
 
 export default class PixSearchInput extends PixInputBase {
   initialValue = this.args.value;

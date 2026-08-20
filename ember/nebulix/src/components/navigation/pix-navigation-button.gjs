@@ -1,3 +1,5 @@
+import './pix-navigation-button.scss';
+
 import { array } from '@ember/helper';
 import { LinkTo } from '@ember/routing';
 import { service } from '@ember/service';
@@ -5,8 +7,6 @@ import Component from '@glimmer/component';
 
 import PixIcon from '../graphics/pix-icon.gjs';
 import PixNavigationShrunkButton from './pix-navigation-shrunk-button.gjs';
-
-import "./pix-navigation-button.scss";
 
 export default class PixNavigationButton extends Component {
   defaultParams = {};

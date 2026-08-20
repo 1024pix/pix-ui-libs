@@ -1,6 +1,6 @@
-import Component from '@glimmer/component';
+import './pix-button-base.scss';
 
-import './pix-button-base.scss'
+import Component from '@glimmer/component';
 
 export default class PixButtonBase extends Component {
   get variant() {

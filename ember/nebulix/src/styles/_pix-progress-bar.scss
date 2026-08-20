@@ -1,4 +1,4 @@
-@use "pix-design-tokens/typography";
+@use 'pix-design-tokens/typography';
 
 .pix-progress-bar {
   position: relative;
@@ -78,7 +78,8 @@
 }
 
 // SPECIFIC BAR COLORS
-.pix-progress-bar--content-blue, .pix-progress-bar--content-primary {
+.pix-progress-bar--content-blue,
+.pix-progress-bar--content-primary {
   .pix-progress-bar__bar::-webkit-progress-value {
     background-color: var(--pix-primary-500);
   }
@@ -95,7 +96,8 @@
   }
 }
 
-.pix-progress-bar--content-green, .pix-progress-bar--content-success {
+.pix-progress-bar--content-green,
+.pix-progress-bar--content-success {
   .pix-progress-bar__bar::-webkit-progress-value {
     background-color: var(--pix-success-700);
   }
@@ -112,7 +114,8 @@
   }
 }
 
-.pix-progress-bar--content-purple, .pix-progress-bar--content-tertiary {
+.pix-progress-bar--content-purple,
+.pix-progress-bar--content-tertiary {
   .pix-progress-bar__bar::-webkit-progress-value {
     background-color: var(--pix-tertiary-900);
   }

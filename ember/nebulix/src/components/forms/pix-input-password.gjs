@@ -1,12 +1,12 @@
+import './pix-input-password.scss';
+
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-import PixIcon from '../graphics/pix-icon.gjs';
 import PixIconButton from '../actions/pix-icon-button.gjs';
+import PixIcon from '../graphics/pix-icon.gjs';
 import PixInputBase from './pix-input-base.gjs';
 import PixLabel from './pix-label.gjs';
-
-import './pix-input-password.scss';
 
 export default class PixInputPassword extends PixInputBase {
   constructor() {

@@ -1,3 +1,5 @@
+import './pix-select-list.scss';
+
 import { concat, fn } from '@ember/helper';
 import { on } from '@ember/modifier';
 import Component from '@glimmer/component';
@@ -6,8 +8,6 @@ import { eq } from 'ember-truth-helpers';
 import onEnterAction from '../../modifiers/on-enter-action.js';
 import onSpaceAction from '../../modifiers/on-space-action.js';
 import PixIcon from '../graphics/pix-icon.gjs';
-
-import './pix-select-list.scss'
 
 export default class PixSelectList extends Component {
   get categories() {

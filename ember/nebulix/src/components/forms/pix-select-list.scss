@@ -1,4 +1,4 @@
-@use "pix-design-tokens/typography";
+@use 'pix-design-tokens/typography';
 
 .pix-select_list {
   display: flex;
@@ -33,12 +33,13 @@
     display: flex;
     gap: var(--pix-spacing-2x);
     align-items: center;
-    padding: var(--pix-spacing-2x) var(--pix-spacing-10x) var(--pix-spacing-2x) var(--pix-spacing-3x);
+    padding: var(--pix-spacing-2x) var(--pix-spacing-10x) var(--pix-spacing-2x)
+      var(--pix-spacing-3x);
     color: var(--pix-neutral-900);
     border-radius: 0.25rem;
 
     &:hover {
-      background-color: rgba(var(--pix-neutral-100-inline), 0.60);
+      background-color: rgba(var(--pix-neutral-100-inline), 0.6);
       outline: none;
       cursor: pointer;
     }

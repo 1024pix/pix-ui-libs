@@ -1,9 +1,9 @@
+import './pix-notification-alert.scss';
+
 import { concat } from '@ember/helper';
 import Component from '@glimmer/component';
 
 import PixIcon from '../graphics/pix-icon.gjs';
-
-import './pix-notification-alert.scss'
 
 const TYPE_INFO = 'info';
 const TYPE_SUCCESS = 'success';

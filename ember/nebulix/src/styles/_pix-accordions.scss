@@ -22,9 +22,9 @@
     border-color: var(--pix-neutral-500);
   }
 
-  &:focus-within  {
+  &:focus-within {
     border: 1px solid var(--pix-primary-500);
-    outline: 2px solid var(--pix-primary-300)
+    outline: 2px solid var(--pix-primary-300);
   }
 }
 
@@ -63,7 +63,6 @@
 }
 
 .pix-accordions-title-container {
-
   &__toggle-icon {
     margin-left: var(--pix-spacing-2x);
     border-radius: 50%;

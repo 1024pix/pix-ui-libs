@@ -1,10 +1,10 @@
+import './pix-code.scss';
+
 import { warn } from '@ember/debug';
 import { htmlSafe } from '@ember/template';
 
 import PixInputBase from './pix-input-base.gjs';
 import PixLabel from './pix-label.gjs';
-
-import './pix-code.scss'
 
 export default class PixCode extends PixInputBase {
   constructor() {

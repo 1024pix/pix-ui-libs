@@ -1,25 +1,25 @@
-@use "pix-design-tokens/typography";
+@use 'pix-design-tokens/typography';
 
 td.pix-table-column {
-    &--number {
-      text-align: left;
-    }
+  &--number {
+    text-align: left;
+  }
 
-    &--checkbox {
-      width: 3.25rem;
-    }
+  &--checkbox {
+    width: 3.25rem;
+  }
 
-    &--tag {
-      padding-top: 0.875rem;
-      padding-bottom: 0.875rem;
-      text-align: left;
-    }
+  &--tag {
+    padding-top: 0.875rem;
+    padding-bottom: 0.875rem;
+    text-align: left;
+  }
 
-    &--link {
-      padding-top: 0.875rem;
-      padding-bottom: 0.875rem;
-      text-align: left;
-    }
+  &--link {
+    padding-top: 0.875rem;
+    padding-bottom: 0.875rem;
+    text-align: left;
+  }
 
   &--tag-date {
     padding-top: var(--pix-spacing-1x);

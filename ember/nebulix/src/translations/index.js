@@ -42,10 +42,7 @@ function flattenObject(object) {
 
     const childEntries = Object.entries(flattenObject(value));
 
-    return childEntries.map(([childKey, childValue]) => [
-      `${key}.${childKey}`,
-      childValue,
-    ]);
+    return childEntries.map(([childKey, childValue]) => [`${key}.${childKey}`, childValue]);
   });
 
   return Object.fromEntries(flatEntries);

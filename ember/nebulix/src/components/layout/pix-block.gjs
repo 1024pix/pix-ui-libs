@@ -1,8 +1,9 @@
-import { VARIANTS } from '../../helpers/variants.js';
+import './pix-block.scss';
+
 import { warn } from '@ember/debug';
 import Component from '@glimmer/component';
 
-import './pix-block.scss';
+import { VARIANTS } from '../../helpers/variants.js';
 
 export default class PixBlockComponent extends Component {
   get variant() {

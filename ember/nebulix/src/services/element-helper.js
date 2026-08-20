@@ -26,8 +26,7 @@ export default class ElementService extends Service {
     style.type = 'text/css';
     document.getElementsByTagName('head')[0].appendChild(style);
 
-    if (!(style.sheet || {}).insertRule)
-      (style.styleSheet || style.sheet).addRule(name, rules);
+    if (!(style.sheet || {}).insertRule) (style.styleSheet || style.sheet).addRule(name, rules);
     else style.sheet.insertRule(name + '{' + rules + '}', 0);
   }
 }

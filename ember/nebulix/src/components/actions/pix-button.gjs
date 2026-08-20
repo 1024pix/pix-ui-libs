@@ -1,12 +1,12 @@
+import './pix-button.scss';
+
 import { warn } from '@ember/debug';
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-import PixButtonContent from './pix-button-content.gjs';
 import PixButtonBase from './pix-button-base.gjs';
-
-import './pix-button.scss'
+import PixButtonContent from './pix-button-content.gjs';
 
 export default class PixButton extends PixButtonBase {
   text = 'pix-button';

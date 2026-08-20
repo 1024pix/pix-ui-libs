@@ -1,5 +1,5 @@
-@use "pix-design-tokens/fonts";
-@use "pix-design-tokens/typography";
+@use 'pix-design-tokens/fonts';
+@use 'pix-design-tokens/typography';
 
 .result-level-gauge {
   display: block;
@@ -8,7 +8,7 @@
   margin-bottom: var(--pix-spacing-2x);
 
   &__rank {
-    font-size: .625rem;
+    font-size: 0.625rem;
     font-family: fonts.$font-roboto;
     text-transform: uppercase;
     fill: var(--pix-neutral-900);

@@ -1,4 +1,4 @@
-@use "pix-design-tokens/typography";
+@use 'pix-design-tokens/typography';
 
 %pix-input-default {
   @extend %pix-body-s;
@@ -39,7 +39,8 @@
     outline: none;
   }
 
-  &:focus-within, &:focus {
+  &:focus-within,
+  &:focus {
     border-color: var(--pix-primary-500);
     outline: 2px solid var(--pix-primary-300);
   }
@@ -49,12 +50,13 @@
   &[readonly] {
     color: var(--pix-neutral-500);
     background-color: var(--pix-neutral-20);
-    border-color:  var(--pix-neutral-100);
+    border-color: var(--pix-neutral-100);
     cursor: not-allowed;
 
-    &:hover, &:active {
+    &:hover,
+    &:active {
       background-color: var(--pix-neutral-20);
-      border-color:  var(--pix-neutral-100);
+      border-color: var(--pix-neutral-100);
     }
   }
 

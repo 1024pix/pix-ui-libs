@@ -1,13 +1,13 @@
+import './pix-segmented-control.scss';
+
 import { warn } from '@ember/debug';
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import Component from '@glimmer/component';
 
-import PixIcon from '../graphics/pix-icon.gjs';
 import PixLabel from '../forms/pix-label.gjs';
-
-import './pix-segmented-control.scss';
+import PixIcon from '../graphics/pix-icon.gjs';
 
 export default class PixSegmentedControl extends Component {
   get variant() {

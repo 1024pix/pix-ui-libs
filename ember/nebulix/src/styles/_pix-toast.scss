@@ -1,4 +1,4 @@
-@use "pix-design-tokens/typography";
+@use 'pix-design-tokens/typography';
 
 .pix-toast {
   display: flex;
@@ -6,7 +6,7 @@
   margin-bottom: var(--pix-spacing-2x);
   border-radius: 5px;
   transition: all 0.3s ease-in-out;
-  animation: notification-show 180ms cubic-bezier(.175, .885, .32, 1.2750);
+  animation: notification-show 180ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
   animation-fill-mode: forwards;
 
   &--error {
@@ -42,7 +42,8 @@
   }
 }
 
-.pix-toast__icon, .pix-toast__close-button-container {
+.pix-toast__icon,
+.pix-toast__close-button-container {
   display: flex;
   flex-shrink: 0;
   align-items: center;
@@ -79,7 +80,7 @@
     color: var(--pix-error-700);
 
     &:hover:enabled,
-    &:active:enabled, {
+    &:active:enabled {
       color: currentcolor;
       background-color: var(--pix-error-100);
     }
@@ -93,7 +94,7 @@
     color: var(--pix-success-700);
 
     &:hover:enabled,
-    &:active:enabled, {
+    &:active:enabled {
       color: currentcolor;
       background-color: var(--pix-success-100);
     }
@@ -107,7 +108,7 @@
     color: var(--pix-info-700);
 
     &:hover:enabled,
-    &:active:enabled, {
+    &:active:enabled {
       color: currentcolor;
       background-color: var(--pix-info-100);
     }
@@ -121,7 +122,7 @@
     color: var(--pix-warning-700);
 
     &:hover:enabled,
-    &:active:enabled, {
+    &:active:enabled {
       color: currentcolor;
       background-color: var(--pix-warning-100);
     }

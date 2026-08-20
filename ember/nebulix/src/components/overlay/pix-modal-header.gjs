@@ -1,10 +1,10 @@
-import { MODAL_VARIANTS } from '../../helpers/variants.js';
+import './pix-modal-header.scss';
+
 import Component from '@glimmer/component';
 
-import PixIcon from '../graphics/pix-icon.gjs';
+import { MODAL_VARIANTS } from '../../helpers/variants.js';
 import PixIconButton from '../actions/pix-icon-button.gjs';
-
-import './pix-modal-header.scss';
+import PixIcon from '../graphics/pix-icon.gjs';
 
 export default class PixModalHeader extends Component {
   get variant() {

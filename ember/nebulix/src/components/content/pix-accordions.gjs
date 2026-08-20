@@ -1,14 +1,14 @@
+import './pix-accordions.scss';
+import './pix-accordions-v2.scss';
+
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 
-import PixIcon from '../graphics/pix-icon.gjs';
 import PixTag from '../data-display/pix-tag.gjs';
-
-import "./pix-accordions.scss";
-import "./pix-accordions-v2.scss";
+import PixIcon from '../graphics/pix-icon.gjs';
 
 export default class PixAccordions extends Component {
   text = 'pix-accordions';

@@ -1,11 +1,11 @@
+import './pix-filter-banner.scss';
+
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
 
 import PixButton from '../actions/pix-button.gjs';
 import PixIcon from '../graphics/pix-icon.gjs';
-
-import './pix-filter-banner.scss';
 
 export default class PixFilterBanner extends Component {
   get displayTitle() {

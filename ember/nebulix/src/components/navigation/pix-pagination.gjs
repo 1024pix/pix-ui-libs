@@ -1,3 +1,5 @@
+import './pix-pagination.scss';
+
 import { action } from '@ember/object';
 import { service } from '@ember/service';
 import Component from '@glimmer/component';
@@ -6,8 +8,6 @@ import { eq } from 'ember-truth-helpers';
 import { formatMessage } from '../../translations/index.js';
 import PixIconButton from '../actions/pix-icon-button.gjs';
 import PixSelect from '../forms/pix-select.gjs';
-
-import './pix-pagination.scss';
 
 const DEFAULT_PAGE_OPTIONS = [
   { label: '10', value: 10 },

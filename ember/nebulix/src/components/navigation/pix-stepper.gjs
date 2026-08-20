@@ -1,10 +1,10 @@
+import './pix-stepper.scss';
+
 import Component from '@glimmer/component';
 import { eq } from 'ember-truth-helpers';
 
 import { formatMessage } from '../../translations/index.js';
 import PixStep from './pix-step.gjs';
-
-import './pix-stepper.scss';
 
 export default class PixStepperComponent extends Component {
   get cssClass() {

@@ -1,13 +1,13 @@
-import { VARIANTS } from '../../helpers/variants.js';
+import './pix-table.scss';
+
 import { warn } from '@ember/debug';
 import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
 
+import { VARIANTS } from '../../helpers/variants.js';
 import PixBlock from '../layout/pix-block.gjs';
-
-import './pix-table.scss';
 
 export default class PixTable extends Component {
   get variant() {
