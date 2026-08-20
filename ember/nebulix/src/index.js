@@ -28,6 +28,7 @@ export { default as PixStepper } from './components/navigation/pix-stepper.gjs';
 export { default as PixTabs } from './components/navigation/pix-tabs.gjs';
 
 export { default as PixModal } from './components/overlay/pix-modal.gjs';
+export { default as PixOverlay } from './components/overlay/pix-overlay.gjs';
 export { default as PixSidePanel } from './components/overlay/pix-side-panel.gjs';
 export { default as PixTooltip } from './components/overlay/pix-tooltip.gjs';
 
