@@ -2,6 +2,8 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { LinkTo } from '@ember/routing';
+import { fn } from '@ember/helper';
+import { not } from 'ember-truth-helpers';
 import { PixModal, PixButton } from '@1024pix/nebulix-ember';
 
 export default class ModalPage extends Component {
