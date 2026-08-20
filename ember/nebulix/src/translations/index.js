@@ -34,7 +34,7 @@ const locales = {
   }),
 };
 
-export function flattenObject(object) {
+function flattenObject(object) {
   const entries = Object.entries(object);
 
   const flatEntries = entries.flatMap(([key, value]) => {
@@ -42,7 +42,10 @@ export function flattenObject(object) {
 
     const childEntries = Object.entries(flattenObject(value));
 
-    return childEntries.map(([childKey, childValue]) => [`${key}.${childKey}`, childValue]);
+    return childEntries.map(([childKey, childValue]) => [
+      `${key}.${childKey}`,
+      childValue,
+    ]);
   });
 
   return Object.fromEntries(flatEntries);
