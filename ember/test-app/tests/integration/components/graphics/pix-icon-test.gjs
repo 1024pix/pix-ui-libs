@@ -29,4 +29,12 @@ module('Integration | Component | pix-icon', function (hooks) {
     // then
     assert.strictEqual(use.getAttribute('href'), `${SPRITE_URL}#bell_plain`);
   });
+
+  test('it renders the default PixIcon title', async function (assert) {
+    // when
+    const screen = await render(<template><PixIcon @title='my-title' @icon='help' /></template>);
+
+    // then
+    assert.ok(screen.getByRole('img', { name: 'my-title' }));
+  });
 });
