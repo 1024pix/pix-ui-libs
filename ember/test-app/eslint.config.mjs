@@ -15,19 +15,16 @@
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import globals from 'globals';
+import pixRecommendedConfig from '@1024pix/eslint-plugin/config';
+import babelParser from '@babel/eslint-parser/experimental-worker';
 import js from '@eslint/js';
 import { defineConfig, globalIgnores } from 'eslint/config';
-
-import ts from 'typescript-eslint';
-
 import ember from 'eslint-plugin-ember/recommended';
-
-import eslintConfigPrettier from 'eslint-config-prettier';
-import qunit from 'eslint-plugin-qunit';
 import n from 'eslint-plugin-n';
-
-import babelParser from '@babel/eslint-parser/experimental-worker';
+import prettierRecommendedConfig from 'eslint-plugin-prettier/recommended';
+import qunit from 'eslint-plugin-qunit';
+import globals from 'globals';
+import ts from 'typescript-eslint';
 
 const parserOptions = {
   esm: {
@@ -43,12 +40,13 @@ const parserOptions = {
 };
 
 export default defineConfig([
+  ...pixRecommendedConfig,
   globalIgnores(['dist/', 'coverage/', '!**/.*']),
   js.configs.recommended,
   ember.configs.base,
   ember.configs.gjs,
   ember.configs.gts,
-  eslintConfigPrettier,
+  prettierRecommendedConfig,
   /**
    * https://eslint.org/docs/latest/use/configure/configuration-files#configuring-linter-options
    */
