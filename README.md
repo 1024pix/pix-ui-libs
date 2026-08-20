@@ -1,15 +1,11 @@
-# Pix-nebulix
+# Pix UI Libraries
 
-[Short description of the addon.]
+All common libraries for Pix UIs.
 
-## Compatibility
+## Pix Nebulix for Ember
 
-- Ember.js v6 or above
-- Ember CLI v6 or above
-- Node.js v24 or above
-
-## Installation
+Design system Nebulix for Ember apps.
 
 ```
-ember install @1024pix/nebulix-ember
+npm install -D @1024pix/nebulix-ember
 ```
