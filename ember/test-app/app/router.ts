@@ -8,6 +8,6 @@ export default class Router extends EmberRouter {
 
 Router.map(function () {
   // Route for the EmberJS route link tests
-  this.route('hello');
+  this.route('hello', { path: '/hello-world' });
   this.route('bye', { path: '/bye/:id' });
 });
