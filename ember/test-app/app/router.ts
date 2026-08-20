@@ -7,7 +7,12 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function () {
-  // Route for the EmberJS route link tests
+  // Routes for acceptance tests
+  this.route('modal');
+  this.route('select');
+  this.route('sidepanel');
+
+  // Route for integration tests
   this.route('hello', { path: '/hello-world' });
   this.route('bye', { path: '/bye/:id' });
 });
