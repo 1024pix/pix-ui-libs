@@ -1,9 +1,16 @@
-import { PixButtonLink } from '@1024pix/nebulix-ember';
+import { PixAppLayout, PixNavigationButton, PixNavigation } from '@1024pix/nebulix-ember';
 
 <template>
-  <div class="test-app">
-    <PixButtonLink @href="/tests" @size="large">
-      Launch all tests
-    </PixButtonLink>
-  </div>
+  <PixAppLayout>
+    <:navigation>
+      <PixNavigation>
+        <:navElements>
+          <PixNavigationButton href="/tests" @icon="bolt">Launch all tests</PixNavigationButton>
+        </:navElements>
+      </PixNavigation>
+    </:navigation>
+    <:main>
+      {{outlet}}
+    </:main>
+  </PixAppLayout>
 </template>
