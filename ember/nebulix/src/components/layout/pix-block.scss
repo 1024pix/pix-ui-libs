@@ -1,0 +1,30 @@
+@use "pix-design-tokens/shadows";
+
+.pix-block {
+  position: relative;
+  padding: var(--pix-spacing-3x);
+  background-color: var(--pix-neutral-0);
+  border-radius: var(--pix-spacing-5x);
+
+  &--variant-primary {
+    @extend %pix-shadow-default;
+
+    padding: var(--pix-spacing-6x);
+  }
+
+  &--variant-orga {
+    @extend %pix-shadow-orga;
+  }
+
+  &--variant-certif {
+    @extend %pix-shadow-certif;
+  }
+
+  &--variant-admin {
+    @extend %pix-shadow-default;
+  }
+
+  &--condensed {
+    padding: 0;
+  }
+}

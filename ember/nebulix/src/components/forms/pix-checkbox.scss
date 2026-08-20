@@ -1,0 +1,122 @@
+.pix-checkbox {
+  position: relative;
+  z-index: 0;
+
+  & + .pix-checkbox {
+    margin-top: var(--pix-spacing-4x);
+  }
+
+  /* Input */
+  &__input {
+    position: relative;
+    flex-shrink: 0;
+    width: 1rem;
+    height: 1rem;
+    background-color: var(--pix-neutral-0);
+    border: 1.5px solid var(--pix-neutral-800);
+    border-radius: 2px;
+    outline: 0;
+    cursor: pointer;
+    appearance: none;
+
+    // Hover effect
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: -1;
+      width: 1rem;
+      height: 1rem;
+      background-color: var(--pix-neutral-20);
+      border-color: var(--pix-neutral-900);
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(1);
+      visibility: hidden;
+      opacity: 0;
+      transition: all 0.3s ease;
+      content: '';
+    }
+
+    &:hover,
+    &:focus-visible {
+      &::before {
+        background-color: var(--pix-neutral-20);
+        transform: translate(-50%, -50%) scale(1.75);
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+    &:active {
+      &::before {
+        background-color: var(--pix-neutral-100);
+        transform: translate(-50%, -50%) scale(1.75);
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+    // Checked state
+    &:checked {
+      background: var(--pix-primary-500);
+      border-color: var(--pix-primary-500);
+
+      &:hover,
+      &:focus-visible,
+      &:active {
+        background: var(--pix-primary-700);
+        border-color: var(--pix-primary-700);
+      }
+
+      &::after {
+        position: absolute;
+        background-image: url('data:image/svg+xml,<svg fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m382-362.13 334.7-334.7q13.67-13.67 32.06-13.67t32.07 13.67q13.67 13.68 13.67 32.45t-13.67 32.45L414.07-264.41q-13.68 13.67-32.07 13.67t-32.07-13.67L178.41-435.93q-13.67-13.68-13.29-32.45t14.05-32.45q13.68-13.67 32.45-13.67t32.45 13.67z"/></svg>');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        content: '';
+        inset: 0%;
+      }
+    }
+
+    // Indeterminate state
+    &--indeterminate:checked {
+      background: var(--pix-neutral-800);
+      border-color: var(--pix-neutral-800);
+
+      &:hover,
+      &:focus-visible,
+      &:active {
+        background: var(--pix-neutral-900);
+        border-color: var(--pix-neutral-900);
+      }
+
+      &::after {
+        background-image: url('data:image/svg+xml,<svg fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M277.37-434.5q-19.15 0-32.33-13.17-13.17-13.18-13.17-32.33t13.17-32.33q13.18-13.17 32.33-13.17h405.26q19.15 0 32.33 13.17 13.17 13.18 13.17 32.33t-13.17 32.33q-13.18 13.17-32.33 13.17z"/></svg>');
+      }
+    }
+
+    // Disabled state
+    &[aria-disabled='true'],
+    &:disabled,
+    &--indeterminate[aria-disabled='true'],
+    &--indeterminate:disabled {
+      background: var(--pix-neutral-100);
+      border-color: var(--pix-neutral-100);
+      cursor: not-allowed;
+
+      &:checked {
+        background: var(--pix-neutral-100);
+        border-color: var(--pix-neutral-100);
+      }
+
+      &::before {
+        display: none;
+      }
+
+      &.pix-checkbox__input--state {
+        position: absolute;
+      }
+    }
+  }
+}

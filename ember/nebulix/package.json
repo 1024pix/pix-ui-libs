@@ -8,24 +8,17 @@
   "repository": "",
   "license": "MIT",
   "author": "",
-  "imports": {
-    "#src/*": "./src/*"
-  },
   "exports": {
-    ".": {
-      "default": "./dist/index.js"
-    },
+    ".": "./dist/index.js",
     "./addon-main.js": "./addon-main.cjs",
-    "./*.css": "./dist/*.css",
-    "./*": {
-      "default": "./dist/*.js"
-    }
+    "./package.json": "./package.json",
+    "./*.scss": "./dist/*.scss",
+    "./*": "./dist/*.js"
   },
   "files": [
     "addon-main.cjs",
-    "declarations",
     "dist",
-    "src"
+    "src/assets"
   ],
   "scripts": {
     "build": "rollup --config",
@@ -39,35 +32,33 @@
     "lint:js:fix": "eslint . --fix",
     "lint:publish": "pnpm build && publint run --level error",
     "prepack": "rollup --config",
-    "start": "vite dev",
-    "test": "vite build --mode=development --out-dir dist-tests && testem --file testem.cjs ci --port 0"
+    "prepare": "rollup --config"
+  },
+  "peerDependencies": {
+    "ember-source": ">= 6.0.0",
+    "@glimmer/component": ">= 2.0.0"
   },
   "dependencies": {
     "@embroider/addon-shim": "^1.8.9",
-    "decorator-transforms": "^2.2.2"
+    "@formatjs/intl": "^4.1.19",
+    "decorator-transforms": "^2.2.2",
+    "ember-lifeline": "^7.1.0",
+    "ember-modifier": "^4.3.0",
+    "ember-truth-helpers": "^5.0.0",
+    "tracked-toolbox": "^3.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
     "@babel/eslint-parser": "^7.25.1",
     "@babel/runtime": "^7.25.6",
-    "@ember/app-tsconfig": "^1.0.0",
-    "@ember/library-tsconfig": "^1.0.0",
-    "@ember/test-helpers": "^5.2.1",
-    "@ember/test-waiters": "^4.1.1",
     "@embroider/addon-dev": "^8.1.0",
-    "@embroider/compat": "^4.1.0",
-    "@embroider/core": "^4.1.0",
     "@embroider/macros": "^1.20.1",
-    "@embroider/vite": "^1.1.5",
     "@eslint/js": "^9.17.0",
-    "@glimmer/component": "^2.0.0",
+    "@glimmer/component": "^2.1.1",
     "@rollup/plugin-babel": "^6.0.4",
     "babel-plugin-ember-template-compilation": "^4.0.0",
     "concurrently": "^9.0.1",
-    "ember-page-title": "^9.0.3",
-    "ember-qunit": "^9.0.2",
-    "ember-source": "^6.7.0",
-    "ember-strict-application-resolver": "^0.1.0",
+    "ember-source": "~7.2.0",
     "ember-template-lint": "^7.9.0",
     "eslint": "^9.17.0",
     "eslint-config-prettier": "^10.1.5",
@@ -78,12 +69,7 @@
     "prettier": "^3.4.2",
     "prettier-plugin-ember-template-tag": "^2.0.4",
     "publint": "^0.3.16",
-    "qunit": "^2.24.1",
-    "qunit-dom": "^3.4.0",
-    "rollup": "^4.22.5",
-    "testem": "^3.15.1",
-    "typescript": "^6.0.3",
-    "vite": "^7.1.9"
+    "rollup": "^4.22.5"
   },
   "ember": {
     "edition": "octane"
@@ -91,6 +77,80 @@
   "ember-addon": {
     "version": 2,
     "type": "addon",
-    "main": "addon-main.cjs"
+    "main": "addon-main.cjs",
+    "app-js": {
+      "./components/pix-button-base.js": "./dist/_app_/components/pix-button-base.js",
+      "./components/pix-button-content.js": "./dist/_app_/components/pix-button-content.js",
+      "./components/pix-button-link.js": "./dist/_app_/components/pix-button-link.js",
+      "./components/pix-button-upload.js": "./dist/_app_/components/pix-button-upload.js",
+      "./components/pix-button.js": "./dist/_app_/components/pix-button.js",
+      "./components/pix-icon-button.js": "./dist/_app_/components/pix-icon-button.js",
+      "./components/pix-accordions.js": "./dist/_app_/components/pix-accordions.js",
+      "./components/pix-card.js": "./dist/_app_/components/pix-card.js",
+      "./components/pix-filter-banner.js": "./dist/_app_/components/pix-filter-banner.js",
+      "./components/pix-gauge.js": "./dist/_app_/components/pix-gauge.js",
+      "./components/pix-indicator-card.js": "./dist/_app_/components/pix-indicator-card.js",
+      "./components/pix-progress-bar.js": "./dist/_app_/components/pix-progress-bar.js",
+      "./components/pix-stars.js": "./dist/_app_/components/pix-stars.js",
+      "./components/pix-table-column.js": "./dist/_app_/components/pix-table-column.js",
+      "./components/pix-table.js": "./dist/_app_/components/pix-table.js",
+      "./components/pix-tag.js": "./dist/_app_/components/pix-tag.js",
+      "./components/pix-banner-alert.js": "./dist/_app_/components/pix-banner-alert.js",
+      "./components/pix-notification-alert.js": "./dist/_app_/components/pix-notification-alert.js",
+      "./components/pix-toast-container.js": "./dist/_app_/components/pix-toast-container.js",
+      "./components/pix-toast.js": "./dist/_app_/components/pix-toast.js",
+      "./components/pix-checkbox.js": "./dist/_app_/components/pix-checkbox.js",
+      "./components/pix-code.js": "./dist/_app_/components/pix-code.js",
+      "./components/pix-input-base.js": "./dist/_app_/components/pix-input-base.js",
+      "./components/pix-input-code.js": "./dist/_app_/components/pix-input-code.js",
+      "./components/pix-input-password.js": "./dist/_app_/components/pix-input-password.js",
+      "./components/pix-input.js": "./dist/_app_/components/pix-input.js",
+      "./components/pix-label-wrapped.js": "./dist/_app_/components/pix-label-wrapped.js",
+      "./components/pix-label.js": "./dist/_app_/components/pix-label.js",
+      "./components/pix-radio-button.js": "./dist/_app_/components/pix-radio-button.js",
+      "./components/pix-search-input.js": "./dist/_app_/components/pix-search-input.js",
+      "./components/pix-select-list.js": "./dist/_app_/components/pix-select-list.js",
+      "./components/pix-textarea.js": "./dist/_app_/components/pix-textarea.js",
+      "./components/pix-icon.js": "./dist/_app_/components/pix-icon.js",
+      "./components/pix-block.js": "./dist/_app_/components/pix-block.js",
+      "./components/pix-app-layout.js": "./dist/_app_/components/pix-app-layout.js",
+      "./components/pix-breadcrumb.js": "./dist/_app_/components/pix-breadcrumb.js",
+      "./components/pix-navigation-button.js": "./dist/_app_/components/pix-navigation-button.js",
+      "./components/pix-navigation-separator.js": "./dist/_app_/components/pix-navigation-separator.js",
+      "./components/pix-navigation-shrunk-button.js": "./dist/_app_/components/pix-navigation-shrunk-button.js",
+      "./components/pix-navigation.js": "./dist/_app_/components/pix-navigation.js",
+      "./components/pix-segmented-control.js": "./dist/_app_/components/pix-segmented-control.js",
+      "./components/pix-step.js": "./dist/_app_/components/pix-step.js",
+      "./components/pix-stepper.js": "./dist/_app_/components/pix-stepper.js",
+      "./components/pix-tabs.js": "./dist/_app_/components/pix-tabs.js",
+      "./components/pix-modal-header.js": "./dist/_app_/components/pix-modal-header.js",
+      "./components/pix-modal.js": "./dist/_app_/components/pix-modal.js",
+      "./components/pix-overlay.js": "./dist/_app_/components/pix-overlay.js",
+      "./components/pix-side-panel.js": "./dist/_app_/components/pix-side-panel.js",
+      "./components/pix-tooltip.js": "./dist/_app_/components/pix-tooltip.js",
+      "./helpers/icons.js": "./dist/_app_/helpers/icons.js",
+      "./helpers/variants.js": "./dist/_app_/helpers/variants.js",
+      "./modifiers/modal-dialog.js": "./dist/_app_/modifiers/modal-dialog.js",
+      "./modifiers/on-arrow-down-up-action.js": "./dist/_app_/modifiers/on-arrow-down-up-action.js",
+      "./modifiers/on-enter-action.js": "./dist/_app_/modifiers/on-enter-action.js",
+      "./modifiers/on-escape-action.js": "./dist/_app_/modifiers/on-escape-action.js",
+      "./modifiers/on-space-action.js": "./dist/_app_/modifiers/on-space-action.js",
+      "./modifiers/on-window-resize.js": "./dist/_app_/modifiers/on-window-resize.js",
+      "./modifiers/trap-focus.js": "./dist/_app_/modifiers/trap-focus.js",
+      "./services/pix-toast.js": "./dist/_app_/services/pix-toast.js",
+      "./services/shrink-navigation-service.js": "./dist/_app_/services/shrink-navigation-service.js"
+    },
+    "public-assets": {
+      "./src/assets/fonts/Nunito/Nunito-Bold.woff2": "/@1024pix/nebulix-ember/fonts/Nunito/Nunito-Bold.woff2",
+      "./src/assets/fonts/Nunito/Nunito-ExtraBold.woff2": "/@1024pix/nebulix-ember/fonts/Nunito/Nunito-ExtraBold.woff2",
+      "./src/assets/fonts/Nunito/Nunito-Regular.woff2": "/@1024pix/nebulix-ember/fonts/Nunito/Nunito-Regular.woff2",
+      "./src/assets/fonts/OpenSans/OpenSans-Medium.woff2": "/@1024pix/nebulix-ember/fonts/OpenSans/OpenSans-Medium.woff2",
+      "./src/assets/fonts/Roboto/Roboto-Bold.woff2": "/@1024pix/nebulix-ember/fonts/Roboto/Roboto-Bold.woff2",
+      "./src/assets/fonts/Roboto/Roboto-Medium.woff2": "/@1024pix/nebulix-ember/fonts/Roboto/Roboto-Medium.woff2",
+      "./src/assets/fonts/Roboto/Roboto-Regular.woff2": "/@1024pix/nebulix-ember/fonts/Roboto/Roboto-Regular.woff2",
+      "./src/assets/fonts/RobotoCondensed/RobotoCondensed-Medium.woff2": "/@1024pix/nebulix-ember/fonts/RobotoCondensed/RobotoCondensed-Medium.woff2",
+      "./src/assets/fonts/RobotoMono/RobotoMono-Regular.woff2": "/@1024pix/nebulix-ember/fonts/RobotoMono/RobotoMono-Regular.woff2",
+      "./src/assets/svg/pix-sprite.svg": "/@1024pix/nebulix-ember/svg/pix-sprite.svg"
+    }
   }
 }
