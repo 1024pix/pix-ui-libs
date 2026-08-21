@@ -44,3 +44,9 @@ jobs:
           key: pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
           paths:
             - .pnpm-store
+      - run:
+          name: Lint addon src files
+          command: pnpm --filter @1024pix/nebulix-ember lint
+      - run:
+          name: Lint test-app src files
+          command: pnpm --filter test-app lint
