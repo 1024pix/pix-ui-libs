@@ -1,0 +1,28 @@
+name: Release Nebulix Ember
+
+permissions:
+  id-token: write # necessary for publishing to npm
+  pull-requests: write # necessary for writing comment on PR
+
+on:
+  workflow_dispatch:
+
+jobs:
+  release:
+    name: "Release Nebulix Ember"
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: pnpm/setup@v2
+        with:
+          version: 11
+          runtime: node@24
+          cache: true
+
+      - name: Publish
+        run: pnpm publish --filter @1024pix/nebulix-ember --access=public
+        env:
+          NPM_TOKEN: ${{ secrets.TMP_NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PIX_SERVICE_ACTIONS_TOKEN }}
