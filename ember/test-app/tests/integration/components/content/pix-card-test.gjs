@@ -1,7 +1,7 @@
-import {render} from '@1024pix/ember-testing-library';
-import {PixCard} from '@1024pix/nebulix-ember';
-import {setupRenderingTest} from 'ember-qunit';
-import {module, test} from 'qunit';
+import { render } from '@1024pix/ember-testing-library';
+import { PixCard } from '@1024pix/nebulix-ember';
+import { setupRenderingTest } from 'ember-qunit';
+import { module, test } from 'qunit';
 import sinon from 'sinon';
 
 module('Integration | Component | PixCard', function (hooks) {
@@ -9,11 +9,10 @@ module('Integration | Component | PixCard', function (hooks) {
 
   test('it renders the title', async function (assert) {
     // when
-    const screen = await render(<template>
-      <PixCard @title="Parcours Combiné IA" /></template>);
+    const screen = await render(<template><PixCard @title="Parcours Combiné IA" /></template>);
 
     // then
-    assert.dom(screen.getByRole('heading', {level: 3})).hasText('Parcours Combiné IA');
+    assert.dom(screen.getByRole('heading', { level: 3 })).hasText('Parcours Combiné IA');
   });
 
   module('@variant', function (hooks) {
@@ -30,10 +29,10 @@ module('Integration | Component | PixCard', function (hooks) {
     test('it renders PixCard with primary variant', async function (assert) {
       // when
       await render(
-      <template>
-        <PixCard>
-          <:description>coucou</:description></PixCard>
-      </template>,
+        <template>
+          <PixCard>
+            <:description>coucou</:description></PixCard>
+        </template>,
       );
       const blockElement = this.element.querySelector('.pix-card-wrapper');
 
@@ -49,10 +48,10 @@ module('Integration | Component | PixCard', function (hooks) {
     test('it should warn when variant is not supported', async function (assert) {
       // when
       await render(
-      <template>
-        <PixCard @variant="PIX APP">
-          <:description>coucou</:description></PixCard>
-      </template>,
+        <template>
+          <PixCard @variant="PIX APP">
+            <:description>coucou</:description></PixCard>
+        </template>,
       );
 
       // then
@@ -68,8 +67,7 @@ module('Integration | Component | PixCard', function (hooks) {
     test('it renders the subtitle', async function (assert) {
       // when
       const screen = await render(
-      <template>
-        <PixCard @title="Mon titre" @subtitle="Autres" /></template>,
+        <template><PixCard @title="Mon titre" @subtitle="Autres" /></template>,
       );
 
       // then
@@ -81,12 +79,11 @@ module('Integration | Component | PixCard', function (hooks) {
     test('it renders the image', async function (assert) {
       // when
       const screen = await render(
-      <template>
-        <PixCard @title="Mon titre" @image="https://example.com/image.svg" /></template>,
+        <template><PixCard @title="Mon titre" @image="https://example.com/image.svg" /></template>,
       );
       // then
       assert
-        .dom(screen.getByRole('presentation', {hidden: true}))
+        .dom(screen.getByRole('presentation', { hidden: true }))
         .hasAttribute('src', 'https://example.com/image.svg');
     });
   });
@@ -94,11 +91,10 @@ module('Integration | Component | PixCard', function (hooks) {
   module('when @image is not provided', function () {
     test('it does not render an image', async function (assert) {
       // when
-      const screen = await render(<template>
-        <PixCard @title="Mon titre" /></template>);
+      const screen = await render(<template><PixCard @title="Mon titre" /></template>);
 
       // then
-      assert.dom(screen.queryByRole('img', {hidden: true})).doesNotExist();
+      assert.dom(screen.queryByRole('img', { hidden: true })).doesNotExist();
     });
   });
 
@@ -106,11 +102,11 @@ module('Integration | Component | PixCard', function (hooks) {
     test('it renders the tag block', async function (assert) {
       // when
       const screen = await render(
-      <template>
-        <PixCard @title="Mon titre">
-          <:tag>Parcours</:tag>
-        </PixCard>
-      </template>,
+        <template>
+          <PixCard @title="Mon titre">
+            <:tag>Parcours</:tag>
+          </PixCard>
+        </template>,
       );
 
       // then
@@ -122,11 +118,11 @@ module('Integration | Component | PixCard', function (hooks) {
     test('it renders the description', async function (assert) {
       // when
       const screen = await render(
-      <template>
-        <PixCard @title="Mon titre">
-          <:description>Lorem ipsum dolor sit amet.</:description>
-        </PixCard>
-      </template>,
+        <template>
+          <PixCard @title="Mon titre">
+            <:description>Lorem ipsum dolor sit amet.</:description>
+          </PixCard>
+        </template>,
       );
 
       // then
@@ -138,11 +134,11 @@ module('Integration | Component | PixCard', function (hooks) {
     test('it renders the footer', async function (assert) {
       // when
       const screen = await render(
-      <template>
-        <PixCard @title="Mon titre">
-          <:footer>Informations complémentaires</:footer>
-        </PixCard>
-      </template>,
+        <template>
+          <PixCard @title="Mon titre">
+            <:footer>Informations complémentaires</:footer>
+          </PixCard>
+        </template>,
       );
 
       // then

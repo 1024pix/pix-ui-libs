@@ -1,8 +1,10 @@
-import { babel } from '@rollup/plugin-babel';
-import { Addon } from '@embroider/addon-dev/rollup';
-import { publishedSources } from './rollup-plugin-published-sources.mjs';
+import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { resolve, dirname } from 'node:path';
+
+import { Addon } from '@embroider/addon-dev/rollup';
+import { babel } from '@rollup/plugin-babel';
+
+import { publishedSources } from './rollup-plugin-published-sources.mjs';
 const addon = new Addon({
   srcDir: 'src',
   destDir: 'dist',
@@ -30,19 +32,13 @@ export default {
     // "app" tree. Things in here should also be in publicEntrypoints above, but
     // not everything in publicEntrypoints necessarily needs to go here.
     addon.appReexports(
-      [
-        'components/**/*.js',
-        'helpers/**/*.js',
-        'modifiers/**/*.js',
-        'services/**/*.js',
-      ],
+      ['components/**/*.js', 'helpers/**/*.js', 'modifiers/**/*.js', 'services/**/*.js'],
       {
         // Components are grouped in subfolders (actions/, forms/, ...) purely
         // for readability. The classic resolver looks components up by a flat
         // name, so `<PixBlock>` must not become `<Layout::PixBlock>` in
         // consuming apps.
-        mapFilename: (fileName) =>
-          fileName.replace(/^components\/[^/]+\//, 'components/'),
+        mapFilename: (fileName) => fileName.replace(/^components\/[^/]+\//, 'components/'),
       },
     ),
 

@@ -1,8 +1,8 @@
+import './pix-progress-bar.scss';
+
 import { warn } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
 import Component from '@glimmer/component';
-
-import './pix-progress-bar.scss'
 
 export default class PixProgressBar extends Component {
   constructor(...args) {

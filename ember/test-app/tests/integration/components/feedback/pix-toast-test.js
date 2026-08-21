@@ -49,10 +49,7 @@ module('Integration | Component | toast', function (hooks) {
       await click(screen.getByRole('button'));
 
       // then
-      sinon.assert.calledOnceWithExactly(
-        pixToastService.removeNotification,
-        toast,
-      );
+      sinon.assert.calledOnceWithExactly(pixToastService.removeNotification, toast);
       assert.ok(true);
     });
   });

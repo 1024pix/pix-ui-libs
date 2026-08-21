@@ -1,8 +1,9 @@
 import { createRequire } from 'node:module';
 import { dirname, join } from 'node:path';
-import { defineConfig } from 'vite';
-import { extensions, classicEmberSupport, ember } from '@embroider/vite';
+
+import { classicEmberSupport, ember, extensions } from '@embroider/vite';
 import { babel } from '@rollup/plugin-babel';
+import { defineConfig } from 'vite';
 
 const require = createRequire(import.meta.url);
 

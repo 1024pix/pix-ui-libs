@@ -1,3 +1,5 @@
+import './pix-navigation-shrunk-button.scss';
+
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import { LinkTo } from '@ember/routing';
@@ -5,8 +7,6 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 
 import PixIcon from '../graphics/pix-icon.gjs';
-
-import './pix-navigation-shrunk-button.scss';
 
 export default class PixNavigationShrunkButton extends Component {
   @tracked isTooltipVisible = false;

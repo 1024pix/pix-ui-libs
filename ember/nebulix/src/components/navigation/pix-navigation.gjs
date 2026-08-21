@@ -1,3 +1,5 @@
+import './pix-navigation.scss';
+
 import { warn } from '@ember/debug';
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
@@ -9,8 +11,6 @@ import { tracked } from '@glimmer/tracking';
 import { formatMessage } from '../../translations/index.js';
 import PixButton from '../actions/pix-button.gjs';
 import PixIconButton from '../actions/pix-icon-button.gjs';
-
-import './pix-navigation.scss';
 
 export default class PixNavigation extends Component {
   @service router;

@@ -1,8 +1,7 @@
+import { PixButton, PixMultiSelect, PixPagination, PixSelect } from '@1024pix/nebulix-ember';
+import { action } from '@ember/object';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
-import { LinkTo } from '@ember/routing';
-import { PixSelect, PixButton, PixMultiSelect, PixPagination } from '@1024pix/nebulix-ember';
 
 export default class SelectPage extends Component {
   @tracked selectedOption = null;
@@ -36,10 +35,10 @@ export default class SelectPage extends Component {
     },
   ];
   @tracked multiOptions = [
-    { value: 'a', label: 'Salade'},
-    { value: 'b', label: 'Tomate'},
-    { value: 'c', label: 'Oignons'},
-  ]
+    { value: 'a', label: 'Salade' },
+    { value: 'b', label: 'Tomate' },
+    { value: 'c', label: 'Oignons' },
+  ];
   @tracked searchValue;
   @tracked multiSearchValue;
 
@@ -68,14 +67,14 @@ export default class SelectPage extends Component {
   addNewOption() {
     if (this.options.length > 6) return;
     const newOption = { value: '7', label: 'Citron', category: 'yellow' };
-    this.options = [...this.options, newOption]
+    this.options = [...this.options, newOption];
   }
 
   @action
   addNewMultiOption() {
     if (this.multiOptions.length > 3) return;
     const newOption = { value: 'd', label: 'Harissa (NEW)' };
-    this.multiOptions = [...this.multiOptions, newOption]
+    this.multiOptions = [...this.multiOptions, newOption];
   }
 
   @action
@@ -94,26 +93,18 @@ export default class SelectPage extends Component {
     { value: '3', label: 'South Africa' },
   ];
 
-  get options() {
-    return
-  }
-
   get filteredOptions() {
     if (this.searchValue) {
-      try {
-        const searchRegex = new RegExp(`${this.searchValue}`, 'i')
-        return this.options.filter((option) => option.label.match(searchRegex));
-      } catch {}
+      const searchRegex = new RegExp(`${this.searchValue}`, 'i');
+      return this.options.filter((option) => option.label.match(searchRegex));
     }
     return this.options;
   }
 
   get filteredMultiOptions() {
     if (this.multiSearchValue) {
-      try {
-        const searchRegex = new RegExp(`${this.multiSearchValue}`, 'i')
-        return this.multiOptions.filter((option) => option.label.match(searchRegex));
-      } catch {}
+      const searchRegex = new RegExp(`${this.multiSearchValue}`, 'i');
+      return this.multiOptions.filter((option) => option.label.match(searchRegex));
     }
     return this.multiOptions;
   }

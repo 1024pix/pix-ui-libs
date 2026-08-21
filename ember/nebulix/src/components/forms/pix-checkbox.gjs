@@ -1,3 +1,5 @@
+import './pix-checkbox.scss';
+
 import { warn } from '@ember/debug';
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
@@ -6,8 +8,6 @@ import Component from '@glimmer/component';
 
 import { formatMessage } from '../../translations/index.js';
 import PixLabelWrapped from './pix-label-wrapped.gjs';
-
-import "./pix-checkbox.scss";
 
 export default class PixCheckbox extends Component {
   constructor() {

@@ -1,3 +1,5 @@
+import './pix-textarea.scss';
+
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
@@ -5,8 +7,6 @@ import Component from '@glimmer/component';
 import { localCopy } from 'tracked-toolbox';
 
 import PixLabel from './pix-label.gjs';
-
-import './pix-textarea.scss';
 
 export default class PixTextarea extends Component {
   @localCopy('args.value') value;

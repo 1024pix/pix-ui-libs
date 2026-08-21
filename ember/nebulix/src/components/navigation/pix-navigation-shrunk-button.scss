@@ -1,4 +1,4 @@
-@use "pix-design-tokens/typography";
+@use 'pix-design-tokens/typography';
 
 .navigation-tooltip {
   position: relative;
@@ -23,7 +23,8 @@
   }
 
   &--visible {
-    &:hover, &:active {
+    &:hover,
+    &:active {
       .navigation-tooltip__content {
         visibility: visible;
         opacity: 1;

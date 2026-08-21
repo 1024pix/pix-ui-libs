@@ -93,7 +93,8 @@
     }
   }
 
-  &__input--variant-modulix, svg:has(+ .pix-radio-button__input--variant-modulix) {
+  &__input--variant-modulix,
+  svg:has(+ .pix-radio-button__input--variant-modulix) {
     position: absolute;
     clip-path: polygon(0 0);
   }

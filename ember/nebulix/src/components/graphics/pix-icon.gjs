@@ -1,9 +1,10 @@
-import { ICONS } from '../../helpers/icons.js';
+import './pix-icon.scss';
+
 import { warn } from '@ember/debug';
 import { uniqueId } from '@ember/helper';
 import Component from '@glimmer/component';
 
-import './pix-icon.scss';
+import { ICONS } from '../../helpers/icons.js';
 
 export default class PixIcon extends Component {
   get title() {

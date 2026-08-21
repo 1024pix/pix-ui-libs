@@ -1,11 +1,11 @@
+import './pix-indicator-card.scss';
+
 import { guidFor } from '@ember/object/internals';
 import Component from '@glimmer/component';
 
-import PixBlock from '../layout/pix-block.gjs';
 import PixIcon from '../graphics/pix-icon.gjs';
+import PixBlock from '../layout/pix-block.gjs';
 import PixTooltip from '../overlay/pix-tooltip.gjs';
-
-import "./pix-indicator-card.scss";
 
 export default class PixIndicatorCard extends Component {
   id = guidFor(this);

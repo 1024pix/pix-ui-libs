@@ -1,11 +1,11 @@
-import { MODAL_VARIANTS } from '../../helpers/variants.js';
+import './pix-side-panel.scss';
+
 import { guidFor } from '@ember/object/internals';
 import Component from '@glimmer/component';
 
+import { MODAL_VARIANTS } from '../../helpers/variants.js';
 import PixModalHeader from './pix-modal-header.gjs';
 import PixOverlay from './pix-overlay.gjs';
-
-import "./pix-side-panel.scss";
 
 export default class PixSidePanel extends Component {
   constructor(...args) {

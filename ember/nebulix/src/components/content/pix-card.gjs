@@ -1,9 +1,9 @@
+import './pix-card.scss';
+
 import { warn } from '@ember/debug';
 import Component from '@glimmer/component';
 
 import PixBlock from '../layout/pix-block.gjs';
-
-import "./pix-card.scss";
 
 export default class PixCard extends Component {
   static get variants() {

@@ -1,3 +1,5 @@
+import './pix-multi-select.scss';
+
 import { warn } from '@ember/debug';
 import { concat } from '@ember/helper';
 import { on } from '@ember/modifier';
@@ -17,8 +19,6 @@ import { formatMessage } from '../../translations/index.js';
 import PixIcon from '../graphics/pix-icon.gjs';
 import PixCheckbox from './pix-checkbox.gjs';
 import PixLabel from './pix-label.gjs';
-
-import './pix-multi-select.scss';
 
 function removeCapitalizeAndDiacritics(string) {
   return string

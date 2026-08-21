@@ -1,12 +1,12 @@
+import './pix-banner-alert.scss';
+
 import { action } from '@ember/object';
 import { LinkTo } from '@ember/routing';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 
-import PixIcon from '../graphics/pix-icon.gjs';
 import PixIconButton from '../actions/pix-icon-button.gjs';
-
-import './pix-banner-alert.scss'
+import PixIcon from '../graphics/pix-icon.gjs';
 
 const TYPE_INFO = 'information';
 const TYPE_ERROR = 'error';

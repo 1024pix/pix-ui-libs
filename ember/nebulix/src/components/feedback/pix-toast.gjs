@@ -9,10 +9,10 @@ const TYPE_ERROR = 'error';
 const TYPE_INFORMATION = 'information';
 const TYPE_WARNING = 'warning';
 
-import PixIcon from '../graphics/pix-icon.gjs';
-import PixIconButton from '../actions/pix-icon-button.gjs';
+import './pix-toast.scss';
 
-import './pix-toast.scss'
+import PixIconButton from '../actions/pix-icon-button.gjs';
+import PixIcon from '../graphics/pix-icon.gjs';
 
 export default class PixToast extends Component {
   @service pixToast;

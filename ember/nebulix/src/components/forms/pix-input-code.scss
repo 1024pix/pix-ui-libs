@@ -1,4 +1,4 @@
-@use "forms";
+@use 'forms';
 
 .pix-input-code {
   @extend %pix-monospace;
@@ -7,7 +7,7 @@
   line-height: 1.15;
 
   // hide up/down cursors
-  input[type="number"] {
+  input[type='number'] {
     // Firefox
     -moz-appearance: textfield;
     appearance: textfield;

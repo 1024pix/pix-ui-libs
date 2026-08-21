@@ -1,10 +1,10 @@
+import './pix-breadcrumb.scss';
+
 import { array } from '@ember/helper';
 import { LinkTo } from '@ember/routing';
 import Component from '@glimmer/component';
 
 import PixIcon from '../graphics/pix-icon.gjs';
-
-import './pix-breadcrumb.scss';
 
 export default class PixBreadcrumb extends Component {
   defaultModel = [];

@@ -1,4 +1,4 @@
-@use "pix-design-tokens/typography";
+@use 'pix-design-tokens/typography';
 @use 'pix-design-tokens/shadows';
 @use 'pix-design-tokens/breakpoints';
 
@@ -61,7 +61,7 @@
     border-radius: 8px;
   }
 
-  &:active:not([aria-expanded='true'])  {
+  &:active:not([aria-expanded='true']) {
     @extend %pix-shadow-default;
   }
 

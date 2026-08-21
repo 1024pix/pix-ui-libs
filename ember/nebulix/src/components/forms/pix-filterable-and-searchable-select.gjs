@@ -1,3 +1,5 @@
+import './pix-filterable-and-searchable-select.scss';
+
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import { service } from '@ember/service';
@@ -7,8 +9,6 @@ import { tracked } from '@glimmer/tracking';
 import PixLabel from './pix-label.gjs';
 import PixMultiSelect from './pix-multi-select.gjs';
 import PixSelect from './pix-select.gjs';
-
-import './pix-filterable-and-searchable-select.scss';
 
 export default class PixFilterableAndSearchableSelect extends Component {
   @service elementHelper;

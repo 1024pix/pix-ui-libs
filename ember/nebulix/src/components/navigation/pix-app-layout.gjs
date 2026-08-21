@@ -1,11 +1,11 @@
-import { VARIANTS } from '../../helpers/variants.js';
+import './pix-app-layout.scss';
+
 import { warn } from '@ember/debug';
 import { service } from '@ember/service';
 import Component from '@glimmer/component';
 
+import { VARIANTS } from '../../helpers/variants.js';
 import onWindowResize from '../../modifiers/on-window-resize.js';
-
-import "./pix-app-layout.scss";
 
 export default class PixAppLayout extends Component {
   @service shrinkNavigationService;

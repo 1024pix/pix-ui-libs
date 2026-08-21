@@ -1,9 +1,7 @@
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import {
-  babelCompatSupport,
-  templateCompatSupport,
-} from '@embroider/compat/babel';
+
+import { babelCompatSupport, templateCompatSupport } from '@embroider/compat/babel';
 
 export default {
   plugins: [
@@ -30,9 +28,7 @@ export default {
       'module:decorator-transforms',
       {
         runtime: {
-          import: fileURLToPath(
-            import.meta.resolve('decorator-transforms/runtime-esm'),
-          ),
+          import: fileURLToPath(import.meta.resolve('decorator-transforms/runtime-esm')),
         },
       },
     ],

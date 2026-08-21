@@ -1,3 +1,3 @@
-import "./pix-navigation-separator.scss";
+import './pix-navigation-separator.scss';
 
 <template><hr class="pix-navigation-separator" /></template>

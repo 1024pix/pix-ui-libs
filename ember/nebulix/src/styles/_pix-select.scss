@@ -1,6 +1,6 @@
-@use "pix-design-tokens/typography";
-@use "component-state/form";
-@use "pix-design-tokens/shadows";
+@use 'pix-design-tokens/typography';
+@use 'component-state/form';
+@use 'pix-design-tokens/shadows';
 
 .pix-select {
   position: relative;
@@ -63,8 +63,6 @@
       opacity: 0;
     }
   }
-
-
 
   &__search {
     display: flex;
@@ -146,6 +144,6 @@
 
   &__icon {
     margin: auto var(--pix-spacing-1x);
-    color: var(--pix-neutral-100)
+    color: var(--pix-neutral-100);
   }
 }

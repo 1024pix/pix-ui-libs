@@ -1,5 +1,5 @@
-@use "pix-design-tokens/typography";
-@use "pix-design-tokens/shadows";
+@use 'pix-design-tokens/typography';
+@use 'pix-design-tokens/shadows';
 
 .indicator-card {
   display: flex;
@@ -90,7 +90,7 @@
 
   &__tooltip-icon {
     width: 1rem;
-    height:1rem;
+    height: 1rem;
     margin: 0 var(--pix-spacing-2x);
     color: var(--pix-neutral-500);
   }

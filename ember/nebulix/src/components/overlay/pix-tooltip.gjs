@@ -1,11 +1,11 @@
+import './pix-tooltip.scss';
+
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 
 import onEscapeAction from '../../modifiers/on-escape-action.js';
-
-import './pix-tooltip.scss';
 
 export default class PixTooltip extends Component {
   @tracked isTooltipVisible = false;

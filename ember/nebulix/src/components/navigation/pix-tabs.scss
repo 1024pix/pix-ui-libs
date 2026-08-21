@@ -1,4 +1,4 @@
-@use "pix-design-tokens/typography";
+@use 'pix-design-tokens/typography';
 
 .pix-tabs {
   display: flex;
@@ -55,4 +55,3 @@
     --pix-tab-color-inline: var(--pix-certif-500-inline);
   }
 }
-

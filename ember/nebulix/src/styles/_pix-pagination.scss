@@ -1,4 +1,4 @@
-@use "pix-design-tokens/breakpoints";
+@use 'pix-design-tokens/breakpoints';
 
 .pix-pagination,
 .pix-pagination-condensed {
@@ -46,7 +46,7 @@
 
 @include breakpoints.device-is('tablet') {
   .pix-pagination {
-    gap:var(--pix-spacing-2x);
+    gap: var(--pix-spacing-2x);
     justify-content: space-between;
   }
 

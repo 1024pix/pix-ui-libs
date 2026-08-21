@@ -86,7 +86,6 @@ module('Integration | Component | pix-navigation-button', function (hooks) {
   test('it renders an plainIcon icon when @route is current route ', async function (assert) {
     const routerService = this.owner.lookup('service:router');
     sinon.stub(routerService, 'currentRouteName').value('hello');
-    console.log(routerService.currentRouteName);
     // when
     const screen = await render(
       hbs`<PixNavigationButton @route='hello' @icon='campaign'>content</PixNavigationButton>`,

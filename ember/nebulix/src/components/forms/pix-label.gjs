@@ -1,6 +1,6 @@
-import Component from '@glimmer/component';
-
 import './pix-label.scss';
+
+import Component from '@glimmer/component';
 
 export default class PixLabel extends Component {
   get className() {

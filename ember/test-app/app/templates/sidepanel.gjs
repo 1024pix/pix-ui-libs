@@ -1,14 +1,14 @@
-import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
+import { PixButton, PixSidePanel } from '@1024pix/nebulix-ember';
+import { fn } from '@ember/helper';
 import { action } from '@ember/object';
 import { LinkTo } from '@ember/routing';
-import { fn } from '@ember/helper';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 import { not } from 'ember-truth-helpers';
-import { PixSidePanel, PixButton } from '@1024pix/nebulix-ember';
 
 export default class SidePanelPage extends Component {
   @tracked showModal = false;
-  title = "Filtrer";
+  title = 'Filtrer';
 
   @action
   onClose() {}

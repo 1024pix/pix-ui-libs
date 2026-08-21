@@ -1,9 +1,9 @@
+import './pix-tag.scss';
+
 import Component from '@glimmer/component';
 
 import { formatMessage } from '../../translations/index.js';
 import PixIconButton from '../actions/pix-icon-button.gjs';
-
-import "./pix-tag.scss";
 
 export default class PixTag extends Component {
   get classes() {

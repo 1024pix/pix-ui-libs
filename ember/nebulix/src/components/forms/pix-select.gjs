@@ -1,3 +1,5 @@
+import './pix-select.scss';
+
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
@@ -11,12 +13,9 @@ import { or } from 'ember-truth-helpers';
 import onArrowDownUpAction from '../../modifiers/on-arrow-down-up-action.js';
 import onEscapeAction from '../../modifiers/on-escape-action.js';
 import { formatMessage } from '../../translations/index.js';
-
 import PixIcon from '../graphics/pix-icon.gjs';
 import PixLabel from './pix-label.gjs';
 import PixSelectList from './pix-select-list.gjs';
-
-import './pix-select.scss';
 
 export default class PixSelect extends Component {
   @service elementHelper;

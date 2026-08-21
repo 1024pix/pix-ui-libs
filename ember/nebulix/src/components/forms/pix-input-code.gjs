@@ -1,9 +1,9 @@
+import './pix-input-code.scss';
+
 import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
-
-import './pix-input-code.scss'
 
 const ERROR_MESSAGE =
   'ERROR in PixInputCode component, you must provide an @ariaLabel and a @legend';

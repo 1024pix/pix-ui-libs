@@ -1,11 +1,11 @@
+import './pix-icon-button.scss';
+
 import { warn } from '@ember/debug';
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
 
 import PixIcon from '../graphics/pix-icon.gjs';
-
-import './pix-icon-button.scss'
 
 export default class PixIconButton extends Component {
   text = 'pix-icon-button';

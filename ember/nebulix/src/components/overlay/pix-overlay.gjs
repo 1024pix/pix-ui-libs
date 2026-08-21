@@ -1,10 +1,10 @@
+import './pix-overlay.scss';
+
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
 
 import modalDialog from '../../modifiers/modal-dialog.js';
-
-import './pix-overlay.scss';
 
 export default class PixOverlay extends Component {
   @action

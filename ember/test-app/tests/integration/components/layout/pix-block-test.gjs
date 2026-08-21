@@ -22,10 +22,7 @@ module('Integration | Component | pix-block (strict)', function (hooks) {
 
     // then
     assert.contains('Je suis un beau bloc');
-    assert.strictEqual(
-      blockElement.className,
-      'pix-block pix-block--variant-certif',
-    );
+    assert.strictEqual(blockElement.className, 'pix-block pix-block--variant-certif');
   });
 
   module('when @variant parameter is not given', function (hooks) {
@@ -52,10 +49,7 @@ module('Integration | Component | pix-block (strict)', function (hooks) {
 
       // then
       assert.contains('Je suis un beau bloc');
-      assert.strictEqual(
-        blockElement.className,
-        'pix-block pix-block--variant-primary',
-      );
+      assert.strictEqual(blockElement.className, 'pix-block pix-block--variant-primary');
     });
 
     test('it should warn', async function (assert) {

@@ -29,9 +29,7 @@ const PUBLISHED_PATTERNS = [
  * @returns {string[]} Paths of every file meant for consumers.
  */
 function publishedFiles(srcDir) {
-  return PUBLISHED_PATTERNS.flatMap((pattern) =>
-    globSync(join(srcDir, pattern)),
-  );
+  return PUBLISHED_PATTERNS.flatMap((pattern) => globSync(join(srcDir, pattern)));
 }
 
 /**
@@ -61,16 +59,12 @@ export function publishedSources({ srcDir = 'src' } = {}) {
       const files = publishedFiles(srcDir);
 
       if (files.length === 0) {
-        this.error(
-          `No published source matched in "${srcDir}". Check PUBLISHED_PATTERNS.`,
-        );
+        this.error(`No published source matched in "${srcDir}". Check PUBLISHED_PATTERNS.`);
       }
 
       // Sass imported from JavaScript is already emitted by `keepAssets`;
       // only the files reachable through `@use` or `url()` alone are missing.
-      const missing = files.filter(
-        (file) => !Object.hasOwn(bundle, relative(srcDir, file)),
-      );
+      const missing = files.filter((file) => !Object.hasOwn(bundle, relative(srcDir, file)));
 
       await Promise.all(
         missing.map(async (file) =>

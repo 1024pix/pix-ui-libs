@@ -1,9 +1,9 @@
+import './pix-table-column.scss';
+
 import { warn } from '@ember/debug';
 import Component from '@glimmer/component';
 
 import PixIconButton from '../actions/pix-icon-button.gjs';
-
-import './pix-table-column.scss';
 
 export default class PixTableColumn extends Component {
   get displayHeader() {

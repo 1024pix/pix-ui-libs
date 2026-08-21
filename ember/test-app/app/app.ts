@@ -1,11 +1,11 @@
-import Application from '@ember/application';
-import compatModules from '@embroider/virtual/compat-modules';
-import Resolver from 'ember-resolver';
-import loadInitializers from 'ember-load-initializers';
-import config from 'test-app/config/environment';
-import setupInspector from '@embroider/legacy-inspector-support/ember-source-4.12';
-
 import './styles/app.scss';
+
+import Application from '@ember/application';
+import setupInspector from '@embroider/legacy-inspector-support/ember-source-4.12';
+import compatModules from '@embroider/virtual/compat-modules';
+import loadInitializers from 'ember-load-initializers';
+import Resolver from 'ember-resolver';
+import config from 'test-app/config/environment';
 
 export default class App extends Application {
   modulePrefix = config.modulePrefix;

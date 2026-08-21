@@ -1,10 +1,10 @@
-import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
+import { PixButton, PixModal } from '@1024pix/nebulix-ember';
+import { fn } from '@ember/helper';
 import { action } from '@ember/object';
 import { LinkTo } from '@ember/routing';
-import { fn } from '@ember/helper';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 import { not } from 'ember-truth-helpers';
-import { PixModal, PixButton } from '@1024pix/nebulix-ember';
 
 export default class ModalPage extends Component {
   @tracked showModal = false;
@@ -24,8 +24,8 @@ export default class ModalPage extends Component {
       <:content>
         <LinkTo @route="hello" class="internal-link">My link</LinkTo>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe velit animi, non voluptate
-          assumenda ratione voluptas est consequatur qui voluptatibus tempore explicabo, harum deserunt
-          corporis molestiae, distinctio adipisci facere itaque.</p>
+          assumenda ratione voluptas est consequatur qui voluptatibus tempore explicabo, harum
+          deserunt corporis molestiae, distinctio adipisci facere itaque.</p>
       </:content>
       <:footer>
         <PixButton

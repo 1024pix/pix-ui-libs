@@ -44,46 +44,37 @@ module('Unit | Service | toast', function (hooks) {
         toastService.addNotification(invalidNotification);
 
         // then
-        sinon.assert.calledWith(
-          warnStub,
-          'WARNING: Message mandatory attribute is missing',
-        );
+        sinon.assert.calledWith(warnStub, 'WARNING: Message mandatory attribute is missing');
         assert.ok(warnStub.calledOnce);
         assert.strictEqual(toastService.content.length, 0);
       });
     });
 
-    module(
-      'when toast to be added already exist in content array',
-      function () {
-        test('it removes existing toast and insert the new one at the end of the content array', function (assert) {
-          // given
-          const message = 'message';
+    module('when toast to be added already exist in content array', function () {
+      test('it removes existing toast and insert the new one at the end of the content array', function (assert) {
+        // given
+        const message = 'message';
 
-          const errorNotification = {
-            message,
-            type: 'error',
-          };
-          const informationNotification = {
-            message,
-            type: 'information',
-          };
+        const errorNotification = {
+          message,
+          type: 'error',
+        };
+        const informationNotification = {
+          message,
+          type: 'information',
+        };
 
-          toastService.addNotification(errorNotification);
-          toastService.addNotification(informationNotification);
+        toastService.addNotification(errorNotification);
+        toastService.addNotification(informationNotification);
 
-          // when
-          toastService.addNotification(errorNotification);
+        // when
+        toastService.addNotification(errorNotification);
 
-          // then
-          assert.strictEqual(toastService.content.length, 2);
-          assert.deepEqual(toastService.content, [
-            informationNotification,
-            errorNotification,
-          ]);
-        });
-      },
-    );
+        // then
+        assert.strictEqual(toastService.content.length, 2);
+        assert.deepEqual(toastService.content, [informationNotification, errorNotification]);
+      });
+    });
   });
 
   module('#exists', function (hooks) {

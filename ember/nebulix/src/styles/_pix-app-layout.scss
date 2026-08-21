@@ -1,11 +1,11 @@
-@use "pix-design-tokens/breakpoints";
+@use 'pix-design-tokens/breakpoints';
 
 .pix-app-layout {
   display: grid;
   grid-template-areas:
-    "banner banner"
-    "navigation main"
-    "navigation footer";
+    'banner banner'
+    'navigation main'
+    'navigation footer';
   grid-template-rows: min-content 1fr;
   grid-template-columns: min-content 1fr;
   min-height: 100dvh;
@@ -40,7 +40,8 @@
     }
   }
 
-  &__main, &__footer {
+  &__main,
+  &__footer {
     width: 100%;
     max-width: min(calc(100vw - var(--pix-navigation-width) - 3 * var(--pix-spacing-6x)), 93rem);
     margin: 0 auto;
@@ -70,8 +71,6 @@
       padding-bottom: var(--pix-spacing-2x);
     }
   }
-
-
 
   &--admin {
     background-color: var(--pix-primary-10);

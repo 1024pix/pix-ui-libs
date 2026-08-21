@@ -1,5 +1,5 @@
-@use "pix-design-tokens/typography";
-@use "component-state/form";
+@use 'pix-design-tokens/typography';
+@use 'component-state/form';
 
 .pix-code {
   @extend %pix-monospace;
@@ -23,8 +23,8 @@
       var(--pix-neutral-500) 1ch,
       transparent 0,
       transparent 1ch + $space-between-dashes
-  )
-  0 100% / calc($total-width - $space-between-dashes) 1px no-repeat;
+    )
+    0 100% / calc($total-width - $space-between-dashes) 1px no-repeat;
   background-position-x: 0.5ch;
   background-position-y: 2.5ch;
   border: solid 1px var(--pix-neutral-500);
