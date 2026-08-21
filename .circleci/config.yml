@@ -3,6 +3,11 @@ version: 2.1
 orbs:
   browser-tools: circleci/browser-tools@2.4.0
 
+workflows:
+  version: 2
+  build-and-test:
+    jobs:
+      - ci
 jobs:
   ci: # this can be any name you choose
     parameters:
