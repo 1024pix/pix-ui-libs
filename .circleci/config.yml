@@ -8,8 +8,9 @@ workflows:
   build-and-test:
     jobs:
       - ci
+
 jobs:
-  ci: # this can be any name you choose
+  ci:
     parameters:
       node-version:
         # renovate datasource=node-version depName=node
@@ -52,5 +53,5 @@ jobs:
           command: pnpm --filter test-app lint
       - browser-tools/install_chrome
       - run:
-          name: Launch tests (from Dianou)
+          name: Launch tests
           command: pnpm test
