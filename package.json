@@ -2,9 +2,14 @@
   "name": "@1024pix/pix-ui-libs",
   "version": "0.0.0",
   "private": true,
-  "repository": "",
-  "license": "MIT",
-  "author": "",
+  "description": "Project managing all front-end utilities",
+  "license": "AGPL-3.0",
+  "author": "GIP Pix",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/1024pix/pix-ui-libs.git"
+  },
+  "homepage": "https://github.com/1024pix/pix-ui-libs#readme",
   "scripts": {
     "build": "pnpm --filter @1024pix/nebulix-ember build",
     "dev": "concurrently \"pnpm --filter @1024pix/nebulix-ember build --watch\" \"pnpm --filter test-app start\" --names \"addon,app\" --prefixColors auto",
