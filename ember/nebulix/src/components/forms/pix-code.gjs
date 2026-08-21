@@ -1,5 +1,3 @@
-import './pix-code.scss';
-
 import { warn } from '@ember/debug';
 import { htmlSafe } from '@ember/template';
 

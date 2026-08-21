@@ -1,5 +1,3 @@
-import './pix-tag.scss';
-
 import Component from '@glimmer/component';
 
 import { formatMessage } from '../../translations/index.js';

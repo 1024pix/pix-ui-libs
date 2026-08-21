@@ -1,5 +1,3 @@
-import './pix-tabs.scss';
-
 import { warn } from '@ember/debug';
 import Component from '@glimmer/component';
 

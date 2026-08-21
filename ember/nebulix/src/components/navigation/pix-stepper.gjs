@@ -1,5 +1,3 @@
-import './pix-stepper.scss';
-
 import Component from '@glimmer/component';
 import { eq } from 'ember-truth-helpers';
 

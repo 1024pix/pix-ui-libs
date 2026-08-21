@@ -1,5 +1,3 @@
-import './pix-breadcrumb.scss';
-
 import { array } from '@ember/helper';
 import { LinkTo } from '@ember/routing';
 import Component from '@glimmer/component';

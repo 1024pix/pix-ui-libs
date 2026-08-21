@@ -1,5 +1,3 @@
-import './pix-icon.scss';
-
 import { warn } from '@ember/debug';
 import { uniqueId } from '@ember/helper';
 import Component from '@glimmer/component';

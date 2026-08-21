@@ -1,5 +1,3 @@
-import './pix-filterable-and-searchable-select.scss';
-
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import { service } from '@ember/service';

@@ -1,5 +1,3 @@
-import './pix-gauge.scss';
-
 import { warn } from '@ember/debug';
 import Component from '@glimmer/component';
 import { eq } from 'ember-truth-helpers';

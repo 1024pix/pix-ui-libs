@@ -1,5 +1,3 @@
-import './pix-input-password.scss';
-
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 

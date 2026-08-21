@@ -9,8 +9,6 @@ const TYPE_ERROR = 'error';
 const TYPE_INFORMATION = 'information';
 const TYPE_WARNING = 'warning';
 
-import './pix-toast.scss';
-
 import PixIconButton from '../actions/pix-icon-button.gjs';
 import PixIcon from '../graphics/pix-icon.gjs';
 

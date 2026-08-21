@@ -1,5 +1,3 @@
-import './pix-notification-alert.scss';
-
 import { concat } from '@ember/helper';
 import Component from '@glimmer/component';
 

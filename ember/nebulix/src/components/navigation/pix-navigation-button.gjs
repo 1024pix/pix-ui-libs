@@ -1,5 +1,3 @@
-import './pix-navigation-button.scss';
-
 import { array } from '@ember/helper';
 import { LinkTo } from '@ember/routing';
 import { service } from '@ember/service';

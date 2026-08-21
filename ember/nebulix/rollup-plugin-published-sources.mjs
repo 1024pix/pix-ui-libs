@@ -22,6 +22,7 @@ const PUBLISHED_PATTERNS = [
   'styles/pix-design-tokens/**/*.scss',
   'styles/_a11y.scss',
   'styles/_trap-focus.scss',
+  'styles/nebulix-styles.scss',
 ];
 
 /**

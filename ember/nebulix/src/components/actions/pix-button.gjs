@@ -1,5 +1,3 @@
-import './pix-button.scss';
-
 import { warn } from '@ember/debug';
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
