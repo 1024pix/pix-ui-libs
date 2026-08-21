@@ -10,3 +10,6 @@ autoInstallPeers: false
 
 # we want true isolation, if a dependency is not declared, we want an error
 resolvePeersFromWorkspaceRoot: false
+
+# branches where packages are published
+publishBranch: dev
