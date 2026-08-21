@@ -20,6 +20,7 @@ const PUBLISHED_PATTERNS = [
   'components/**/*.scss',
   'styles/normalize-reset/**/*.scss',
   'styles/pix-design-tokens/**/*.scss',
+  'styles/_base.scss',
   'styles/_a11y.scss',
   'styles/_trap-focus.scss',
   'styles/nebulix-styles.scss',

@@ -142,8 +142,6 @@
       "./components/pix-overlay.js": "./dist/_app_/components/pix-overlay.js",
       "./components/pix-side-panel.js": "./dist/_app_/components/pix-side-panel.js",
       "./components/pix-tooltip.js": "./dist/_app_/components/pix-tooltip.js",
-      "./helpers/icons.js": "./dist/_app_/helpers/icons.js",
-      "./helpers/variants.js": "./dist/_app_/helpers/variants.js",
       "./modifiers/modal-dialog.js": "./dist/_app_/modifiers/modal-dialog.js",
       "./modifiers/on-arrow-down-up-action.js": "./dist/_app_/modifiers/on-arrow-down-up-action.js",
       "./modifiers/on-enter-action.js": "./dist/_app_/modifiers/on-enter-action.js",
