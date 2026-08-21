@@ -1,5 +1,3 @@
-import './pix-button-upload.scss';
-
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';

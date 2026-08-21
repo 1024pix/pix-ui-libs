@@ -1,5 +1,3 @@
-import './pix-select-list.scss';
-
 import { concat, fn } from '@ember/helper';
 import { on } from '@ember/modifier';
 import Component from '@glimmer/component';

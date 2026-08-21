@@ -1,5 +1,3 @@
-import './pix-structure-switcher.scss';
-
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';

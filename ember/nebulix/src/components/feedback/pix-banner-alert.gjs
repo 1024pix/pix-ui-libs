@@ -1,5 +1,3 @@
-import './pix-banner-alert.scss';
-
 import { action } from '@ember/object';
 import { LinkTo } from '@ember/routing';
 import Component from '@glimmer/component';

@@ -1,5 +1,3 @@
-import './pix-tooltip.scss';
-
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import Component from '@glimmer/component';

@@ -1,5 +1,3 @@
-import './pix-table-column.scss';
-
 import { warn } from '@ember/debug';
 import Component from '@glimmer/component';
 

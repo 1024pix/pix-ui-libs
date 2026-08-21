@@ -1,5 +1,3 @@
-import './pix-navigation-shrunk-button.scss';
-
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import { LinkTo } from '@ember/routing';

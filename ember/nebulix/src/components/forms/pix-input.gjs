@@ -1,5 +1,3 @@
-import './pix-input.scss';
-
 import PixIcon from '../graphics/pix-icon.gjs';
 import PixInputBase from './pix-input-base.gjs';
 import PixLabel from './pix-label.gjs';

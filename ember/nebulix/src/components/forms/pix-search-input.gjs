@@ -1,5 +1,3 @@
-import './pix-search-input.scss';
-
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import { debounceTask } from 'ember-lifeline';

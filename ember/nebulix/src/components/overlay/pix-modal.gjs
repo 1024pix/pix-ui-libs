@@ -1,5 +1,3 @@
-import './pix-modal.scss';
-
 import { guidFor } from '@ember/object/internals';
 import Component from '@glimmer/component';
 

@@ -1,5 +1,3 @@
-import './pix-app-layout.scss';
-
 import { warn } from '@ember/debug';
 import { service } from '@ember/service';
 import Component from '@glimmer/component';

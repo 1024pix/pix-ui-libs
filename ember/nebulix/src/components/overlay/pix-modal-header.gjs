@@ -1,5 +1,3 @@
-import './pix-modal-header.scss';
-
 import Component from '@glimmer/component';
 
 import { MODAL_VARIANTS } from '../../helpers/variants.js';

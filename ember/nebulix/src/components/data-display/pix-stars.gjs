@@ -1,5 +1,3 @@
-import './pix-stars.scss';
-
 import Component from '@glimmer/component';
 import { lt } from 'ember-truth-helpers';
 

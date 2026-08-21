@@ -1,5 +1,3 @@
-import './pix-progress-bar.scss';
-
 import { warn } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
 import Component from '@glimmer/component';

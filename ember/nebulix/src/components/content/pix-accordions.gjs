@@ -1,6 +1,3 @@
-import './pix-accordions.scss';
-import './pix-accordions-v2.scss';
-
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';

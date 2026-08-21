@@ -1,5 +1,3 @@
-import './pix-multi-select.scss';
-
 import { warn } from '@ember/debug';
 import { concat } from '@ember/helper';
 import { on } from '@ember/modifier';
