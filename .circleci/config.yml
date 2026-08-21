@@ -20,6 +20,7 @@ jobs:
       - image: node:<<parameters.node-version>>
     resource_class: small
     environment:
+      SHELL: bash
       PNPM_HOME: /root/.local/share/pnpm
 
     steps:
