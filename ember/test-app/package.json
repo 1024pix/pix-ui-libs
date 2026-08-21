@@ -2,7 +2,7 @@
   "name": "test-app",
   "version": "0.0.0",
   "private": true,
-  "description": "Test app for Nebulix",
+  "description": "Test app for Nebulix-ember",
   "exports": {
     "./tests/*": "./tests/*",
     "./*": "./app/*"
@@ -84,10 +84,10 @@
     "typescript-eslint": "^8.66.0",
     "vite": "^8.2.1"
   },
-  "engines": {
-    "node": "24.*"
-  },
   "ember": {
     "edition": "octane"
+  },
+  "engines": {
+    "node": "24.*"
   }
 }

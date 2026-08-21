@@ -1,13 +1,12 @@
 {
   "name": "@1024pix/nebulix-ember",
   "version": "0.0.0",
-  "description": "The default blueprint for Embroider v2 addons.",
+  "description": "Library implementing Pix Design-System components for Ember app",
   "keywords": [
     "ember-addon"
   ],
-  "repository": "",
-  "license": "MIT",
-  "author": "",
+  "license": "AGPL-3.0",
+  "author": "GIP Pix",
   "exports": {
     ".": "./dist/index.js",
     "./addon-main.js": "./addon-main.cjs",
