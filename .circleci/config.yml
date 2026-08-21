@@ -45,8 +45,11 @@ jobs:
           paths:
             - .pnpm-store
       - run:
-          name: Lint addon src files
+          name: Lint addon files
           command: pnpm --filter @1024pix/nebulix-ember lint
       - run:
-          name: Lint test-app src files
+          name: Lint test-app files
           command: pnpm --filter test-app lint
+      - run:
+          name: Launch tests (from Dianou)
+          command: pnpm test
