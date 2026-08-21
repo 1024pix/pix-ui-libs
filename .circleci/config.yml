@@ -50,6 +50,7 @@ jobs:
       - run:
           name: Lint test-app files
           command: pnpm --filter test-app lint
+      - browser-tools/install_chrome
       - run:
           name: Launch tests (from Dianou)
           command: pnpm test
