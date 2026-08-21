@@ -8,6 +8,22 @@ Nebulix Ember est l'implémentation du design system de Pix
   npm install -D @1024pix/nebulix-ember@<version>
 ```
 
+Dans `ember-cli-build.js`, rendre les styles de l'addon resolvables :
+
+```js
+sassOptions: {
+  includePaths: ['node_modules/@1024pix/nebulix-ember/dist/styles'],
+},
+```
+
+Charger les styles explicitement, **en premier** dans `app/styles/app.scss` :
+
+```scss
+@use 'nebulix-styles' as *;
+
+// ... les styles de l'application ensuite
+```
+
 # Développer dans l'addon
 
 ```bash
