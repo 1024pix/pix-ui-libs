@@ -31,16 +31,13 @@ export default {
     // These are the modules that should get reexported into the traditional
     // "app" tree. Things in here should also be in publicEntrypoints above, but
     // not everything in publicEntrypoints necessarily needs to go here.
-    addon.appReexports(
-      ['components/**/*.js', 'helpers/**/*.js', 'modifiers/**/*.js', 'services/**/*.js'],
-      {
-        // Components are grouped in subfolders (actions/, forms/, ...) purely
-        // for readability. The classic resolver looks components up by a flat
-        // name, so `<PixBlock>` must not become `<Layout::PixBlock>` in
-        // consuming apps.
-        mapFilename: (fileName) => fileName.replace(/^components\/[^/]+\//, 'components/'),
-      },
-    ),
+    addon.appReexports(['components/**/*.js', 'modifiers/**/*.js', 'services/**/*.js'], {
+      // Components are grouped in subfolders (actions/, forms/, ...) purely
+      // for readability. The classic resolver looks components up by a flat
+      // name, so `<PixBlock>` must not become `<Layout::PixBlock>` in
+      // consuming apps.
+      mapFilename: (fileName) => fileName.replace(/^components\/[^/]+\//, 'components/'),
+    }),
 
     // Follow the V2 Addon rules about dependencies. Your code can import from
     // `dependencies` and `peerDependencies` as well as standard Ember-provided
