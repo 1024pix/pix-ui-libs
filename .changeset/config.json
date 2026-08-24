@@ -5,9 +5,7 @@
   "format": "auto",
   "changelog": [
     "@changesets/changelog-github",
-    {
-      "repo": "@1024pix/pix-ui-libs"
-    }
+    { "repo": "@1024pix/pix-ui-libs" }
   ],
   "commit": true,
   "ignore": [],
