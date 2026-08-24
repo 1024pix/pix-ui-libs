@@ -93,6 +93,8 @@
     "edition": "octane"
   },
   "dependencies": {
-    "@1024pix/nebulix-ember": "workspace:*"
+    "@1024pix/nebulix-ember": "workspace:*",
+    "ember-repl": "^8.2.3",
+    "kolay": "github:universal-ember/kolay#dist"
   }
 }
