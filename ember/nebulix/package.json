@@ -1,6 +1,6 @@
 {
   "name": "@1024pix/nebulix-ember",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Library implementing Pix Design-System components for Ember app",
   "keywords": [
     "ember-addon"
