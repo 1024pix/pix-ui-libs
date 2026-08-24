@@ -9,6 +9,8 @@ export default class App extends EmberApp {
     './services/page-title': PageTitleService,
     ...import.meta.glob('./routes/**/*', { eager: true }),
     ...import.meta.glob('./services/**/*', { eager: true }),
-    ...import.meta.glob('./templates/**/*.{gjs,gts,js,ts}', { eager: true }),
+    ...import.meta.glob('./templates/**/*.{gjs,gts,js,ts,gjs.md,gts.md}', {
+      eager: true,
+    }),
   };
 }

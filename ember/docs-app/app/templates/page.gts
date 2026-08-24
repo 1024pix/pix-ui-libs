@@ -1,4 +1,5 @@
 import { Page } from 'kolay/components';
+import { PageNav } from 'kolay/components';
 
 function reasonFor(
   error: string | { reason: string; original: Error },
@@ -7,9 +8,17 @@ function reasonFor(
 }
 
 <template>
-  <Page>
-    <:pending>Loading…</:pending>
-    <:error as |error|><pre>{{reasonFor error}}</pre></:error>
-    <:success as |Prose|><Prose /></:success>
-  </Page>
+  <aside>
+    (side nav)
+    <PageNav />
+  </aside>
+
+  <main>
+    (main content)
+    <Page>
+      <:pending>Loading…</:pending>
+      <:error as |error|><pre>{{reasonFor error}}</pre></:error>
+      <:success as |Prose|><Prose /></:success>
+    </Page>
+  </main>
 </template>

@@ -1,10 +1,17 @@
 import { pageTitle } from 'ember-page-title';
-import { PageNav } from 'kolay/components';
+import { GroupNav } from 'kolay/components';
 
 <template>
-  {{pageTitle "Docs"}}
+  {{pageTitle "Pix UI Libs"}}
 
-  <PageNav />
+  <header>
+    <p>(header)</p>
+    <GroupNav />
+  </header>
 
   {{outlet}}
+
+  <footer>
+    <p>(footer)</p>
+  </footer>
 </template>
