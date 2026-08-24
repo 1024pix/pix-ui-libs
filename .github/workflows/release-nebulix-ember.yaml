@@ -3,14 +3,15 @@ name: Release Nebulix Ember
 permissions:
   id-token: write # necessary for publishing to npm
   pull-requests: write # necessary for writing comment on PR
-  contents: write
+  issues: write # necessary for commenting on released issues
+  contents: write # necessary for publishing a GitHub release
 
 on:
   workflow_dispatch:
 
 jobs:
   release:
-    name: "Release Nebulix Ember"
+    name: Release Nebulix Ember
     runs-on: ubuntu-latest
 
     steps:
@@ -21,7 +22,17 @@ jobs:
           runtime: node@24
           cache: true
 
-      - name: Publish
-        run: pnpm publish --filter @1024pix/nebulix-ember --access=public
+      - name: Semantic Release
+        id: semantic
+        uses: cycjimmy/semantic-release-action@v6
+        with:
+          dry_run: true
+          semantic_version: 25
+          extra_plugins: |
+            @semantic-release/changelog@6
+            @anolilab/semantic-release-pnpm@8
+            @semantic-release/git@10
+          extends: |
+            @1024pix/conventional-changelog-pix@3
         env:
-          GITHUB_TOKEN: ${{ secrets.PIX_SERVICE_ACTIONS_TOKEN }}
+          GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
