@@ -32,11 +32,13 @@ module.exports = {
     // Publie la release dans github (avec le changelog)
     "@semantic-release/github",
     // Publie la release sur npm
-    ["@anolilab/semantic-release-pnpm"
+    [
+      "@anolilab/semantic-release-pnpm",
       {
         pkgRoot: './ember/nebulix',
         publishBranch: 'dev'
-      }],
+      }
+    ],
     // Crée le commit de release sur la branche principale
     [
       "@semantic-release/git",
