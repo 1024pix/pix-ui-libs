@@ -3,6 +3,7 @@ name: Release Nebulix Ember
 permissions:
   id-token: write # necessary for publishing to npm
   pull-requests: write # necessary for writing comment on PR
+  contents: write
 
 on:
   workflow_dispatch:
@@ -19,11 +20,6 @@ jobs:
         with:
           runtime: node@24
           cache: true
-
-      - name: Setup npm auth
-        run: pnpm config set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
-        env:
-          NPM_TOKEN: ${{ secrets.TMP_NPM_TOKEN }}
 
       - name: Publish
         run: pnpm publish --filter @1024pix/nebulix-ember --access=public
