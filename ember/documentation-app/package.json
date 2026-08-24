@@ -80,6 +80,7 @@
     "prettier-plugin-ember-template-tag": "^2.1.7",
     "qunit": "^2.26.0",
     "qunit-dom": "^3.6.0",
+    "sass-embedded": "^1.102.0",
     "stylelint": "^17.14.1",
     "stylelint-config-standard": "^40.0.0",
     "testem": "^3.20.1",
@@ -90,5 +91,8 @@
   },
   "ember": {
     "edition": "octane"
+  },
+  "dependencies": {
+    "@1024pix/nebulix-ember": "workspace:*"
   }
 }
