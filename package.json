@@ -14,9 +14,11 @@
     "build": "pnpm --filter @1024pix/nebulix-ember build",
     "dev": "concurrently \"pnpm --filter @1024pix/nebulix-ember build --watch\" \"pnpm --filter test-app start\" --names \"addon,app\" --prefixColors auto",
     "lint": "pnpm -r lint",
-    "test": "pnpm build && pnpm --filter test-app test"
+    "test": "pnpm build && pnpm --filter test-app test",
+    "ci:publish": "pnpm publish -r --access=public"
   },
   "devDependencies": {
+    "@changesets/cli": "^3.0.1",
     "concurrently": "^9.2.1"
   },
   "packageManager": "pnpm@11.22.0",
