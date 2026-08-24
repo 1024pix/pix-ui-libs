@@ -1,5 +1,11 @@
 # @1024pix/ember-nebulix
 
+## 0.2.2
+
+### Patch Changes
+
+- [#17](https://github.com/1024pix/pix-ui-libs/pull/17) [`588f828`](https://github.com/1024pix/pix-ui-libs/commit/588f8284a8343feec25db404e1aa05fb122d4fa1) - Corriger le changelog pour prendre en compte le nouveau formattage de changelog
+
 ## 0.2.1
 
 ### Patch Changes
