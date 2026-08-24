@@ -1,8 +1,14 @@
+const repositoryUrl = "https://github.com/1024pix/pix-ui-libs/ember/nebulix";
+const pkgName = "@1024pix/ember-nebulix";
 const pkgRoot = "./ember/nebulix";
-const changelogTitle = "@1024pix/ember-nebulix";
+const tagFormat = `${pkgName} v${version}`;
+const changelogTitle = `# ${pkgName}`;
+const changelogFile = `${pkgRoot}/CHANGELOG.md`;
 
 module.exports = {
   branches: ["dev", "hotfix.*"],
+  repositoryUrl,
+  tagFormat,
   plugins: [
     // Analyse les commits pour definir la nouvelle version
     [
@@ -28,7 +34,7 @@ module.exports = {
       },
     ],
     // Modifie le fichier changelog
-    ["@semantic-release/changelog", { changelogTitle }],
+    ["@semantic-release/changelog", { changelogTitle, changelogFile }],
     // Publie la release dans github (avec le changelog)
     "@semantic-release/github",
     // Publie la release sur npm
@@ -38,14 +44,10 @@ module.exports = {
       "@semantic-release/git",
       {
         assets: [
-          "CHANGELOG.md",
           "package.json",
-          "package-lock.json",
-          [
-            "**/package.json",
-            "**/package-lock.json",
-            "!**/node_modules/**/*.json",
-          ],
+          "pnpm-lock.json",
+          `${pkgRoot}/package.json`,
+          changelogFile,
         ],
         message:
           "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}",
