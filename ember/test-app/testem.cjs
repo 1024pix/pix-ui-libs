@@ -4,10 +4,13 @@ if (typeof module !== 'undefined') {
   module.exports = {
     test_page: 'tests/index.html?hidepassed',
     disable_watching: true,
-    launch_in_ci: ['Chrome'],
-    launch_in_dev: ['Chrome'],
+    launch_in_ci: [process.env.TEST_BROWSER || 'Chrome'],
+    launch_in_dev: [process.env.TEST_BROWSER || 'Chrome'],
     browser_start_timeout: 120,
     browser_args: {
+      FireFox: {
+        ci: ['--headless'],
+      },
       Chrome: {
         ci: [
           // --no-sandbox is needed when running Chrome inside a container
