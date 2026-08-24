@@ -1,12 +1,10 @@
 import { pageTitle } from 'ember-page-title';
-import { WelcomePage } from 'ember-welcome-page';
+import { PixBlock } from '@1024pix/nebulix-ember'
 
 <template>
   {{pageTitle "DocumentationApp"}}
 
   {{outlet}}
 
-  {{! The following component displays Ember's default welcome message. }}
-  <WelcomePage @extension="gjs" />
-  {{! Feel free to remove this! }}
+  <PixBlock>Wesh Gros !</PixBlock>
 </template>
