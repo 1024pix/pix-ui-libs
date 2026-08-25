@@ -9,12 +9,10 @@ function reasonFor(
 
 <template>
   <aside>
-    (side nav)
     <PageNav />
   </aside>
 
   <main>
-    (main content)
     <Page>
       <:pending>Loading…</:pending>
       <:error as |error|><pre>{{reasonFor error}}</pre></:error>

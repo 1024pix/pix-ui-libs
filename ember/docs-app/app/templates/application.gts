@@ -4,14 +4,15 @@ import { GroupNav } from 'kolay/components';
 <template>
   {{pageTitle "Pix UI Libs"}}
 
-  <header>
-    <p>(header)</p>
-    <GroupNav />
-  </header>
+  <div class="app-layout">
+    <header>
+      <GroupNav />
+    </header>
 
-  {{outlet}}
+    {{outlet}}
 
-  <footer>
-    <p>(footer)</p>
-  </footer>
+    <footer>
+      <p>Pix UI Libs</p>
+    </footer>
+  </div>
 </template>
