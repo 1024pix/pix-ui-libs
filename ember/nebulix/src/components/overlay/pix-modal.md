@@ -2,7 +2,7 @@
 
 ## Usage
 
-```gjs live preview
+```gjs live preview nebulix
 import { PixButton, PixModal } from '@1024pix/nebulix-ember';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';

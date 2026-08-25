@@ -1,9 +1,3 @@
-// Global styles from Nebulix, resolved through the Sass load path configured
-// in vite.config.mjs. Component styles come in on their own, pulled by each
-// component's JavaScript module.
-@use "nebulix-styles";
-
-// Loaded after Nebulix so they can override its base rules.
-@use "typography";
 @use "layout";
-@use "repl";
+@use "typography";
+@use "kolay-override";

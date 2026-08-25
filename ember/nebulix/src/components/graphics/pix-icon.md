@@ -2,7 +2,7 @@
 
 ## Usage
 
-```gjs live preview
+```gjs live preview nebulix
 import { PixIcon } from '@1024pix/nebulix-ember';
 
 <template>

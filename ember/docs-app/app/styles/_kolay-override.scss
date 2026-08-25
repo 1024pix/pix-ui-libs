@@ -1,0 +1,14 @@
+.repl-sdk__demo {
+  padding: var(--doc-space-4x);
+  border: 1px solid var(--doc-border);
+  border-radius: var(--doc-space-2x);
+  margin-bottom: var(--doc-space-4x);
+}
+
+.repl-sdk__snippet {
+  padding: 0 var(--doc-space-4x);
+  border: 1px solid var(--doc-border);
+  border-radius: var(--doc-space-2x);
+  font-size: 0.85rem;
+  overflow-x: auto;
+}

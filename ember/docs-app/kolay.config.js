@@ -23,9 +23,7 @@ export default defineConfig({
       ],
     ],
     scope: `
-      import { APIDocs, CommentQuery, ComponentSignature, HelperSignature, ModifierSignature } from 'kolay';
-      import { Shadowed } from 'ember-primitives/components/shadowed';
-      import { InViewport } from 'ember-primitives/viewport';
+      import { ComponentSignature } from 'kolay';
       `,
   },
 });

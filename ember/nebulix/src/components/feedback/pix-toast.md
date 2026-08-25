@@ -5,7 +5,7 @@ service to send notifications.
 
 ## Usage
 
-```gjs live preview
+```gjs live preview nebulix
 import { PixButton, PixToastContainer } from '@1024pix/nebulix-ember';
 import { service } from '@ember/service';
 import Component from '@glimmer/component';

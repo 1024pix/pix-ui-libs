@@ -9,6 +9,8 @@ import type Transition from '@ember/routing/transition';
 import type { Manifest } from 'kolay';
 import { createHighlighterCore } from 'shiki/core';
 import { createOnigurumaEngine } from 'shiki/engine/oniguruma';
+import { wrapDemos } from 'kolay/wrap-demos';
+import DemoFrame from 'docs-app/components/DemoFrame.gjs';
 
 export default class ApplicationRoute extends Route {
   @service declare router: RouterService;
@@ -38,6 +40,9 @@ export default class ApplicationRoute extends Route {
       modules: {
         '@1024pix/nebulix-ember': () => import('@1024pix/nebulix-ember'),
       },
+      topLevelScope: {
+        DemoFrame,
+      },
       rehypePlugins: [
         [
           rehypeShikiFromHighlighter,
@@ -48,6 +53,13 @@ export default class ApplicationRoute extends Route {
               light: 'github-light',
               dark: 'github-dark',
             },
+          },
+        ],
+        [
+          wrapDemos,
+          {
+            componentName: 'DemoFrame',
+            eachDemo: { behavior: 'opt-in', meta: 'nebulix' },
           },
         ],
       ],

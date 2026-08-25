@@ -20,6 +20,7 @@ export default defineConfig({
     ember(),
     kolay(),
     nebulixPublicAssets(),
+    nebulixScopeStyles(),
     babel({
       babelHelpers: 'runtime',
       extensions,
@@ -42,12 +43,16 @@ export default defineConfig({
  * silently: icons render as empty `<svg>`, fonts fall back to system faces.
  */
 function nebulixPublicAssets() {
-  const manifest = JSON.parse(readFileSync(join(nebulixRoot, 'package.json'), 'utf8'));
+  const manifest = JSON.parse(
+    readFileSync(join(nebulixRoot, 'package.json'), 'utf8'),
+  );
   const assets = Object.entries(manifest['ember-addon']['public-assets']).map(
     ([source, url]) => {
       const mimeType = MIME_TYPES[extname(url)];
       if (!mimeType) {
-        throw new Error(`Nebulix public asset "${url}" has has no MIME type. Add it to MIME_TYPES in docs-app/vite.config.mjs.`);
+        throw new Error(
+          `Nebulix public asset "${url}" has has no MIME type. Add it to MIME_TYPES in docs-app/vite.config.mjs.`,
+        );
       }
       return { url, mimeType, path: join(nebulixRoot, source) };
     },
@@ -70,8 +75,43 @@ function nebulixPublicAssets() {
 
     generateBundle() {
       for (const { url, path } of assets) {
-        this.emitFile({ type: 'asset', fileName: url.replace(/^\//, ''), source: readFileSync(path) });
+        this.emitFile({
+          type: 'asset',
+          fileName: url.replace(/^\//, ''),
+          source: readFileSync(path),
+        });
       }
+    },
+  };
+}
+
+/**
+ * Nebulix's stylesheet is written for a whole document: `:root` tokens, `html`
+ * and `body` rules, bare element selectors. The docs app only wants it around
+ * the live demos, so `demo.scss`'s compiled output is wrapped in
+ * `@scope (.nebulix)` — the class `DemoFrame` renders.
+ *
+ * `:root` becomes `:scope`: inside the scope the root is the demo frame, not
+ * the document element, so `:root` would match nothing and every design token
+ * would be undefined.
+ *
+ * This plugin has no `enforce`, so its `transform` runs after Vite's own
+ * `vite:css` (a core plugin, ordered before user plugins) and therefore sees
+ * the compiled CSS rather than the Sass source.
+ */
+function nebulixScopeStyles() {
+  const DEMO_STYLES = /\/app\/styles\/demo\.scss(\?|$)/;
+
+  return {
+    name: 'nebulix-scope-styles',
+
+    transform(code, id) {
+      if (!DEMO_STYLES.test(id)) return null;
+
+      return {
+        code: `@scope (.nebulix) {\n${code.replaceAll(':root', ':scope')}\n}\n`,
+        map: null,
+      };
     },
   };
 }
