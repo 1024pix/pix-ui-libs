@@ -31,6 +31,7 @@
   ],
   "scripts": {
     "build": "rollup --config && pnpm build:types",
+    "dev": "concurrently \"rollup --config --watch\" \"ember-tsc -p tsconfig.json --watch\" --names \"rollup,types\" --prefixColors auto",
     "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\" --prefixColors auto",
     "lint:fix": "concurrently \"pnpm:lint:*:fix\" --names \"fix:\" --prefixColors auto",
     "lint:format": "prettier . --cache --check",
@@ -40,8 +41,8 @@
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
     "lint:publish": "pnpm build && publint run --level error",
-    "prepack": "rollup --config && pnpm build:types",
-    "prepare": "rollup --config && pnpm build:types",
+    "prepack": "pnpm build",
+    "prepare": "pnpm build",
     "svg:generate-sprite": "pnpm svg:compile && pnpm svg:optimize && pnpm run svg:rename-id",
     "svg:compile": "svg-sprite -C 'tooling/generate-svg-sprite/svg-sprite.config.json' 'tooling/generate-svg-sprite/icons/*.svg'",
     "svg:optimize": "svgo --config='./tooling/generate-svg-sprite/svgo.config.js' -i 'src/assets/svg/' -o 'src/assets/svg/'",
