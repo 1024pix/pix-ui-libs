@@ -6,6 +6,29 @@ import { tracked } from '@glimmer/tracking';
 import PixButtonBase from './pix-button-base.gjs';
 import PixButtonContent from './pix-button-content.gjs';
 
+/**
+ * @typedef {object} PixButtonArgs
+ * @property {'primary' | 'orga' | 'certif' | 'admin' | 'modulix'} [variant] - Color scheme of the button. Defaults to `primary`.
+ * @property {'small' | 'large'} [size] - Height and padding of the button. Defaults to `small`.
+ * @property {boolean} [isBorderVisible] - Draws a border around the button.
+ * @property {'button' | 'submit' | 'reset'} [type] - Native button type. Defaults to `button`.
+ * @property {(event: MouseEvent) => unknown} [triggerAction] - Called on click. While the returned promise is pending, the button shows its loader and refuses further clicks. Required unless `type` is `submit`.
+ * @property {boolean} [isLoading] - Forces the loading state on, independently of `triggerAction`.
+ * @property {string} [loadingColor] - Color of the loader shown while loading. Defaults to `white`.
+ * @property {boolean} [isDisabled] - Disables the button.
+ * @property {string} [iconBefore] - Name of an icon rendered before the label.
+ * @property {string} [iconAfter] - Name of an icon rendered after the label.
+ * @property {boolean} [plainIconBefore] - Renders `iconBefore` in its plain (filled) variant.
+ * @property {boolean} [plainIconAfter] - Renders `iconAfter` in its plain (filled) variant.
+ */
+
+/**
+ * @typedef {object} PixButtonSignature
+ * @property {HTMLButtonElement} Element
+ * @property {PixButtonArgs} Args
+ * @property {{ default: [] }} Blocks
+ */
+
 export default class PixButton extends PixButtonBase {
   text = 'pix-button';
   defaultModel = [];
