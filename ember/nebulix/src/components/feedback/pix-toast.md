@@ -1,3 +1,7 @@
+---
+title: PixToast
+---
+
 # PixToast
 
 Mount `<PixToastContainer />` once in your application, then inject the `pixToast`
