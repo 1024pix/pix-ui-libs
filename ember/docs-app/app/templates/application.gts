@@ -12,7 +12,9 @@ import { GroupNav } from 'kolay/components';
     {{outlet}}
 
     <footer>
-      <p>Pix UI Libs</p>
+      <a href="https://github.com/1024pix/pix-ui-libs/blob/dev/ember/nebulix/CHANGELOG.md" target="_blank">
+        Changelog
+      </a>
     </footer>
   </div>
 </template>
