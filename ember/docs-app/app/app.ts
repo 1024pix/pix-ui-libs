@@ -3,6 +3,8 @@ import PageTitleService from 'ember-page-title/services/page-title';
 
 import Router from './router.ts';
 
+import './styles/app.scss';
+
 export default class App extends EmberApp {
   modules = {
     './router': Router,
