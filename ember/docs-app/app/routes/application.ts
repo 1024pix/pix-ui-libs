@@ -11,7 +11,11 @@ export default class ApplicationRoute extends Route {
   @service declare router: RouterService;
 
   async model(): Promise<{ manifest: Manifest }> {
-    const manifest = await setupKolay(this);
+    const manifest = await setupKolay(this, {
+      modules: {
+        '@1024pix/nebulix-ember': () => import('@1024pix/nebulix-ember'),
+      },
+    });
     return { manifest };
   }
 

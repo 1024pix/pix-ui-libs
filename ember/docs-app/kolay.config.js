@@ -3,7 +3,7 @@ import { defineConfig } from 'kolay/vite';
 export default defineConfig({
   docs: [{ name: 'Nebulix', src: import.meta.resolve('../nebulix/docs') }],
 
-  // apiDocs: [],
+  apiDocs: ['@1024pix/nebulix-ember'],
 
   // demos: [{ src: import.meta.resolve('./demos'), as: '#demos/site' }],
 
