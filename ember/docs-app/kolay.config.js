@@ -2,7 +2,13 @@ import rehypeShiki from '@shikijs/rehype';
 import { defineConfig } from 'kolay/vite';
 
 export default defineConfig({
-  docs: [{ name: 'Nebulix', src: import.meta.resolve('../nebulix/docs') }],
+  docs: [
+    { name: 'Nebulix', src: import.meta.resolve('../nebulix/docs') },
+    {
+      name: 'Components',
+      src: import.meta.resolve('../nebulix/src/components'),
+    },
+  ],
 
   apiDocs: ['@1024pix/nebulix-ember'],
 
