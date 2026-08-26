@@ -37,6 +37,7 @@ import {
             @route="tooltip-page"
             @icon="signpost"
           >PixTooltip</PixNavigationButton>
+          <PixNavigationButton @route="table-page" @icon="assignment">PixTable</PixNavigationButton>
           <PixNavigationButton
             @route="button-page"
             @icon="lightBulb"

@@ -13,6 +13,7 @@ Router.map(function () {
   this.route('sidepanel-page');
   this.route('tooltip-page');
   this.route('button-page');
+  this.route('table-page');
 
   // Route for integration tests
   this.route('hello', { path: '/hello-world' });
