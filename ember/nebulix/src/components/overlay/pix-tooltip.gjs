@@ -5,6 +5,24 @@ import { tracked } from '@glimmer/tracking';
 
 import onEscapeAction from '../../modifiers/on-escape-action.js';
 
+/**
+ * @typedef {object} PixTooltipArgs
+ * @property {string} [id] - Identifiant de l'infobulle, à reprendre dans l'`aria-describedby` du déclencheur.
+ * @property {'top' | 'top-left' | 'top-right' | 'right' | 'bottom' | 'bottom-left' | 'bottom-right' | 'left'} [position] - Position de l'infobulle par rapport au déclencheur. Par défaut : `top`.
+ * @property {boolean} [hide] - Empêche l'affichage de l'infobulle, même au survol.
+ * @property {boolean} [isTriggerElementFocusable] - Indique que le déclencheur est déjà accessible au clavier. Sinon, le composant lui ajoute un `tabindex`.
+ * @property {boolean} [isWide] - Élargit l'infobulle, pour un texte de plusieurs lignes.
+ * @property {boolean} [isLight] - Applique le fond clair.
+ * @property {boolean} [isInline] - Aligne l'infobulle sur un déclencheur placé au fil du texte.
+ */
+
+/**
+ * @typedef {object} PixTooltipSignature
+ * @property {HTMLDivElement} Element
+ * @property {PixTooltipArgs} Args
+ * @property {{ triggerElement: [], tooltip: [] }} Blocks
+ */
+
 export default class PixTooltip extends Component {
   @tracked isTooltipVisible = false;
 

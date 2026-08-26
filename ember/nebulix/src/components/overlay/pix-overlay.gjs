@@ -4,6 +4,23 @@ import Component from '@glimmer/component';
 
 import modalDialog from '../../modifiers/modal-dialog.js';
 
+/**
+ * @typedef {object} PixOverlayArgs
+ * @property {boolean} [isVisible] - Ouvre la surcouche.
+ * @property {(event: Event) => unknown} [onClose] - Appelée à chaque demande de fermeture : clic sur le fond, touche Échap, fermeture native. Sans elle, la surcouche ne peut pas être refermée par l'utilisateur.
+ * @property {boolean} [hasCenteredContent] - Centre le contenu dans la fenêtre.
+ * @property {HTMLElement | string} [focusOnClose] - Élément à qui rendre le focus à la fermeture. Par défaut, il revient à l'élément qui avait ouvert la surcouche.
+ * @property {string} [labelledBy] - Identifiant de l'élément qui intitule la surcouche.
+ * @property {string} [describedBy] - Identifiant de l'élément qui la décrit.
+ */
+
+/**
+ * @typedef {object} PixOverlaySignature
+ * @property {HTMLDialogElement} Element
+ * @property {PixOverlayArgs} Args
+ * @property {{ default: [] }} Blocks
+ */
+
 export default class PixOverlay extends Component {
   @action
   onClick(event) {
