@@ -1,4 +1,9 @@
-import { PixAppLayout, PixNavigation, PixNavigationButton, PixBannerAlert } from '@1024pix/nebulix-ember';
+import {
+  PixAppLayout,
+  PixBannerAlert,
+  PixNavigation,
+  PixNavigationButton,
+} from '@1024pix/nebulix-ember';
 
 <template>
   <PixAppLayout @variant="orga">
@@ -28,6 +33,10 @@ import { PixAppLayout, PixNavigation, PixNavigationButton, PixBannerAlert } from
             @route="sidepanel-page"
             @icon="doorOpen"
           >PixSidePanel</PixNavigationButton>
+          <PixNavigationButton
+            @route="button-page"
+            @icon="lightBulb"
+          >PixButton</PixNavigationButton>
         </:navElements>
       </PixNavigation>
     </:navigation>
