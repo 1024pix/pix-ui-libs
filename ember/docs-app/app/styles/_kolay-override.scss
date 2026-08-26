@@ -2,13 +2,17 @@
   padding: var(--doc-space-4x);
   border: 1px solid var(--doc-border);
   border-radius: var(--doc-space-2x);
-  margin-bottom: var(--doc-space-4x);
+  margin: var(--doc-space-4x) 0;
 }
 
 .repl-sdk__snippet {
   padding: 0 var(--doc-space-4x);
-  border: 1px solid var(--doc-border);
   border-radius: var(--doc-space-2x);
+  background-color: var(--doc-code-bg);
   font-size: 0.85rem;
   overflow-x: auto;
+}
+
+.repl-sdk__snippet > .shiki {
+  background-color: var(--doc-code-bg) !important;
 }

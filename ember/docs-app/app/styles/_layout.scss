@@ -17,6 +17,8 @@ body {
 // Doc app tokens
 :root {
   --doc-font: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --doc-font-mono:
+    ui-monospace, sfmono-regular, "SF Mono", menlo, consolas, monospace;
 
   --doc-space-1x: 4px;
   --doc-space-2x: 8px;
@@ -36,6 +38,7 @@ body {
   --doc-accent-strong: #1d4ed8;
   --doc-success-soft: #dcfce7;
   --doc-success-strong: #15803d;
+  --doc-code-bg: #f3f4f6;
 }
 
 // Doc app shell layout

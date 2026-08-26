@@ -8,13 +8,12 @@ import PixButtonContent from './pix-button-content.gjs';
 
 /**
  * @typedef {object} PixButtonArgs
- * @property {'primary' | 'orga' | 'certif' | 'admin' | 'modulix'} [variant] - Color scheme of the button. Defaults to `primary`.
+ * @property {'primary' | 'primary-white' | 'primary-bis' | 'secondary' | 'secondary-white' | 'tertiary' | 'tertiary-white' | 'success' | 'error'} [variant] - Color scheme of the button. Defaults to `primary`.
  * @property {'small' | 'large'} [size] - Height and padding of the button. Defaults to `small`.
- * @property {boolean} [isBorderVisible] - Draws a border around the button.
  * @property {'button' | 'submit' | 'reset'} [type] - Native button type. Defaults to `button`.
  * @property {(event: MouseEvent) => unknown} [triggerAction] - Called on click. While the returned promise is pending, the button shows its loader and refuses further clicks. Required unless `type` is `submit`.
  * @property {boolean} [isLoading] - Forces the loading state on, independently of `triggerAction`.
- * @property {string} [loadingColor] - Color of the loader shown while loading. Defaults to `white`.
+ * @property {'white' | 'grey'} [loadingColor] - Color of the loader shown while loading. Defaults to `white`.
  * @property {boolean} [isDisabled] - Disables the button.
  * @property {string} [iconBefore] - Name of an icon rendered before the label.
  * @property {string} [iconAfter] - Name of an icon rendered after the label.
