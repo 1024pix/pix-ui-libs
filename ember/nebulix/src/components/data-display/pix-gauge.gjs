@@ -2,6 +2,23 @@ import { warn } from '@ember/debug';
 import Component from '@glimmer/component';
 import { eq } from 'ember-truth-helpers';
 
+/**
+ * @typedef {object} PixGaugeArgs
+ * @property {number} reachedLevel - Niveau atteint, entre 0 et 8. Obligatoire.
+ * @property {number} maxLevel - Niveau maximum atteignable, entre 1 et 8. Obligatoire.
+ * @property {string} label - Description de la jauge, lue par les lecteurs d'écran. Obligatoire.
+ * @property {string[]} [stepLabels] - Intitulés des paliers, répartis régulièrement sur la jauge. Masqués en version compacte.
+ * @property {boolean} [hideValues] - Masque les valeurs chiffrées affichées sur la jauge.
+ * @property {boolean} [isSmall] - Affiche la version compacte, sans paliers.
+ */
+
+/**
+ * @typedef {object} PixGaugeSignature
+ * @property {SVGSVGElement} Element
+ * @property {PixGaugeArgs} Args
+ * @property {{}} Blocks
+ */
+
 export default class PixGauge extends Component {
   get label() {
     warn('PixGauge: @label must be defined', !this.args.label, {

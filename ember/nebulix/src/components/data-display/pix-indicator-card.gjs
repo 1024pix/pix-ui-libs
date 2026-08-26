@@ -5,6 +5,25 @@ import PixIcon from '../graphics/pix-icon.gjs';
 import PixBlock from '../layout/pix-block.gjs';
 import PixTooltip from '../overlay/pix-tooltip.gjs';
 
+/**
+ * @typedef {object} PixIndicatorCardArgs
+ * @property {string} title - Ce que mesure l'indicateur. Obligatoire.
+ * @property {string} iconName - Nom de l'icône illustrant l'indicateur. Obligatoire.
+ * @property {boolean} [plainIcon] - Affiche l'icône dans sa variante pleine.
+ * @property {'neutral' | 'grey' | 'primary' | 'blue' | 'success' | 'green' | 'tertiary' | 'purple' | 'warning'} [color] - Couleur du fond de l'icône. Par défaut : `grey`.
+ * @property {string} [info] - Texte d'une infobulle explicitant le calcul de l'indicateur.
+ * @property {string} [infoLabel] - Nom du déclencheur de cette infobulle, lu par les lecteurs d'écran.
+ * @property {boolean} [isLoading] - Affiche le squelette de chargement à la place du contenu.
+ * @property {string} [loadingMessage] - Message annoncé aux lecteurs d'écran pendant le chargement.
+ */
+
+/**
+ * @typedef {object} PixIndicatorCardSignature
+ * @property {HTMLDivElement} Element
+ * @property {PixIndicatorCardArgs} Args
+ * @property {{ default: [], sub: [] }} Blocks
+ */
+
 export default class PixIndicatorCard extends Component {
   id = guidFor(this);
   iconId = 'icon-' + this.id;

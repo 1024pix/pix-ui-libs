@@ -3,6 +3,25 @@ import Component from '@glimmer/component';
 
 import PixIconButton from '../actions/pix-icon-button.gjs';
 
+/**
+ * @typedef {object} PixTableColumnArgs
+ * @property {'header' | 'cell'} context - Rôle de la colonne au rendu courant. Fourni par `PixTable` : reprenez le paramètre yieldé sans le construire vous-même.
+ * @property {'text' | 'number' | 'checkbox' | 'tag' | 'tagDate' | 'link'} [type] - Nature du contenu, qui détermine l'alignement et les espacements de la cellule. Par défaut : `text`.
+ * @property {boolean} [isMainRow] - Rend la cellule dans un `<th>` : à réserver à la colonne qui identifie la ligne.
+ * @property {(event: MouseEvent) => unknown} [onSort] - Appelée au clic sur le bouton de tri. Sa présence rend la colonne triable.
+ * @property {'asc' | 'desc' | null} [sortOrder] - Sens du tri appliqué à cette colonne. `null` signifie « non triée ».
+ * @property {string} [ariaLabelDefaultSort] - Nom du bouton de tri quand la colonne n'est pas triée. Obligatoire pour une colonne triable.
+ * @property {string} [ariaLabelSortAsc] - Nom du bouton de tri quand la colonne est triée par ordre décroissant, et que le clic la triera par ordre croissant. Obligatoire pour une colonne triable.
+ * @property {string} [ariaLabelSortDesc] - Nom du bouton de tri quand la colonne est triée par ordre croissant, et que le clic la triera par ordre décroissant. Obligatoire pour une colonne triable.
+ */
+
+/**
+ * @typedef {object} PixTableColumnSignature
+ * @property {HTMLTableCellElement} Element
+ * @property {PixTableColumnArgs} Args
+ * @property {{ header: [], cell: [], subCell: [] }} Blocks
+ */
+
 export default class PixTableColumn extends Component {
   get displayHeader() {
     return this.args.context === 'header';
