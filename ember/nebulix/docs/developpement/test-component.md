@@ -2,11 +2,73 @@
 title: Tester un composant
 ---
 
-## Tester un composant
+# Tester un composant
 
-Les tests sont située dans le dossier `ember/test-app`.
+## Lancer les tests
 
-Créer un fichier de tests `my-component-test.gjs` pour votre composant.
+Pendant le développement, depuis la racine du dépôt :
 
-- Pour un test unitaire : `ember/nebulix/tests/unit/components`.
-- Pour un test d'intégration : `ember/test-app/tests/integration/components`.
+```bash
+pnpm dev
+```
+
+Les tests sont servis sur [http://localhost:4200/tests](http://localhost:4200/tests).
+L'addon est recompilé en watch : chaque modification du composant ou du test
+relance la suite.
+
+Avant de pousser, la même suite en headless :
+
+```bash
+pnpm test
+```
+
+Cette commande construit l'addon puis joue les tests dans un navigateur sans
+interface, comme le fait la CI.
+
+## Écrire un test
+
+Le test d'un composant vit dans `ember/test-app/tests`, sous la même rubrique
+que le composant :
+
+```
+ember/nebulix/src/components/layout/pix-block.gjs
+ember/test-app/tests/integration/components/layout/pix-block-test.gjs
+```
+
+Le squelette d'un test :
+
+```gjs
+import { render } from '@1024pix/ember-testing-library';
+import { PixMonComposant } from '@1024pix/nebulix-ember';
+import { setupRenderingTest } from 'ember-qunit';
+import { module, test } from 'qunit';
+
+module('Integration | Component | PixMonComposant', function (hooks) {
+  setupRenderingTest(hooks);
+
+  test('it renders the label', async function (assert) {
+    // when
+    const screen = await render(<template><PixMonComposant @label="Enregistrer" /></template>);
+
+    // then
+    assert.dom(screen.getByText('Enregistrer')).exists();
+  });
+});
+```
+
+Le composant est importé depuis `@1024pix/nebulix-ember`, son API publique :
+c'est pour cela que `pnpm test` construit l'addon avant de jouer la suite.
+
+## Linter
+
+```bash
+pnpm lint
+pnpm lint:fix
+```
+
+`pnpm lint` passe sur tous les paquets et enchaîne quatre vérifications :
+le formatage (`prettier`), le JavaScript (`eslint`), les templates
+(`ember-template-lint`) et les types (`ember-tsc`).
+
+`pnpm lint:fix` corrige les trois premières. **Les erreurs de types ne sont
+jamais corrigées automatiquement**, il faut les traiter à la main.
