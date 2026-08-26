@@ -6,6 +6,26 @@ import { localCopy } from 'tracked-toolbox';
 
 import PixLabel from './pix-label.gjs';
 
+/**
+ * @typedef {object} PixTextareaArgs
+ * @property {string} [id] - Identifiant du champ. Généré automatiquement s'il n'est pas fourni.
+ * @property {string} [value] - Valeur initiale du champ.
+ * @property {number} [maxlength] - Nombre maximum de caractères autorisés. Affiche également un compteur sous le champ.
+ * @property {'small' | 'default' | 'large'} [size] - Taille du libellé. Par défaut : `default`.
+ * @property {string} [requiredLabel] - Rend le champ obligatoire et affiche un astérisque, dont ce texte est l'infobulle.
+ * @property {string} [subLabel] - Complément d'information affiché sous le libellé.
+ * @property {boolean} [screenReaderOnly] - Masque le libellé visuellement, tout en le laissant lisible par les lecteurs d'écran.
+ * @property {boolean} [inlineLabel] - Place le libellé sur la même ligne que le champ.
+ * @property {string} [errorMessage] - Message d'erreur affiché sous le champ. Sa présence applique le style d'erreur.
+ */
+
+/**
+ * @typedef {object} PixTextareaSignature
+ * @property {HTMLTextAreaElement} Element
+ * @property {PixTextareaArgs} Args
+ * @property {{ label: [] }} Blocks
+ */
+
 export default class PixTextarea extends Component {
   @localCopy('args.value') value;
 

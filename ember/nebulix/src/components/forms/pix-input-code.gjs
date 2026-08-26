@@ -12,6 +12,23 @@ const NUMBER_INPUT_EXPLANATION =
 const TEXT_INPUT_EXPLANATION =
   'Pour remplir un champ vous pouvez utiliser les caractères alphanumériques de votre clavier.';
 
+/**
+ * @typedef {object} PixInputCodeArgs
+ * @property {string} ariaLabel - Nom de chaque champ pour les lecteurs d'écran, suivi de son numéro. Obligatoire.
+ * @property {string} legend - Intitulé du groupe de champs. Obligatoire.
+ * @property {number} [numInputs] - Nombre de champs à saisir. Par défaut : `6`.
+ * @property {'number' | 'text'} [inputType] - Nature du code attendu : `number` n'accepte que les chiffres de 1 à 9, `text` accepte les caractères alphanumériques. Par défaut : `number`.
+ * @property {string} [explanationOfUse] - Remplace le texte qui explique aux lecteurs d'écran comment naviguer et saisir le code.
+ * @property {(code: string) => unknown} [onAllInputsFilled] - Appelée avec le code complet dès que tous les champs sont remplis.
+ */
+
+/**
+ * @typedef {object} PixInputCodeSignature
+ * @property {HTMLInputElement} Element
+ * @property {PixInputCodeArgs} Args
+ * @property {{}} Blocks
+ */
+
 export default class PixInputCode extends Component {
   moveFocus = true;
   numInputs = this.args.numInputs || 6;

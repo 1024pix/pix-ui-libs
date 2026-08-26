@@ -8,6 +8,37 @@ import PixLabel from './pix-label.gjs';
 import PixMultiSelect from './pix-multi-select.gjs';
 import PixSelect from './pix-select.gjs';
 
+/**
+ * @typedef {object} PixFilterableAndSearchableSelectOption
+ * @property {string} value - Valeur de l'option.
+ * @property {string} label - Texte affiché.
+ * @property {string} category - Catégorie de l'option. Alimente la liste des filtres.
+ */
+
+/**
+ * @typedef {object} PixFilterableAndSearchableSelectArgs
+ * @property {PixFilterableAndSearchableSelectOption[]} options - Options proposées, chacune rattachée à une catégorie. Obligatoire.
+ * @property {(value: string) => unknown} onChange - Appelée avec la valeur de l'option choisie. Obligatoire.
+ * @property {string} [value] - Valeur de l'option sélectionnée.
+ * @property {string} [placeholder] - Texte affiché tant qu'aucune option n'est sélectionnée.
+ * @property {string} [categoriesPlaceholder] - Texte du filtre par catégories, suivi du nombre de catégories cochées.
+ * @property {boolean} [isSearchable] - Ajoute un champ de recherche à la liste des options.
+ * @property {boolean} [hideDefaultOption] - Retire l'option qui permet de revenir à « aucun choix ».
+ * @property {'small' | 'default' | 'large'} [size] - Taille du libellé. Par défaut : `default`.
+ * @property {string} [requiredLabel] - Rend le champ obligatoire et affiche un astérisque, dont ce texte est l'infobulle.
+ * @property {string} [subLabel] - Complément d'information affiché sous le libellé.
+ * @property {boolean} [screenReaderOnly] - Masque le libellé visuellement, tout en le laissant lisible par les lecteurs d'écran.
+ * @property {boolean} [inlineLabel] - Place le libellé sur la même ligne que le champ.
+ * @property {string} [errorMessage] - Message d'erreur affiché sous le champ. Sa présence applique le style d'erreur.
+ */
+
+/**
+ * @typedef {object} PixFilterableAndSearchableSelectSignature
+ * @property {HTMLDivElement} Element
+ * @property {PixFilterableAndSearchableSelectArgs} Args
+ * @property {{ label: [], categoriesLabel: [] }} Blocks
+ */
+
 export default class PixFilterableAndSearchableSelect extends Component {
   @service elementHelper;
   @tracked selectedCategories = [];

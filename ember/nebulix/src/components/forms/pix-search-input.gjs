@@ -6,6 +6,28 @@ import PixIcon from '../graphics/pix-icon.gjs';
 import PixInputBase from './pix-input-base.gjs';
 import PixLabel from './pix-label.gjs';
 
+/**
+ * @typedef {object} PixSearchInputArgs
+ * @property {(id: string, value: string) => unknown} triggerFiltering - Appelée avec l'identifiant du champ et le texte saisi, une fois le délai écoulé. Obligatoire.
+ * @property {number | string} debounceTimeInMs - Délai d'attente en millisecondes après la dernière frappe avant d'appeler `triggerFiltering`. Obligatoire.
+ * @property {string} [id] - Identifiant du champ. Généré automatiquement s'il n'est pas fourni.
+ * @property {string} [value] - Valeur initiale du champ. Les modifications ultérieures de cet argument ne sont pas répercutées.
+ * @property {string} [inputName] - Attribut `name` du champ.
+ * @property {string} [placeholder] - Texte d'aide affiché dans le champ vide.
+ * @property {'small' | 'default' | 'large'} [size] - Taille du libellé. Par défaut : `default`.
+ * @property {string} [requiredLabel] - Rend le champ obligatoire et affiche un astérisque, dont ce texte est l'infobulle.
+ * @property {string} [subLabel] - Complément d'information affiché sous le libellé.
+ * @property {boolean} [screenReaderOnly] - Masque le libellé visuellement, tout en le laissant lisible par les lecteurs d'écran.
+ * @property {boolean} [inlineLabel] - Place le libellé sur la même ligne que le champ.
+ */
+
+/**
+ * @typedef {object} PixSearchInputSignature
+ * @property {HTMLInputElement} Element
+ * @property {PixSearchInputArgs} Args
+ * @property {{ label: [] }} Blocks
+ */
+
 export default class PixSearchInput extends PixInputBase {
   initialValue = this.args.value;
 

@@ -1,6 +1,17 @@
 import { guidFor } from '@ember/object/internals';
 import Component from '@glimmer/component';
 
+/**
+ * Arguments communs aux champs de saisie qui héritent de `PixInputBase`.
+ *
+ * @typedef {object} PixInputBaseArgs
+ * @property {string} [id] - Identifiant du champ. Généré automatiquement s'il n'est pas fourni.
+ * @property {'default' | 'error' | 'success'} [validationStatus] - État de validation du champ. Par défaut : `default`.
+ * @property {string} [errorMessage] - Message affiché sous le champ lorsque `validationStatus` vaut `error`.
+ * @property {boolean} [inlineLabel] - Place le libellé sur la même ligne que le champ.
+ * @property {boolean} [isFullWidth] - Étend le champ à toute la largeur disponible.
+ */
+
 export default class PixInputBase extends Component {
   prefix;
   inputValidationError;
