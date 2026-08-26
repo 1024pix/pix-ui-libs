@@ -1,0 +1,114 @@
+import { PixGauge } from '@1024pix/nebulix-ember';
+import { array } from '@ember/helper';
+
+<template>
+  <PixGauge
+    @stepLabels={{array "Novice" "Intermédiaire" "Avancé" "Expert"}}
+    @reachedLevel={{6.3}}
+    @maxLevel={{8}}
+    @label="niveau atteint de 6.3 sur un maximum de 8"
+  />
+
+  <PixGauge
+    @stepLabels={{array "Novice" "Intermédiaire" "Avancé" "Expert"}}
+    @reachedLevel={{0.51}}
+    @maxLevel={{8}}
+    @label="niveau atteint de 4 sur un maximum de 8"
+  />
+
+  <PixGauge
+    @stepLabels={{array "Novice" "Intermédiaire" "Avancé" "Expert"}}
+    @reachedLevel={{0}}
+    @maxLevel={{8}}
+    @label="niveau atteint de 4 sur un maximum de 8"
+  />
+
+  <PixGauge
+    @stepLabels={{array "Novice" "Intermédiaire" "Avancé" "Expert"}}
+    @isSmall={{true}}
+    @reachedLevel={{4}}
+    @maxLevel={{8}}
+    @label="niveau atteint de 4 sur un maximum de 8"
+  />
+
+  <PixGauge
+    @stepLabels={{array "Novice" "Intermédiaire" "Avancé" "Expert"}}
+    @hideValues={{true}}
+    @reachedLevel={{4}}
+    @maxLevel={{8}}
+    @label="niveau atteint de 4 sur un maximum de 8"
+  />
+
+  <PixGauge
+    @stepLabels={{array "Novice" "Intermédiaire" "Avancé" "Expert"}}
+    @isSmall={{true}}
+    @hideValues={{true}}
+    @reachedLevel={{4}}
+    @maxLevel={{8}}
+    @label="niveau atteint de 4 sur un maximum de 8"
+  />
+
+  <br />
+  <br />
+  <h1>Affichage non superposé des chiffres (sauf si égal)</h1>
+  <br />
+
+  <PixGauge
+    @stepLabels={{array "Novice" "Intermédiaire" "Avancé" "Expert"}}
+    @reachedLevel={{0.9}}
+    @maxLevel={{1}}
+  />
+  <PixGauge
+    @stepLabels={{array "Novice" "Intermédiaire" "Avancé" "Expert"}}
+    @reachedLevel={{2.1}}
+    @maxLevel={{2.2}}
+  />
+  <PixGauge
+    @stepLabels={{array "Novice" "Intermédiaire" "Avancé" "Expert"}}
+    @reachedLevel={{7.7}}
+    @maxLevel={{7.9}}
+  />
+  <PixGauge
+    @stepLabels={{array "Novice" "Intermédiaire" "Avancé" "Expert"}}
+    @reachedLevel={{7.9}}
+    @maxLevel={{8}}
+  />
+  <PixGauge
+    @stepLabels={{array "Novice" "Intermédiaire" "Avancé" "Expert"}}
+    @reachedLevel={{8}}
+    @maxLevel={{8}}
+  />
+
+  <br />
+
+  <PixGauge
+    @stepLabels={{array "Novice" "Intermédiaire" "Avancé" "Expert"}}
+    @reachedLevel={{0.9}}
+    @maxLevel={{1}}
+    @isSmall={{true}}
+  />
+  <PixGauge
+    @stepLabels={{array "Novice" "Intermédiaire" "Avancé" "Expert"}}
+    @reachedLevel={{2.1}}
+    @maxLevel={{2.2}}
+    @isSmall={{true}}
+  />
+  <PixGauge
+    @stepLabels={{array "Novice" "Intermédiaire" "Avancé" "Expert"}}
+    @reachedLevel={{7.7}}
+    @maxLevel={{7.9}}
+    @isSmall={{true}}
+  />
+  <PixGauge
+    @stepLabels={{array "Novice" "Intermédiaire" "Avancé" "Expert"}}
+    @reachedLevel={{7.9}}
+    @maxLevel={{8}}
+    @isSmall={{true}}
+  />
+  <PixGauge
+    @stepLabels={{array "Novice" "Intermédiaire" "Avancé" "Expert"}}
+    @reachedLevel={{8}}
+    @maxLevel={{8}}
+    @isSmall={{true}}
+  />
+</template>

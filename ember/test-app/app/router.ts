@@ -14,6 +14,7 @@ Router.map(function () {
   this.route('tooltip-page');
   this.route('button-page');
   this.route('table-page');
+  this.route('gauge-page');
 
   // Route for integration tests
   this.route('hello', { path: '/hello-world' });

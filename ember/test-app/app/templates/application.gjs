@@ -38,6 +38,7 @@ import {
             @icon="signpost"
           >PixTooltip</PixNavigationButton>
           <PixNavigationButton @route="table-page" @icon="assignment">PixTable</PixNavigationButton>
+          <PixNavigationButton @route="gauge-page" @icon="barsUp">PixGauge</PixNavigationButton>
           <PixNavigationButton
             @route="button-page"
             @icon="lightBulb"
