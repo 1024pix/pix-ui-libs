@@ -10,7 +10,7 @@ module('Acceptance | PixSelectPageTest', function (hooks) {
   module('PixMultiSelect', function () {
     test('displayed options should be reactive', async function (assert) {
       // given
-      const screen = await visit('/select');
+      const screen = await visit('/select-page');
 
       // when
       await screen.getByLabelText('Kebab').focus();
@@ -33,7 +33,7 @@ module('Acceptance | PixSelectPageTest', function (hooks) {
 
     test('it should filter by custom regex', async function (assert) {
       // given
-      const screen = await visit('/select');
+      const screen = await visit('/select-page');
 
       // when
       const multiSelect = screen.getByRole('button', { name: 'Kebab' });
@@ -50,7 +50,7 @@ module('Acceptance | PixSelectPageTest', function (hooks) {
   module('PixSelect', function () {
     test('displayed options should be reactive', async function (assert) {
       // given
-      const screen = await visit('/select');
+      const screen = await visit('/select-page');
 
       // when
       await screen.getByLabelText('Fruits').focus();
@@ -74,7 +74,7 @@ module('Acceptance | PixSelectPageTest', function (hooks) {
 
     test('it should filter by custom regex', async function (assert) {
       // given
-      const screen = await visit('/select');
+      const screen = await visit('/select-page');
 
       // when
       const select = screen.getByRole('button', { name: 'Fruits' });

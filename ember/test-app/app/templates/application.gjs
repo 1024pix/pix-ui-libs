@@ -19,7 +19,15 @@ import { PixAppLayout, PixNavigation, PixNavigationButton, PixBannerAlert } from
           </a>
         </:brand>
         <:navElements>
-          <PixNavigationButton href="/tests" @icon="bolt">Launch all tests</PixNavigationButton>
+          <PixNavigationButton href="/tests" @icon="bolt">Lancer les tests</PixNavigationButton>
+          <PixNavigationButton @route="modal-page" @icon="campaign">
+            PixModal
+          </PixNavigationButton>
+          <PixNavigationButton @route="select-page" @icon="book">PixSelect</PixNavigationButton>
+          <PixNavigationButton
+            @route="sidepanel-page"
+            @icon="doorOpen"
+          >PixSidePanel</PixNavigationButton>
         </:navElements>
       </PixNavigation>
     </:navigation>

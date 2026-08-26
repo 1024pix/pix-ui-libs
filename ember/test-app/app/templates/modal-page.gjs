@@ -32,12 +32,10 @@ export default class ModalPage extends Component {
           @variant="secondary"
           @isBorderVisible="true"
           @triggerAction={{fn (mut this.showModal) (not this.showModal)}}
-        >
-          Annuler
-        </PixButton>
-        <PixButton @triggerAction={{fn (mut this.showModal) (not this.showModal)}}>
-          Valider
-        </PixButton>
+        >Annuler</PixButton>
+        <PixButton
+          @triggerAction={{fn (mut this.showModal) (not this.showModal)}}
+        >Valider</PixButton>
       </:footer>
     </PixModal>
 

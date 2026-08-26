@@ -8,9 +8,9 @@ export default class Router extends EmberRouter {
 
 Router.map(function () {
   // Routes for acceptance tests
-  this.route('modal');
-  this.route('select');
-  this.route('sidepanel');
+  this.route('modal-page');
+  this.route('select-page');
+  this.route('sidepanel-page');
 
   // Route for integration tests
   this.route('hello', { path: '/hello-world' });
