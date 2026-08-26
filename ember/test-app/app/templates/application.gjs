@@ -1,7 +1,16 @@
-import { PixAppLayout, PixNavigation, PixNavigationButton } from '@1024pix/nebulix-ember';
+import { PixAppLayout, PixNavigation, PixNavigationButton, PixBannerAlert } from '@1024pix/nebulix-ember';
 
 <template>
-  <PixAppLayout>
+  <PixAppLayout @variant="certif">
+    <:banner>
+      <PixBannerAlert @type="warning">
+        WARNING ceci n'est pas un exercice | WARNING ceci n'est pas un exercice | WARNING ceci n'est
+        pas un exercice | WARNING ceci n'est pas un exercice | WARNING ceci n'est pas un exercice |
+        WARNING ceci n'est pas un exercice | WARNING ceci n'est pas un exercice | WARNING ceci n'est
+        pas un exercice | WARNING ceci n'est pas un exercice | WARNING ceci n'est pas un exercice
+      </PixBannerAlert>
+    </:banner>
+
     <:navigation>
       <PixNavigation>
         <:navElements>
