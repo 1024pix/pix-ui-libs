@@ -34,6 +34,22 @@ const icons = {
   [TYPE_COMMUNICATION_CERTIF]: 'campaign',
 };
 
+/**
+ * @typedef {object} PixBannerAlertArgs
+ * @property {'information' | 'error' | 'warning' | 'environment' | 'communication' | 'communication-orga' | 'communication-certif'} [type] - Nature du message, qui détermine ses couleurs et son icône. Par défaut : `information`.
+ * @property {string} [actionLabel] - Libellé du lien d'action. N'a d'effet qu'avec `actionUrl`.
+ * @property {string} [actionUrl] - Destination du lien : un nom de route Ember, ou une URL contenant une barre oblique, auquel cas le lien s'ouvre dans un nouvel onglet.
+ * @property {boolean} [canCloseBanner] - Ajoute un bouton de fermeture.
+ * @property {(event: MouseEvent) => unknown} [onCloseBannerTriggerAction] - Appelée avant la fermeture du bandeau, pour mémoriser que l'utilisateur l'a fermé par exemple.
+ */
+
+/**
+ * @typedef {object} PixBannerAlertSignature
+ * @property {HTMLDivElement} Element
+ * @property {PixBannerAlertArgs} Args
+ * @property {{ default: [] }} Blocks
+ */
+
 export default class PixBannerAlert extends Component {
   @tracked isBannerVisible = true;
   get type() {

@@ -11,6 +11,19 @@ const TYPE_COMMUNICATION = 'communication';
 const TYPE_COMMUNICATION_ORGA = 'communication-orga';
 const TYPE_COMMUNICATION_CERTIF = 'communication-certif';
 
+/**
+ * @typedef {object} PixNotificationAlertArgs
+ * @property {'info' | 'success' | 'warning' | 'error' | 'communication' | 'communication-orga' | 'communication-certif'} [type] - Nature du message, qui détermine ses couleurs et son icône. Par défaut : `info`.
+ * @property {boolean} [withIcon] - Affiche l'icône correspondant au type.
+ */
+
+/**
+ * @typedef {object} PixNotificationAlertSignature
+ * @property {HTMLParagraphElement} Element
+ * @property {PixNotificationAlertArgs} Args
+ * @property {{ default: [] }} Blocks
+ */
+
 export default class PixNotificationAlert extends Component {
   get type() {
     const correctTypes = [
