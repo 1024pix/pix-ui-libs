@@ -43,6 +43,7 @@ import {
             @route="button-page"
             @icon="lightBulb"
           >PixButton</PixNavigationButton>
+          <PixNavigationButton @route="stepper-page" @icon="brick">PixStepper</PixNavigationButton>
         </:navElements>
       </PixNavigation>
     </:navigation>
