@@ -44,6 +44,11 @@ import {
             @icon="lightBulb"
           >PixButton</PixNavigationButton>
           <PixNavigationButton @route="stepper-page" @icon="brick">PixStepper</PixNavigationButton>
+          <PixNavigationButton
+            @route="checkbox-page"
+            @icon="check"
+          >PixCheckbox</PixNavigationButton>
+
         </:navElements>
       </PixNavigation>
     </:navigation>
