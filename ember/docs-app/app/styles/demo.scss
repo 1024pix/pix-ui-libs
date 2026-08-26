@@ -1,0 +1,17 @@
+// Nebulix's stylesheet, as it is served to the documentation's live demos.
+//
+// The `scope-nebulix` plugin in `vite.config.mjs` wraps this file's compiled
+// output in `@scope (.nebulix)` and rewrites `:root` to `:scope`, so nothing
+// here reaches the documentation around the demos.
+@use "nebulix-styles";
+
+// Nebulix's reset anchors a few declarations on `html` and `body`, which never
+// match inside the scope — the scoping root is the demo frame, not the document
+// element. `html`'s `font-size` is left out on purpose: it sets the reference
+// for `rem`, which resolves against the document root whatever the scope.
+:root {
+  @extend %pix-body-l;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

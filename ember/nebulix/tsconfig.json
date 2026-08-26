@@ -1,0 +1,17 @@
+{
+  "extends": "@ember/app-tsconfig",
+  "include": ["src"],
+  "compilerOptions": {
+    // The addon is authored in JavaScript: declarations are derived from JSDoc
+    // annotations, which is what Kolay's TypeDoc pass reads to render component
+    // signatures in the docs.
+    "allowJs": true,
+    "checkJs": false,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "noEmit": false,
+    "rootDir": "src",
+    "outDir": "declarations",
+    "types": ["ember-source/types", "@glint/ember-tsc/types", "@glint/template"]
+  }
+}

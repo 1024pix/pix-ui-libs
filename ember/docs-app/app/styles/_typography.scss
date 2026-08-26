@@ -1,0 +1,101 @@
+// Global text defaults for the documentation app.
+//
+// Wrapped in a donut scope: these rules dress the documentation itself and must
+// stop at the demo frames, whose content is styled by Nebulix alone.
+
+@scope (body) to (.nebulix) {
+  :scope {
+    color: var(--doc-text);
+    font-family: var(--doc-font);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--doc-font);
+    font-weight: 800;
+  }
+
+  h1 {
+    margin-block: 0 var(--doc-space-8x);
+    font-size: 1.5rem;
+    line-height: 1.25;
+  }
+
+  h2 {
+    margin-block: var(--doc-space-12x) var(--doc-space-4x);
+    font-size: 1.275rem;
+    line-height: 1.3;
+  }
+
+  h3 {
+    margin-block: var(--doc-space-10x) var(--doc-space-4x);
+    font-size: 1.2rem;
+    line-height: 1.35;
+  }
+
+  h4 {
+    margin-block: var(--doc-space-6x) var(--doc-space-2x);
+    font-size: 1.125rem;
+    line-height: 1.4;
+  }
+
+  h5 {
+    margin-block: var(--doc-space-6x) var(--doc-space-2x);
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  h6 {
+    margin-block: var(--doc-space-6x) var(--doc-space-2x);
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  // A heading opening a section shouldn't push it away from what contains it.
+  :is(h1, h2, h3, h4, h5, h6):first-child {
+    margin-block-start: 0;
+  }
+
+  :not(pre) > code {
+    color: var(--doc-accent);
+    font-family: var(--doc-font-mono);
+    font-size: 0.875em;
+    background-color: var(--doc-code-bg);
+    border-radius: var(--doc-space-1x);
+    padding: 3px 6px;
+    font-size-adjust: 0.52;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-block: var(--doc-space-4x);
+  }
+
+  th,
+  td {
+    padding: var(--doc-space-2x) var(--doc-space-3x);
+    border-block-end: 1px solid var(--doc-border);
+    text-align: start;
+    vertical-align: top;
+  }
+
+  th {
+    border-block-end-width: 2px;
+    font-weight: 600;
+  }
+
+  blockquote {
+    padding-inline-start: var(--doc-space-4x);
+    border-inline-start: 3px solid var(--doc-border);
+    margin-block: var(--doc-space-4x);
+    margin-inline: 0;
+    color: var(--doc-muted);
+  }
+}

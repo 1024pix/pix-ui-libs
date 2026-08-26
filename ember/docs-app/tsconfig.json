@@ -1,0 +1,24 @@
+{
+  "extends": "@ember/app-tsconfig",
+  "include": ["app", "tests", "types"],
+  "compilerOptions": {
+    "allowJs": true,
+
+    // Teaches the editor's tsserver to resolve and type-check `.gjs` / `.gts`,
+    // which plain TypeScript ignores. `ember-tsc` does this on its own.
+    "plugins": [{ "name": "@glint/tsserver-plugin" }],
+
+    "paths": {
+      "docs-app/tests/*": ["./tests/*"],
+      "docs-app/*": ["./app/*"],
+      "*": ["./types/*"]
+    },
+    "types": [
+      "ember-source/types",
+      "@embroider/core/virtual",
+      "vite/client",
+      "@glint/ember-tsc/types",
+      "kolay/virtual"
+    ]
+  }
+}
