@@ -34,6 +34,10 @@ import {
             @icon="doorOpen"
           >PixSidePanel</PixNavigationButton>
           <PixNavigationButton
+            @route="tooltip-page"
+            @icon="signpost"
+          >PixTooltip</PixNavigationButton>
+          <PixNavigationButton
             @route="button-page"
             @icon="lightBulb"
           >PixButton</PixNavigationButton>

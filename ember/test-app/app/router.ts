@@ -11,6 +11,7 @@ Router.map(function () {
   this.route('modal-page');
   this.route('select-page');
   this.route('sidepanel-page');
+  this.route('tooltip-page');
   this.route('button-page');
 
   // Route for integration tests
