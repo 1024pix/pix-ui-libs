@@ -93,14 +93,14 @@ const noop = () => {};
 </template>
 ```
 
-| Variante | Quand l'utiliser |
-| --- | --- |
-| `primary` | L'action principale attendue de l'utilisateur. Une seule par page. |
-| `primary-bis` | Une action principale sur un fond où `primary` manque de contraste. |
-| `secondary` | Une action alternative, présentée à côté de l'action principale. |
-| `tertiary` | Une action accessoire, de faible importance visuelle. |
-| `success` | Une action qui confirme ou valide définitivement. |
-| `error` | Une action **destructrice ou irréversible** : supprimer, révoquer, désinscrire. |
+| Variante      | Quand l'utiliser                                                                |
+| ------------- | ------------------------------------------------------------------------------- |
+| `primary`     | L'action principale attendue de l'utilisateur. Une seule par page.              |
+| `primary-bis` | Une action principale sur un fond où `primary` manque de contraste.             |
+| `secondary`   | Une action alternative, présentée à côté de l'action principale.                |
+| `tertiary`    | Une action accessoire, de faible importance visuelle.                           |
+| `success`     | Une action qui confirme ou valide définitivement.                               |
+| `error`       | Une action **destructrice ou irréversible** : supprimer, révoquer, désinscrire. |
 
 ### Sur fond sombre
 
@@ -162,8 +162,8 @@ const noop = () => {};
 
 ```hbs live
 <ComponentSignature
-  @package="@1024pix/nebulix-ember"
-  @module="declarations/components/actions/pix-button"
-  @name="PixButtonSignature"
+  @package='@1024pix/nebulix-ember'
+  @module='declarations/components/actions/pix-button'
+  @name='PixButtonSignature'
 />
 ```

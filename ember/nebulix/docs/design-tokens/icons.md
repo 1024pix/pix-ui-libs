@@ -18,7 +18,5 @@ Dans la galerie ci-dessous, la version contour est affichée à gauche et la ver
 ```gjs live nebulix
 import IconGallery from 'docs-app/components/IconGallery';
 
-<template>
-  <IconGallery />
-</template>
+<template><IconGallery /></template>
 ```
