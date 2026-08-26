@@ -5,6 +5,23 @@ import Component from '@glimmer/component';
 
 import PixIcon from '../graphics/pix-icon.gjs';
 
+/**
+ * @typedef {object} PixIconButtonArgs
+ * @property {string} iconName - Nom de l'icône affichée. Obligatoire.
+ * @property {string} ariaLabel - Nom de l'action, lu par les lecteurs d'écran. Obligatoire : sans lui, le bouton n'a aucun libellé.
+ * @property {(event: MouseEvent) => unknown} [triggerAction] - Appelée au clic.
+ * @property {'big' | 'small' | 'xsmall'} [size] - Diamètre du bouton. Par défaut : `big`.
+ * @property {boolean} [plainIcon] - Affiche l'icône dans sa variante pleine.
+ * @property {boolean} [isDisabled] - Désactive le bouton.
+ */
+
+/**
+ * @typedef {object} PixIconButtonSignature
+ * @property {HTMLButtonElement} Element
+ * @property {PixIconButtonArgs} Args
+ * @property {{}} Blocks
+ */
+
 export default class PixIconButton extends Component {
   text = 'pix-icon-button';
 

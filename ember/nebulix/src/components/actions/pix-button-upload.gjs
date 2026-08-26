@@ -4,6 +4,22 @@ import { tracked } from '@glimmer/tracking';
 
 import PixButtonBase from './pix-button-base.gjs';
 
+/**
+ * @typedef {object} PixButtonUploadArgs
+ * @property {string} id - Identifiant du champ de fichier, repris par le libellé. Obligatoire.
+ * @property {(files: FileList) => unknown} onChange - Appelée avec les fichiers choisis. Obligatoire.
+ * @property {'primary' | 'primary-white' | 'primary-bis' | 'secondary' | 'secondary-white' | 'tertiary' | 'tertiary-white' | 'success' | 'error' | 'transparent-dark'} [variant] - Rôle du bouton dans la page, qui détermine ses couleurs. Par défaut : `primary`.
+ * @property {'small' | 'large'} [size] - Hauteur et espacements du bouton. Par défaut : `small`.
+ * @property {boolean} [isBorderVisible] - Ajoute une bordure. N'a d'effet qu'avec la variante `transparent-dark`.
+ */
+
+/**
+ * @typedef {object} PixButtonUploadSignature
+ * @property {HTMLInputElement} Element
+ * @property {PixButtonUploadArgs} Args
+ * @property {{ default: [] }} Blocks
+ */
+
 export default class PixButtonUpload extends PixButtonBase {
   @tracked
   files = [];
