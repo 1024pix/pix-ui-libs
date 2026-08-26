@@ -39,6 +39,13 @@ export default class ApplicationRoute extends Route {
     const manifest = await setupKolay(this, {
       modules: {
         '@1024pix/nebulix-ember': () => import('@1024pix/nebulix-ember'),
+        // `topLevelScope` only reaches markdown and `hbs` demos; a `gjs` demo
+        // resolves what it imports, so documentation components are exposed
+        // here rather than there.
+        'docs-app/components/ColorPalette': () =>
+          import('docs-app/components/ColorPalette.gjs'),
+        'docs-app/components/IconGallery': () =>
+          import('docs-app/components/IconGallery.gjs'),
       },
       topLevelScope: {
         DemoFrame,

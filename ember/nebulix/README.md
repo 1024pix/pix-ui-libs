@@ -32,4 +32,5 @@ cd pix-ui-libs
 pnpm install
 pnpm dev
 ```
+
 - Aller sur http://localhost:4200 (ou autre port)

@@ -4,7 +4,7 @@ title: Créer un composant
 
 # Créer un composant
 
-Les composants de Nebulix Ember sont créés dans le dossier `ember/nebulix/src/components`. 
+Les composants de Nebulix Ember sont créés dans le dossier `ember/nebulix/src/components`.
 
 Ils sont structurés en trois fichiers : `.gjs`, `.scss` et `.md`.
 
