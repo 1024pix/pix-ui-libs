@@ -1,3 +1,5 @@
+import './select-page.css';
+
 import { PixButton, PixMultiSelect, PixPagination, PixSelect } from '@1024pix/nebulix-ember';
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
