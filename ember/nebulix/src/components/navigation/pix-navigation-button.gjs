@@ -6,6 +6,22 @@ import Component from '@glimmer/component';
 import PixIcon from '../graphics/pix-icon.gjs';
 import PixNavigationShrunkButton from './pix-navigation-shrunk-button.gjs';
 
+/**
+ * @typedef {object} PixNavigationButtonArgs
+ * @property {string} [route] - Nom de la route Ember vers laquelle naviguer. L'entrée est mise en avant lorsque cette route est celle affichée.
+ * @property {unknown} [model] - Modèle transmis à cette route.
+ * @property {object} [query] - Paramètres de requête ajoutés à l'URL.
+ * @property {string} [icon] - Nom d'une icône affichée avant le libellé. Requis pour que l'entrée reste identifiable une fois la navigation repliée.
+ * @property {boolean} [iconPlain] - Affiche l'icône dans sa variante pleine. Sans effet avec `route` : la variante pleine y signale la route active.
+ */
+
+/**
+ * @typedef {object} PixNavigationButtonSignature
+ * @property {HTMLAnchorElement} Element
+ * @property {PixNavigationButtonArgs} Args
+ * @property {{ default: [] }} Blocks
+ */
+
 export default class PixNavigationButton extends Component {
   defaultParams = {};
   defaultModel = [];

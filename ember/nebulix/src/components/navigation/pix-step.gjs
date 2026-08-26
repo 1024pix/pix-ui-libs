@@ -1,5 +1,20 @@
 import Component from '@glimmer/component';
 
+/**
+ * @typedef {object} PixStepArgs
+ * @property {number} index - Position de l'étape dans la liste, à partir de 0. Le numéro affiché en découle.
+ * @property {string} [title] - Intitulé de l'étape.
+ * @property {string} [subtitle] - Précision affichée sous l'intitulé.
+ * @property {boolean} [isCurrent] - Désigne l'étape en cours.
+ */
+
+/**
+ * @typedef {object} PixStepSignature
+ * @property {HTMLLIElement} Element
+ * @property {PixStepArgs} Args
+ * @property {{}} Blocks
+ */
+
 export default class PixStepComponent extends Component {
   get cssClass() {
     const classes = ['pix-step'];

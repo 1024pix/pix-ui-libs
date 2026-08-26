@@ -14,6 +14,36 @@ const DEFAULT_PAGE_OPTIONS = [
   { label: '100', value: 100 },
 ];
 
+/**
+ * @typedef {object} PixPaginationState
+ * @property {number} page - Numéro de la page affichée, à partir de 1.
+ * @property {number} pageSize - Nombre de résultats par page.
+ * @property {number} pageCount - Nombre total de pages.
+ * @property {number} rowCount - Nombre total de résultats.
+ */
+
+/**
+ * @typedef {object} PixPaginationOption
+ * @property {string} label - Texte affiché dans la liste des tailles de page.
+ * @property {number} value - Nombre de résultats correspondant.
+ */
+
+/**
+ * @typedef {object} PixPaginationArgs
+ * @property {PixPaginationState} pagination - État courant de la pagination. Obligatoire.
+ * @property {PixPaginationOption[]} [pageOptions] - Tailles de page proposées. Par défaut : 10, 25, 50 et 100.
+ * @property {() => unknown} [onChange] - Appelée après chaque changement de page ou de taille de page.
+ * @property {boolean} [isCondensed] - Affiche la version compacte.
+ * @property {'fr' | 'en' | 'es' | 'es-419' | 'nl'} [locale] - Langue des libellés fournis par Nebulix. Par défaut : `fr`.
+ */
+
+/**
+ * @typedef {object} PixPaginationSignature
+ * @property {null} Element
+ * @property {PixPaginationArgs} Args
+ * @property {{}} Blocks
+ */
+
 export default class PixPagination extends Component {
   @service router;
 

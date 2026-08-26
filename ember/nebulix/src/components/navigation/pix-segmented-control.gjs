@@ -7,6 +7,26 @@ import Component from '@glimmer/component';
 import PixLabel from '../forms/pix-label.gjs';
 import PixIcon from '../graphics/pix-icon.gjs';
 
+/**
+ * @typedef {object} PixSegmentedControlArgs
+ * @property {boolean} toggled - Vue sélectionnée : `false` pour la première, `true` pour la seconde. Obligatoire.
+ * @property {(toggled: boolean) => unknown} onChange - Appelée avec la nouvelle valeur au changement de vue. Obligatoire.
+ * @property {string} [iconA] - Nom d'une icône affichée devant la première vue.
+ * @property {string} [iconB] - Nom d'une icône affichée devant la seconde vue.
+ * @property {'primary' | 'orga' | 'certif'} [variant] - Application à laquelle le sélecteur appartient, qui détermine ses couleurs. Par défaut : `primary`.
+ * @property {'small' | 'default' | 'large'} [size] - Taille du libellé. Par défaut : `default`.
+ * @property {string} [subLabel] - Complément d'information affiché sous le libellé.
+ * @property {boolean} [screenReaderOnly] - Masque le libellé visuellement, tout en le laissant lisible par les lecteurs d'écran.
+ * @property {boolean} [inlineLabel] - Place le libellé sur la même ligne que le sélecteur.
+ */
+
+/**
+ * @typedef {object} PixSegmentedControlSignature
+ * @property {null} Element
+ * @property {PixSegmentedControlArgs} Args
+ * @property {{ label: [], viewA: [], viewB: [] }} Blocks
+ */
+
 export default class PixSegmentedControl extends Component {
   get variant() {
     const value = this.args.variant ?? 'primary';

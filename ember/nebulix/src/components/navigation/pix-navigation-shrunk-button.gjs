@@ -6,6 +6,19 @@ import { tracked } from '@glimmer/tracking';
 
 import PixIcon from '../graphics/pix-icon.gjs';
 
+/**
+ * @typedef {object} PixNavigationShrunkButtonArgs
+ * @property {string} [route] - Nom de la route Ember vers laquelle naviguer.
+ * @property {string} [icon] - Nom de l'icône affichée à la place du libellé.
+ */
+
+/**
+ * @typedef {object} PixNavigationShrunkButtonSignature
+ * @property {HTMLAnchorElement} Element
+ * @property {PixNavigationShrunkButtonArgs} Args
+ * @property {{ default: [] }} Blocks
+ */
+
 export default class PixNavigationShrunkButton extends Component {
   @tracked isTooltipVisible = false;
 
