@@ -44,6 +44,8 @@ export default class ApplicationRoute extends Route {
         // here rather than there.
         'docs-app/components/ColorPalette': () =>
           import('docs-app/components/ColorPalette.gjs'),
+        'docs-app/components/IconGallery': () =>
+          import('docs-app/components/IconGallery.gjs'),
       },
       topLevelScope: {
         DemoFrame,
