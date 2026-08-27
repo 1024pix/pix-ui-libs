@@ -18,7 +18,6 @@
   "scripts": {
     "start": "vite",
     "build": "vite build",
-    "preview": "vite preview --port $PORT",
     "format": "prettier . --cache --write",
     "lint": "concurrently \"npm:lint:*(!fix)\" --names \"lint:\" --prefixColors auto",
     "lint:css": "stylelint \"**/*.css\" --allow-empty-input",
