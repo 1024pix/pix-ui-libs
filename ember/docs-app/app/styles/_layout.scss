@@ -16,9 +16,8 @@ body {
 
 // Doc app tokens
 :root {
-  --doc-font: system-ui, -apple-system, "Segoe UI", sans-serif;
-  --doc-font-mono:
-    ui-monospace, sfmono-regular, "SF Mono", menlo, consolas, monospace;
+  --doc-font: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --doc-font-mono: ui-monospace, sfmono-regular, 'SF Mono', menlo, consolas, monospace;
 
   --doc-space-1x: 4px;
   --doc-space-2x: 8px;
@@ -50,9 +49,9 @@ body {
   grid-template-columns: var(--layout-aside-width) 1fr;
   grid-template-rows: auto 1fr auto;
   grid-template-areas:
-    "header header"
-    "aside main"
-    "footer footer";
+    'header header'
+    'aside main'
+    'footer footer';
 
   > header {
     grid-area: header;
@@ -105,7 +104,7 @@ body {
 }
 
 // Group navigation: inline links in the header.
-.app-layout > header nav[aria-label="Groups"] {
+.app-layout > header nav[aria-label='Groups'] {
   ul {
     display: flex;
     gap: var(--doc-space-6x);
@@ -131,7 +130,7 @@ body {
 }
 
 // Page navigation: a hierarchical menu, every section always expanded.
-.app-layout > aside nav[aria-label="Selected Group"] {
+.app-layout > aside nav[aria-label='Selected Group'] {
   font-size: 0.875rem;
 
   ul {
@@ -207,10 +206,10 @@ body {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto 1fr auto;
     grid-template-areas:
-      "header"
-      "aside"
-      "main"
-      "footer";
+      'header'
+      'aside'
+      'main'
+      'footer';
   }
 
   .app-layout > aside,

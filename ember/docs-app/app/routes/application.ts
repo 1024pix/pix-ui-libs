@@ -1,26 +1,22 @@
 import Route from '@ember/routing/route';
-import { service } from '@ember/service';
-import { handlePotentialIndexVisit } from 'kolay';
-import { setupKolay } from 'kolay/setup';
-
-import rehypeShikiFromHighlighter from '@shikijs/rehype/core';
 import type RouterService from '@ember/routing/router-service';
 import type Transition from '@ember/routing/transition';
+import { service } from '@ember/service';
+import rehypeShikiFromHighlighter from '@shikijs/rehype/core';
+import DemoFrame from 'docs-app/components/DemoFrame.gjs';
 import type { Manifest } from 'kolay';
+import { handlePotentialIndexVisit } from 'kolay';
+import { setupKolay } from 'kolay/setup';
+import { wrapDemos } from 'kolay/wrap-demos';
 import { createHighlighterCore } from 'shiki/core';
 import { createOnigurumaEngine } from 'shiki/engine/oniguruma';
-import { wrapDemos } from 'kolay/wrap-demos';
-import DemoFrame from 'docs-app/components/DemoFrame.gjs';
 
 export default class ApplicationRoute extends Route {
   @service declare router: RouterService;
 
   async model(): Promise<{ manifest: Manifest }> {
     const highlighter = await createHighlighterCore({
-      themes: [
-        import('shiki/themes/github-dark.mjs'),
-        import('shiki/themes/github-light.mjs'),
-      ],
+      themes: [import('shiki/themes/github-dark.mjs'), import('shiki/themes/github-light.mjs')],
       langs: [
         import('shiki/langs/javascript.mjs'),
         import('shiki/langs/typescript.mjs'),
@@ -42,14 +38,10 @@ export default class ApplicationRoute extends Route {
         // `topLevelScope` only reaches markdown and `hbs` demos; a `gjs` demo
         // resolves what it imports, so documentation components are exposed
         // here rather than there.
-        'docs-app/components/ColorPalette': () =>
-          import('docs-app/components/ColorPalette.gjs'),
-        'docs-app/components/IconGallery': () =>
-          import('docs-app/components/IconGallery.gjs'),
-        'docs-app/components/ShadowGallery': () =>
-          import('docs-app/components/ShadowGallery.gjs'),
-        'docs-app/components/SpacingScale': () =>
-          import('docs-app/components/SpacingScale.gjs'),
+        'docs-app/components/ColorPalette': () => import('docs-app/components/ColorPalette.gjs'),
+        'docs-app/components/IconGallery': () => import('docs-app/components/IconGallery.gjs'),
+        'docs-app/components/ShadowGallery': () => import('docs-app/components/ShadowGallery.gjs'),
+        'docs-app/components/SpacingScale': () => import('docs-app/components/SpacingScale.gjs'),
       },
       topLevelScope: {
         DemoFrame,

@@ -55,8 +55,7 @@ class ColorShade extends Component {
         return;
       }
 
-      this.value =
-        styles.backgroundImage === 'none' ? toHex(styles.backgroundColor) : '';
+      this.value = styles.backgroundImage === 'none' ? toHex(styles.backgroundColor) : '';
     };
 
     read();
@@ -93,6 +92,7 @@ class ColorShade extends Component {
       await navigator.clipboard.writeText(this.args.variable);
       this.#flash('copied');
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error(`Could not copy "${this.args.variable}"`, error);
       this.#flash('failed');
     }
@@ -121,8 +121,7 @@ class ColorShade extends Component {
         {{on "click" this.copy}}
       >
         <span
-          class="color-palette__swatch
-            {{if this.isMissing 'color-palette__swatch--missing'}}"
+          class="color-palette__swatch {{if this.isMissing 'color-palette__swatch--missing'}}"
           aria-hidden="true"
           {{this.paintAndRead}}
         ></span>

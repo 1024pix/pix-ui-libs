@@ -33,9 +33,7 @@ class SpacingStep extends Component {
         return;
       }
 
-      const declared = getComputedStyle(element)
-        .getPropertyValue(variable)
-        .trim();
+      const declared = getComputedStyle(element).getPropertyValue(variable).trim();
 
       this.value = declared || null;
     };
@@ -72,6 +70,7 @@ class SpacingStep extends Component {
       await navigator.clipboard.writeText(this.args.variable);
       this.#flash('copied');
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error(`Could not copy "${this.args.variable}"`, error);
       this.#flash('failed');
     }
@@ -101,8 +100,7 @@ class SpacingStep extends Component {
       >
         <span class="spacing-scale__name">{{@variable}}</span>
         <span
-          class="spacing-scale__bar
-            {{if this.isMissing 'spacing-scale__bar--missing'}}"
+          class="spacing-scale__bar {{if this.isMissing 'spacing-scale__bar--missing'}}"
           aria-hidden="true"
           {{this.sizeAndRead}}
         ></span>

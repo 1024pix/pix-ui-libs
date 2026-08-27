@@ -1,17 +1,14 @@
 import { readFileSync } from 'node:fs';
 import { dirname, extname, join } from 'node:path';
-import { defineConfig } from 'vite';
-import { extensions, ember } from '@embroider/vite';
+
+import { ember, extensions } from '@embroider/vite';
 import { babel } from '@rollup/plugin-babel';
 import { kolay } from 'kolay/vite';
+import { defineConfig } from 'vite';
 
-const nebulixRoot = dirname(
-  require.resolve('@1024pix/nebulix-ember/package.json'),
-);
+const nebulixRoot = dirname(require.resolve('@1024pix/nebulix-ember/package.json'));
 const nebulixStyles = join(nebulixRoot, 'dist/styles');
-const nebulixVersion = JSON.parse(
-  readFileSync(join(nebulixRoot, 'package.json'), 'utf8'),
-).version;
+const nebulixVersion = JSON.parse(readFileSync(join(nebulixRoot, 'package.json'), 'utf8')).version;
 
 const MIME_TYPES = {
   '.svg': 'image/svg+xml',
@@ -54,20 +51,16 @@ export default defineConfig({
  * silently: icons render as empty `<svg>`, fonts fall back to system faces.
  */
 function nebulixPublicAssets() {
-  const manifest = JSON.parse(
-    readFileSync(join(nebulixRoot, 'package.json'), 'utf8'),
-  );
-  const assets = Object.entries(manifest['ember-addon']['public-assets']).map(
-    ([source, url]) => {
-      const mimeType = MIME_TYPES[extname(url)];
-      if (!mimeType) {
-        throw new Error(
-          `Nebulix public asset "${url}" has has no MIME type. Add it to MIME_TYPES in docs-app/vite.config.mjs.`,
-        );
-      }
-      return { url, mimeType, path: join(nebulixRoot, source) };
-    },
-  );
+  const manifest = JSON.parse(readFileSync(join(nebulixRoot, 'package.json'), 'utf8'));
+  const assets = Object.entries(manifest['ember-addon']['public-assets']).map(([source, url]) => {
+    const mimeType = MIME_TYPES[extname(url)];
+    if (!mimeType) {
+      throw new Error(
+        `Nebulix public asset "${url}" has has no MIME type. Add it to MIME_TYPES in docs-app/vite.config.mjs.`,
+      );
+    }
+    return { url, mimeType, path: join(nebulixRoot, source) };
+  });
 
   return {
     name: 'nebulix-public-assets',
