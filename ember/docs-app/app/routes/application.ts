@@ -22,10 +22,7 @@ export default class ApplicationRoute extends Route {
 
   async model(): Promise<{ manifest: Manifest }> {
     const highlighter = await createHighlighterCore({
-      themes: [
-        import('shiki/themes/github-dark.mjs'),
-        import('shiki/themes/github-light.mjs'),
-      ],
+      themes: [import('shiki/themes/github-dark.mjs'), import('shiki/themes/github-light.mjs')],
       langs: [
         import('shiki/langs/javascript.mjs'),
         import('shiki/langs/typescript.mjs'),
@@ -47,14 +44,10 @@ export default class ApplicationRoute extends Route {
         // `topLevelScope` only reaches markdown and `hbs` demos; a `gjs` demo
         // resolves what it imports, so documentation components are exposed
         // here rather than there.
-        'docs-app/components/ColorPalette': () =>
-          import('docs-app/components/ColorPalette.gjs'),
-        'docs-app/components/IconGallery': () =>
-          import('docs-app/components/IconGallery.gjs'),
-        'docs-app/components/ShadowGallery': () =>
-          import('docs-app/components/ShadowGallery.gjs'),
-        'docs-app/components/SpacingScale': () =>
-          import('docs-app/components/SpacingScale.gjs'),
+        'docs-app/components/ColorPalette': () => import('docs-app/components/ColorPalette.gjs'),
+        'docs-app/components/IconGallery': () => import('docs-app/components/IconGallery.gjs'),
+        'docs-app/components/ShadowGallery': () => import('docs-app/components/ShadowGallery.gjs'),
+        'docs-app/components/SpacingScale': () => import('docs-app/components/SpacingScale.gjs'),
       },
       topLevelScope: {
         DemoFrame,
