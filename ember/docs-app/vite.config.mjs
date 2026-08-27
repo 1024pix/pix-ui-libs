@@ -15,7 +15,7 @@ const MIME_TYPES = {
   '.woff2': 'font/woff2',
 };
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [
     ember(),
     kolay(),
@@ -40,9 +40,11 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
   },
-  // Code splitting is disabled to avoid too much chunks for the small Scalingo server
-  build: { rolldownOptions: { output: { codeSplitting: false } } },
-});
+  // Code splitting is disabled to avoid too much chunks for the small Scalingo server.
+  // Only in production: the test build has two inputs (index.html and
+  // tests/index.html), which rolldown refuses to bundle without code splitting.
+  build: { rolldownOptions: { output: { codeSplitting: mode !== 'production' } } },
+}));
 
 /**
  * Nebulix declares its icon sprite and its fonts as addon public assets, served
