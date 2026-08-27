@@ -1,7 +1,7 @@
 import { pageTitle } from 'ember-page-title';
 import { GroupNav } from 'kolay/components';
 
-import { gitRef, nebulixVersion } from 'docs-app/utils/build-info';
+import { nebulixVersion } from 'docs-app/utils/build-info';
 import { humanize } from 'docs-app/utils/humanize';
 
 <template>
@@ -30,7 +30,7 @@ import { humanize } from 'docs-app/utils/humanize';
         Changelog
       </a>
 
-      <span class="version">v{{nebulixVersion}} ({{gitRef}})</span>
+      <span class="version">v{{nebulixVersion}}</span>
     </footer>
   </div>
 </template>
