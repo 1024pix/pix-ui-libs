@@ -122,8 +122,7 @@ Toutes les valeurs viennent des **design tokens**, sous forme de variables
 dur.
 
 Le fichier n'est pas importé depuis le `.gjs` : il faut l'ajouter à
-`src/components/index.scss`, qui rassemble les styles de tous les composants, à
-sa place dans l'ordre alphabétique.
+`src/components/index.scss`, qui rassemble les styles de tous les composants.
 
 ```scss
 @use './layout/pix-mon-composant';
