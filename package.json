@@ -22,7 +22,7 @@
   "devDependencies": {
     "@changesets/changelog-github": "^1.0.0",
     "@changesets/cli": "^3.0.1",
-    "concurrently": "^9.2.1"
+    "concurrently": "^9.2.4"
   },
   "packageManager": "pnpm@11.22.0",
   "engines": {
