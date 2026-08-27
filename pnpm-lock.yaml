@@ -37,8 +37,8 @@ importers:
         specifier: ^8.2.3
         version: 8.2.3(@babel/core@7.29.7(supports-color@10.2.2))(@codemirror/lang-css@6.3.1)(@glimmer/component@2.1.1(supports-color@10.2.2))(@glint/template@1.8.0)(@lezer/javascript@1.5.4)(@lezer/lr@1.4.10)(ember-modifier@4.3.0(@babel/core@7.29.7(supports-color@10.2.2))(supports-color@10.2.2))(supports-color@10.2.2)
       kolay:
-        specifier: github:universal-ember/kolay#dist
-        version: https://codeload.github.com/universal-ember/kolay/tar.gz/8e6c52686208808e81e3b4be73fa24557b3112b5(@babel/core@7.29.7(supports-color@10.2.2))(@codemirror/lang-css@6.3.1)(@ember/test-helpers@5.4.3(@babel/core@7.29.7(supports-color@10.2.2))(supports-color@10.2.2))(@lezer/javascript@1.5.4)(@lezer/lr@1.4.10)(rolldown@1.2.5)(rollup@4.62.4)(supports-color@10.2.2)(typescript@6.0.3)(vite@8.2.2(@types/node@26.2.0)(jiti@2.7.0)(sass-embedded@1.102.0)(sass@1.102.0)(terser@5.50.0)(yaml@2.9.0))
+        specifier: github:universal-ember/kolay#cdbda81a605477020e6720b43488922e2d5d9231
+        version: https://codeload.github.com/universal-ember/kolay/tar.gz/cdbda81a605477020e6720b43488922e2d5d9231(@babel/core@7.29.7(supports-color@10.2.2))(@codemirror/lang-css@6.3.1)(@ember/test-helpers@5.4.3(@babel/core@7.29.7(supports-color@10.2.2))(supports-color@10.2.2))(@lezer/javascript@1.5.4)(@lezer/lr@1.4.10)(rolldown@1.2.5)(rollup@4.62.4)(supports-color@10.2.2)(typescript@6.0.3)(vite@8.2.2(@types/node@26.2.0)(jiti@2.7.0)(sass-embedded@1.102.0)(sass@1.102.0)(terser@5.50.0)(yaml@2.9.0))
       shiki:
         specifier: ^4.4.3
         version: 4.4.3
@@ -5379,8 +5379,8 @@ packages:
     resolution: {integrity: sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==}
     engines: {node: '>=0.10.0'}
 
-  kolay@https://codeload.github.com/universal-ember/kolay/tar.gz/8e6c52686208808e81e3b4be73fa24557b3112b5:
-    resolution: {gitHosted: true, tarball: https://codeload.github.com/universal-ember/kolay/tar.gz/8e6c52686208808e81e3b4be73fa24557b3112b5}
+  kolay@https://codeload.github.com/universal-ember/kolay/tar.gz/cdbda81a605477020e6720b43488922e2d5d9231:
+    resolution: {gitHosted: true, integrity: sha512-l1BcmyekNeJjHe2W1eU0HPD42HaNCTl/kepbD6fEzOZEGHIgLMC1+sj4spJW/AMfupNmJm5/qTr2URZuIRy0Ew==, tarball: https://codeload.github.com/universal-ember/kolay/tar.gz/cdbda81a605477020e6720b43488922e2d5d9231}
     version: 5.4.0
     engines: {node: '>= 18'}
 
@@ -14196,11 +14196,10 @@ snapshots:
 
   kind-of@6.0.3: {}
 
-  kolay@https://codeload.github.com/universal-ember/kolay/tar.gz/8e6c52686208808e81e3b4be73fa24557b3112b5(@babel/core@7.29.7(supports-color@10.2.2))(@codemirror/lang-css@6.3.1)(@ember/test-helpers@5.4.3(@babel/core@7.29.7(supports-color@10.2.2))(supports-color@10.2.2))(@lezer/javascript@1.5.4)(@lezer/lr@1.4.10)(rolldown@1.2.5)(rollup@4.62.4)(supports-color@10.2.2)(typescript@6.0.3)(vite@8.2.2(@types/node@26.2.0)(jiti@2.7.0)(sass-embedded@1.102.0)(sass@1.102.0)(terser@5.50.0)(yaml@2.9.0)):
+  kolay@https://codeload.github.com/universal-ember/kolay/tar.gz/cdbda81a605477020e6720b43488922e2d5d9231(@babel/core@7.29.7(supports-color@10.2.2))(@codemirror/lang-css@6.3.1)(@ember/test-helpers@5.4.3(@babel/core@7.29.7(supports-color@10.2.2))(supports-color@10.2.2))(@lezer/javascript@1.5.4)(@lezer/lr@1.4.10)(rolldown@1.2.5)(rollup@4.62.4)(supports-color@10.2.2)(typescript@6.0.3)(vite@8.2.2(@types/node@26.2.0)(jiti@2.7.0)(sass-embedded@1.102.0)(sass@1.102.0)(terser@5.50.0)(yaml@2.9.0)):
     dependencies:
       '@11ty/gray-matter': 3.0.0
       '@ember/test-waiters': 4.1.2(supports-color@10.2.2)
-      '@embroider/addon-shim': 1.10.3(supports-color@10.2.2)
       '@glimmer/component': 2.1.1(supports-color@10.2.2)
       '@glint/template': 1.8.0
       change-case: 5.4.4

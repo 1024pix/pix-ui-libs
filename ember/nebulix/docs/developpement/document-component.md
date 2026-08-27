@@ -16,6 +16,37 @@ pnpm doc
 
 La documentation est générée avec [Kolay](https://kolay.nullvoxpopuli.com/) et servie sur [http://localhost:4200](http://localhost:4200).
 
+### La version de Kolay
+
+Kolay n'est pas installé depuis npm mais depuis un commit précis du dépôt
+GitHub, dans `ember/docs-app/package.json` :
+
+```json
+"kolay": "github:universal-ember/kolay#cdbda81a605477020e6720b43488922e2d5d9231"
+```
+
+Ce n'est pas un accident. Nous utilisons des API qui ne sont pas encore
+publiées - `apiDocs` dans `kolay.config.js`, par exemple, s'appelait encore
+`typedoc` dans la dernière version npm. Revenir à `kolay@5.4.0` casserait la
+génération de la doc.
+
+Ces commits vivent sur la branche `dist` du dépôt Kolay, où la CI publie le
+paquet déjà construit - la branche `main`, elle, n'embarque pas les artefacts
+de build et n'est donc pas installable. Cette branche `dist` est **réécrite à
+chaque publication** : elle ne porte qu'un seul commit à la fois. Un SHA qu'on
+y épingle n'est donc plus référencé dès la publication suivante. GitHub
+continue de le servir en pratique, mais rien ne le garantit indéfiniment.
+
+Pour monter de version, prenez le commit de tête de `dist` :
+
+```bash
+git ls-remote https://github.com/universal-ember/kolay dist
+```
+
+Reportez le SHA dans `package.json`, puis `pnpm install` et vérifiez que
+`pnpm --filter docs-app build` et `pnpm --filter docs-app lint:types` passent
+toujours.
+
 ## Créer la page
 
 Le fichier de documentation porte le nom du composant et vit dans le même

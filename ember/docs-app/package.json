@@ -97,7 +97,7 @@
     "@1024pix/nebulix-ember": "workspace:*",
     "@shikijs/rehype": "^4.4.3",
     "ember-repl": "^8.2.3",
-    "kolay": "github:universal-ember/kolay#dist",
+    "kolay": "github:universal-ember/kolay#cdbda81a605477020e6720b43488922e2d5d9231",
     "shiki": "^4.4.3"
   }
 }
