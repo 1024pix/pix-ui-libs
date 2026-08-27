@@ -3,9 +3,9 @@ import { defineConfig } from 'kolay/vite';
 
 export default defineConfig({
   docs: [
-    { name: 'Nebulix', src: import.meta.resolve('../nebulix/docs') },
+    { name: 'nebulix', src: import.meta.resolve('../nebulix/docs') },
     {
-      name: 'Components',
+      name: 'components',
       src: import.meta.resolve('../nebulix/src/components'),
     },
   ],

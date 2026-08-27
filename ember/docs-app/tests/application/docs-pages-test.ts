@@ -2,7 +2,7 @@ import { currentURL, visit, waitFor } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 
-const FIRST_NEBULIX_PAGE = '/Nebulix/nebulix-ember/installation.md';
+const FIRST_NEBULIX_PAGE = '/nebulix/nebulix-ember/installation.md';
 
 module('Application | docs pages', function (hooks) {
   setupApplicationTest(hooks);
