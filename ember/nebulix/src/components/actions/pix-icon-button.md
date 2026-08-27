@@ -4,12 +4,8 @@ title: PixIconButton
 
 # PixIconButton
 
-`PixIconButton` déclenche une action représentée par une seule icône, sans
-libellé visible : fermer, modifier, supprimer une ligne.
-
-Réservez-le aux actions dont l'icône est universellement comprise, ou qui se
-répètent dans une liste où le texte alourdirait la lecture. Dans le doute,
-`PixButton` avec `@iconBefore` reste plus clair.
+`PixIconButton` crée un bouton avec seulement une icône. Utiliser `@iconName`
+et `@plainIcon` pour sélectionner l'icône à utiliser.
 
 ## Utilisation
 
@@ -25,10 +21,7 @@ const modifier = () => {
 </template>
 ```
 
-`@ariaLabel` est **obligatoire** : c'est le seul nom dont dispose le bouton pour
-les lecteurs d'écran. Décrivez l'action et son objet — « Modifier le profil »,
-pas « Modifier ». Il est également affiché en infobulle par certains
-navigateurs.
+`@ariaLabel` est **obligatoire** pour l'accessibilité de ce composant.
 
 ## Tailles
 
@@ -72,7 +65,7 @@ const noop = () => {};
       display: flex;
       flex-wrap: wrap;
       gap: 1.5rem;
-      align-items: flex-start;
+      align-items: flex-end;
     }
 
     .demo-sizes figure {
@@ -91,10 +84,6 @@ const noop = () => {};
   </style>
 </template>
 ```
-
-Attention à la cible de clic : en `xsmall`, le bouton descend sous la taille
-minimale recommandée pour un usage tactile. Ne l'employez pas sur un écran
-destiné au mobile.
 
 ## API Docs
 

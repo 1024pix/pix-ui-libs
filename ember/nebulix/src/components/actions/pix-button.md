@@ -4,8 +4,7 @@ title: PixButton
 
 # PixButton
 
-`PixButton` déclenche une action dans la page : soumettre un formulaire, ouvrir une
-modale, enregistrer une saisie. Il rend un élément `<button>` natif.
+`PixButton` rend un élément `<button>` natif avec un `type=button` par defaut.
 
 ## Utilisation
 
@@ -24,6 +23,25 @@ const enregistrer = () => {
 ```
 
 `@triggerAction` est obligatoire, sauf si le bouton porte `@type="submit"`.
+
+### Icônes
+
+Il est possible de rajouter une icône avant `@iconBefore` ou après `@iconAfter`
+(ou les deux !). On peut spécifier la version **plain** de l'icône avec
+les proprités `@plainIconBefore` ou `@plainIconAfter` (ou les deux).
+
+```gjs live nebulix
+import { PixButton } from '@1024pix/nebulix-ember';
+const noop = () => {};
+<template>
+  <PixButton @triggerAction={{noop}} @iconBefore="brick" @plainIconBefore="true" @iconAfter="brick">
+    Construire</PixButton>
+</template>
+```
+
+> Accessibilité : dans le cas où les icônes ont une valeur d'information
+> (ex: un bouton ⬅️ Précédent), il est important d'apporter un aria-label au
+> bouton (ex: "Retour à la page précédente").
 
 ## Variantes
 
