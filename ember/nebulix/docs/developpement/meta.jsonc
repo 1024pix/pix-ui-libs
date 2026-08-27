@@ -1,3 +1,3 @@
 {
-  "order": ["create-component", "test-component", "document-component", "release", "test-local"],
+  "order": ["create-component", "test-component", "document-component", "add-icon", "release", "test-local"],
 }
