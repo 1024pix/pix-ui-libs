@@ -1,14 +1,13 @@
+import DocsGroupNav from 'docs-app/components/DocsGroupNav.gts';
 import { nebulixVersion } from 'docs-app/utils/build-info';
-import { humanize } from 'docs-app/utils/humanize';
 import { pageTitle } from 'ember-page-title';
-import { GroupNav } from 'kolay/components';
 
 <template>
   {{pageTitle "Pix UI Libs"}}
 
   <div class="app-layout">
     <header>
-      <GroupNav as |name|>{{humanize name}}</GroupNav>
+      <DocsGroupNav />
     </header>
 
     {{outlet}}

@@ -5,11 +5,17 @@ import { service } from '@ember/service';
 import rehypeShikiFromHighlighter from '@shikijs/rehype/core';
 import DemoFrame from 'docs-app/components/DemoFrame.gjs';
 import type { Manifest } from 'kolay';
-import { handlePotentialIndexVisit } from 'kolay';
+import { docsManager, handlePotentialIndexVisit } from 'kolay';
 import { setupKolay } from 'kolay/setup';
 import { wrapDemos } from 'kolay/wrap-demos';
 import { createHighlighterCore } from 'shiki/core';
 import { createOnigurumaEngine } from 'shiki/engine/oniguruma';
+
+/**
+ * The docs group `/` opens on. `selectGroup` asserts if it ever stops
+ * matching a group name in `kolay.config.js`.
+ */
+const NEBULIX_GROUP = 'Nebulix';
 
 export default class ApplicationRoute extends Route {
   @service declare router: RouterService;
@@ -71,6 +77,15 @@ export default class ApplicationRoute extends Route {
   }
 
   redirect(_model: void, transition: Transition): void {
+    // The app has no home page of its own: `/` opens the Nebulix docs.
+    // Kolay would otherwise land on its implicit `Home` group (the pages
+    // co-located in `app/templates`), which this app leaves empty.
+    if (transition.to?.name === 'index') {
+      docsManager(this).selectGroup(NEBULIX_GROUP);
+
+      return;
+    }
+
     handlePotentialIndexVisit(this, transition);
   }
 }
