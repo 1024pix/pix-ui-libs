@@ -46,11 +46,14 @@ jobs:
           paths:
             - .pnpm-store
       - run:
-          name: Lint addon files
+          name: Lint Nebulix Ember files
           command: pnpm --filter @1024pix/nebulix-ember lint
       - run:
-          name: Lint test-app files
+          name: Lint Test app files
           command: pnpm --filter test-app lint
+      - run:
+          name: Lint Docs app files
+          command: pnpm --filter docs-app lint
       - browser-tools/install_chrome
       - run:
           name: Launch tests
