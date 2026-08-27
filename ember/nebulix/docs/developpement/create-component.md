@@ -6,22 +6,22 @@ title: Créer un composant
 
 Les composants vivent dans `ember/nebulix/src/components`, rangés par rubrique :
 `actions`, `forms`, `navigation`, `overlay`… Le dossier dans lequel vous posez le
-composant détermine la rubrique sous laquelle il apparaîtra dans cette
+composant détermine la rubrique sous laquelle il apparaîtra dans la
 documentation.
 
 ## Les étapes
 
 1. Créer `src/components/<rubrique>/pix-mon-composant.gjs`, et son `.scss` s'il a des styles.
-2. Écrire le composant : le JSDoc qui le type, puis la classe et son `<template>`.
+2. Écrire le composant : la classe, son `<template>` et la JSDoc qui le type.
 3. Déclarer son `.scss` dans `src/components/index.scss`.
 4. Exporter le composant dans `src/index.js`.
-5. Écrire son test, dans `ember/test-app/tests` — voir la page **Tester un composant**.
-6. Écrire sa page de documentation, à côté du `.gjs` — voir la page **Documenter un composant**.
-7. Ajouter un changeset avec `pnpm changeset`, sans quoi la modification ne sera pas publiée.
+5. Écrire son test, dans `ember/test-app/tests`. Voir la page [Tester un composant](/nebulix/developpement/test-component.md).
+6. Écrire sa page de documentation, à côté du `.gjs`. Voir la page [Documenter un composant](/nebulix/developpement/document-component.md).
+7. Ajouter un changeset avec `pnpm changeset`, sans quoi la modification ne sera pas publiée. Voir la page [Publier une version](/nebulix/developpement/release.md).
 
 ## Les fichiers
 
-Un composant, c'est trois fichiers portant le même nom, dans le même dossier :
+Un composant est composé de trois fichiers portant le même nom, dans le même dossier :
 
 ```
 src/components/layout/pix-block.gjs   la logique et le template
@@ -29,13 +29,12 @@ src/components/layout/pix-block.scss  les styles
 src/components/layout/pix-block.md    la documentation
 ```
 
-Le `.scss` est facultatif : un composant qui n'apporte aucun style ne le crée
-pas. Le `.gjs` et le `.md`, eux, sont toujours là.
+Le `.gjs` est toujours là. Le `.md` et `.scss` sont facultatifs : un composant non public n'a pas de documentation et un composant qui n'apporte aucun style ne le crée pas.
 
 ## Écrire le composant
 
 ```gjs
-// src/components/layout/pix-block.gjs
+// src/components/layout/pix-mon-composant.gjs
 import Component from '@glimmer/component';
 import { warn } from '@ember/debug';
 
@@ -83,11 +82,7 @@ export default class PixMonComposant extends Component {
 }
 ```
 
-Les deux `@typedef` **typent** le composant : `ember-tsc` les transforme en
-fichiers de types dans `declarations/`, qui alimentent à la fois
-l'auto-complétion dans les applications et le tableau d'API de sa page de
-documentation. Comment les écrire en détail est expliqué dans
-la page **Documenter un composant**.
+Les deux `@typedef` **typent** le composant. Voir la page [Documenter un composant](/nebulix/developpement/document-component.md).
 
 Le reste tient en six conventions :
 
@@ -100,7 +95,7 @@ Le reste tient en six conventions :
   `pix-mon-composant--condensed`.
 - Elles sont **assemblées dans un getter `cssClass`**, jamais dans le template.
 - Les **valeurs par défaut vivent dans un getter** (`this.args.variant ?? 'primary'`).
-  Les `args` ne sont jamais modifiés.
+- Les `args` ne sont jamais modifiés.
 - Une valeur d'argument invalide déclenche un **`warn`** de `@ember/debug` : le
   développeur est averti, mais le rendu n'est pas cassé.
 
@@ -123,7 +118,7 @@ Le reste tient en six conventions :
 ```
 
 Toutes les valeurs viennent des **design tokens**, sous forme de variables
-`var(--pix-…)` : couleurs, espacements, rayons, typographies. Aucune valeur en
+`var(--pix-…)` : couleurs, espacements, shadow, typographies. Aucune valeur en
 dur.
 
 Le fichier n'est pas importé depuis le `.gjs` : il faut l'ajouter à

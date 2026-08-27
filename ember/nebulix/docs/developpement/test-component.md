@@ -13,22 +13,16 @@ pnpm dev
 ```
 
 Les tests sont servis sur [http://localhost:4200/tests](http://localhost:4200/tests).
-L'addon est recompilé en watch : chaque modification du composant ou du test
-relance la suite.
 
-Avant de pousser, la même suite en headless :
+Pour exécuter les tests en headless dans le terminal (comme dans la CI) :
 
 ```bash
 pnpm test
 ```
 
-Cette commande construit l'addon puis joue les tests dans un navigateur sans
-interface, comme le fait la CI.
-
 ## Écrire un test
 
-Le test d'un composant vit dans `ember/test-app/tests`, sous la même rubrique
-que le composant :
+Le test d'un composant vit dans `ember/test-app/tests`, sous la même rubrique que le composant :
 
 ```
 ember/nebulix/src/components/layout/pix-block.gjs
@@ -56,8 +50,7 @@ module('Integration | Component | PixMonComposant', function (hooks) {
 });
 ```
 
-Le composant est importé depuis `@1024pix/nebulix-ember`, son API publique :
-c'est pour cela que `pnpm test` construit l'addon avant de jouer la suite.
+Le composant est importé depuis `@1024pix/nebulix-ember`, son API publique : c'est pour cela que `pnpm test` construit l'addon avant de jouer la suite.
 
 ## Linter
 
@@ -66,9 +59,6 @@ pnpm lint
 pnpm lint:fix
 ```
 
-`pnpm lint` passe sur tous les paquets et enchaîne quatre vérifications :
-le formatage (`prettier`), le JavaScript (`eslint`), les templates
-(`ember-template-lint`) et les types (`ember-tsc`).
+`pnpm lint` passe sur tous les paquets et enchaîne quatre vérifications : le formatage (`prettier`), le JavaScript (`eslint`), les templates (`ember-template-lint`) et les types (`ember-tsc`).
 
-`pnpm lint:fix` corrige les trois premières. **Les erreurs de types ne sont
-jamais corrigées automatiquement**, il faut les traiter à la main.
+`pnpm lint:fix` corrige les trois premières. **Les erreurs de types ne sont jamais corrigées automatiquement**, il faut les traiter à la main.

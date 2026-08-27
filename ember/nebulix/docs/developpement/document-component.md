@@ -4,7 +4,7 @@ title: Documenter un composant
 
 # Documenter un composant
 
-La documentation d'un composant est un fichier `.md` posé à côté de son `.gjs`. Le tableau d'API, lui, n'est pas écrit à la main, il est produit à partir du JSDoc du composant.
+La documentation d'un composant est un fichier `.md` posé à côté de son `.gjs`.
 
 ## Lancer la doc
 
@@ -14,13 +14,7 @@ Depuis la racine du dépôt :
 pnpm doc
 ```
 
-La documentation est servie sur [http://localhost:4200](http://localhost:4200).
-
-Cette commande lance deux choses en parallèle :
-
-- la **recompilation de l'addon** en watch, `rollup` pour le code, `ember-tsc`
-  pour les types (`declarations/`).
-- le **serveur Vite de `docs-app`**, qui assemble les pages et le menu.
+La documentation est générée avec [Kolay](https://kolay.nullvoxpopuli.com/) et servie sur [http://localhost:4200](http://localhost:4200).
 
 ## Créer la page
 
@@ -65,7 +59,7 @@ new: true
 
 # PixMonComposant
 
-Ce que fait le composant, et quand s'en servir plutôt qu'un autre.
+Ce que fait le composant et quand s'en servir.
 Deux ou trois phrases, pas une liste d'arguments.
 
 ## Utilisation
@@ -103,19 +97,17 @@ import { PixMonComposant } from '@1024pix/nebulix-ember';
   - `title: PixMonComposant` : le titre de la page.
   - `new: true` : optionnel, indique si le composant est nouveau (ajouté récemment).
 - Le **titre de niveau 1** est le nom du composant, une seule fois dans la page.
-- L'**introduction** situe le composant : à quoi il sert, et face à quel autre
-  composant on le choisit.
+- L'**introduction** situe le composant : à quoi il sert.
 - **`## Utilisation`** donne l'exemple minimal qui marche.
-- Les **sections suivantes** traitent des compoortements spécifiques.
+- Les **sections suivantes** traitent des comportements spécifiques.
 - **`## API Docs`** ferme la page.
 
 Pour voir ce squelette rempli, lisez `src/components/graphics/pix-icon.md`.
 
 ## Les démos
 
-Une démo est un bloc de code exécuté. Ce sont les mots-clés placés
-après le langage qui décident de ce qui est affiché. Ils se combinent, dans
-n'importe quel ordre.
+Une démo est un bloc de code exécuté. Ce sont les mots-clés placés après le langage qui décident de ce qui est affiché.
+Ils se combinent, dans n'importe quel ordre.
 
 | mot-clé   | effet                                                                  |
 | --------- | ---------------------------------------------------------------------- |
@@ -127,8 +119,7 @@ n'importe quel ordre.
 Sans `live`, le bloc reste un simple bloc de code coloré : rien n'est exécuté.
 Sans `nebulix`, la démo s'affiche **sans aucun style Nebulix**.
 
-Une démo peut embarquer ses propres styles pour se mettre en scène en utilisant une balise `<style>` dans le
-`<template>` :
+Une démo peut embarquer ses propres styles pour se mettre en scène en utilisant une balise `<style>` dans le `<template>` :
 
 ````md
 ```gjs live nebulix
