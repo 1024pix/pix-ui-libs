@@ -1,0 +1,78 @@
+// Styles for `app/components/ShadowGallery.gjs`.
+.shadow-gallery {
+  margin: var(--doc-space-6x) 0;
+}
+
+.shadow-gallery__title {
+  margin: 0 0 var(--doc-space-2x);
+  color: var(--doc-text);
+  font-weight: 600;
+}
+
+// Light backdrop: the tokens cast their shadow on a white surface, which would
+// be invisible on the white page background.
+.shadow-gallery__items {
+  display: flex;
+  flex-wrap: wrap;
+  padding: var(--doc-space-6x);
+  border-radius: var(--doc-space-2x);
+  margin: 0;
+  background-color: var(--doc-surface-hover);
+  gap: var(--doc-space-6x);
+  list-style: none;
+}
+
+.shadow-gallery__item {
+  position: relative;
+  display: block;
+}
+
+.shadow-gallery__button {
+  display: flex;
+  width: 180px;
+  flex-direction: column;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  color: var(--doc-text);
+  cursor: pointer;
+  font-family: var(--doc-font);
+  gap: var(--doc-space-3x);
+  text-align: start;
+}
+
+.shadow-gallery__button:focus-visible {
+  outline: 2px solid var(--doc-accent);
+  outline-offset: 4px;
+}
+
+// The inset layers of the interactive shadows only read on an opaque surface
+// with a border radius.
+.shadow-gallery__surface {
+  display: block;
+  height: 72px;
+  border-radius: var(--doc-space-4x);
+  background-color: #fff;
+}
+
+.shadow-gallery__name {
+  overflow-wrap: anywhere;
+  color: var(--doc-muted);
+  font-family: var(--doc-font-mono);
+  font-size: 0.75rem;
+}
+
+.shadow-gallery__button:hover .shadow-gallery__name {
+  color: var(--doc-accent);
+}
+
+// Carries the copy feedback to assistive technologies, while the visible label
+// swaps in place.
+.shadow-gallery__announcement {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

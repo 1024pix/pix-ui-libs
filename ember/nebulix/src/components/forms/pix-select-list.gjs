@@ -7,6 +7,38 @@ import onEnterAction from '../../modifiers/on-enter-action.js';
 import onSpaceAction from '../../modifiers/on-space-action.js';
 import PixIcon from '../graphics/pix-icon.gjs';
 
+/**
+ * @typedef {object} PixSelectListOption
+ * @property {string} value - Valeur de l'option.
+ * @property {string} label - Texte affiché.
+ * @property {string} [category] - Regroupe l'option sous une catégorie.
+ * @property {string} [icon] - Nom d'une icône affichée avant le texte.
+ * @property {string} [iconTitle] - Description de l'icône pour les lecteurs d'écran.
+ */
+
+/**
+ * @typedef {object} PixSelectListArgs
+ * @property {PixSelectListOption[]} options - Options à afficher.
+ * @property {string} listId - Identifiant de la liste.
+ * @property {string} selectId - Identifiant du champ qui ouvre la liste.
+ * @property {string} [value] - Valeur de l'option sélectionnée.
+ * @property {(option: PixSelectListOption, event: Event) => unknown} onChange - Appelée avec l'option choisie.
+ * @property {boolean} [isExpanded] - Indique que la liste est ouverte, et donc navigable au clavier.
+ * @property {boolean} [displayDefaultOption] - Affiche l'option par défaut en tête de liste.
+ * @property {boolean} [hideDefaultOption] - Rend l'option par défaut inatteignable au clavier.
+ * @property {PixSelectListOption} [defaultOption] - Option par défaut, celle qui correspond à « aucun choix ».
+ * @property {string} [defaultOptionValue] - Texte de l'option par défaut.
+ * @property {string} [searchValue] - Texte de recherche filtrant les options affichées.
+ * @property {string} [emptySearchMessage] - Message affiché quand aucune option ne correspond à la recherche.
+ */
+
+/**
+ * @typedef {object} PixSelectListSignature
+ * @property {HTMLUListElement} Element
+ * @property {PixSelectListArgs} Args
+ * @property {{}} Blocks
+ */
+
 export default class PixSelectList extends Component {
   get categories() {
     const uniqueCategories = new Set(

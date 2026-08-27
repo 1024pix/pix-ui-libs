@@ -12,6 +12,25 @@ const TYPE_WARNING = 'warning';
 import PixIconButton from '../actions/pix-icon-button.gjs';
 import PixIcon from '../graphics/pix-icon.gjs';
 
+/**
+ * @typedef {object} PixToastNotification
+ * @property {string} message - Texte de la notification.
+ * @property {'success' | 'error' | 'information' | 'warning'} type - Nature de la notification, qui détermine ses couleurs et son icône.
+ */
+
+/**
+ * @typedef {object} PixToastArgs
+ * @property {PixToastNotification} toast - Notification à afficher. Fournie par `PixToastContainer` à partir du service `pixToast`.
+ * @property {string} [closeButtonAriaLabel] - Nom du bouton de fermeture, lu par les lecteurs d'écran.
+ */
+
+/**
+ * @typedef {object} PixToastSignature
+ * @property {HTMLDivElement} Element
+ * @property {PixToastArgs} Args
+ * @property {{}} Blocks
+ */
+
 export default class PixToast extends Component {
   @service pixToast;
 

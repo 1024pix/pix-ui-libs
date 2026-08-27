@@ -57,9 +57,17 @@
     line-height: 1.5;
   }
 
-  // A heading opening a section shouldn't push it away from what contains it.
   :is(h1, h2, h3, h4, h5, h6):first-child {
     margin-block-start: 0;
+  }
+
+  a {
+    color: var(--doc-accent);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
   }
 
   :not(pre) > code {

@@ -105,7 +105,8 @@ const noop = () => {};
 ### Sur fond sombre
 
 Les variantes `primary-white`, `secondary-white` et `tertiary-white` sont conçues
-pour les fonds sombres ou colorés.
+pour les fonds sombres ou colorés. `transparent-dark` complète la série pour un
+bouton sans fond, dont `@isBorderVisible` fait apparaître la bordure.
 
 ```gjs live nebulix
 import { PixButton } from '@1024pix/nebulix-ember';
@@ -127,6 +128,15 @@ const noop = () => {};
     <figure>
       <PixButton @variant="tertiary-white" @triggerAction={{noop}}>En savoir plus</PixButton>
       <figcaption>tertiary-white</figcaption>
+    </figure>
+
+    <figure>
+      <PixButton
+        @variant="transparent-dark"
+        @isBorderVisible={{true}}
+        @triggerAction={{noop}}
+      >Continuer</PixButton>
+      <figcaption>transparent-dark</figcaption>
     </figure>
   </div>
 
@@ -158,7 +168,7 @@ const noop = () => {};
 </template>
 ```
 
-## API
+## API Docs
 
 ```hbs live
 <ComponentSignature

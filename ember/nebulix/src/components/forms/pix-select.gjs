@@ -15,6 +15,50 @@ import PixIcon from '../graphics/pix-icon.gjs';
 import PixLabel from './pix-label.gjs';
 import PixSelectList from './pix-select-list.gjs';
 
+/**
+ * @typedef {object} PixSelectOption
+ * @property {string} value - Valeur de l'option.
+ * @property {string} label - Texte affiché.
+ * @property {string} [category] - Regroupe l'option sous une catégorie, affichée comme intertitre dans la liste.
+ * @property {string} [icon] - Nom d'une icône affichée avant le texte.
+ * @property {string} [iconTitle] - Description de l'icône pour les lecteurs d'écran.
+ */
+
+/**
+ * @typedef {object} PixSelectArgs
+ * @property {PixSelectOption[]} options - Options proposées. Obligatoire.
+ * @property {(value: string) => unknown} onChange - Appelée avec la valeur de l'option choisie. Obligatoire.
+ * @property {string} [value] - Valeur de l'option sélectionnée.
+ * @property {string} [placeholder] - Texte affiché tant qu'aucune option n'est sélectionnée.
+ * @property {string} [id] - Identifiant du champ. Généré automatiquement s'il n'est pas fourni.
+ * @property {boolean} [isDisabled] - Désactive le champ.
+ * @property {boolean} [isSearchable] - Ajoute un champ de recherche en tête de liste.
+ * @property {(value: string) => unknown} [onSearch] - Prend en charge la recherche à la place du filtrage interne, pour interroger un serveur par exemple.
+ * @property {string} [searchPlaceholder] - Texte d'aide du champ de recherche.
+ * @property {string} [emptySearchMessage] - Message affiché quand aucune option ne correspond à la recherche.
+ * @property {boolean} [hideDefaultOption] - Retire l'option qui permet de revenir à « aucun choix ».
+ * @property {string} [iconName] - Nom d'une icône affichée dans le champ, avant le texte.
+ * @property {boolean} [plainIcon] - Affiche `iconName` dans sa variante pleine.
+ * @property {'small' | 'default' | 'large'} [size] - Taille du libellé. Par défaut : `default`.
+ * @property {string} [requiredLabel] - Rend le champ obligatoire et affiche un astérisque, dont ce texte est l'infobulle.
+ * @property {string} [subLabel] - Complément d'information affiché sous le libellé.
+ * @property {boolean} [screenReaderOnly] - Masque le libellé visuellement, tout en le laissant lisible par les lecteurs d'écran.
+ * @property {boolean} [inlineLabel] - Place le libellé sur la même ligne que le champ.
+ * @property {boolean} [isFullWidth] - Étend le champ à toute la largeur disponible.
+ * @property {string} [errorMessage] - Message d'erreur affiché sous le champ. Sa présence applique le style d'erreur.
+ * @property {string} [className] - Classes CSS ajoutées au bouton d'ouverture.
+ * @property {string} [placement] - Position de la liste par rapport au champ, au sens de Popper. Par défaut : `bottom-start`.
+ * @property {boolean} [isComputeWidthDisabled] - Désactive l'alignement automatique de la largeur du champ sur celle de la liste.
+ * @property {'fr' | 'en' | 'es' | 'es-419' | 'nl'} [locale] - Langue du libellé du champ de recherche. Par défaut : `fr`.
+ */
+
+/**
+ * @typedef {object} PixSelectSignature
+ * @property {HTMLDivElement} Element
+ * @property {PixSelectArgs} Args
+ * @property {{ label: [] }} Blocks
+ */
+
 export default class PixSelect extends Component {
   @service elementHelper;
   @tracked isExpanded = false;

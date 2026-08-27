@@ -4,6 +4,26 @@ import { htmlSafe } from '@ember/template';
 import PixInputBase from './pix-input-base.gjs';
 import PixLabel from './pix-label.gjs';
 
+/**
+ * @typedef {object} PixCodeArgs
+ * @property {number} length - Nombre de caractères attendus. Obligatoire : il fixe à la fois la largeur du champ et les longueurs minimale et maximale acceptées.
+ * @property {string} [id] - Identifiant du champ. Généré automatiquement s'il n'est pas fourni.
+ * @property {string} [value] - Valeur du champ.
+ * @property {'small' | 'default' | 'large'} [size] - Taille du libellé. Par défaut : `default`.
+ * @property {string} [requiredLabel] - Rend le champ obligatoire et affiche un astérisque, dont ce texte est l'infobulle.
+ * @property {string} [subLabel] - Complément d'information affiché sous le libellé.
+ * @property {boolean} [screenReaderOnly] - Masque le libellé visuellement, tout en le laissant lisible par les lecteurs d'écran.
+ * @property {'default' | 'error' | 'success'} [validationStatus] - État de validation du champ. Par défaut : `default`.
+ * @property {string} [errorMessage] - Message affiché sous le champ lorsque `validationStatus` vaut `error`.
+ */
+
+/**
+ * @typedef {object} PixCodeSignature
+ * @property {HTMLInputElement} Element
+ * @property {PixCodeArgs} Args
+ * @property {{ label: [] }} Blocks
+ */
+
 export default class PixCode extends PixInputBase {
   constructor() {
     super(...arguments);

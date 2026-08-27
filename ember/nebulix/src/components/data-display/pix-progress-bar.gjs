@@ -2,6 +2,24 @@ import { warn } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
 import Component from '@glimmer/component';
 
+/**
+ * @typedef {object} PixProgressBarArgs
+ * @property {number} value - Avancement, entre 0 et 1. Obligatoire.
+ * @property {string} label - Description de l'avancement, lue par les lecteurs d'écran. Obligatoire.
+ * @property {string} [percentageValue] - Texte affiché au-dessus de la barre, généralement le pourcentage.
+ * @property {boolean} [hidePercentage] - Masque ce texte.
+ * @property {string} [subtitle] - Précision affichée sous la barre.
+ * @property {'primary' | 'success' | 'tertiary' | 'blue' | 'green' | 'purple'} [color] - Couleur de la barre. Par défaut : `primary`. Les valeurs `blue`, `green` et `purple` sont dépréciées.
+ * @property {'light' | 'dark'} [themeMode] - Fond sur lequel la barre s'affiche. Par défaut : `light`.
+ */
+
+/**
+ * @typedef {object} PixProgressBarSignature
+ * @property {HTMLDivElement} Element
+ * @property {PixProgressBarArgs} Args
+ * @property {{}} Blocks
+ */
+
 export default class PixProgressBar extends Component {
   constructor(...args) {
     super(...args);

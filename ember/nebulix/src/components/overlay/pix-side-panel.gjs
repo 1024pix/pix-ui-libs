@@ -5,6 +5,24 @@ import { MODAL_VARIANTS } from '../../helpers/variants.js';
 import PixModalHeader from './pix-modal-header.gjs';
 import PixOverlay from './pix-overlay.gjs';
 
+/**
+ * @typedef {object} PixSidePanelArgs
+ * @property {string} title - Titre du panneau, rendu dans un `<h1>`. Obligatoire : sans lui, le composant lève une erreur.
+ * @property {boolean} [showSidePanel] - Ouvre le panneau.
+ * @property {(event: Event) => unknown} [onClose] - Appelée à chaque demande de fermeture : bouton de fermeture, clic sur le fond, touche Échap.
+ * @property {string} [subtitle] - Précision affichée sous le titre.
+ * @property {string} [iconName] - Nom d'une icône affichée à gauche du titre.
+ * @property {'default' | 'orga' | 'certif'} [variant] - Application à laquelle le panneau appartient, qui détermine ses couleurs. Par défaut : `default`.
+ * @property {HTMLElement | string} [focusOnClose] - Élément à qui rendre le focus à la fermeture. Par défaut, il revient à l'élément qui avait ouvert le panneau.
+ */
+
+/**
+ * @typedef {object} PixSidePanelSignature
+ * @property {HTMLDivElement} Element
+ * @property {PixSidePanelArgs} Args
+ * @property {{ content: [], footer: [] }} Blocks
+ */
+
 export default class PixSidePanel extends Component {
   constructor(...args) {
     super(...args);

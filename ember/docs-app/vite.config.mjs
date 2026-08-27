@@ -4,11 +4,15 @@ import { defineConfig } from 'vite';
 import { extensions, ember } from '@embroider/vite';
 import { babel } from '@rollup/plugin-babel';
 import { kolay } from 'kolay/vite';
+import { gitRef } from 'kolay/build';
 
 const nebulixRoot = dirname(
   require.resolve('@1024pix/nebulix-ember/package.json'),
 );
 const nebulixStyles = join(nebulixRoot, 'dist/styles');
+const nebulixVersion = JSON.parse(
+  readFileSync(join(nebulixRoot, 'package.json'), 'utf8'),
+).version;
 
 const MIME_TYPES = {
   '.svg': 'image/svg+xml',
@@ -26,6 +30,10 @@ export default defineConfig({
       extensions,
     }),
   ],
+  define: {
+    __NEBULIX_VERSION__: JSON.stringify(nebulixVersion),
+    __GIT_REF__: JSON.stringify(gitRef()),
+  },
   css: {
     preprocessorOptions: {
       scss: {

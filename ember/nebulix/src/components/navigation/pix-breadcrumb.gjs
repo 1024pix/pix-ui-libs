@@ -4,6 +4,25 @@ import Component from '@glimmer/component';
 
 import PixIcon from '../graphics/pix-icon.gjs';
 
+/**
+ * @typedef {object} PixBreadcrumbLink
+ * @property {string} label - Texte du maillon.
+ * @property {string} [route] - Nom de la route Ember vers laquelle naviguer. Sans route, le maillon est rendu comme la page courante.
+ * @property {unknown} [model] - Modèle transmis à cette route.
+ */
+
+/**
+ * @typedef {object} PixBreadcrumbArgs
+ * @property {PixBreadcrumbLink[]} links - Maillons du fil d'Ariane, du plus général au plus précis. Obligatoire.
+ */
+
+/**
+ * @typedef {object} PixBreadcrumbSignature
+ * @property {HTMLElement} Element
+ * @property {PixBreadcrumbArgs} Args
+ * @property {{}} Blocks
+ */
+
 export default class PixBreadcrumb extends Component {
   defaultModel = [];
 

@@ -7,6 +7,27 @@ import Component from '@glimmer/component';
 import { formatMessage } from '../../translations/index.js';
 import PixLabelWrapped from './pix-label-wrapped.gjs';
 
+/**
+ * @typedef {object} PixRadioButtonArgs
+ * @property {string} [id] - Identifiant du bouton. Généré automatiquement s'il n'est pas fourni.
+ * @property {string} [value] - Valeur transmise au formulaire lorsque le bouton est sélectionné.
+ * @property {boolean} [isDisabled] - Désactive le bouton.
+ * @property {'success' | 'error'} [state] - État de correction affiché après validation. Annoncé aux lecteurs d'écran.
+ * @property {'modulix'} [variant] - Jeu de styles alternatif.
+ * @property {'small' | 'default' | 'large'} [size] - Taille du libellé. Par défaut : `default`.
+ * @property {string} [requiredLabel] - Rend le bouton obligatoire et affiche un astérisque, dont ce texte est l'infobulle.
+ * @property {string} [subLabel] - Complément d'information affiché sous le libellé.
+ * @property {boolean} [screenReaderOnly] - Masque le libellé visuellement, tout en le laissant lisible par les lecteurs d'écran.
+ * @property {string} [class] - Classes CSS ajoutées au conteneur.
+ */
+
+/**
+ * @typedef {object} PixRadioButtonSignature
+ * @property {HTMLInputElement} Element
+ * @property {PixRadioButtonArgs} Args
+ * @property {{ label: [] }} Blocks
+ */
+
 export default class PixRadioButton extends Component {
   text = 'pix-radio-button';
 

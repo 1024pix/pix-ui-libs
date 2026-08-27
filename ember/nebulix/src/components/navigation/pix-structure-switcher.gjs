@@ -11,6 +11,28 @@ import onEscapeAction from '../../modifiers/on-escape-action.js';
 import PixButton from '../actions/pix-button.gjs';
 import PixSelectList from '../forms/pix-select-list.gjs';
 
+/**
+ * @typedef {object} PixStructureSwitcherOption
+ * @property {string} value - Valeur de la structure.
+ * @property {string} label - Nom affiché.
+ */
+
+/**
+ * @typedef {object} PixStructureSwitcherArgs
+ * @property {PixStructureSwitcherOption[]} structures - Structures entre lesquelles basculer. Obligatoire.
+ * @property {(structure: PixStructureSwitcherOption) => unknown} onChange - Appelée avec la structure choisie. Obligatoire.
+ * @property {string} [label] - Texte du bouton, généralement le nom de la structure courante.
+ * @property {string} [value] - Valeur de la structure courante.
+ * @property {PixStructureSwitcherOption} [defaultOption] - Structure proposée par défaut.
+ */
+
+/**
+ * @typedef {object} PixStructureSwitcherSignature
+ * @property {HTMLDivElement} Element
+ * @property {PixStructureSwitcherArgs} Args
+ * @property {{}} Blocks
+ */
+
 export default class PixStructureSwitcher extends Component {
   constructor(...args) {
     super(...args);

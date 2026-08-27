@@ -3,6 +3,22 @@ import Component from '@glimmer/component';
 
 import PixBlock from '../layout/pix-block.gjs';
 
+/**
+ * @typedef {object} PixCardArgs
+ * @property {string} title - Titre de la carte. Obligatoire : il est rendu dans un `<h3>`.
+ * @property {string} [subtitle] - Sous-titre affiché sous le titre.
+ * @property {string} [image] - URL d'une image d'illustration, affichée en tête de carte. Purement décorative : elle est masquée aux lecteurs d'écran.
+ * @property {'primary' | 'admin' | 'orga' | 'certif'} [variant] - Application à laquelle la carte appartient, qui détermine ses couleurs. Par défaut : `orga`.
+ * @property {boolean} [wide] - Étend la carte à toute la largeur disponible.
+ */
+
+/**
+ * @typedef {object} PixCardSignature
+ * @property {null} Element
+ * @property {PixCardArgs} Args
+ * @property {{ tag: [], description: [], footer: [] }} Blocks
+ */
+
 export default class PixCard extends Component {
   static get variants() {
     return ['primary', 'admin', 'orga', 'certif'];

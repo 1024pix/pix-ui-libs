@@ -5,6 +5,18 @@ import Component from '@glimmer/component';
 import { VARIANTS } from '../../helpers/variants.js';
 import onWindowResize from '../../modifiers/on-window-resize.js';
 
+/**
+ * @typedef {object} PixAppLayoutArgs
+ * @property {'primary' | 'orga' | 'certif' | 'admin' | 'modulix'} [variant] - Application à laquelle la mise en page appartient, qui détermine ses couleurs. Par défaut : `primary`. La valeur `admin` active le bouton de repli de la navigation.
+ */
+
+/**
+ * @typedef {object} PixAppLayoutSignature
+ * @property {HTMLDivElement} Element
+ * @property {PixAppLayoutArgs} Args
+ * @property {{ banner: [], navigation: [], main: [], footer: [] }} Blocks
+ */
+
 export default class PixAppLayout extends Component {
   @service shrinkNavigationService;
 

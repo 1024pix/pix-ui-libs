@@ -1,5 +1,24 @@
 import Component from '@glimmer/component';
 
+/**
+ * @typedef {object} PixLabelArgs
+ * @property {string} [for] - Identifiant du champ décrit par ce libellé.
+ * @property {'small' | 'default' | 'large'} [size] - Taille du texte. Par défaut : `default`.
+ * @property {string} [requiredLabel] - Affiche un astérisque signalant un champ obligatoire, dont ce texte est l'infobulle.
+ * @property {string} [subLabel] - Complément d'information affiché sous le libellé.
+ * @property {boolean} [screenReaderOnly] - Masque le libellé visuellement, tout en le laissant lisible par les lecteurs d'écran.
+ * @property {boolean} [inlineLabel] - Place le libellé sur la même ligne que le champ.
+ * @property {boolean} [isDisabled] - Applique le style désactivé au libellé.
+ * @property {boolean} [useAsLegend] - Rend un `<legend>` au lieu d'un `<label>`, pour intituler un groupe de champs.
+ */
+
+/**
+ * @typedef {object} PixLabelSignature
+ * @property {HTMLLabelElement | HTMLLegendElement} Element
+ * @property {PixLabelArgs} Args
+ * @property {{ default: [] }} Blocks
+ */
+
 export default class PixLabel extends Component {
   get className() {
     const classes = ['pix-label'];

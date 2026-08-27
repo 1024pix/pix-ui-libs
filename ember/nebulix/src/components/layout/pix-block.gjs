@@ -3,6 +3,19 @@ import Component from '@glimmer/component';
 
 import { VARIANTS } from '../../helpers/variants.js';
 
+/**
+ * @typedef {object} PixBlockArgs
+ * @property {'primary' | 'orga' | 'certif' | 'admin' | 'modulix'} [variant] - Application à laquelle le bloc appartient, qui détermine ses couleurs. Par défaut : `primary`.
+ * @property {boolean} [condensed] - Réduit les espacements intérieurs.
+ */
+
+/**
+ * @typedef {object} PixBlockSignature
+ * @property {HTMLDivElement} Element
+ * @property {PixBlockArgs} Args
+ * @property {{ default: [] }} Blocks
+ */
+
 export default class PixBlockComponent extends Component {
   get variant() {
     const value = this.args.variant ?? 'primary';

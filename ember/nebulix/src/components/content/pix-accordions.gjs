@@ -7,6 +7,22 @@ import { tracked } from '@glimmer/tracking';
 import PixTag from '../data-display/pix-tag.gjs';
 import PixIcon from '../graphics/pix-icon.gjs';
 
+/**
+ * @typedef {object} PixAccordionsArgs
+ * @property {string} [iconName] - Nom d'une icône affichée avant le titre.
+ * @property {boolean} [plainIcon] - Affiche `iconName` dans sa variante pleine.
+ * @property {string} [tagContent] - Texte d'une étiquette affichée à droite du titre.
+ * @property {string} [tagColor] - Couleur de cette étiquette, au sens de `PixTag`.
+ * @property {boolean} [isV2Version] - Applique le jeu de styles de deuxième génération.
+ */
+
+/**
+ * @typedef {object} PixAccordionsSignature
+ * @property {HTMLButtonElement} Element
+ * @property {PixAccordionsArgs} Args
+ * @property {{ title: [], content: [] }} Blocks
+ */
+
 export default class PixAccordions extends Component {
   text = 'pix-accordions';
   contentId = 'pix-accordions-' + guidFor(this);

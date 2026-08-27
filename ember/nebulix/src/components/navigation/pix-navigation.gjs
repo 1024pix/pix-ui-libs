@@ -10,6 +10,21 @@ import { formatMessage } from '../../translations/index.js';
 import PixButton from '../actions/pix-button.gjs';
 import PixIconButton from '../actions/pix-icon-button.gjs';
 
+/**
+ * @typedef {object} PixNavigationArgs
+ * @property {string} openLabel - Nom du bouton qui ouvre le menu sur mobile, lu par les lecteurs d'écran. Obligatoire.
+ * @property {string} closeLabel - Nom de ce même bouton une fois le menu ouvert. Obligatoire.
+ * @property {string} [navigationAriaLabel] - Nom de la navigation, lu par les lecteurs d'écran. À renseigner dès que la page compte plusieurs navigations.
+ * @property {'fr' | 'en' | 'es' | 'es-419' | 'nl'} [locale] - Langue des libellés du bouton de repli, fournis par Nebulix. Par défaut : `fr`.
+ */
+
+/**
+ * @typedef {object} PixNavigationSignature
+ * @property {HTMLElement} Element
+ * @property {PixNavigationArgs} Args
+ * @property {{ brand: [], navElements: [], footer: [] }} Blocks
+ */
+
 export default class PixNavigation extends Component {
   @service router;
   @service shrinkNavigationService;

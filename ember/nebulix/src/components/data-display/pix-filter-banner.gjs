@@ -5,6 +5,24 @@ import Component from '@glimmer/component';
 import PixButton from '../actions/pix-button.gjs';
 import PixIcon from '../graphics/pix-icon.gjs';
 
+/**
+ * @typedef {object} PixFilterBannerArgs
+ * @property {string} [title] - Titre du bandeau, précédé d'une icône de filtre.
+ * @property {string} [details] - Précision affichée à côté des actions, le nombre de résultats par exemple.
+ * @property {string} [clearFiltersLabel] - Libellé du bouton de réinitialisation. Sa présence affiche le bouton.
+ * @property {(event: MouseEvent) => unknown} [onClearFilters] - Appelée au clic sur ce bouton.
+ * @property {boolean} [isClearFilterButtonDisabled] - Désactive ce bouton, quand aucun filtre n'est actif par exemple.
+ * @property {string} [loadFiltersLabel] - Libellé du bouton de validation. Sa présence affiche le bouton.
+ * @property {(event: SubmitEvent) => unknown} [onLoadFilters] - Appelée à la validation du formulaire.
+ */
+
+/**
+ * @typedef {object} PixFilterBannerSignature
+ * @property {HTMLFormElement} Element
+ * @property {PixFilterBannerArgs} Args
+ * @property {{ default: [] }} Blocks
+ */
+
 export default class PixFilterBanner extends Component {
   get displayTitle() {
     return Boolean(this.args.title);

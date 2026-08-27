@@ -1,6 +1,19 @@
 import { warn } from '@ember/debug';
 import Component from '@glimmer/component';
 
+/**
+ * @typedef {object} PixTabsArgs
+ * @property {string} ariaLabel - Nom du groupe d'onglets, lu par les lecteurs d'écran. Obligatoire : il distingue cette navigation des autres de la page.
+ * @property {'primary' | 'orga' | 'certif'} [variant] - Application à laquelle les onglets appartiennent, qui détermine leurs couleurs. Par défaut : `primary`.
+ */
+
+/**
+ * @typedef {object} PixTabsSignature
+ * @property {HTMLElement} Element
+ * @property {PixTabsArgs} Args
+ * @property {{ default: [] }} Blocks
+ */
+
 export default class PixTabs extends Component {
   get variant() {
     const value = this.args.variant ?? 'primary';

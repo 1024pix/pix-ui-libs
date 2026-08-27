@@ -1,0 +1,13 @@
+{
+  "order": [
+    "actions",
+    "content",
+    "data-display",
+    "feedback",
+    "forms",
+    "graphics",
+    "layout",
+    "navigation",
+    "overlay",
+  ],
+}

@@ -7,6 +7,23 @@ import Component from '@glimmer/component';
 import { VARIANTS } from '../../helpers/variants.js';
 import PixBlock from '../layout/pix-block.gjs';
 
+/**
+ * @typedef {object} PixTableArgs
+ * @property {unknown[]} data - Lignes à afficher. Chaque élément est transmis au bloc `columns`.
+ * @property {string} caption - Titre du tableau, qui en résume le contenu. Obligatoire : il est lu par les lecteurs d'écran avant le tableau.
+ * @property {boolean} [displayCaption] - Affiche ce titre. Sinon, il n'est destiné qu'aux lecteurs d'écran.
+ * @property {'primary' | 'orga' | 'certif' | 'admin' | 'modulix'} [variant] - Application à laquelle le tableau appartient, qui détermine les couleurs de son en-tête. Par défaut : `primary`.
+ * @property {boolean} [condensed] - Réduit la hauteur des lignes.
+ * @property {(row: unknown) => unknown} [onRowClick] - Appelée avec la ligne cliquée. Sa présence rend les lignes cliquables.
+ */
+
+/**
+ * @typedef {object} PixTableSignature
+ * @property {HTMLDivElement} Element
+ * @property {PixTableArgs} Args
+ * @property {{ columns: [unknown, 'header' | 'cell', number] }} Blocks
+ */
+
 export default class PixTable extends Component {
   get variant() {
     const value = this.args.variant ?? 'primary';

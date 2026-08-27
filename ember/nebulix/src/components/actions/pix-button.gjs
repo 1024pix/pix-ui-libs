@@ -8,17 +8,18 @@ import PixButtonContent from './pix-button-content.gjs';
 
 /**
  * @typedef {object} PixButtonArgs
- * @property {'primary' | 'primary-white' | 'primary-bis' | 'secondary' | 'secondary-white' | 'tertiary' | 'tertiary-white' | 'success' | 'error'} [variant] - Color scheme of the button. Defaults to `primary`.
- * @property {'small' | 'large'} [size] - Height and padding of the button. Defaults to `small`.
- * @property {'button' | 'submit' | 'reset'} [type] - Native button type. Defaults to `button`.
- * @property {(event: MouseEvent) => unknown} [triggerAction] - Called on click. While the returned promise is pending, the button shows its loader and refuses further clicks. Required unless `type` is `submit`.
- * @property {boolean} [isLoading] - Forces the loading state on, independently of `triggerAction`.
- * @property {'white' | 'grey'} [loadingColor] - Color of the loader shown while loading. Defaults to `white`.
- * @property {boolean} [isDisabled] - Disables the button.
- * @property {string} [iconBefore] - Name of an icon rendered before the label.
- * @property {string} [iconAfter] - Name of an icon rendered after the label.
- * @property {boolean} [plainIconBefore] - Renders `iconBefore` in its plain (filled) variant.
- * @property {boolean} [plainIconAfter] - Renders `iconAfter` in its plain (filled) variant.
+ * @property {'primary' | 'primary-white' | 'primary-bis' | 'secondary' | 'secondary-white' | 'tertiary' | 'tertiary-white' | 'success' | 'error' | 'transparent-dark'} [variant] - Rôle du bouton dans la page, qui détermine ses couleurs. Par défaut : `primary`.
+ * @property {'small' | 'large'} [size] - Hauteur et espacements du bouton. Par défaut : `small`.
+ * @property {'button' | 'submit' | 'reset'} [type] - Type natif du bouton. Par défaut : `button`.
+ * @property {(event: MouseEvent) => unknown} [triggerAction] - Appelée au clic. Tant que la promesse retournée n'est pas résolue, le bouton affiche son chargeur et refuse les clics suivants. Obligatoire, sauf si `type` vaut `submit`.
+ * @property {boolean} [isLoading] - Force l'état de chargement, indépendamment de `triggerAction`.
+ * @property {'white' | 'grey'} [loadingColor] - Couleur du chargeur. Par défaut : `white`.
+ * @property {boolean} [isDisabled] - Désactive le bouton.
+ * @property {boolean} [isBorderVisible] - Ajoute une bordure. N'a d'effet qu'avec la variante `transparent-dark`.
+ * @property {string} [iconBefore] - Nom d'une icône affichée avant le libellé.
+ * @property {string} [iconAfter] - Nom d'une icône affichée après le libellé.
+ * @property {boolean} [plainIconBefore] - Affiche `iconBefore` dans sa variante pleine.
+ * @property {boolean} [plainIconAfter] - Affiche `iconAfter` dans sa variante pleine.
  */
 
 /**

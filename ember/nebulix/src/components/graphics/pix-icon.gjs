@@ -4,6 +4,22 @@ import Component from '@glimmer/component';
 
 import { ICONS } from '../../helpers/icons.js';
 
+/**
+ * @typedef {object} PixIconArgs
+ * @property {string} name - Nom de l'icône, tel qu'il figure dans la galerie des icônes. Obligatoire.
+ * @property {boolean} [plainIcon] - Affiche la variante pleine de l'icône, quand elle existe.
+ * @property {string} [title] - Description de l'icône, lue par les lecteurs d'écran. À renseigner lorsque l'icône porte une information qu'aucun texte voisin ne donne.
+ * @property {boolean} [ariaHidden] - Masque l'icône aux lecteurs d'écran. À poser sur toute icône purement décorative.
+ * @property {string} [alternativeText] - Déprécié : utiliser `title`.
+ */
+
+/**
+ * @typedef {object} PixIconSignature
+ * @property {SVGSVGElement} Element
+ * @property {PixIconArgs} Args
+ * @property {{}} Blocks
+ */
+
 export default class PixIcon extends Component {
   get title() {
     warn('PixIcon: @alternativeText is deprecated use @title instead', !this.args.alternativeText, {

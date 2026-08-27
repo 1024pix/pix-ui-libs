@@ -7,6 +7,29 @@ import Component from '@glimmer/component';
 import { formatMessage } from '../../translations/index.js';
 import PixLabelWrapped from './pix-label-wrapped.gjs';
 
+/**
+ * @typedef {object} PixCheckboxArgs
+ * @property {string} [id] - Identifiant de la case. Généré automatiquement s'il n'est pas fourni.
+ * @property {boolean} [checked] - Coche la case.
+ * @property {boolean} [isIndeterminate] - Affiche la case dans un état intermédiaire, ni cochée ni décochée.
+ * @property {boolean} [isDisabled] - Désactive la case.
+ * @property {'success' | 'error' | 'neutral' | 'declarative' | 'declarative-selected'} [state] - État de correction affiché après validation. Annoncé aux lecteurs d'écran. Les valeurs `neutral`, `declarative` et `declarative-selected` ne sont disponibles qu'avec `variant="modulix"`.
+ * @property {'modulix'} [variant] - Jeu de styles alternatif.
+ * @property {'small' | 'default' | 'large'} [size] - Taille du libellé. Par défaut : `default`.
+ * @property {string} [requiredLabel] - Rend la case obligatoire et affiche un astérisque, dont ce texte est l'infobulle.
+ * @property {string} [subLabel] - Complément d'information affiché sous le libellé.
+ * @property {boolean} [screenReaderOnly] - Masque le libellé visuellement, tout en le laissant lisible par les lecteurs d'écran.
+ * @property {'fr' | 'en' | 'es' | 'es-419' | 'nl'} [locale] - Langue des messages d'état annoncés aux lecteurs d'écran. Par défaut : `fr`.
+ * @property {string} [class] - Classes CSS ajoutées au conteneur.
+ */
+
+/**
+ * @typedef {object} PixCheckboxSignature
+ * @property {HTMLInputElement} Element
+ * @property {PixCheckboxArgs} Args
+ * @property {{ label: [] }} Blocks
+ */
+
 export default class PixCheckbox extends Component {
   constructor() {
     super(...arguments);

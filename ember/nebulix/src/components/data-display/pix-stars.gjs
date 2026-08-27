@@ -1,6 +1,21 @@
 import Component from '@glimmer/component';
 import { lt } from 'ember-truth-helpers';
 
+/**
+ * @typedef {object} PixStarsArgs
+ * @property {number} count - Nombre d'étoiles obtenues.
+ * @property {number} [total] - Nombre d'étoiles affichées. À défaut, seules les étoiles obtenues sont rendues.
+ * @property {string} [alt] - Description du score, lue par les lecteurs d'écran. Les étoiles leur étant masquées, c'est la seule information dont ils disposent.
+ * @property {'primary' | 'blue' | 'neutral' | 'grey'} [color] - Couleur des étoiles obtenues.
+ */
+
+/**
+ * @typedef {object} PixStarsSignature
+ * @property {HTMLDivElement} Element
+ * @property {PixStarsArgs} Args
+ * @property {{}} Blocks
+ */
+
 export default class PixStars extends Component {
   get starsCount() {
     if (!this.args.total && !this.args.count) return [];

@@ -2,6 +2,26 @@ import Component from '@glimmer/component';
 
 import PixIcon from '../graphics/pix-icon.gjs';
 
+/**
+ * @typedef {object} PixLabelWrappedArgs
+ * @property {string} [for] - Identifiant du champ décrit par ce libellé.
+ * @property {'small' | 'default' | 'large'} [size] - Taille du texte. Par défaut : `default`.
+ * @property {string} [requiredLabel] - Affiche un astérisque signalant un champ obligatoire, dont ce texte est l'infobulle.
+ * @property {string} [subLabel] - Complément d'information affiché sous le libellé.
+ * @property {boolean} [screenReaderOnly] - Masque le texte du libellé visuellement, tout en le laissant lisible par les lecteurs d'écran.
+ * @property {boolean} [inlineLabel] - Place le libellé sur la même ligne que le champ.
+ * @property {boolean} [isDisabled] - Applique le style désactivé au libellé.
+ * @property {'modulix'} [variant] - Jeu de styles alternatif.
+ * @property {'success' | 'error' | 'neutral' | 'declarative' | 'declarative-selected'} [state] - État de validation. `success` et `error` affichent une icône ; les autres valeurs ne sont disponibles qu'avec `variant="modulix"`.
+ */
+
+/**
+ * @typedef {object} PixLabelWrappedSignature
+ * @property {HTMLLabelElement} Element
+ * @property {PixLabelWrappedArgs} Args
+ * @property {{ default: [], inputElement: [] }} Blocks
+ */
+
 export default class PixLabelWrapped extends Component {
   get className() {
     const classes = ['pix-label', 'pix-label-wrapped'];
