@@ -1,8 +1,8 @@
+import { PixIcon } from '@1024pix/nebulix-ember';
+import { ICONS } from '@1024pix/nebulix-ember/helpers/icons';
 import { on } from '@ember/modifier';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { PixIcon } from '@1024pix/nebulix-ember';
-import { ICONS } from '@1024pix/nebulix-ember/helpers/icons';
 
 const COPY_FEEDBACK_DURATION = 2000;
 
@@ -39,6 +39,7 @@ class IconCard extends Component {
       await navigator.clipboard.writeText(this.args.name);
       this.#flash('copied');
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error(`Could not copy "${this.args.name}"`, error);
       this.#flash('failed');
     }

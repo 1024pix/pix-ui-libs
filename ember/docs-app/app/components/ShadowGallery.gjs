@@ -36,6 +36,7 @@ class ShadowCard extends Component {
       await navigator.clipboard.writeText(this.args.variable);
       this.#flash('copied');
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error(`Could not copy "${this.args.variable}"`, error);
       this.#flash('failed');
     }
@@ -62,11 +63,7 @@ class ShadowCard extends Component {
         aria-label={{this.ariaLabel}}
         {{on "click" this.copy}}
       >
-        <span
-          class="shadow-gallery__surface"
-          aria-hidden="true"
-          {{applyShadow @variable}}
-        ></span>
+        <span class="shadow-gallery__surface" aria-hidden="true" {{applyShadow @variable}}></span>
         <span class="shadow-gallery__name">{{this.label}}</span>
       </button>
 

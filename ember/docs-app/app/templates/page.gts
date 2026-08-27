@@ -1,9 +1,7 @@
+import { humanize, labelFor } from 'docs-app/utils/humanize';
+import type { Page as KolayPage } from 'kolay';
 import { Page } from 'kolay/components';
 import { PageNav } from 'kolay/components';
-
-import { humanize, labelFor } from 'docs-app/utils/humanize';
-
-import type { Page as KolayPage } from 'kolay';
 
 <template>
   <aside>
@@ -38,8 +36,6 @@ function isNew(page: KolayPage): boolean {
   return page.meta?.['new'] === true;
 }
 
-function reasonFor(
-  error: string | { reason: string; original: Error },
-): string {
+function reasonFor(error: string | { reason: string; original: Error }): string {
   return typeof error === 'string' ? error : error.reason;
 }

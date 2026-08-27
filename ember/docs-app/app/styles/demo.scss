@@ -3,7 +3,7 @@
 // The `scope-nebulix` plugin in `vite.config.mjs` wraps this file's compiled
 // output in `@scope (.nebulix)` and rewrites `:root` to `:scope`, so nothing
 // here reaches the documentation around the demos.
-@use "nebulix-styles";
+@use 'nebulix-styles';
 
 // Nebulix's reset anchors a few declarations on `html` and `body`, which never
 // match inside the scope — the scoping root is the demo frame, not the document

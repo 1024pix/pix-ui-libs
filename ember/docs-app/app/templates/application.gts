@@ -1,8 +1,7 @@
-import { pageTitle } from 'ember-page-title';
-import { GroupNav } from 'kolay/components';
-
 import { nebulixVersion } from 'docs-app/utils/build-info';
 import { humanize } from 'docs-app/utils/humanize';
+import { pageTitle } from 'ember-page-title';
+import { GroupNav } from 'kolay/components';
 
 <template>
   {{pageTitle "Pix UI Libs"}}
@@ -15,11 +14,7 @@ import { humanize } from 'docs-app/utils/humanize';
     {{outlet}}
 
     <footer>
-      <a
-        href="https://github.com/1024pix/pix-ui-libs"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <a href="https://github.com/1024pix/pix-ui-libs" target="_blank" rel="noopener noreferrer">
         GitHub
       </a>
       <a

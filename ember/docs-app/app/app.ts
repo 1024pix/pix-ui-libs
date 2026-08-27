@@ -1,10 +1,10 @@
-import EmberApp from 'ember-strict-application-resolver';
-import PageTitleService from 'ember-page-title/services/page-title';
-
-import Router from './router.ts';
-
 import './styles/app.scss';
 import './styles/demo.scss';
+
+import PageTitleService from 'ember-page-title/services/page-title';
+import EmberApp from 'ember-strict-application-resolver';
+
+import Router from './router.ts';
 
 export default class App extends EmberApp {
   modules = {

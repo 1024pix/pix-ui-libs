@@ -1,8 +1,6 @@
 import Route from '@ember/routing/route';
-
-import { handlePotentialIndexVisit } from 'kolay';
-
 import type Transition from '@ember/routing/transition';
+import { handlePotentialIndexVisit } from 'kolay';
 
 export default class PageRoute extends Route {
   beforeModel(transition: Transition) {
