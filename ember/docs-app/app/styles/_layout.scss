@@ -80,10 +80,27 @@ body {
   }
 
   > footer {
+    display: flex;
+    gap: var(--doc-space-4x);
     grid-area: footer;
-    padding: var(--doc-space-3x) var(--doc-space-6x);
+    padding: var(--doc-space-2x) var(--doc-space-6x);
     border-block-start: 1px solid var(--doc-border);
     color: var(--doc-muted);
+    font-size: 0.875rem;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .version {
+      margin-inline-start: auto;
+      font-family: var(--doc-font-mono);
+    }
   }
 }
 
