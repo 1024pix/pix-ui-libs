@@ -16,7 +16,9 @@
     "test": "tests"
   },
   "scripts": {
+    "start": "vite",
     "build": "vite build",
+    "preview": "vite preview --port $PORT",
     "format": "prettier . --cache --write",
     "lint": "concurrently \"npm:lint:*(!fix)\" --names \"lint:\" --prefixColors auto",
     "lint:css": "stylelint \"**/*.css\" --allow-empty-input",
@@ -28,7 +30,6 @@
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
     "lint:types": "ember-tsc --noEmit",
-    "start": "vite",
     "test": "vite build --mode development && testem ci --port 0"
   },
   "devDependencies": {
