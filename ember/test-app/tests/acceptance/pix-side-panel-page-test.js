@@ -10,7 +10,7 @@ module('Acceptance | PixSidePanelPageTest', function (hooks) {
 
   test('Should redirect to link', async function (assert) {
     // given
-    const screen = await visit('/sidepanel');
+    const screen = await visit('/sidepanel-page');
     await click(screen.getByRole('button', { name: 'Ouvrir le sidepanel' }));
     await waitForDialog();
 

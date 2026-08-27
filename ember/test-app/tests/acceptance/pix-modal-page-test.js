@@ -10,7 +10,7 @@ module('Acceptance | PixModalPageTest', function (hooks) {
 
   test('Should redirect to link', async function (assert) {
     // given
-    const screen = await visit('/modal');
+    const screen = await visit('/modal-page');
 
     await click(screen.getByRole('button', { name: 'Ouvrir la modale' }));
     await waitForDialog();
