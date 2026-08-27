@@ -43,6 +43,8 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
   },
+  // Code splitting is disabled to avoid too much chunks for the small Scalingo server
+  build: { rolldownOptions: { output: { codeSplitting: false } } },
 });
 
 /**
