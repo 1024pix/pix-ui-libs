@@ -4,11 +4,7 @@ title: PixIndicatorCard
 
 # PixIndicatorCard
 
-`PixIndicatorCard` met en avant un chiffre clé dans un tableau de bord : un
-nombre de participants, un taux de réussite, une moyenne.
-
-Une carte, un chiffre. Si vous avez besoin d'en présenter plusieurs ensemble,
-alignez plusieurs cartes plutôt que d'en surcharger une.
+`PixIndicatorCard` permet de mettre en avant un chiffre dans une carte.
 
 ## Utilisation
 
@@ -23,14 +19,16 @@ import { PixIndicatorCard } from '@1024pix/nebulix-ember';
 </template>
 ```
 
-Le bloc par défaut accueille la valeur, `:sub` la précision qui l'éclaire.
-`@title` dit ce qui est mesuré : gardez-le nominal et court.
+`@title` renseigne sur l'unité (ex: Nombre de participants).
+Le composant contient deux blocs :
+
+- `:default` accueille la valeur numérique
+- `:sub` un texte explicatif qui sera en dessous de la valeur
 
 ## Couleur de l'icône
 
-`@color` colore le fond de l'icône. Elle sert à distinguer les cartes les unes
-des autres dans un tableau de bord, pas à qualifier la valeur : une même
-famille d'indicateurs garde la même couleur d'un écran à l'autre.
+On peut personaliser la couleur `@color` et l'icone utilisée avec `@iconName`
+et `@plainIcon`.
 
 ```gjs live nebulix
 import { PixIndicatorCard } from '@1024pix/nebulix-ember';
@@ -39,36 +37,36 @@ import { PixIndicatorCard } from '@1024pix/nebulix-ember';
   <div class="demo-indicators">
     <PixIndicatorCard @title="Participants" @iconName="users" @color="primary">
       <:default>1 248</:default>
+      <:sub>@color=primary</:sub>
     </PixIndicatorCard>
 
     <PixIndicatorCard @title="Parcours terminés" @iconName="checkCircle" @color="success">
       <:default>892</:default>
+      <:sub>color: success</:sub>
     </PixIndicatorCard>
 
     <PixIndicatorCard @title="En attente" @iconName="time" @color="warning">
       <:default>356</:default>
+      <:sub>color: warning</:sub>
     </PixIndicatorCard>
   </div>
 
   <style>
     .demo-indicators {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 1.5rem;
-      align-items: flex-start;
+    }
+    pre  {
     }
   </style>
 </template>
 ```
 
-## Expliquer le calcul
+## Affichage d'une info bulle
 
-`@info` affiche une infobulle au survol d'une icône d'information. Utilisez-la
-dès qu'un chiffre peut prêter à interprétation — ce que recouvre exactement un
-« participant », sur quelle période, avec quelles exclusions.
-
-`@infoLabel` nomme cette icône pour les lecteurs d'écran : sans lui, l'aide
-reste inaccessible au clavier.
+Il est possible de rajouter une infobulle pour enrichir l'information
+(préciser un calcul, une unité).
 
 ```gjs live nebulix
 import { PixIndicatorCard } from '@1024pix/nebulix-ember';
@@ -87,14 +85,10 @@ import { PixIndicatorCard } from '@1024pix/nebulix-ember';
 </template>
 ```
 
-L'infobulle est masquée sur mobile : n'y placez jamais une information
-indispensable à la lecture du chiffre.
-
 ## Chargement
 
 `@isLoading` affiche un squelette pendant que la donnée arrive.
-`@loadingMessage` est annoncé aux lecteurs d'écran à ce moment-là : sans lui,
-l'attente est silencieuse.
+`@loadingMessage` permet d'informer les lecteurs d'écran.
 
 ```gjs live nebulix
 import { PixIndicatorCard } from '@1024pix/nebulix-ember';

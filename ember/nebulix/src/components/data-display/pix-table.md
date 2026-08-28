@@ -4,116 +4,249 @@ title: PixTable
 
 # PixTable
 
-`PixTable` affiche une liste d'objets comparables : des participants, des
-sessions, des établissements. Il rend un vrai `<table>`, ce qui permet aux
-lecteurs d'écran d'annoncer chaque cellule avec l'en-tête de sa colonne.
-
-Ne l'utilisez pas pour mettre en page : un tableau se justifie quand les données
-se comparent d'une ligne à l'autre.
+`PixTable` affiche un tableau html.
+Les données
 
 ## Utilisation
 
-Les colonnes sont décrites une seule fois, dans le bloc `:columns`, avec
-`PixTableColumn`. Ce bloc est rendu une fois pour l'en-tête, puis une fois par
-ligne : `PixTableColumn` s'appuie sur le paramètre `context` pour savoir lequel
-des deux il doit produire.
+Les colonnes sont décrites une seule fois, dans le bloc `:columns`, avec des
+`PixTableColumn`.
 
 ```gjs live preview nebulix
-import { PixTable, PixTableColumn } from '@1024pix/nebulix-ember';
+import { PixTable, PixTableColumn, PixTag, PixButtonLink } from '@1024pix/nebulix-ember';
+
+import Component from '@glimmer/component';
+import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
 const participants = [
-  { id: 1, nom: 'Dupont', prenom: 'Marie', score: 512 },
-  { id: 2, nom: 'Martin', prenom: 'Lucas', score: 438 },
-  { id: 3, nom: 'Bernard', prenom: 'Sofia', score: 605 },
+  {
+    id: 1,
+    lastName: 'Dupont',
+    firstName: 'Marie',
+    score: 512,
+    tag: '6ieme',
+    date: '13/05/2020',
+    link: { label: 'Pix', href: 'https://pix.fr' },
+  },
+  {
+    id: 2,
+    lastName: 'Martin',
+    firstName: 'Lucas',
+    score: 438,
+    tag: '5ieme',
+    date: '03/05/2021',
+    link: { label: 'Pix', href: 'https://pix.fr' },
+  },
+  {
+    id: 3,
+    lastName: 'Bernard',
+    firstName: 'Sofia',
+    score: 605,
+    tag: '6ieme',
+    date: '09/11/2023',
+    link: { label: 'Pix', href: 'https://pix.fr' },
+  },
 ];
 
-<template>
-  <PixTable @data={{participants}} @caption="Participants à la campagne" @variant="orga">
-    <:columns as |participant context|>
-      <PixTableColumn @context={{context}} @isMainRow={{true}}>
-        <:header>Nom</:header>
-        <:cell>{{participant.nom}}</:cell>
-      </PixTableColumn>
+export default class TableDemo extends Component {
+  @tracked
+  sortOrder = null;
 
-      <PixTableColumn @context={{context}}>
-        <:header>Prénom</:header>
-        <:cell>{{participant.prenom}}</:cell>
-      </PixTableColumn>
+  @tracked
+  participants = participants.slice();
 
-      <PixTableColumn @context={{context}} @type="number">
-        <:header>Score</:header>
-        <:cell>{{participant.score}}</:cell>
-      </PixTableColumn>
-    </:columns>
-  </PixTable>
-</template>
+  @action
+  trier() {
+    if (this.sortOrder === 'desc') {
+      this.sortOrder = 'asc';
+    } else {
+      this.sortOrder = 'desc';
+    }
+
+    this.participants = participants
+      .slice()
+      .sort((a, b) =>
+        this.sortOrder === 'desc'
+          ? a.lastName.localeCompare(b.lastName)
+          : b.lastName.localeCompare(a.lastName),
+      );
+  }
+
+  <template>
+    <PixTable
+      @data={{this.participants}}
+      @caption="Participants à la campagne"
+      @variant="orga"
+      @displayCaption="true"
+    >
+      <:columns as |row context|>
+        <PixTableColumn
+          @isMainRow={{true}}
+          @context={{context}}
+          @onSort={{this.trier}}
+          @sortOrder={{this.sortOrder}}
+          ariaLabelDefaultSort="Trier par nom"
+          ariaLabelSortAsc="Trier dans l'ordre croissant"
+          ariaLabelSortDesc="Trier dans l'ordre décroissant"
+        >
+          <:header>
+            Nom
+          </:header>
+          <:cell>
+            {{row.lastName}}
+          </:cell>
+        </PixTableColumn>
+        <PixTableColumn @context={{context}} class="table__column--wide">
+          <:header>
+            Prénom
+          </:header>
+          <:cell>
+            <i>{{row.firstName}}</i>
+          </:cell>
+        </PixTableColumn>
+        <PixTableColumn @context={{context}} @type="number">
+          <:header>
+            Score
+          </:header>
+          <:cell>
+            {{row.score}}
+          </:cell>
+        </PixTableColumn>
+        <PixTableColumn @context={{context}} @type="tag">
+          <:header>
+            Classe
+          </:header>
+          <:cell>
+            <PixTag>{{row.tag}}</PixTag>
+          </:cell>
+        </PixTableColumn>
+        <PixTableColumn @context={{context}} @type="tagDate">
+          <:header>
+            tag + date
+          </:header>
+          <:cell>
+            <PixTag>{{row.tag}}</PixTag>
+          </:cell>
+          <:subCell>{{row.date}}</:subCell>
+        </PixTableColumn>
+        <PixTableColumn @context={{context}} @type="link">
+          <:header>
+            Lien
+          </:header>
+          <:cell>
+            <PixButtonLink
+              href={{row.link.url}}
+              target="_blank"
+              @variant="tertiary"
+              @iconBefore="openNew"
+            >{{row.link.label}}</PixButtonLink>
+          </:cell>
+        </PixTableColumn>
+      </:columns>
+    </PixTable>
+    <style>
+      .table__column--wide {
+        width: 300px;
+      }
+    </style>
+  </template>
+}
 ```
 
 `@caption` est **obligatoire** : c'est le résumé du tableau, lu avant son
-contenu. Il n'est pas affiché, sauf si vous ajoutez `@displayCaption`.
-
-`@isMainRow` désigne la colonne qui identifie la ligne — le nom, l'intitulé.
-Sa cellule est rendue dans un `<th>`, ce qui permet aux lecteurs d'écran de
-situer les autres cellules de la ligne. Une seule colonne par tableau.
-
-`@type` adapte l'alignement au contenu : `number` cale les chiffres à droite,
-et `checkbox`, `tag`, `tagDate` et `link` ajustent les espacements.
-
-## Trier une colonne
-
-`@onSort` rend la colonne triable et `@sortOrder` indique le sens appliqué. Les
-trois libellés `@ariaLabelDefaultSort`, `@ariaLabelSortAsc` et
-`@ariaLabelSortDesc` nomment le bouton selon l'état courant : ils sont
-obligatoires, car le bouton n'a pas de texte visible. Écrivez-y l'action à
-venir, pas l'état actuel — « Trier par score croissant ».
-
-```gjs live nebulix
-import { PixTable, PixTableColumn } from '@1024pix/nebulix-ember';
-
-const sessions = [
-  { id: 1, ville: 'Nantes', places: 24 },
-  { id: 2, ville: 'Lille', places: 16 },
-];
-
-const trier = () => {
-  // votre action
-};
-
-<template>
-  <PixTable @data={{sessions}} @caption="Sessions de certification" @variant="certif">
-    <:columns as |session context|>
-      <PixTableColumn @context={{context}} @isMainRow={{true}}>
-        <:header>Ville</:header>
-        <:cell>{{session.ville}}</:cell>
-      </PixTableColumn>
-
-      <PixTableColumn
-        @context={{context}}
-        @type="number"
-        @onSort={{trier}}
-        @sortOrder="asc"
-        @ariaLabelDefaultSort="Trier par nombre de places"
-        @ariaLabelSortAsc="Trier par nombre de places croissant"
-        @ariaLabelSortDesc="Trier par nombre de places décroissant"
-      >
-        <:header>Places</:header>
-        <:cell>{{session.places}}</:cell>
-      </PixTableColumn>
-    </:columns>
-  </PixTable>
-</template>
-```
+contenu. Il n'est pas affiché, sauf si vous ajoutez `@displayCaption="true"`.
+On peut préciser un variant pour adpater la couleur du container.
 
 ## Lignes cliquables
 
-`@onRowClick` reçoit la ligne cliquée et rend les lignes interactives. Le clic
-n'étant pas accessible au clavier, placez dans la ligne un lien vers la même
-destination — la colonne principale s'y prête.
+`@onRowClick` reçoit la ligne cliquée et rend les lignes interactives.
+Chaque ligne et reçoit en paramètre l'objet complet de la ligne.
+Les lignes prennent alors un curseur pointer et un fond au survol.
+Le clic n'étant pas accessible au clavier. le `<tr>` n'est ni focusable
+ni activable au clavier.
+
+Pour une action principale, placer un vrai lien ou bouton dans une cellule
+(voir le variant link de PixTableColumn).
 
 ## Densité et variantes
 
-`@condensed` réduit la hauteur des lignes, pour un tableau long consulté d'un
-seul coup d'œil. `@variant` accorde l'en-tête aux couleurs de l'application.
+`@condensed` réduit la hauteur des cellules, pour les tables à forte densité
+de données.
+
+```gjs live nebulix
+import { PixTable, PixTableColumn, PixTag } from '@1024pix/nebulix-ember';
+
+const participants = [
+  { id: 1, lastName: 'Dupont', firstName: 'Marie', score: 512, tag: '6ieme' },
+  { id: 2, lastName: 'Martin', firstName: 'Lucas', score: 438, tag: '5ieme' },
+  { id: 3, lastName: 'Bernard', firstName: 'Sofia', score: 605, tag: '6ieme' },
+];
+
+<template>
+  <PixTable
+    @data={{participants}}
+    @caption="Participants à la campagne"
+    @variant="orga"
+    @displayCaption={{true}}
+    @condensed={{true}}
+  >
+    <:columns as |row context|>
+      <PixTableColumn @context={{context}}>
+        <:header>
+          Nom
+        </:header>
+        <:cell>
+          {{row.lastName}}
+        </:cell>
+      </PixTableColumn>
+      <PixTableColumn @context={{context}} class="table__column--wide">
+        <:header>
+          Prénom
+        </:header>
+        <:cell>
+          <i>{{row.firstName}}</i>
+        </:cell>
+      </PixTableColumn>
+      <PixTableColumn @context={{context}} @type="number">
+        <:header>
+          Score
+        </:header>
+        <:cell>
+          {{row.score}}
+        </:cell>
+      </PixTableColumn>
+      <PixTableColumn @context={{context}} @type="tag">
+        <:header>
+          Classe
+        </:header>
+        <:cell>
+          <PixTag>{{row.tag}}</PixTag>
+        </:cell>
+      </PixTableColumn>
+    </:columns>
+  </PixTable>
+  <style>
+    .table__column--wide {
+      width: 300px;
+    }
+  </style>
+</template>
+```
+
+## PixTableColumn
+
+Une colonne d'un PixTable, gère l'affichage de l'en-tête et des cellules d'une colonne.
+
+`@onSort` rend la colonne triable et `@sortOrder` indique le sens appliqué
+(valeurs possible : `asc`, `desc`, `null` ). Les trois libellés
+`@ariaLabelDefaultSort`, `@ariaLabelSortAsc` et `@ariaLabelSortDesc` permettent de definir les labels des boutons de tri.
+Ils sont obligatoires à partir du moment ou l'on fournit `@onSort`.
+
+On peut définir le type d'une colonne avec `@type` (`text`, `number`, `tag`, `tagDate`, `link`)
+
+`@isMainRow` Permet de définir la cellule qui portera la valeur principale
+de la ligne entière
 
 ## API Docs
 
