@@ -1,6 +1,10 @@
+---
+title: Getting Started
+---
+
 # Installer Nebulix Ember
 
-Guide d'installation de `@1024pix/nebulix-ember` dans une application Ember.
+Guide d'installation et d'utilisation de `@1024pix/nebulix-ember` dans une application Ember.
 
 ## Installer l'addon
 
@@ -10,7 +14,7 @@ Guide d'installation de `@1024pix/nebulix-ember` dans une application Ember.
 
 ## Ember avec Webpack
 
-Dans `ember-cli-build.js` :
+Ajouter dans `ember-cli-build.js` :
 
 ```js
 // ember-cli-build.js
@@ -21,7 +25,7 @@ sassOptions: {
 
 ## Ember avec Vite
 
-Dans `vite.config.js` :
+Ajouter dans `vite.config.js` :
 
 ```js
 // vite.config.js
@@ -43,4 +47,18 @@ Charger les styles explicitement, **en premier** dans `app/styles/app.scss` :
 @use 'nebulix-styles' as *;
 
 /* les styles de l'application ensuite */
+```
+
+## Utiliser un composant
+
+Pour utiliser un composant, importez-le dans votre app Ember comme n'importe quel autre composant.
+
+```gjs preview
+import { PixButton } from '@1024pix/nebulix-ember';
+
+<template>
+  <PixButton>
+    Enregistrer
+  </PixButton>
+</template>
 ```

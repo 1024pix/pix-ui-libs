@@ -23,6 +23,18 @@ title: Nommage et conventions
 <div class="pix-select__content"></div>
 ```
 
+## Conventions
+
+- Toujours utiliser les classes utilitaires ou les variables CSS dans les composants.
+
+- Ne plus utiliser %extends ou de mixin dans le sass (déprécié)
+
+- Ne JAMAIS mettre de traduction dans les composants, mais les passer en arguments dans un attribut `@texts` sous forme d’objet clé-valeur.
+
+- Dans Nebulix ember, on doit importer les lib externes dans dependencies (pas devDependencies)
+
+- Ajouter une dépendance (librairie) a des impacts très important pour les frontends (taille du bundle, performances, maintenance…). Faire très attention avant d’en ajouter une et valider avec les autres équipes.
+
 ## Intentions & Responsabilités
 
 Il faut garder une **responsabilité unique** par composant.

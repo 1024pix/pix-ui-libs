@@ -24,10 +24,12 @@ pnpm test
 
 Le test d'un composant vit dans `ember/test-app/tests`, sous la même rubrique que le composant :
 
+```sh
+ember/nebulix/src/components/layout/pix-block.gjs                       # le composant dans "nebulix"
+ember/test-app/tests/integration/components/layout/pix-block-test.gjs   # le test dans "test-app"
 ```
-ember/nebulix/src/components/layout/pix-block.gjs
-ember/test-app/tests/integration/components/layout/pix-block-test.gjs
-```
+
+C'est l'API publique de `@1024pix/nebulix-ember` qui est testée. Il faut donc toujours exporter le composant dans `nebulix/src/index.js` pour qu'il soit accessible dans les tests.
 
 Le squelette d'un test :
 
@@ -50,9 +52,7 @@ module('Integration | Component | PixMonComposant', function (hooks) {
 });
 ```
 
-Le composant est importé depuis `@1024pix/nebulix-ember`, son API publique : c'est pour cela que `pnpm test` construit l'addon avant de jouer la suite.
-
-## Linter
+## Linter et formatter
 
 ```bash
 pnpm lint
@@ -62,3 +62,10 @@ pnpm lint:fix
 `pnpm lint` passe sur tous les paquets et enchaîne quatre vérifications : le formatage (`prettier`), le JavaScript (`eslint`), les templates (`ember-template-lint`) et les types (`ember-tsc`).
 
 `pnpm lint:fix` corrige les trois premières. **Les erreurs de types ne sont jamais corrigées automatiquement**, il faut les traiter à la main.
+
+## Problèmes
+
+**`pnpm test` produit des erreurs en locale mais pas dans la CI**:
+
+- S'assurer d'avoir une version à jour de Google Chrome ou Firefox pour l'exécution des tests en headless.
+- Supprimer les fichiers temporaires `embroider/vite` avec `rm -rf "$TMPDIR"/embroider-vite-jump-*`.

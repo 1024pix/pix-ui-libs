@@ -25,11 +25,13 @@ Tailles exprimées en `rem`, avec leur équivalent en pixels sur une base de `1r
 | `.pix-title-xxs` | 1.125rem (18px) | 1.125rem (18px) | 1.125rem (18px) | 1.625        |
 
 ```hbs live nebulix
-<p class='pix-title-l'>Vos résultats</p>
-<p class='pix-title-m'>Compétences évaluées</p>
-<p class='pix-title-s'>Mener une recherche en ligne</p>
-<p class='pix-title-xs'>Épreuves passées</p>
-<p class='pix-title-xxs'>Détail du score</p>
+<div style='display: flex; flex-direction: column; gap: 1rem'>
+  <p class='pix-title-l'>Vos résultats</p>
+  <p class='pix-title-m'>Compétences évaluées</p>
+  <p class='pix-title-s'>Mener une recherche en ligne</p>
+  <p class='pix-title-xs'>Épreuves passées</p>
+  <p class='pix-title-xxs'>Détail du score</p>
+</div>
 ```
 
 ## Sous-titres
@@ -43,11 +45,13 @@ Tailles exprimées en `rem`, avec leur équivalent en pixels sur une base de `1r
 | `.pix-subtitle-xxs` | 0.875rem (14px) | 0.875rem (14px) | 1rem (16px)     | 1.5          |
 
 ```hbs live nebulix
-<p class='pix-subtitle-l'>Certification du 12 mars</p>
-<p class='pix-subtitle-m'>Niveau atteint sur seize</p>
-<p class='pix-subtitle-s'>Dernière tentative</p>
-<p class='pix-subtitle-xs'>Temps restant</p>
-<p class='pix-subtitle-xxs'>Mis à jour ce matin</p>
+<div style='display: flex; flex-direction: column; gap: 1rem'>
+  <p class='pix-subtitle-l'>Certification du 12 mars</p>
+  <p class='pix-subtitle-m'>Niveau atteint sur seize</p>
+  <p class='pix-subtitle-s'>Dernière tentative</p>
+  <p class='pix-subtitle-xs'>Temps restant</p>
+  <p class='pix-subtitle-xxs'>Mis à jour ce matin</p>
+</div>
 ```
 
 ## Corps de texte
@@ -59,22 +63,22 @@ Tailles exprimées en `rem`, avec leur équivalent en pixels sur une base de `1r
 | `.pix-body-s`  | 0.875rem (14px) | 0.875rem (14px) | 0.875rem (14px) | 1.5          |
 | `.pix-body-xs` | 0.75rem (12px)  | 0.75rem (12px)  | 0.75rem (12px)  | 1.5          |
 
-`.pix-body-xs` porte un interlettrage élargi qui soutient la lisibilité aux très petites tailles.
-
 ```hbs live nebulix
-<p class='pix-body-l'>Chaque épreuve mesure une compétence précise et vous situe sur une échelle de
-  huit niveaux.</p>
-<p class='pix-body-m'>Chaque épreuve mesure une compétence précise et vous situe sur une échelle de
-  huit niveaux.</p>
-<p class='pix-body-s'>Chaque épreuve mesure une compétence précise et vous situe sur une échelle de
-  huit niveaux.</p>
-<p class='pix-body-xs'>Chaque épreuve mesure une compétence précise et vous situe sur une échelle de
-  huit niveaux.</p>
+<div style='display: flex; flex-direction: column; gap: 1rem'>
+  <p class='pix-body-l'>Chaque épreuve mesure une compétence précise et vous situe sur une échelle
+    de huit niveaux.</p>
+  <p class='pix-body-m'>Chaque épreuve mesure une compétence précise et vous situe sur une échelle
+    de huit niveaux.</p>
+  <p class='pix-body-s'>Chaque épreuve mesure une compétence précise et vous situe sur une échelle
+    de huit niveaux.</p>
+  <p class='pix-body-xs'>Chaque épreuve mesure une compétence précise et vous situe sur une échelle
+    de huit niveaux.</p>
+</div>
 ```
 
 ### Texte à chasse fixe
 
-`.pix-monospace` applique la famille Roboto Mono et la graisse `--pix-font-normal`. Elle ne définit ni taille ni interlignage : elle se combine à un niveau de corps de texte.
+`.pix-monospace` applique la famille Roboto Mono et la graisse `--pix-font-normal`.
 
 ```hbs live nebulix
 <p class='pix-body-m pix-monospace'>--pix-font-normal</p>
@@ -104,5 +108,3 @@ Deux classes utilitaires permettent de renforcer un texte sans changer son nivea
 | ------------------------- | ------------------------- |
 | `.pix-body-weight-medium` | `--pix-font-medium` (500) |
 | `.pix-body-weight-bold`   | `--pix-font-bold` (700)   |
-
-Ces classes sont prévues pour le corps de texte. Les familles de titre et de sous-titre ne sont pas chargées dans toutes les graisses — Roboto Condensed n'existe qu'en 500, Nunito qu'en 400, 700 et 800 —, et le navigateur synthétise alors une graisse absente, au détriment du rendu.

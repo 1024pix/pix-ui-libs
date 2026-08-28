@@ -4,11 +4,11 @@ title: Classes utilitaires
 
 # Classes utilitaires
 
-Nebulix expose quelques classes CSS à poser directement sur un élément. Elles sont chargées avec `nebulix-styles`, sans import supplémentaire.
+Nebulix expose quelques classes CSS à poser directement sur un élément.
 
 ## Masquer un texte à l'écran
 
-`.screen-reader-only` retire un élément du rendu visuel sans le retirer de l'arbre d'accessibilité : le texte reste lu par les lecteurs d'écran. Elle sert à porter une information que la mise en page rend évidente à l'œil, mais que la lecture linéaire perd, par exemple.
+`.screen-reader-only` retire un élément du rendu visuel sans le retirer de l'arbre d'accessibilité : le texte reste lu par les lecteurs d'écran.
 
 ```hbs
 <button type='button'>
