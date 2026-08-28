@@ -138,6 +138,7 @@
       "./components/pix-search-input.js": "./dist/_app_/components/pix-search-input.js",
       "./components/pix-select-list.js": "./dist/_app_/components/pix-select-list.js",
       "./components/pix-select.js": "./dist/_app_/components/pix-select.js",
+      "./components/pix-switch.js": "./dist/_app_/components/pix-switch.js",
       "./components/pix-textarea.js": "./dist/_app_/components/pix-textarea.js",
       "./components/pix-icon.js": "./dist/_app_/components/pix-icon.js",
       "./components/pix-block.js": "./dist/_app_/components/pix-block.js",
