@@ -14,69 +14,25 @@ Depuis la racine du dépôt :
 pnpm doc
 ```
 
-La documentation est générée avec [Kolay](https://kolay.nullvoxpopuli.com/) et servie sur [http://localhost:4200](http://localhost:4200).
-
-### La version de Kolay
-
-Kolay n'est pas installé depuis npm mais depuis un commit précis du dépôt
-GitHub, dans `ember/docs-app/package.json` :
-
-```json
-"kolay": "github:universal-ember/kolay#cdbda81a605477020e6720b43488922e2d5d9231"
-```
-
-Ce n'est pas un accident. Nous utilisons des API qui ne sont pas encore
-publiées - `apiDocs` dans `kolay.config.js`, par exemple, s'appelait encore
-`typedoc` dans la dernière version npm. Revenir à `kolay@5.4.0` casserait la
-génération de la doc.
-
-Ces commits vivent sur la branche `dist` du dépôt Kolay, où la CI publie le
-paquet déjà construit - la branche `main`, elle, n'embarque pas les artefacts
-de build et n'est donc pas installable. Cette branche `dist` est **réécrite à
-chaque publication** : elle ne porte qu'un seul commit à la fois. Un SHA qu'on
-y épingle n'est donc plus référencé dès la publication suivante. GitHub
-continue de le servir en pratique, mais rien ne le garantit indéfiniment.
-
-Pour monter de version, prenez le commit de tête de `dist` :
-
-```bash
-git ls-remote https://github.com/universal-ember/kolay dist
-```
-
-Reportez le SHA dans `package.json`, puis `pnpm install` et vérifiez que
-`pnpm --filter docs-app build` et `pnpm --filter docs-app lint:types` passent
-toujours.
+La documentation est générée avec [Kolay](https://kolay.nullvoxpopuli.com/) dans l'app `ember/docs-app` et servie sur [http://localhost:4200](http://localhost:4200).
 
 ## Créer la page
 
-Le fichier de documentation porte le nom du composant et vit dans le même
-dossier que lui :
+Le fichier de documentation porte le nom du composant et vit dans **le même dossier** que lui :
 
+```sh
+src/components/graphics/pix-icon.gjs    # le code du composant
+src/components/graphics/pix-icon.scss   # les styles
+src/components/graphics/pix-icon.md     # la documentation
 ```
-src/components/graphics/pix-icon.gjs
-src/components/graphics/pix-icon.scss
-src/components/graphics/pix-icon.md
-```
 
-Le **dossier** détermine la rubrique dans laquelle le composant apparaît :
-`graphics` devient « Graphics » dans le menu. Le **`title` du frontmatter**
-détermine son libellé. Sans lui, on affiche le nom de fichier humanisé
-(`pix-icon` → « Pix icon »).
-
-À l'intérieur d'une rubrique, les composants sont classés par ordre
-alphabétique.
-
-L'ordre des **rubriques**, lui, est fixé dans `src/components/meta.jsonc` :
+L'ordre des **categories** est fixé dans `src/components/meta.jsonc`, cette liste doit être **exhaustive**:
 
 ```jsonc
 {
   "order": ["actions", "content", "data-display", "..."],
 }
 ```
-
-Cette liste doit être **exhaustive** : si vous ajoutez une rubrique (donc un
-dossier), ajoutez-la aussi dans `order`, sinon le serveur refuse de construire
-le menu.
 
 ## Le squelette d'une page
 
@@ -105,7 +61,7 @@ import { PixMonComposant } from '@1024pix/nebulix-ember';
 
 ## Une sous-section
 
-Un comportement, une variante, un choix à faire. Expliqué, puis illustré par une démo.
+Un comportement, une variante... Expliqué, puis illustré par une démo.
 
 ```gjs live nebulix
 import { PixMonComposant } from '@1024pix/nebulix-ember';
@@ -152,8 +108,7 @@ Sans `nebulix`, la démo s'affiche **sans aucun style Nebulix**.
 
 Une démo peut embarquer ses propres styles pour se mettre en scène en utilisant une balise `<style>` dans le `<template>` :
 
-````md
-```gjs live nebulix
+```gjs nebulix
 import { PixIcon } from '@1024pix/nebulix-ember';
 
 <template>
@@ -170,7 +125,6 @@ import { PixIcon } from '@1024pix/nebulix-ember';
   </style>
 </template>
 ```
-````
 
 ## Le tableau d'API
 
@@ -240,7 +194,3 @@ erreur visible dans la console (`Could not find module by name: …`) ; un `@nam
 erroné, lui, n'affiche rien du tout. Vérifiez que le fichier existe bien dans
 `declarations/` - s'il n'y est pas, c'est que le composant n'est pas encore
 compilé, ou que `ember-tsc` a échoué.
-
-```
-
-```

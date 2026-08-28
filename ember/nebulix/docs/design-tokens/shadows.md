@@ -6,17 +6,7 @@ title: Ombres
 
 Les ombres du design system sont exposées sous forme de variables CSS, définies dans `styles/pix-design-tokens/_shadows.scss`.
 
-Une ombre s'applique en posant sa variable sur `box-shadow`.
-
-```css
-.ma-carte {
-  box-shadow: var(--pix-shadow-md);
-}
-```
-
 Chaque ombre existe aussi en classe utilitaire `.pix-shadow-md`. Les placeholder SCSS `%pix-shadow-md` sont **dépréciés**.
-
-Deux familles : **l'élévation**, qui détache une surface de son fond, et **les ombres interactives**, qui colorent une surface et suivent son état.
 
 ## Élévation
 
@@ -29,6 +19,12 @@ Cinq niveaux, du plus discret au plus marqué.
 | `--pix-shadow-md` | 8px      | 16px |
 | `--pix-shadow-lg` | 10px     | 20px |
 | `--pix-shadow-xl` | 12px     | 24px |
+
+```css
+.ma-carte {
+  box-shadow: var(--pix-shadow-md);
+}
+```
 
 ```gjs live nebulix
 import { array } from '@ember/helper';

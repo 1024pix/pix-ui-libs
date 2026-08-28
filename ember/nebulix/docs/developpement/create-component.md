@@ -4,32 +4,32 @@ title: Créer un composant
 
 # Créer un composant
 
-Les composants vivent dans `ember/nebulix/src/components`, rangés par rubrique :
+Les composants vivent dans `ember/nebulix/src/components`, rangés par catégorie :
 `actions`, `forms`, `navigation`, `overlay`… Le dossier dans lequel vous posez le
-composant détermine la rubrique sous laquelle il apparaîtra dans la
+composant détermine la catégorie sous laquelle il apparaîtra dans la
 documentation.
 
 ## Les étapes
 
-1. Créer `src/components/<rubrique>/pix-mon-composant.gjs`, et son `.scss` s'il a des styles.
+1. Créer `src/components/<catégorie>/pix-mon-composant.gjs`, et son `.scss` s'il a des styles.
 2. Écrire le composant : la classe, son `<template>` et la JSDoc qui le type.
 3. Déclarer son `.scss` dans `src/components/index.scss`.
 4. Exporter le composant dans `src/index.js`.
-5. Écrire son test, dans `ember/test-app/tests`. Voir la page [Tester un composant](/nebulix/developpement/test-component.md).
-6. Écrire sa page de documentation, à côté du `.gjs`. Voir la page [Documenter un composant](/nebulix/developpement/document-component.md).
-7. Ajouter un changeset avec `pnpm changeset`, sans quoi la modification ne sera pas publiée. Voir la page [Publier une version](/nebulix/developpement/release.md).
+5. Écrire son test, dans `ember/test-app/tests`. Voir [Tester un composant](/nebulix/developpement/test-component.md).
+6. Écrire sa page de documentation, à côté du `.gjs`. Voir [Documenter un composant](/nebulix/developpement/document-component.md).
+7. Ajouter un changeset avec `pnpm changeset`, sans quoi la modification ne sera pas publiée. Voir [Publier une version](/nebulix/developpement/release.md).
 
 ## Les fichiers
 
 Un composant est composé de trois fichiers portant le même nom, dans le même dossier :
 
-```
-src/components/layout/pix-block.gjs   la logique et le template
-src/components/layout/pix-block.scss  les styles
-src/components/layout/pix-block.md    la documentation
+```sh
+src/components/layout/pix-block.gjs   # la logique et le template
+src/components/layout/pix-block.scss  # les styles
+src/components/layout/pix-block.md    # la documentation
 ```
 
-Le `.gjs` est toujours là. Le `.md` et `.scss` sont facultatifs : un composant non public n'a pas de documentation et un composant qui n'apporte aucun style ne le crée pas.
+Le `.gjs` est toujours là. Le `.md` et `.scss` sont facultatifs : un composant non public n'a pas de documentation et un composant peut ne pas avoir de styles.
 
 ## Écrire le composant
 
@@ -82,7 +82,7 @@ export default class PixMonComposant extends Component {
 }
 ```
 
-Les deux `@typedef` **typent** le composant. Voir la page [Documenter un composant](/nebulix/developpement/document-component.md).
+Les deux `@typedef` **typent** le composant. Voir [Documenter un composant](/nebulix/developpement/document-component.md).
 
 Le reste tient en six conventions :
 
@@ -101,8 +101,8 @@ Le reste tient en six conventions :
 
 ## Les styles
 
-```scss
-// src/components/layout/pix-block.scss
+```css
+/* src/components/layout/pix-block.scss */
 .pix-mon-composant {
   padding: var(--pix-spacing-3x);
   background-color: var(--pix-neutral-0);
@@ -117,12 +117,9 @@ Le reste tient en six conventions :
 }
 ```
 
-Toutes les valeurs viennent des **design tokens**, sous forme de variables
-`var(--pix-…)` : couleurs, espacements, shadow, typographies. Aucune valeur en
-dur.
+Toutes les valeurs viennent des **design tokens**, sous forme de variables `var(--pix-*)` : couleurs, espacements, shadow, typographies. Aucune valeur en dur.
 
-Le fichier n'est pas importé depuis le `.gjs` : il faut l'ajouter à
-`src/components/index.scss`, qui rassemble les styles de tous les composants.
+Le fichier n'est pas importé depuis le `.gjs` : il faut l'ajouter à `src/components/index.scss`, qui rassemble les styles de tous les composants.
 
 ```scss
 @use './layout/pix-mon-composant';
@@ -130,9 +127,7 @@ Le fichier n'est pas importé depuis le `.gjs` : il faut l'ajouter à
 
 ## Exporter le composant
 
-Un composant absent de `src/index.js` n'existe pas pour les applications, ni
-pour ses propres tests. Ajoutez-y sa ligne, groupée par rubrique puis triée par
-ordre alphabétique :
+Exporter le composant dans `src/index.js` afin qu'il soit utilisable dans les applications et dans les tests. Ajoutez une ligne :
 
 ```js
 export { default as PixMonComposant } from './components/layout/pix-mon-composant.gjs';
