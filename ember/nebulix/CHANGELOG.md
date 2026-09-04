@@ -1,5 +1,15 @@
 # @1024pix/ember-nebulix
 
+## 0.3.0
+
+### Minor Changes
+
+- [#23](https://github.com/1024pix/pix-ui-libs/pull/23) [`780a620`](https://github.com/1024pix/pix-ui-libs/commit/780a620d5b1187c295813f3aecb53a713ed24ed3) - Ajout de la documentation et du typage JSDoc des composants @1024pix/nebulix-ember
+
+- [#19](https://github.com/1024pix/pix-ui-libs/pull/19) [`930596b`](https://github.com/1024pix/pix-ui-libs/commit/930596bfd70f5e77a31a96af9b3b88fc64e94898) - Générer et publier les déclarations typescript de @1024pix/nebulix-ember à partir de la JSDoc
+
+- [#26](https://github.com/1024pix/pix-ui-libs/pull/26) [`9262bef`](https://github.com/1024pix/pix-ui-libs/commit/9262bef7fd92e59bb126d80be574ab3a99e0e642) - Correction des regressions visuelles sur les composants suite à la nouvelle arborescence de composant de nebulix.
+
 ## 0.2.2
 
 ### Patch Changes
