@@ -1,7 +1,23 @@
-import { PixCheckbox } from '@1024pix/nebulix-ember';
+import { PixCheckbox, PixToggle } from '@1024pix/nebulix-ember';
 
 <template>
   <div>
+    <h2>Switch / Toggle</h2>
+
+    <PixToggle />
+    <PixToggle @checked={{true}} />
+
+    <PixToggle @size="large" />
+    <PixToggle @checked={{true}} @size="large" />
+
+    <PixToggle>Label</PixToggle>
+    <PixToggle @checked={{true}}>Label</PixToggle>
+
+    <PixToggle @size="large" @isDisabled={{true}}>Label</PixToggle>
+    <PixToggle @checked={{true}} @size="large" @isDisabled={{true}}>Label</PixToggle>
+
+    <hr />
+
     <h2>Etat activé</h2>
     <PixCheckbox @variant="modulix" @state="neutral">
       <:label>Proposition variant Modulix, état neutral</:label>
@@ -10,6 +26,8 @@ import { PixCheckbox } from '@1024pix/nebulix-ember';
     <PixCheckbox @variant="modulix" @state="declarative">
       <:label>Proposition variant Modulix, état déclaratif</:label>
     </PixCheckbox>
+
+    <hr />
 
     <h2>Etat désactivé (après soumission)</h2>
     <PixCheckbox @variant="modulix" @state="neutral" @isDisabled="true">
