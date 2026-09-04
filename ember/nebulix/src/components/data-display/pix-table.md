@@ -167,7 +167,7 @@ Le clic n'étant pas accessible au clavier. le `<tr>` n'est ni focusable
 ni activable au clavier.
 
 Pour une action principale, placer un vrai lien ou bouton dans une cellule
-(voir le variant link de PixTableColumn).
+(voir le variant link de `PixTableColumn`).
 
 ## Densité et variantes
 
