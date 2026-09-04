@@ -27,6 +27,7 @@ import PixBlock from '../layout/pix-block.gjs';
 export default class PixTable extends Component {
   get variant() {
     const value = this.args.variant ?? 'primary';
+
     warn(
       `PixTable: @variant "${value}" should be ${VARIANTS.join(', ')}`,
       VARIANTS.includes(value),
@@ -42,11 +43,11 @@ export default class PixTable extends Component {
     warn(`PixTable: @caption is required`, Boolean(this.args.caption), {
       id: 'pix-ui.pix-table.caption.required',
     });
+
     return this.args.caption;
   }
 
   get tableClass() {
-    const tableClass = ['pix-table'];
     warn(
       'PixTable: @condensed must be a boolean, default undefined',
       [true, false, undefined].includes(this.args.condensed),
@@ -54,15 +55,14 @@ export default class PixTable extends Component {
         id: 'pix-ui.pix-table.condensed.not-boolean',
       },
     );
-    if (this.args.condensed) {
-      tableClass.push('pix-table--condensed');
-    }
 
+    const tableClass = ['pix-table'];
+    if (this.args.condensed) tableClass.push('pix-table--condensed');
     return tableClass.join(' ');
   }
 
   get headerClass() {
-    return `pix-table-header--${this.variant}`;
+    return `pix-table-header pix-table-header--${this.variant}`;
   }
 
   get captionClass() {
@@ -76,6 +76,7 @@ export default class PixTable extends Component {
   @action
   onClick(row, event) {
     event.stopPropagation();
+
     if (this.hasOnRowClick) {
       this.args.onRowClick(row);
     }
