@@ -4,8 +4,9 @@ title: PixGauge
 
 # PixGauge
 
-`PixGauge` situe un niveau atteint sur une échelle de 0 à 8, face au niveau
-maximum atteignable. Elle est conçue pour les résultats de compétences Pix.
+`PixGauge` situe un niveau atteint `@reachedLevel` (en violet) par rapport
+au niveau maximum atteignable `@maxLevel` (en blanc). Elle est conçue pour
+les résultats de compétences Pix.
 
 Pour une progression exprimée en pourcentage, utilisez `PixProgressBar`.
 
@@ -26,11 +27,9 @@ const paliers = ['Débutant', 'Indépendant', 'Avancé', 'Expert'];
 </template>
 ```
 
-`@reachedLevel` et `@maxLevel` s'expriment sur l'échelle de 0 à 8, quel que soit
-le nombre de paliers affichés. `@label` est obligatoire : la jauge étant un
-dessin, c'est la seule information transmise aux lecteurs d'écran.
+On peut modifier le nombre de palier et leur label avec `@stepLabels`.
 
-`@stepLabels` nomme les paliers, répartis régulièrement sur toute l'échelle.
+`@label` est obligatoire pour décrire le graphique de la jauge.
 
 ## Version compacte
 
@@ -51,8 +50,21 @@ import { PixGauge } from '@1024pix/nebulix-ember';
 </template>
 ```
 
-`@hideValues` masque en plus les chiffres portés sur la jauge. Ne l'employez que
-si la valeur est déjà donnée à côté.
+`@hideValues` masque en plus les chiffres portés sur la jauge.
+
+```gjs live nebulix
+import { PixGauge } from '@1024pix/nebulix-ember';
+
+<template>
+  <PixGauge
+    @reachedLevel={{3}}
+    @maxLevel={{5}}
+    @isSmall={{true}}
+    @label="Niveau 3 atteint sur un maximum de 5"
+    @hideValues={{true}}
+  />
+</template>
+```
 
 ## API Docs
 

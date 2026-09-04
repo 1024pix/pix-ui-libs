@@ -4,8 +4,8 @@ title: PixCode
 
 # PixCode
 
-`PixCode` recueille un code d'une longueur connue à l'avance — un code
-d'accès, un identifiant de session — dans un champ unique dont la largeur
+`PixCode` recueille un code d'une longueur connue à l'avance(un code
+d'accès, un identifiant de session) dans un champ unique dont la largeur
 s'ajuste au nombre de caractères attendus.
 
 ## Utilisation
@@ -20,8 +20,8 @@ import { PixCode } from '@1024pix/nebulix-ember';
 </template>
 ```
 
-`@length` est obligatoire : il fixe la largeur du champ ainsi que le nombre de
-caractères minimum et maximum acceptés.
+- `@length` est obligatoire : il fixe la largeur du champ ainsi que le nombre de
+  caractères minimum et maximum acceptés.
 
 ## PixCode ou PixInputCode ?
 
@@ -38,7 +38,7 @@ manière.
 `@validationStatus="error"` accompagné de `@errorMessage` signale un code
 refusé. Le message est rattaché au champ pour les lecteurs d'écran.
 
-```gjs live nebulix
+```gjs live preview nebulix
 import { PixCode } from '@1024pix/nebulix-ember';
 
 <template>

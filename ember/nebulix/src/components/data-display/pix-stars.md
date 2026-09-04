@@ -4,8 +4,11 @@ title: PixStars
 
 # PixStars
 
-`PixStars` représente un score sous forme d'étoiles : le niveau atteint sur un
-sujet, la difficulté d'un parcours.
+`PixStars` affiche une série d'étoiles.
+Un texte alternatif `alt` doit être renseigné pour fournir l'information au
+lecteur d'écran.
+
+Pour ne pas afficher les étoiles vides, il suffit de ne pas renseigner `@total`.
 
 ## Utilisation
 
@@ -15,12 +18,13 @@ import { PixStars } from '@1024pix/nebulix-ember';
 <template><PixStars @count={{3}} @total={{5}} @alt="Niveau 3 sur 5" /></template>
 ```
 
-`@alt` est la seule information transmise aux lecteurs d'écran : les étoiles
-leur sont masquées. Écrivez-y le score en toutes lettres, jamais « étoiles »
-seul.
+## Affichage sans étoile vides
 
-Sans `@total`, seules les étoiles obtenues sont affichées — l'utilisateur perd
-alors le point de comparaison. Renseignez-le dès que le maximum a du sens.
+```gjs live nebulix
+import { PixStars } from '@1024pix/nebulix-ember';
+
+<template><PixStars @count={{3}} @alt="Niveau 3" /></template>
+```
 
 ## Couleurs
 
@@ -33,25 +37,12 @@ import { PixStars } from '@1024pix/nebulix-ember';
       <PixStars @count={{4}} @total={{5}} @color="primary" @alt="Niveau 4 sur 5" />
       <figcaption>primary</figcaption>
     </figure>
-
-    <figure>
-      <PixStars @count={{4}} @total={{5}} @color="neutral" @alt="Niveau 4 sur 5" />
-      <figcaption>neutral</figcaption>
-    </figure>
   </div>
 
   <style>
-    .demo-stars {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      align-items: flex-start;
-    }
-
     .demo-stars figure {
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
       align-items: center;
       margin: 0;
     }

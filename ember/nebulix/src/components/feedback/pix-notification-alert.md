@@ -4,12 +4,7 @@ title: PixNotificationAlert
 
 # PixNotificationAlert
 
-`PixNotificationAlert` affiche un message au sein d'une page, à l'endroit exact
-où il fait sens : sous un formulaire, dans une carte, au-dessus d'une liste.
-
-C'est le message qui reste. Pour une confirmation éphémère après une action,
-utilisez une notification `PixToast` ; pour une annonce en tête d'application,
-`PixBannerAlert`.
+`PixNotificationAlert` affiche une bandeau d'information avec une icône facultative.
 
 ## Utilisation
 
@@ -17,7 +12,7 @@ utilisez une notification `PixToast` ; pour une annonce en tête d'application,
 import { PixNotificationAlert } from '@1024pix/nebulix-ember';
 
 <template>
-  <PixNotificationAlert @type="info" @withIcon={{true}}>
+  <PixNotificationAlert @type="info">
     Les résultats sont mis à jour toutes les nuits.
   </PixNotificationAlert>
 </template>
@@ -31,46 +26,67 @@ texte doit rester compréhensible sans elle.
 ## Types
 
 ```gjs live nebulix
-import { PixNotificationAlert } from '@1024pix/nebulix-ember';
+import { PixNotificationAlert, PixCheckbox } from '@1024pix/nebulix-ember';
 
-<template>
-  <div class="demo-alerts">
-    <PixNotificationAlert @type="info" @withIcon={{true}}>
-      Les résultats sont mis à jour toutes les nuits.
-    </PixNotificationAlert>
+import Component from '@glimmer/component';
+import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
+import { on } from '@ember/modifier';
+export default class BannerDemo extends Component {
+  @tracked
+  withIcon = false;
 
-    <PixNotificationAlert @type="success" @withIcon={{true}}>
-      Les seize élèves ont été importés.
-    </PixNotificationAlert>
+  toggleIcon = () => {
+    this.withIcon = !this.withIcon;
+  };
 
-    <PixNotificationAlert @type="warning" @withIcon={{true}}>
-      Trois élèves n'ont pas d'adresse e-mail : ils ne recevront pas l'invitation.
-    </PixNotificationAlert>
+  <template>
+    <div class="demo-alerts">
+      <p>
+        <PixCheckbox @size="small" @checked={{this.withIcon}} {{on "change" this.toggleIcon}}>
+          <:label>Afficher les icones</:label>
+        </PixCheckbox>
+      </p>
+      <PixNotificationAlert @type="info" @withIcon={{this.withIcon}}>
+        Les résultats sont mis à jour toutes les nuits.
+      </PixNotificationAlert>
 
-    <PixNotificationAlert @type="error" @withIcon={{true}}>
-      L'import a échoué : le fichier ne contient aucune ligne.
-    </PixNotificationAlert>
-  </div>
+      <PixNotificationAlert @type="success" @withIcon={{this.withIcon}}>
+        Les seize élèves ont été importés.
+      </PixNotificationAlert>
 
-  <style>
-    .demo-alerts {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-  </style>
-</template>
+      <PixNotificationAlert @type="warning" @withIcon={{this.withIcon}}>
+        Trois élèves n'ont pas d'adresse e-mail : ils ne recevront pas l'invitation.
+      </PixNotificationAlert>
+
+      <PixNotificationAlert @type="error" @withIcon={{this.withIcon}}>
+        L'import a échoué : le fichier ne contient aucune ligne.
+      </PixNotificationAlert>
+
+      <PixNotificationAlert @type="communication" @withIcon={{this.withIcon}}>
+        L'import a échoué : le fichier ne contient aucune ligne.
+      </PixNotificationAlert>
+
+      <PixNotificationAlert @type="communication-orga" @withIcon={{this.withIcon}}>
+        L'import a échoué : le fichier ne contient aucune ligne.
+      </PixNotificationAlert>
+
+      <PixNotificationAlert @type="communication-certif" @withIcon={{this.withIcon}}>
+        L'import a échoué : le fichier ne contient aucune ligne.
+      </PixNotificationAlert>
+
+    </div>
+
+    <style>
+      .demo-alerts {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+    </style>
+  </template>
+}
 ```
-
-| Type      | Ce qu'il exprime                                       |
-| --------- | ------------------------------------------------------ |
-| `info`    | Un fait utile à connaître, sans conséquence immédiate. |
-| `success` | Une opération qui s'est bien déroulée.                 |
-| `warning` | Une réserve : l'action a abouti, mais pas entièrement. |
-| `error`   | Un blocage que l'utilisateur doit lever.               |
-
-Les types `communication`, `communication-orga` et `communication-certif` sont
-réservés aux annonces institutionnelles.
 
 ## API Docs
 

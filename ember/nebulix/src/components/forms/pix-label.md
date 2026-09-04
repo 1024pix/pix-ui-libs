@@ -33,7 +33,7 @@ devient son infobulle : écrivez-y ce que l'astérisque signifie, pas le mot
 `@subLabel` accueille une précision utile à la saisie — un format attendu, un
 exemple. Réservez-le à ce qui aide à remplir le champ.
 
-```gjs live nebulix
+```gjs live preview nebulix
 import { PixLabel } from '@1024pix/nebulix-ember';
 
 <template>
@@ -54,7 +54,7 @@ Avec `@useAsLegend`, `PixLabel` rend une balise `<legend>`. C'est ce qu'il faut
 pour donner un intitulé commun à un groupe de cases à cocher ou de boutons
 radio, à l'intérieur d'un `<fieldset>`.
 
-```gjs live nebulix
+```gjs live preview nebulix
 import { PixLabel, PixRadioButton } from '@1024pix/nebulix-ember';
 
 <template>
@@ -74,8 +74,7 @@ import { PixLabel, PixRadioButton } from '@1024pix/nebulix-ember';
 ## Masquer le libellé sans le supprimer
 
 `@screenReaderOnly` retire le libellé de l'affichage mais le laisse annoncé par
-les lecteurs d'écran. Utilisez-le quand le contexte visuel rend le libellé
-redondant — jamais pour gagner de la place.
+les lecteurs d'écran.
 
 ## API Docs
 

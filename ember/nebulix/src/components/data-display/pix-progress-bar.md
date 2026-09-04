@@ -4,8 +4,18 @@ title: PixProgressBar
 
 # PixProgressBar
 
-`PixProgressBar` montre la part accomplie d'une progression : l'avancement dans
-un parcours, le taux de participation à une campagne.
+`PixProgressBar` permet d'afficher un barre de progression sur un ratio de 0 à 1.
+Des paramètres existent pour changer le mode (dark ou light) ou la couleur du composant.
+
+`@value` est la valeur entre 0 et 1.
+
+`@percentageValue` est le texte affiché à coté de la barre.
+
+`@label` pour rendre le composant accessible, sauf si le composant est utilisé
+uniquement pour de la décoration. Dans ce cas, mettre le paramètre `@isDecorative`
+à true.
+
+On peut completer l'information avec `@subtitle`
 
 ## Utilisation
 
@@ -13,20 +23,22 @@ un parcours, le taux de participation à une campagne.
 import { PixProgressBar } from '@1024pix/nebulix-ember';
 
 <template>
-  <PixProgressBar @value={{0.65}} @percentageValue="65 %" @label="Progression dans le parcours" />
+  <PixProgressBar
+    @value={{0.65}}
+    @percentageValue="65 %"
+    @label="Progression dans le parcours"
+    @subtitle="Progression"
+    @hidePercentage={{true}}
+  />
 </template>
 ```
 
-`@value` est une fraction entre 0 et 1, pas un pourcentage. `@label` est
-obligatoire : c'est le seul intitulé dont disposent les lecteurs d'écran.
-
-`@percentageValue` est le texte affiché au-dessus de la barre. Il est purement
-décoratif — c'est à vous de le formater, y compris l'unité.
-
 ## Couleur et fond
 
-`@color` accorde la barre à son contexte. `@themeMode="dark"` l'adapte à un
-fond sombre.
+`@color` accorde la barre à son contexte.
+Les valeurs supportées sont `primary`, `success` et `tertiary`.
+
+`@themeMode="dark"` l'adapte à un fond sombre.
 
 ```gjs live nebulix
 import { PixProgressBar } from '@1024pix/nebulix-ember';
@@ -36,6 +48,9 @@ import { PixProgressBar } from '@1024pix/nebulix-ember';
     <PixProgressBar @value={{0.4}} @percentageValue="40 %" @label="primary" />
     <PixProgressBar @value={{0.6}} @percentageValue="60 %" @color="success" @label="success" />
     <PixProgressBar @value={{0.8}} @percentageValue="80 %" @color="tertiary" @label="tertiary" />
+    <div class="demo-dark">
+      <PixProgressBar @value={{0.4}} @percentageValue="40 %" @label="primary" @themeMode="dark" />
+    </div>
   </div>
 
   <style>
@@ -44,18 +59,13 @@ import { PixProgressBar } from '@1024pix/nebulix-ember';
       flex-direction: column;
       gap: 1.5rem;
     }
+    .demo-dark {
+      padding: var(--pix-spacing-2x);
+      background-color: var(--pix-tertiary-900);
+    }
   </style>
 </template>
 ```
-
-Les valeurs `blue`, `green` et `purple` sont dépréciées : préférez `primary`,
-`success` et `tertiary`.
-
-## Sobriété
-
-`@hidePercentage` retire le chiffre, `@subtitle` ajoute une précision sous la
-barre. Une barre sans chiffre se lit plus vite ; une barre sans chiffre ni
-sous-titre ne dit plus rien de précis.
 
 ## API Docs
 

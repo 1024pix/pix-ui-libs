@@ -4,13 +4,14 @@ title: PixToast
 
 # PixToast
 
-Une notification éphémère confirme qu'une action a abouti, ou signale qu'elle a
-échoué. Elle apparaît par-dessus la page, sans interrompre ce que fait
-l'utilisateur.
+Pour afficher des notifications à l'utilisateur, il faut dabord ajouter à l'application
+le composant `<PixToastContainer @closeButtonAriaLabel="Fermer la notification"/>`
 
-Le mécanisme tient en deux parties : `PixToastContainer`, placé **une seule
-fois** dans votre application, et le service `pixToast`, que vous injectez là où
-vous avez quelque chose à annoncer.
+`@closeButtonAriaLabel` contient le libéllé traduit du bouton icône qui permet de fermer la notification
+
+Il faut ensuite utiliser les methodes mise à disposition par le service `pixToast`.
+
+> On n'utilise pas le composant `<PixToast /> directement.
 
 ## Utilisation
 
@@ -34,17 +35,16 @@ export default class ToastDemo extends Component {
 }
 ```
 
-`@closeButtonAriaLabel` est le nom du bouton de fermeture pour les lecteurs
-d'écran. Le bouton n'ayant pas de texte visible, il en est le seul intitulé.
+## Les quatre type de notification
 
-## Les quatre notifications
+Le service `pixToast` permet d'nvoyer 4 types de notification.
 
-| Méthode                       | Quand l'utiliser                                        |
-| ----------------------------- | ------------------------------------------------------- |
-| `sendSuccessNotification`     | Une action a abouti. C'est le cas le plus fréquent.     |
-| `sendErrorNotification`       | Une action a échoué et l'utilisateur doit le savoir.    |
-| `sendInformationNotification` | Un fait dont l'utilisateur n'est pas l'auteur.          |
-| `sendWarningNotification`     | Une action a abouti, mais avec une réserve à connaître. |
+| Méthode                       |
+| ----------------------------- |
+| `sendSuccessNotification`     |
+| `sendErrorNotification`       |
+| `sendInformationNotification` |
+| `sendWarningNotification`     |
 
 ```gjs live nebulix
 import { PixButton, PixToastContainer } from '@1024pix/nebulix-ember';
@@ -95,25 +95,14 @@ export default class ToastTypesDemo extends Component {
 }
 ```
 
-## Écrire le message
+> **Attention**
+> Envoyer deux fois le même message et le même type ne crée pas deux
+> notifications : la première est retirée puis réaffichée.
 
-Le message est la notification : il n'y a ni titre, ni bouton d'action.
+## Vider toute les notifications
 
-Écrivez un constat court, au passé, qui nomme l'objet concerné —
-« L'élève a été ajouté à la campagne » plutôt que « Succès ». En cas d'erreur,
-donnez la cause et la suite à donner ; si la correction demande plus d'une
-phrase, c'est que le message n'a pas sa place dans une notification.
-
-Une notification n'attend aucune réponse et peut être manquée. N'y placez
-jamais une information dont l'utilisateur aura besoin plus tard.
-
-## Éviter les doublons
-
-Envoyer deux fois le même message et le même type ne crée pas deux
-notifications : la première est retirée puis réaffichée. Une action répétée ne
-peut donc pas empiler les notifications identiques.
-
-`removeAllNotifications` vide la pile, par exemple lors d'un changement de page.
+Le service `pixToast` expose la mthode `removeAllNotifications` pour effacer
+les notifications (à utiliser lors d'un changement de page).
 
 ## API Docs
 

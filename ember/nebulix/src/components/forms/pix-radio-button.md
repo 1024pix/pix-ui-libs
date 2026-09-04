@@ -6,7 +6,7 @@ title: PixRadioButton
 
 `PixRadioButton` propose un choix unique parmi plusieurs options mutuellement
 exclusives. Quand les choix peuvent se cumuler, utilisez `PixCheckbox` ; quand
-ils sont nombreux, `PixSelect` économise la place.
+ils sont nombreux, `PixSelect` économise de la place.
 
 ## Utilisation
 
@@ -37,25 +37,91 @@ Le `<fieldset>` et sa légende ne sont pas optionnels : sans eux, un utilisateur
 de lecteur d'écran entend les options sans savoir à quelle question elles
 répondent.
 
-Proposez toujours au moins deux options, et n'en présélectionnez une que si elle
+Proposez toujours au moins deux options. N'en présélectionnez une que si elle
 constitue un choix raisonnable par défaut pour la majorité des utilisateurs.
 
-## États de correction
+## Bouton désactivé
 
-`@state` affiche le résultat d'une correction, une fois la réponse validée, et
-l'annonce aux lecteurs d'écran.
+`@isDisabled` empêche de sélectionner l'option sans la masquer aux lecteurs
+d'écran. Il est préféré à l'attribut natif `disabled` qui empêche ces usages.
+
+## Focus sur Variant Modulix
+
+Quand `@variant="modulix"`, le PixRdioButton est affiché avc un encadré autour du label.
+
+- Le RadioButton et son label sont visuellement regroupés dans un ensemble intégralement cliquable.
+- Le bouton radio (petit cercle à gauche du label), est ici volontairement masqué pour les besoins design des modules.
+
+```gjs live preview nebulix
+import { PixLabel, PixRadioButton } from '@1024pix/nebulix-ember';
+
+<template>
+  <PixRadioButton @variant="modulix" name="statut" @value="une réponse">
+    <:label>Une réponse</:label>
+  </PixRadioButton>
+</template>
+```
+
+## État désactivé variant Modulix
+
+Si `@isDisabled=true`, PixRadioButton apparaît désactivé, toujours sans cercle de "radio" affiché.
+
+```gjs live preview nebulix
+import { PixLabel, PixRadioButton } from '@1024pix/nebulix-ember';
+
+<template>
+  <PixRadioButton @variant="modulix" name="statut" @value="une réponse" @isDisabled="true">
+    <:label>Une réponse désactivée</:label>
+  </PixRadioButton>
+</template>
+```
+
+## État désactivé variant Modulix
+
+Si `@isDisabled=true`, PixRadioButton apparaît désactivé, toujours sans cercle de "radio" affiché.
+
+```gjs live preview nebulix
+import { PixLabel, PixRadioButton } from '@1024pix/nebulix-ember';
+
+<template>
+  <PixRadioButton @variant="modulix" name="statut" @value="une réponse" @isDisabled="true">
+    <:label>Une réponse désactivée</:label>
+  </PixRadioButton>
+</template>
+```
+
+## États de correction Modulix
+
+Si `@isDisabled=true`, on peut utiliser `@state` pour donner une information à l'utilisateur :
+
+- `@state="success` si réponse correcte
+- `@state="error` si réponse fausse
+
+On n'affiche pas de SVG de succès ou d'erreur. (contrairement à la PixCheckbox variant modulix)
 
 ```gjs live nebulix
 import { PixRadioButton } from '@1024pix/nebulix-ember';
 
 <template>
-  <div class="demo-stack">
-    <PixRadioButton name="correction" @value="ok" @state="success" checked={{true}}>
-      <:label>Bonne réponse</:label>
+  <div class="demo-stack-modulix">
+    <PixRadioButton
+      @variant="modulix"
+      name="correction-ok"
+      @value="ok"
+      @isDisabled="true"
+      @state="success"
+    >
+      <:label>Une réponse correcte</:label>
     </PixRadioButton>
 
-    <PixRadioButton name="correction-ko" @value="ko" @state="error" checked={{true}}>
-      <:label>Mauvaise réponse</:label>
+    <PixRadioButton
+      @variant="modulix"
+      name="correction-ko"
+      @value="ko"
+      @isDisabled="true"
+      @state="error"
+    >
+      <:label>Une mauvaise réponse</:label>
     </PixRadioButton>
   </div>
 
@@ -69,12 +135,7 @@ import { PixRadioButton } from '@1024pix/nebulix-ember';
 </template>
 ```
 
-## Bouton désactivé
-
-`@isDisabled` empêche de sélectionner l'option sans la masquer aux lecteurs
-d'écran. Expliquez à côté pourquoi ce choix n'est pas disponible.
-
-## API Docs
+# API Docs
 
 ```hbs live
 <ComponentSignature
