@@ -1,9 +1,7 @@
 import { action } from '@ember/object';
 import { service } from '@ember/service';
 import Component from '@glimmer/component';
-import { eq } from 'ember-truth-helpers';
 
-import { formatMessage } from '../../translations/index.js';
 import PixIconButton from '../actions/pix-icon-button.gjs';
 import PixSelect from '../forms/pix-select.gjs';
 
@@ -29,12 +27,22 @@ const DEFAULT_PAGE_OPTIONS = [
  */
 
 /**
+ * @typedef {object} PixPaginationTexts
+ * @property {string} title - Libellé affiché avant le sélecteur de taille de page (ex. « Voir »).
+ * @property {string} pageSize - Libellé accessible du sélecteur de taille de page.
+ * @property {string} pageElementCount - Texte décrivant les éléments affichés (ex. « 11-12 sur 12 éléments »).
+ * @property {string} previousPage - Libellé accessible du bouton page précédente.
+ * @property {string} pageNumber - Texte affichant la page courante (ex. « Page 2 / 6 »).
+ * @property {string} nextPage - Libellé accessible du bouton page suivante.
+ */
+
+/**
  * @typedef {object} PixPaginationArgs
  * @property {PixPaginationState} pagination - État courant de la pagination. Obligatoire.
+ * @property {PixPaginationTexts} texts - Textes affichés par le composant. À fournir par l'application consommatrice, dans la langue de son choix. Obligatoire.
  * @property {PixPaginationOption[]} [pageOptions] - Tailles de page proposées. Par défaut : 10, 25, 50 et 100.
  * @property {() => unknown} [onChange] - Appelée après chaque changement de page ou de taille de page.
  * @property {boolean} [isCondensed] - Affiche la version compacte.
- * @property {'fr' | 'en' | 'es' | 'es-419' | 'nl'} [locale] - Langue des libellés fournis par Nebulix. Par défaut : `fr`.
  */
 
 /**
@@ -51,46 +59,8 @@ export default class PixPagination extends Component {
     return this.args.isCondensed ? 'pix-pagination-condensed' : 'pix-pagination';
   }
 
-  get beforeResultsPerPage() {
-    return this.formatMessage('beforeResultsPerPage');
-  }
-
-  get previousPageLabel() {
-    return this.formatMessage('previousPageLabel');
-  }
-
-  get nextPageLabel() {
-    return this.formatMessage('nextPageLabel');
-  }
-
-  get pageNumber() {
-    return this.formatMessage('pageNumber', {
-      total: this.pageCount,
-      current: this.currentPage,
-    });
-  }
-  get pageInfo() {
-    return this.formatMessage('pageInfo', {
-      total: this.resultsCount,
-      start: this.firstItemPosition,
-      end: this.lastItemPosition,
-    });
-  }
-
   get pageOptions() {
     return this.args.pageOptions ? this.args.pageOptions : DEFAULT_PAGE_OPTIONS;
-  }
-
-  get selectPageSizeLabel() {
-    return this.formatMessage('selectPageSizeLabel');
-  }
-
-  get pageResults() {
-    return this.formatMessage('pageResults', { total: this.args.pagination.rowCount });
-  }
-
-  formatMessage(message, values) {
-    return formatMessage(this.args.locale ?? 'fr', `pagination.${message}`, values);
   }
 
   get currentPage() {
@@ -121,10 +91,6 @@ export default class PixPagination extends Component {
 
   get previousPage() {
     return Math.max(this.currentPage - 1, 1);
-  }
-
-  get resultsCount() {
-    return this.args.pagination ? this.args.pagination.rowCount : 0;
   }
 
   get firstItemPosition() {
@@ -166,7 +132,7 @@ export default class PixPagination extends Component {
   <template>
     <footer class={{this.isCondensed}}>
       <section class="pix-pagination__size">
-        <span class="pagination-size__label">{{this.beforeResultsPerPage}}</span>
+        <span class="pagination-size__label" aria-hidden="true">{{@texts.title}}</span>
         <PixSelect
           @placeholder={{this.pageSize}}
           @screenReaderOnly={{true}}
@@ -176,22 +142,18 @@ export default class PixPagination extends Component {
           @onChange={{this.changePageSize}}
           @options={{this.pageOptions}}
         >
-          <:label>{{this.selectPageSizeLabel}}</:label>
+          <:label>{{@texts.pageSize}}</:label>
         </PixSelect>
       </section>
       <section class="pix-pagination__navigation">
         <span>
-          {{#if (eq this.pageCount 1)}}
-            {{this.pageResults}}
-          {{else}}
-            {{this.pageInfo}}
-          {{/if}}
+          {{@texts.pageElementCount}}
         </span>
         <div class="pix-pagination-navigation__action">
           <PixIconButton
             class="pix-pagination-navigation__action-button"
             @iconName="arrowLeft"
-            @ariaLabel={{this.previousPageLabel}}
+            @ariaLabel={{@texts.previousPage}}
             @triggerAction={{this.goToPreviousPage}}
             @withBackground={{false}}
             @size="big"
@@ -200,12 +162,12 @@ export default class PixPagination extends Component {
             aria-disabled="{{this.isPreviousPageDisabled}}"
           />
           <span>
-            {{this.pageNumber}}
+            {{@texts.pageNumber}}
           </span>
           <PixIconButton
             class="pix-pagination-navigation__action-button"
             @iconName="arrowRight"
-            @ariaLabel={{this.nextPageLabel}}
+            @ariaLabel={{@texts.nextPage}}
             @triggerAction={{this.goToNextPage}}
             @withBackground={{false}}
             @size="big"
