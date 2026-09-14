@@ -27,20 +27,31 @@ module('Integration | Component | pix-tag', function (hooks) {
     assert.dom(screen.getByLabelText('world')).exists();
   });
 
-  test('it displays remove button when displayRemoveButton is true', async function (assert) {
-    const screen = await render(hbs`<PixTag @displayRemoveButton={{true}}>tag text</PixTag>`);
+  test('it displays remove button when onRemove is provided', async function (assert) {
+    this.onRemove = sinon.stub();
+    this.texts = { removeButtonLabel: 'Supprimer' };
+    const screen = await render(
+      hbs`<PixTag @onRemove={{this.onRemove}} @texts={{this.texts}}>tag text</PixTag>`,
+    );
 
     assert.dom(screen.getByRole('button', { name: 'Supprimer' })).exists();
   });
 
   test('it calls onRemove when button is clicked', async function (assert) {
     this.onRemove = sinon.stub();
+    this.texts = { removeButtonLabel: 'Supprimer' };
     const screen = await render(
-      hbs`<PixTag @displayRemoveButton={{true}} @onRemove={{this.onRemove}}>tag text</PixTag>`,
+      hbs`<PixTag @onRemove={{this.onRemove}} @texts={{this.texts}}>tag text</PixTag>`,
     );
 
     await click(screen.getByRole('button', { name: 'Supprimer' }));
 
     assert.ok(this.onRemove.calledOnce);
+  });
+
+  test('it does not display remove button when onRemove is not provided', async function (assert) {
+    const screen = await render(hbs`<PixTag>tag text</PixTag>`);
+
+    assert.dom(screen.queryByRole('button')).doesNotExist();
   });
 });
