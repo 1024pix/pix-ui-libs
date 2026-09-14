@@ -6,16 +6,21 @@ import { service } from '@ember/service';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 
-import { formatMessage } from '../../translations/index.js';
 import PixButton from '../actions/pix-button.gjs';
 import PixIconButton from '../actions/pix-icon-button.gjs';
 
 /**
+ * @typedef {object} PixNavigationTexts
+ * @property {string} openMenu - Nom du bouton qui ouvre le menu sur mobile, lu par les lecteurs d'écran. Obligatoire.
+ * @property {string} closeMenu - Nom de ce même bouton une fois le menu ouvert. Obligatoire.
+ * @property {string} mainNavigation - Nom de la navigation, lu par les lecteurs d'écran. Obligatoire.
+ * @property {string} expandNavigation - Nom du bouton de repli une fois la navigation réduite, lu par les lecteurs d'écran. Obligatoire.
+ * @property {string} shrinkNavigation - Nom de ce même bouton avant réduction, lu par les lecteurs d'écran. Obligatoire.
+ */
+
+/**
  * @typedef {object} PixNavigationArgs
- * @property {string} openLabel - Nom du bouton qui ouvre le menu sur mobile, lu par les lecteurs d'écran. Obligatoire.
- * @property {string} closeLabel - Nom de ce même bouton une fois le menu ouvert. Obligatoire.
- * @property {string} [navigationAriaLabel] - Nom de la navigation, lu par les lecteurs d'écran. À renseigner dès que la page compte plusieurs navigations.
- * @property {'fr' | 'en' | 'es' | 'es-419' | 'nl'} [locale] - Langue des libellés du bouton de repli, fournis par Nebulix. Par défaut : `fr`.
+ * @property {PixNavigationTexts} texts - Textes affichés par le composant. À fournir par l'application consommatrice, dans la langue de son choix. Obligatoire.
  */
 
 /**
@@ -33,20 +38,30 @@ export default class PixNavigation extends Component {
     super(...args);
     this._navigationId = 'navigation-' + guidFor(this);
     warn(
-      'PixNavigation: @openLabel and @closeLabel are required',
-      this.args.openLabel && this.args.closeLabel,
+      'PixNavigation: @texts.openMenu and @texts.closeMenu are required',
+      this.args.texts?.openMenu && this.args.texts?.closeMenu,
       {
-        id: 'pix-navigation.open-close-labels',
+        id: 'pix-navigation.open-close-menu.required',
+      },
+    );
+    warn(
+      'PixNavigation: @texts.mainNavigation attribute is required for accessibility.',
+      this.args.texts?.mainNavigation,
+      {
+        id: 'pix-ui.stepper-component.texts.mainNavigation.required',
+      },
+    );
+    warn(
+      'PixNavigation: @texts.expandNavigation and @texts.shrinkNavigation attributes are required for accessibility.',
+      this.args.texts?.expandNavigation && this.args.texts?.shrinkNavigation,
+      {
+        id: 'pix-ui.stepper-component.texts.shrink-expand-navigation.required',
       },
     );
   }
 
   @tracked
   navigationMenuOpened = false;
-
-  formatMessage(message, values) {
-    return formatMessage(this.args.locale ?? 'fr', `pixNavigation.${message}`, values);
-  }
 
   @action
   toggleNavigationMenu() {
@@ -79,11 +94,13 @@ export default class PixNavigation extends Component {
   }
 
   get shrunkNavigationAriaLabel() {
-    return this.formatMessage(
-      this.shrinkNavigationService.isShrunk
-        ? 'expandNavigationAriaLabel'
-        : 'shrinkNavigationAriaLabel',
-    );
+    return this.shrinkNavigationService.isShrunk
+      ? this.args.texts?.expandNavigation
+      : this.args.texts?.shrinkNavigation;
+  }
+
+  get menuLabel() {
+    return this.navigationMenuOpened ? this.args.texts?.closeMenu : this.args.texts?.openMenu;
   }
 
   get navigationId() {
@@ -119,11 +136,7 @@ export default class PixNavigation extends Component {
             @triggerAction={{this.toggleNavigationMenu}}
           >
             <span class="screen-reader-only">
-              {{#if this.navigationMenuOpened}}
-                {{@closeLabel}}
-              {{else}}
-                {{@openLabel}}
-              {{/if}}
+              {{this.menuLabel}}
             </span>
           </PixButton>
         </div>
@@ -131,7 +144,7 @@ export default class PixNavigation extends Component {
       <nav
         class="pix-navigation__nav"
         {{on "click" this.closeNavigation}}
-        aria-label={{@navigationAriaLabel}}
+        aria-label={{@texts.mainNavigation}}
         id={{this.navigationId}}
       >
         {{yield to="navElements"}}
