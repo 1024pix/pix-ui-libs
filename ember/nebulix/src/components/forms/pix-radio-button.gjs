@@ -4,8 +4,15 @@ import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import Component from '@glimmer/component';
 
-import { formatMessage } from '../../translations/index.js';
 import PixLabelWrapped from './pix-label-wrapped.gjs';
+
+/**
+ * @typedef {object} PixRadioButtonTexts
+ * @property {string} [requiredLabel] - Infobulle de l'astérisque affiché quand le bouton est obligatoire.
+ * @property {string} [subLabel] - Complément d'information affiché sous le libellé.
+ * @property {string} [stateSuccess] - Message annoncé aux lecteurs d'écran quand `state="success"`.
+ * @property {string} [stateError] - Message annoncé aux lecteurs d'écran quand `state="error"`.
+ */
 
 /**
  * @typedef {object} PixRadioButtonArgs
@@ -15,9 +22,8 @@ import PixLabelWrapped from './pix-label-wrapped.gjs';
  * @property {'success' | 'error'} [state] - État de correction affiché après validation. Annoncé aux lecteurs d'écran.
  * @property {'modulix'} [variant] - Jeu de styles alternatif.
  * @property {'small' | 'default' | 'large'} [size] - Taille du libellé. Par défaut : `default`.
- * @property {string} [requiredLabel] - Rend le bouton obligatoire et affiche un astérisque, dont ce texte est l'infobulle.
- * @property {string} [subLabel] - Complément d'information affiché sous le libellé.
  * @property {boolean} [screenReaderOnly] - Masque le libellé visuellement, tout en le laissant lisible par les lecteurs d'écran.
+ * @property {PixRadioButtonTexts} [texts] - Textes affichés par le composant (astérisque, sous-libellé, messages d'état). À fournir par l'application consommatrice, dans la langue de son choix.
  * @property {string} [class] - Classes CSS ajoutées au conteneur.
  */
 
@@ -29,8 +35,6 @@ import PixLabelWrapped from './pix-label-wrapped.gjs';
  */
 
 export default class PixRadioButton extends Component {
-  text = 'pix-radio-button';
-
   get id() {
     return this.args.id || guidFor(this);
   }
@@ -74,15 +78,11 @@ export default class PixRadioButton extends Component {
   }
 
   get stateSuccessMessage() {
-    return this.formatMessage('state.success');
+    return this.args.texts?.stateSuccess;
   }
 
   get stateErrorMessage() {
-    return this.formatMessage('state.error');
-  }
-
-  formatMessage(message) {
-    return formatMessage('fr', `input.${message}`);
+    return this.args.texts?.stateError;
   }
 
   @action
@@ -96,8 +96,8 @@ export default class PixRadioButton extends Component {
     <div class="pix-radio-button {{@class}}">
       <PixLabelWrapped
         @for={{this.id}}
-        @requiredLabel={{@requiredLabel}}
-        @subLabel={{@subLabel}}
+        @requiredLabel={{@texts.requiredLabel}}
+        @subLabel={{@texts.subLabel}}
         @size={{@size}}
         @screenReaderOnly={{@screenReaderOnly}}
         @isDisabled={{this.isDisabled}}
