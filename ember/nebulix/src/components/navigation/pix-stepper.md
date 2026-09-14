@@ -4,12 +4,11 @@ title: PixStepper
 
 # PixStepper
 
-`PixStepper` montre les étapes d'un parcours en plusieurs temps — une
-inscription, un import, une création de campagne — et situe l'utilisateur dans
-cette suite.
-
-Il informe, il ne navigue pas : les étapes ne sont pas cliquables. C'est à
-votre écran de fournir les boutons « Précédent » et « Suivant ».
+`PixStepper` permet d'afficher une progression par étapes. Chaque étape
+peut avoir un titre et un sous-titre optionnel. Le composant nécessite
+une propriété `texts` contenant une clé `ariaLabel` contenant la valeur traduite
+du aria-label du composant. Au-delà de 3 étapes, le stepper adapte automatiquement
+son affichage (mode long).
 
 ## Utilisation
 
@@ -22,12 +21,17 @@ const etapes = [
   { title: 'Vérification', subtitle: 'Avant envoi' },
 ];
 
-<template><PixStepper @steps={{etapes}} @currentStep={{2}} /></template>
+const texts = {
+  ariaLabel: 'Étape 2 sur 3',
+};
+
+<template><PixStepper @steps={{etapes}} @currentStep={{2}} @texts={{texts}} /></template>
 ```
 
-`@currentStep` se compte à partir de 1. Le composant annonce aux lecteurs
-d'écran la progression complète — « étape 2 sur 3 » — dans la langue indiquée
-par `@locale`.
+`@currentStep` se compte à partir de 1. `@texts.ariaLabel` fournit le résumé
+de la progression annoncé aux lecteurs d'écran — « étape 2 sur 3 ». Nebulix ne
+traduit rien lui-même : c'est à l'application consommatrice de fournir ce
+texte, déjà traduit et déjà calculé.
 
 Nommez les étapes par ce qu'on y fait, en un ou deux mots. `subtitle` accueille
 la précision.

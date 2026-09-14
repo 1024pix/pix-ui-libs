@@ -1,7 +1,7 @@
+import { warn } from '@ember/debug';
 import Component from '@glimmer/component';
 import { eq } from 'ember-truth-helpers';
 
-import { formatMessage } from '../../translations/index.js';
 import PixStep from './pix-step.gjs';
 
 /**
@@ -11,10 +11,15 @@ import PixStep from './pix-step.gjs';
  */
 
 /**
+ * @typedef {object} PixStepperTexts
+ * @property {string} ariaLabel - Résumé de la progression, lu par les lecteurs d'écran (ex. « Étape 2 sur 3 »). Obligatoire.
+ */
+
+/**
  * @typedef {object} PixStepperArgs
  * @property {PixStepperStep[]} steps - Étapes du parcours, dans l'ordre. Obligatoire.
  * @property {number} currentStep - Numéro de l'étape en cours, à partir de 1. Obligatoire.
- * @property {'fr' | 'en' | 'es' | 'es-419' | 'nl'} [locale] - Langue du résumé de progression lu par les lecteurs d'écran. Par défaut : `fr`.
+ * @property {PixStepperTexts} texts - Textes affichés par le composant. À fournir par l'application consommatrice, dans la langue de son choix. Obligatoire.
  */
 
 /**
@@ -25,6 +30,17 @@ import PixStep from './pix-step.gjs';
  */
 
 export default class PixStepperComponent extends Component {
+  constructor(...args) {
+    super(...args);
+    warn(
+      'PixStepper: @texts attribute is mandatory for accessibility.',
+      Boolean(this.args.texts?.ariaLabel),
+      {
+        id: 'pix-ui.stepper-component.texts.mandatory',
+      },
+    );
+  }
+
   get cssClass() {
     const classes = ['pix-stepper'];
 
@@ -39,15 +55,8 @@ export default class PixStepperComponent extends Component {
     return this.args.currentStep - 1;
   }
 
-  get ariaLabel() {
-    return formatMessage(this.args.locale ?? 'fr', 'stepper.ariaLabel', {
-      current: this.args.currentStep,
-      total: this.args.steps.length,
-    });
-  }
-
   <template>
-    <ol class={{this.cssClass}} role="list" aria-label={{this.ariaLabel}} ...attributes>
+    <ol class={{this.cssClass}} role="list" ...attributes aria-label={{@texts.ariaLabel}}>
       {{#each @steps as |step index|}}
         <PixStep
           @index={{index}}
