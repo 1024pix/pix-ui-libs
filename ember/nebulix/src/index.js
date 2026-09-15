@@ -27,6 +27,7 @@ export { default as PixRadioButton } from './components/forms/pix-radio-button.g
 export { default as PixSearchInput } from './components/forms/pix-search-input.gjs';
 export { default as PixSelect } from './components/forms/pix-select.gjs';
 export { default as PixTextarea } from './components/forms/pix-textarea.gjs';
+export { default as PixToggle } from './components/forms/pix-toggle.gjs';
 export { default as PixIcon } from './components/graphics/pix-icon.gjs';
 export { default as PixBlock } from './components/layout/pix-block.gjs';
 export { default as PixAppLayout } from './components/navigation/pix-app-layout.gjs';

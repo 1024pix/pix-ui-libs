@@ -1,6 +1,5 @@
 ---
 title: PixModal
-new: true
 ---
 
 # PixModal

@@ -79,6 +79,84 @@ import { PixAccordions } from '@1024pix/nebulix-ember';
 empilements : les sections y sont séparées par un filet et celle qui est
 ouverte se détache par une ombre.
 
+## Mode contrôlé
+
+> **⚠️ Le mode non contrôlé est déprécié.** Utilisez `@isExpanded` et `@onToggle` :
+> le composant avertit en développement lorsque `@onToggle` n'est pas fourni.
+
+Historiquement, chaque `PixAccordions` gérait son état tout seul. `@isExpanded` et
+`@onToggle` donnent la main au parent, ce qui est nécessaire pour piloter plusieurs
+accordéons d'un coup, un bouton « tout déplier » par exemple.
+
+Dans ce mode, le composant n'ouvre ni ne ferme plus de lui-même : il signale
+l'intention de l'utilisateur via `@onToggle`, et c'est au parent de répercuter la
+nouvelle valeur sur `@isExpanded`.
+
+```gjs live preview nebulix
+import { PixAccordions, PixButton } from '@1024pix/nebulix-ember';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+
+export default class AccordionsDemo extends Component {
+  @tracked isScoreExpanded = false;
+  @tracked isRetryExpanded = false;
+
+  get areAllExpanded() {
+    return this.isScoreExpanded && this.isRetryExpanded;
+  }
+
+  toggleScore = (isExpanded) => {
+    this.isScoreExpanded = isExpanded;
+  };
+
+  toggleRetry = (isExpanded) => {
+    this.isRetryExpanded = isExpanded;
+  };
+
+  toggleAll = () => {
+    const nextIsExpanded = !this.areAllExpanded;
+    this.isScoreExpanded = nextIsExpanded;
+    this.isRetryExpanded = nextIsExpanded;
+  };
+
+  <template>
+    <div class="demo-controlled-accordions">
+      <PixButton @triggerAction={{this.toggleAll}} @size="small" @variant="secondary">
+        {{if this.areAllExpanded "Tout replier" "Tout déplier"}}
+      </PixButton>
+    </div>
+
+    <PixAccordions
+      @isV2Version="true"
+      @isExpanded={{this.isScoreExpanded}}
+      @onToggle={{this.toggleScore}}
+    >
+      <:title>Comment sont calculés mes résultats ?</:title>
+      <:content>Chaque bonne réponse renforce le niveau estimé, chaque erreur l'ajuste à la baisse.</:content>
+    </PixAccordions>
+
+    <PixAccordions
+      @isV2Version="true"
+      @isExpanded={{this.isRetryExpanded}}
+      @onToggle={{this.toggleRetry}}
+    >
+      <:title>Puis-je repasser un test ?</:title>
+      <:content>Oui, après un délai de sept jours.</:content>
+    </PixAccordions>
+
+    <style>
+      .demo-controlled-accordions {
+        margin-bottom: 0.75rem;
+      }
+    </style>
+  </template>
+}
+```
+
+Un accordéon contrôlé déplié affiche son contenu dès le premier rendu, sans clic
+préalable. C'est ce qui permet de déplier d'un seul coup des accordéons imbriqués,
+y compris ceux qui n'étaient pas encore rendus.
+
 ## API Docs
 
 ```hbs live

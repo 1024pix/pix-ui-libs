@@ -2,6 +2,8 @@
 @use 'pix-design-tokens/typography';
 
 .pix-table {
+  @extend %pix-body-s;
+
   min-width: 100%;
   overflow: auto;
 
@@ -9,74 +11,79 @@
     overflow: unset;
   }
 
-  @extend %pix-body-s;
-
-  &__caption {
-    margin-bottom: var(--pix-spacing-3x);
-    text-align: left;
-    caption-side: top;
-
-    @extend %pix-title-xxs;
-  }
-
-  &__clickable-row {
-    cursor: pointer;
-
-    &:hover,
-    &:focus,
-    &:active {
-      transition: 0.25s ease;
-    }
-
-    &:hover {
-      background-color: rgba(var(--pix-neutral-100-inline), 0.5);
-    }
-
-    &:focus {
-      background-color: rgba(var(--pix-neutral-100-inline), 0.4);
-    }
-
-    &:active {
-      background-color: rgba(var(--pix-neutral-100-inline), 0.75);
-    }
-  }
-
   table {
     width: 100%;
     border-collapse: collapse;
   }
 
-  tbody
-    > tr:nth-of-type(even):not(
-      .pix-table__clickable-row:hover,
-      .pix-table__clickable-row:focus,
-      .pix-table__clickable-row:active
-    ) {
+  tbody > tr:nth-of-type(even) > :is(td, th) {
     background-color: rgba(var(--pix-neutral-20-inline), 0.8);
   }
 
-  thead.pix-table-header {
-    &--primary {
-      background: var(--pix-primary-10);
+  tbody > tr.pix-table__clickable-row {
+    cursor: pointer;
+
+    & > :is(td, th) {
+      transition: background-color 0.25s ease;
     }
 
-    &--orga {
-      background: var(--pix-orga-50);
+    &:hover > :is(td, th) {
+      background-color: rgba(var(--pix-neutral-100-inline), 0.5);
     }
 
-    &--certif {
-      background: var(--pix-certif-50);
+    &:focus > :is(td, th) {
+      background-color: rgba(var(--pix-neutral-100-inline), 0.4);
     }
 
-    &--admin {
-      background: var(--pix-primary-100);
+    &:active > :is(td, th) {
+      background-color: rgba(var(--pix-neutral-100-inline), 0.75);
     }
   }
 
-  .pix-table-header-container {
-    display: flex;
-    gap: var(--pix-spacing-1x);
-    align-items: center;
+  td,
+  th {
+    padding: var(--pix-spacing-4x);
+
+    &:first-child {
+      border-top-left-radius: var(--pix-spacing-2x);
+      border-bottom-left-radius: var(--pix-spacing-2x);
+    }
+
+    &:last-child {
+      border-top-right-radius: var(--pix-spacing-2x);
+      border-bottom-right-radius: var(--pix-spacing-2x);
+    }
+  }
+}
+
+.pix-table--condensed {
+  th,
+  td {
+    padding: var(--pix-spacing-2x) var(--pix-spacing-4x);
+  }
+
+  td.pix-table-column--tag,
+  td.pix-table-column--link {
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+  }
+}
+
+.pix-table-header {
+  &--primary th {
+    background: var(--pix-primary-10);
+  }
+
+  &--orga th {
+    background: var(--pix-orga-50);
+  }
+
+  &--certif th {
+    background: var(--pix-certif-50);
+  }
+
+  &--admin th {
+    background: var(--pix-primary-100);
   }
 
   th[scope='col'] {
@@ -88,34 +95,18 @@
   th[scope='row'] {
     font-weight: var(--pix-font-normal);
   }
+}
 
-  td,
-  th {
-    padding: var(--pix-spacing-4x) var(--pix-spacing-4x);
+.pix-table-header-container {
+  display: flex;
+  gap: var(--pix-spacing-1x);
+  align-items: center;
+}
 
-    &:first-child {
-      border-radius: var(--pix-spacing-2x) 0 0 var(--pix-spacing-2x);
-    }
+.pix-table__caption {
+  margin-bottom: var(--pix-spacing-3x);
+  text-align: left;
+  caption-side: top;
 
-    &:last-child {
-      border-radius: 0 var(--pix-spacing-2x) var(--pix-spacing-2x) 0;
-    }
-  }
-
-  &--condensed {
-    th,
-    td {
-      padding: 0.5rem var(--pix-spacing-4x);
-    }
-
-    td.pix-table-column--tag {
-      padding-top: 0.375rem;
-      padding-bottom: 0.375rem;
-    }
-
-    td.pix-table-column--link {
-      padding-top: 0.375rem;
-      padding-bottom: 0.375rem;
-    }
-  }
+  @extend %pix-title-xxs;
 }

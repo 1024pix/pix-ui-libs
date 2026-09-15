@@ -47,6 +47,7 @@
 @use './navigation/pix-stepper';
 @use './content/pix-card';
 @use './content/pix-accordions-v2';
+@use './forms/pix-toggle';
 
 // at the end so it can override it's children scss
 @use './forms/pix-filterable-and-searchable-select';
