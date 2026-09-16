@@ -45,6 +45,34 @@ constitue un choix raisonnable par défaut pour la majorité des utilisateurs.
 `@isDisabled` empêche de sélectionner l'option sans la masquer aux lecteurs
 d'écran. Il est préféré à l'attribut natif `disabled` qui empêche ces usages.
 
+## Textes affichés (@texts)
+
+`@texts` fournit tous les textes du composant qui ne sont pas déjà passés par
+le bloc `:label` : l'infobulle de l'astérisque obligatoire (`requiredLabel`),
+le complément d'information sous le libellé (`subLabel`), et les messages
+annoncés aux lecteurs d'écran pour chaque état de correction (`stateSuccess`,
+`stateError`). Nebulix ne traduit rien lui-même : c'est à l'application
+consommatrice de fournir ces textes, déjà traduits.
+
+```gjs live preview nebulix
+import { PixLabel, PixRadioButton } from '@1024pix/nebulix-ember';
+
+const texts = {
+  requiredLabel: 'Ce champ est obligatoire',
+  subLabel: 'Un seul choix possible',
+};
+
+<template>
+  <fieldset>
+    <PixLabel @useAsLegend={{true}}>Statut de l'établissement</PixLabel>
+
+    <PixRadioButton name="statut-texts" @value="public" @texts={{texts}}>
+      <:label>Public</:label>
+    </PixRadioButton>
+  </fieldset>
+</template>
+```
+
 ## Focus sur Variant Modulix
 
 Quand `@variant="modulix"`, le PixRdioButton est affiché avc un encadré autour du label.
@@ -102,6 +130,11 @@ On n'affiche pas de SVG de succès ou d'erreur. (contrairement à la PixCheckbox
 ```gjs live nebulix
 import { PixRadioButton } from '@1024pix/nebulix-ember';
 
+const texts = {
+  stateSuccess: 'Sélection correcte',
+  stateError: 'Sélection incorrecte',
+};
+
 <template>
   <div class="demo-stack-modulix">
     <PixRadioButton
@@ -110,6 +143,7 @@ import { PixRadioButton } from '@1024pix/nebulix-ember';
       @value="ok"
       @isDisabled="true"
       @state="success"
+      @texts={{texts}}
     >
       <:label>Une réponse correcte</:label>
     </PixRadioButton>
@@ -120,6 +154,7 @@ import { PixRadioButton } from '@1024pix/nebulix-ember';
       @value="ko"
       @isDisabled="true"
       @state="error"
+      @texts={{texts}}
     >
       <:label>Une mauvaise réponse</:label>
     </PixRadioButton>

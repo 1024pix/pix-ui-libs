@@ -4,13 +4,25 @@ import { hbs } from 'ember-cli-htmlbars';
 import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 
+const texts = {
+  openMenu: 'open',
+  closeMenu: 'close',
+  mainNavigation: 'label',
+  expandNavigation: 'Revenir à la largeur initiale du menu de navigation',
+  shrinkNavigation: 'Réduire la largeur du menu de navigation',
+};
+
 module('Integration | Component | pix-navigation', function (hooks) {
   setupRenderingTest(hooks);
+
+  hooks.beforeEach(function () {
+    this.set('texts', texts);
+  });
 
   module('Desktop', function () {
     test('it renders the navigation in a sidebar', async function (assert) {
       // when
-      const screen = await render(hbs`<PixNavigation @navigationAriaLabel='label' />`);
+      const screen = await render(hbs`<PixNavigation @texts={{this.texts}} />`);
       const aside = screen.getByRole('complementary');
 
       // then
@@ -19,7 +31,7 @@ module('Integration | Component | pix-navigation', function (hooks) {
 
     test('it renders content at the header of the aside', async function (assert) {
       // when
-      const screen = await render(hbs`<PixNavigation @navigationAriaLabel='label'>
+      const screen = await render(hbs`<PixNavigation @texts={{this.texts}}>
   <:brand>
     <svg role='img'><title>logo</title></svg>
   </:brand>
@@ -32,7 +44,7 @@ module('Integration | Component | pix-navigation', function (hooks) {
 
     test('it renders content in the navigation', async function (assert) {
       // when
-      const screen = await render(hbs`<PixNavigation @navigationAriaLabel='label'>
+      const screen = await render(hbs`<PixNavigation @texts={{this.texts}}>
   <:navElements>
     <a href='toto'>mon lien</a>
   </:navElements>
@@ -45,7 +57,7 @@ module('Integration | Component | pix-navigation', function (hooks) {
 
     test('it renders content in the footer', async function (assert) {
       // when
-      const screen = await render(hbs`<PixNavigation @navigationAriaLabel='label'>
+      const screen = await render(hbs`<PixNavigation @texts={{this.texts}}>
   <:footer>
     <a href='toto'>mon lien</a>
   </:footer>
@@ -59,9 +71,7 @@ module('Integration | Component | pix-navigation', function (hooks) {
 
     test('it hides the burger menu', async function (assert) {
       // when
-      const screen = await render(
-        hbs`<PixNavigation @navigationAriaLabel='label' @openLabel='open' @closeLabel='close' />`,
-      );
+      const screen = await render(hbs`<PixNavigation @texts={{this.texts}} />`);
       assert.notOk(screen.queryByRole('button', { name: 'menu' }));
     });
 
@@ -72,9 +82,7 @@ module('Integration | Component | pix-navigation', function (hooks) {
         shrinkNavigationService.canNavigationBeShrunk = true;
 
         // when
-        const screen = await render(
-          hbs`<PixNavigation @navigationAriaLabel='label' @openLabel='open' @closeLabel='close' />`,
-        );
+        const screen = await render(hbs`<PixNavigation @texts={{this.texts}} />`);
 
         // then
         assert
@@ -89,9 +97,7 @@ module('Integration | Component | pix-navigation', function (hooks) {
           shrinkNavigationService.canNavigationBeShrunk = true;
 
           // when
-          const screen = await render(
-            hbs`<PixNavigation @navigationAriaLabel='label' @openLabel='open' @closeLabel='close' />`,
-          );
+          const screen = await render(hbs`<PixNavigation @texts={{this.texts}} />`);
           await click(
             screen.getByRole('button', { name: 'Réduire la largeur du menu de navigation' }),
           );
@@ -114,7 +120,7 @@ module('Integration | Component | pix-navigation', function (hooks) {
 
           // when
           const screen = await render(
-            hbs`<PixNavigation @navigationAriaLabel='label' @openLabel='open' @closeLabel='close'>
+            hbs`<PixNavigation @texts={{this.texts}}>
   <:footer>
     <p>
       Martin Dupond
@@ -145,7 +151,7 @@ module('Integration | Component | pix-navigation', function (hooks) {
 
         // when
         const screen = await render(
-          hbs`<PixNavigation @navigationAriaLabel='label' @openLabel='open' @closeLabel='close'>
+          hbs`<PixNavigation @texts={{this.texts}}>
   <:navElements>
     <PixButton
       aria-disabled='true'
@@ -173,9 +179,7 @@ module('Integration | Component | pix-navigation', function (hooks) {
       // given
       const router = this.owner.lookup('service:router');
 
-      const screen = await render(
-        hbs`<PixNavigation @navigationAriaLabel='label' @openLabel='open' @closeLabel='close' />`,
-      );
+      const screen = await render(hbs`<PixNavigation @texts={{this.texts}} />`);
 
       // when
       const openMenuButton = screen.getByText('open').closest('button');

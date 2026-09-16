@@ -58,6 +58,20 @@ module('Integration | Component | checkbox', function (hooks) {
     assert.true(checkbox.checked);
   });
 
+  test('it should display the required and sub label given in @texts', async function (assert) {
+    // given
+    this.set('texts', { requiredLabel: 'Obligatoire', subLabel: 'Complément' });
+
+    // when
+    const screen = await render(
+      hbs`<PixCheckbox @texts={{this.texts}}><:label>Recevoir la newsletter</:label></PixCheckbox>`,
+    );
+
+    // then
+    assert.dom(screen.getByTitle('Obligatoire')).exists();
+    assert.dom(screen.getByText('Complément')).exists();
+  });
+
   module('@isDisabled', function (hooks) {
     let warnStub;
 
@@ -98,10 +112,11 @@ module('Integration | Component | checkbox', function (hooks) {
     test(`it should read success state info if given`, async function (assert) {
       // given
       this.set('isDisabled', true);
+      this.set('texts', { stateSuccess: 'Sélection correcte' });
 
       // when
       const screen = await render(
-        hbs`<PixCheckbox checked @isDisabled={{this.isDisabled}} @state='success'><:label>Recevoir la newsletter</:label></PixCheckbox>`,
+        hbs`<PixCheckbox checked @isDisabled={{this.isDisabled}} @state='success' @texts={{this.texts}}><:label>Recevoir la newsletter</:label></PixCheckbox>`,
       );
 
       // then
@@ -118,10 +133,11 @@ module('Integration | Component | checkbox', function (hooks) {
     test(`it should read error state info if given`, async function (assert) {
       // given
       this.set('isDisabled', true);
+      this.set('texts', { stateError: 'Sélection incorrecte' });
 
       // when
       const screen = await render(
-        hbs`<PixCheckbox checked @isDisabled={{this.isDisabled}} @state='error'><:label>Recevoir la newsletter</:label></PixCheckbox>`,
+        hbs`<PixCheckbox checked @isDisabled={{this.isDisabled}} @state='error' @texts={{this.texts}}><:label>Recevoir la newsletter</:label></PixCheckbox>`,
       );
 
       // then
@@ -138,10 +154,11 @@ module('Integration | Component | checkbox', function (hooks) {
     test(`it should read declarative state info if given`, async function (assert) {
       // given
       this.set('isDisabled', true);
+      this.set('texts', { stateDeclarative: 'Sélection sans bonne ou mauvaise réponse' });
 
       // when
       const screen = await render(
-        hbs`<PixCheckbox checked @isDisabled={{this.isDisabled}} @state='declarative'><:label>La galette des
+        hbs`<PixCheckbox checked @isDisabled={{this.isDisabled}} @state='declarative' @texts={{this.texts}}><:label>La galette des
     rois</:label></PixCheckbox>`,
       );
 

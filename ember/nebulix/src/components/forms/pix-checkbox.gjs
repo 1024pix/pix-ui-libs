@@ -4,8 +4,16 @@ import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import Component from '@glimmer/component';
 
-import { formatMessage } from '../../translations/index.js';
 import PixLabelWrapped from './pix-label-wrapped.gjs';
+
+/**
+ * @typedef {object} PixCheckboxTexts
+ * @property {string} [requiredLabel] - Infobulle de l'astérisque affiché quand la case est obligatoire.
+ * @property {string} [subLabel] - Complément d'information affiché sous le libellé.
+ * @property {string} [stateSuccess] - Message annoncé aux lecteurs d'écran quand `state="success"`.
+ * @property {string} [stateError] - Message annoncé aux lecteurs d'écran quand `state="error"`.
+ * @property {string} [stateDeclarative] - Message annoncé aux lecteurs d'écran quand `state="declarative"` ou `"declarative-selected"`.
+ */
 
 /**
  * @typedef {object} PixCheckboxArgs
@@ -16,10 +24,8 @@ import PixLabelWrapped from './pix-label-wrapped.gjs';
  * @property {'success' | 'error' | 'neutral' | 'declarative' | 'declarative-selected'} [state] - État de correction affiché après validation. Annoncé aux lecteurs d'écran. Les valeurs `neutral`, `declarative` et `declarative-selected` ne sont disponibles qu'avec `variant="modulix"`.
  * @property {'modulix'} [variant] - Jeu de styles alternatif.
  * @property {'small' | 'default' | 'large'} [size] - Taille du libellé. Par défaut : `default`.
- * @property {string} [requiredLabel] - Rend la case obligatoire et affiche un astérisque, dont ce texte est l'infobulle.
- * @property {string} [subLabel] - Complément d'information affiché sous le libellé.
  * @property {boolean} [screenReaderOnly] - Masque le libellé visuellement, tout en le laissant lisible par les lecteurs d'écran.
- * @property {'fr' | 'en' | 'es' | 'es-419' | 'nl'} [locale] - Langue des messages d'état annoncés aux lecteurs d'écran. Par défaut : `fr`.
+ * @property {PixCheckboxTexts} [texts] - Textes affichés par le composant (astérisque, sous-libellé, messages d'état). À fournir par l'application consommatrice, dans la langue de son choix.
  * @property {string} [class] - Classes CSS ajoutées au conteneur.
  */
 
@@ -89,27 +95,23 @@ export default class PixCheckbox extends Component {
   }
 
   get stateSuccessMessage() {
-    return this.formatMessage('state.success');
+    return this.args.texts?.stateSuccess;
   }
 
   get stateErrorMessage() {
-    return this.formatMessage('state.error');
+    return this.args.texts?.stateError;
   }
 
   get stateDeclarativeMessage() {
-    return this.formatMessage('state.declarative');
-  }
-
-  formatMessage(message) {
-    return formatMessage(this.args.locale ?? 'fr', `input.${message}`);
+    return this.args.texts?.stateDeclarative;
   }
 
   <template>
     <div class="pix-checkbox {{@class}}">
       <PixLabelWrapped
         @for={{this.id}}
-        @requiredLabel={{@requiredLabel}}
-        @subLabel={{@subLabel}}
+        @requiredLabel={{@texts.requiredLabel}}
+        @subLabel={{@texts.subLabel}}
         @size={{@size}}
         @inlineLabel={{true}}
         @screenReaderOnly={{@screenReaderOnly}}

@@ -4,10 +4,10 @@ title: PixTag
 
 # PixTag
 
-`PixTag` affiche une information courte de catégorisation ou d'état
+`PixTag` permet de mettre en avant une information ou bien de la catégoriser.
 
 > Il est possible de surcharger le style d'un `<PixTag>` via l'attribut `class`
-> ainsi que de passer n'importe quel attribut sur sa div wrapper (par exemple, un aria-label)s
+> ainsi que de passer n'importe quel attribut sur le tag sous-jacente (div)
 
 ## Utilisation
 
@@ -70,8 +70,9 @@ const colors = [
 
 ## Étiquette supprimable
 
-Il est également possible d'afficher un bouton de suppression en passant
-la propriété `@displayRemoveButton`. Il faudra aussi passer une fonction dans `@onRemove` ainsi que la `@locale`.
+Passer `@onRemove` affiche un bouton de suppression à droite du texte. Il faut
+obligatoirement alors aussi fournir `@texts.removeButtonLabel`, le libellé
+accessible du bouton lu par les lecteurs d'écran.
 
 ```gjs live nebulix
 import { PixTag } from '@1024pix/nebulix-ember';
@@ -80,8 +81,12 @@ const retirer = () => {
   // votre action
 };
 
+const texts = {
+  removeButtonLabel: 'Supprimer',
+};
+
 <template>
-  <PixTag @color="tertiary" @displayRemoveButton={{true}} @onRemove={{retirer}}>
+  <PixTag @color="tertiary" @onRemove={{retirer}} @texts={{texts}}>
     Collège Jean Moulin
   </PixTag>
 </template>
