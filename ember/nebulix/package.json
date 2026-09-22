@@ -55,11 +55,11 @@
   },
   "dependencies": {
     "@embroider/addon-shim": "^1.8.9",
+    "@floating-ui/dom": "^1.8.0",
     "decorator-transforms": "^2.2.2",
     "ember-click-outside": "^6.1.1",
     "ember-lifeline": "^7.1.0",
     "ember-modifier": "^4.3.0",
-    "ember-popperjs": "^3.0.0",
     "ember-truth-helpers": "^5.0.0",
     "tracked-toolbox": "^3.0.0"
   },
@@ -103,6 +103,7 @@
     "type": "addon",
     "main": "addon-main.cjs",
     "app-js": {
+      "./components/pix-floating.js": "./dist/_app_/components/pix-floating.js",
       "./components/pix-button-base.js": "./dist/_app_/components/pix-button-base.js",
       "./components/pix-button-content.js": "./dist/_app_/components/pix-button-content.js",
       "./components/pix-button-link.js": "./dist/_app_/components/pix-button-link.js",
@@ -157,6 +158,7 @@
       "./components/pix-overlay.js": "./dist/_app_/components/pix-overlay.js",
       "./components/pix-side-panel.js": "./dist/_app_/components/pix-side-panel.js",
       "./components/pix-tooltip.js": "./dist/_app_/components/pix-tooltip.js",
+      "./modifiers/floating-ui.js": "./dist/_app_/modifiers/floating-ui.js",
       "./modifiers/modal-dialog.js": "./dist/_app_/modifiers/modal-dialog.js",
       "./modifiers/on-arrow-down-up-action.js": "./dist/_app_/modifiers/on-arrow-down-up-action.js",
       "./modifiers/on-enter-action.js": "./dist/_app_/modifiers/on-enter-action.js",

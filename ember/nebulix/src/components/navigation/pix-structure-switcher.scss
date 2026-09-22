@@ -48,6 +48,7 @@
       margin-left: 0 !important;
       overflow-y: visible;
       transform: none !important;
+      visibility: visible !important;
       transition: none;
 
       .pix-navigation--opened &:not(.pix-select__dropdown--closed) {

@@ -7,12 +7,12 @@ import { service } from '@ember/service';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import onClickOutside from 'ember-click-outside/modifiers/on-click-outside';
-import { PopperJS } from 'ember-popperjs';
 import { gt, or } from 'ember-truth-helpers';
 
 import onArrowDownUpAction from '../../modifiers/on-arrow-down-up-action.js';
 import onEnterAction from '../../modifiers/on-enter-action.js';
 import onEscapeAction from '../../modifiers/on-escape-action.js';
+import PixFloating from '../_private/pix-floating.gjs';
 import PixIcon from '../graphics/pix-icon.gjs';
 import PixCheckbox from './pix-checkbox.gjs';
 import PixLabel from './pix-label.gjs';
@@ -47,7 +47,7 @@ import PixLabel from './pix-label.gjs';
  * @property {boolean} [screenReaderOnly] - Masque le libellé visuellement, tout en le laissant lisible par les lecteurs d'écran.
  * @property {boolean} [inlineLabel] - Place le libellé sur la même ligne que le champ.
  * @property {string} [className] - Classes CSS ajoutées au bouton d'ouverture.
- * @property {string} [placement] - Position de la liste par rapport au champ, au sens de Popper. Par défaut : `bottom-start`.
+ * @property {string} [placement] - Position de la liste par rapport au champ, au sens de Floating UI. Par défaut : `bottom-start`.
  * @property {boolean} [isComputeWidthDisabled] - Désactive l'alignement automatique de la largeur du champ sur celle de la liste.
  */
 
@@ -234,7 +234,12 @@ export default class PixMultiSelect extends Component {
       </PixLabel>
 
       <div>
-        <PopperJS @placement={{or @placement "bottom-start"}} as |reference popover|>
+        <PixFloating
+          @placement={{or @placement "bottom-start"}}
+          @strategy="absolute"
+          @offsetOptions={{4}}
+          as |reference popover|
+        >
           <button
             {{reference}}
             id={{this.multiSelectId}}
@@ -306,7 +311,7 @@ export default class PixMultiSelect extends Component {
               >{{this.emptySearchMessage}}</li>
             {{/if}}
           </ul>
-        </PopperJS>
+        </PixFloating>
       </div>
     </div>
   </template>
