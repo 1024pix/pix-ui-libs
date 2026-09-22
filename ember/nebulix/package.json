@@ -60,8 +60,7 @@
     "ember-click-outside": "^6.1.1",
     "ember-lifeline": "^7.1.0",
     "ember-modifier": "^4.3.0",
-    "ember-truth-helpers": "^5.0.0",
-    "tracked-toolbox": "^3.0.0"
+    "ember-truth-helpers": "^5.0.0"
   },
   "devDependencies": {
     "@1024pix/eslint-plugin": "^3.0.4",

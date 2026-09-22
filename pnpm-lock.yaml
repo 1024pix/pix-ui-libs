@@ -229,9 +229,6 @@ importers:
       ember-truth-helpers:
         specifier: ^5.0.0
         version: 5.0.0(supports-color@8.1.1)
-      tracked-toolbox:
-        specifier: ^3.0.0
-        version: 3.0.0(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1)
     devDependencies:
       '@1024pix/eslint-plugin':
         specifier: ^3.0.4
