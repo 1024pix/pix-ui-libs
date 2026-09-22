@@ -1,6 +1,6 @@
 import { warn } from '@ember/debug';
+import { fn } from '@ember/helper';
 import Component from '@glimmer/component';
-import { eq } from 'ember-truth-helpers';
 
 import PixStep from './pix-step.gjs';
 
@@ -20,6 +20,8 @@ import PixStep from './pix-step.gjs';
  * @property {PixStepperStep[]} steps - Étapes du parcours, dans l'ordre. Obligatoire.
  * @property {number} currentStep - Numéro de l'étape en cours, à partir de 1. Obligatoire.
  * @property {PixStepperTexts} texts - Textes affichés par le composant. À fournir par l'application consommatrice, dans la langue de son choix. Obligatoire.
+ * @property {(stepNumber: number) => void} [onStepClick] - Callback appelé avec le numéro de l'étape au clic. Active le mode navigation. Sans cette prop, le composant est non-interactif.
+ * @property {(stepNumber: number) => boolean} [canNavigateTo] - Fonction optionnelle qui détermine si une étape est cliquable. Reçoit le numéro d'une étape et retourne `true` si elle doit être cliquable. Sans cette prop, toutes les étapes sont cliquables dès que `@onStepClick` est fourni.
  */
 
 /**
@@ -51,18 +53,28 @@ export default class PixStepperComponent extends Component {
     return classes.join(' ');
   }
 
-  get currentStepIndex() {
-    return this.args.currentStep - 1;
+  get stepsWithState() {
+    const { onStepClick, canNavigateTo, steps, currentStep } = this.args;
+    const currentStepIndex = currentStep - 1;
+
+    return steps.map((step, index) => {
+      const stepNumber = index + 1;
+      const isClickable = onStepClick ? (canNavigateTo ? canNavigateTo(stepNumber) : true) : false;
+
+      return { ...step, stepNumber, isCurrent: index === currentStepIndex, isClickable };
+    });
   }
 
   <template>
     <ol class={{this.cssClass}} role="list" ...attributes aria-label={{@texts.ariaLabel}}>
-      {{#each @steps as |step index|}}
+      {{#each this.stepsWithState as |step index|}}
         <PixStep
           @index={{index}}
           @title={{step.title}}
           @subtitle={{step.subtitle}}
-          @isCurrent={{eq index this.currentStepIndex}}
+          @isCurrent={{step.isCurrent}}
+          @isClickable={{step.isClickable}}
+          @onClick={{if step.isClickable (fn @onStepClick step.stepNumber)}}
         />
       {{/each}}
     </ol>
