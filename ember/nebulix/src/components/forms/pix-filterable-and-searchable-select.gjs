@@ -1,3 +1,4 @@
+import { hash } from '@ember/helper';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import { service } from '@ember/service';
@@ -23,6 +24,7 @@ import PixSelect from './pix-select.gjs';
  * @property {string} [placeholder] - Texte affiché tant qu'aucune option n'est sélectionnée.
  * @property {string} [categoriesPlaceholder] - Texte du filtre par catégories, suivi du nombre de catégories cochées.
  * @property {boolean} [isSearchable] - Ajoute un champ de recherche à la liste des options.
+ * @property {string} [searchLabel] - Intitulé du champ de recherche, lu par les lecteurs d'écran (accessible uniquement).
  * @property {boolean} [hideDefaultOption] - Retire l'option qui permet de revenir à « aucun choix ».
  * @property {'small' | 'default' | 'large'} [size] - Taille du libellé. Par défaut : `default`.
  * @property {string} [requiredLabel] - Rend le champ obligatoire et affiche un astérisque, dont ce texte est l'infobulle.
@@ -140,12 +142,11 @@ export default class PixFilterableAndSearchableSelect extends Component {
         </PixMultiSelect>
         <PixSelect
           @id={{this.pixSelectId}}
-          @placeholder={{@placeholder}}
+          @texts={{hash placeholder=@placeholder selectSearchLabel=@searchLabel}}
           @value={{@value}}
           @options={{this.selectableOptions}}
           @onChange={{@onChange}}
           @isSearchable={{@isSearchable}}
-          @searchLabel={{@searchLabel}}
           @screenReaderOnly={{true}}
           @hideDefaultOption={{@hideDefaultOption}}
           @className="pix-filterable-and-searchable-select__pix-select"

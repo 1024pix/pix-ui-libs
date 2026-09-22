@@ -23,17 +23,15 @@ module('Integration | Component | multi-select', function (hooks) {
       this.options = DEFAULT_OPTIONS;
       this.values = [];
       this.onChange = () => {};
-      this.emptyMessage = 'no result';
-      this.placeholder = 'MultiSelectTest';
+      this.texts = { emptySearchMessage: 'no result', placeholder: 'MultiSelectTest' };
       this.id = 'id-MultiSelectTest';
 
       // when
       const screen = await render(hbs`<PixMultiSelect
   @values={{this.values}}
   @onChange={{this.onChange}}
-  @placeholder={{this.placeholder}}
   @id={{this.id}}
-  @emptyMessage={{this.emptyMessage}}
+  @texts={{this.texts}}
   @options={{this.options}}
 >
   <:label>{{this.label}}</:label>
@@ -51,16 +49,14 @@ module('Integration | Component | multi-select', function (hooks) {
       this.options = DEFAULT_OPTIONS;
       this.values = ['2'];
       this.onChange = (values) => this.set('values', values);
-      this.emptyMessage = 'no result';
-      this.placeholder = 'MultiSelectTest';
+      this.texts = { emptySearchMessage: 'no result', placeholder: 'MultiSelectTest' };
       this.id = 'id-MultiSelectTest';
 
       const screen = await render(hbs`<PixMultiSelect
   @onChange={{this.onChange}}
-  @placeholder={{this.placeholder}}
+  @texts={{this.texts}}
   @id={{this.id}}
   @values={{this.values}}
-  @emptyMessage={{this.emptyMessage}}
   @options={{this.options}}
 >
   <:label>{{this.label}}</:label>
@@ -86,17 +82,15 @@ module('Integration | Component | multi-select', function (hooks) {
         this.options = DEFAULT_OPTIONS;
         this.values = [];
         this.onChange = () => {};
-        this.emptyMessage = 'no result';
-        this.placeholder = 'MultiSelectTest';
+        this.texts = { emptySearchMessage: 'no result', placeholder: 'MultiSelectTest' };
         this.id = 'id-MultiSelectTest';
 
         // when
         const screen = await render(hbs`<PixMultiSelect
   @values={{this.values}}
   @onChange={{this.onChange}}
-  @placeholder={{this.placeholder}}
   @id={{this.id}}
-  @emptyMessage={{this.emptyMessage}}
+  @texts={{this.texts}}
   @options={{this.options}}
 >
   <:label>{{this.label}}</:label>
@@ -117,17 +111,15 @@ module('Integration | Component | multi-select', function (hooks) {
         this.options = [];
         this.values = [];
         this.onChange = () => {};
-        this.emptyMessage = 'no result';
-        this.placeholder = 'MultiSelectTest';
+        this.texts = { emptySearchMessage: 'no result', placeholder: 'MultiSelectTest' };
         this.id = 'id-MultiSelectTest';
 
         // when
         const screen = await render(hbs`<PixMultiSelect
   @values={{this.values}}
   @onChange={{this.onChange}}
-  @placeholder={{this.placeholder}}
   @id={{this.id}}
-  @emptyMessage={{this.emptyMessage}}
+  @texts={{this.texts}}
   @options={{this.options}}
 >
   <:label>{{this.label}}</:label>
@@ -135,11 +127,10 @@ module('Integration | Component | multi-select', function (hooks) {
 </PixMultiSelect>`);
 
         await clickByName('multiSelectLabel');
-
         await screen.findByRole('menu');
         // then
         assert.strictEqual(screen.queryAllByRole('checkbox').length, 0);
-        assert.contains('no result');
+        assert.ok(screen.getByText('no result'));
       });
 
       test('it renders the PixMultiSelect with default checked', async function (assert) {
@@ -148,17 +139,15 @@ module('Integration | Component | multi-select', function (hooks) {
         this.options = DEFAULT_OPTIONS;
         this.onChange = () => {};
         this.values = ['2'];
-        this.emptyMessage = 'no result';
-        this.placeholder = 'MultiSelectTest';
+        this.texts = { emptySearchMessage: 'no result', placeholder: 'MultiSelectTest' };
         this.id = 'id-MultiSelectTest';
 
         // when
         const screen = await render(hbs`<PixMultiSelect
   @onChange={{this.onChange}}
-  @placeholder={{this.placeholder}}
   @id={{this.id}}
   @values={{this.values}}
-  @emptyMessage={{this.emptyMessage}}
+  @texts={{this.texts}}
   @options={{this.options}}
 >
   <:label>{{this.label}}</:label>
@@ -187,17 +176,15 @@ module('Integration | Component | multi-select', function (hooks) {
         this.options = DEFAULT_OPTIONS;
         this.onChange = () => {};
         this.values = ['2', '3'];
-        this.emptyMessage = 'no result';
-        this.placeholder = 'MultiSelectTest';
+        this.texts = { emptySearchMessage: 'no result', placeholder: 'MultiSelectTest' };
         this.id = 'id-MultiSelectTest';
 
         // when
         const screen = await render(hbs`<PixMultiSelect
   @onChange={{this.onChange}}
-  @placeholder={{this.placeholder}}
   @id={{this.id}}
   @values={{this.values}}
-  @emptyMessage={{this.emptyMessage}}
+  @texts={{this.texts}}
   @isSearchable={{true}}
   @options={{this.options}}
 >
@@ -216,16 +203,14 @@ module('Integration | Component | multi-select', function (hooks) {
         this.label = 'multiSelectLabel';
         this.options = DEFAULT_OPTIONS;
 
-        this.placeholder = 'MultiSelectTest';
-        this.emptyMessage = 'no result';
+        this.texts = { emptySearchMessage: 'no result', placeholder: 'MultiSelectTest' };
         this.id = 'id-MultiSelectTest';
         this.onChange = sinon.spy();
 
         const screen = await render(hbs`<PixMultiSelect
   @onChange={{this.onChange}}
-  @placeholder={{this.placeholder}}
   @id={{this.id}}
-  @emptyMessage={{this.emptyMessage}}
+  @texts={{this.texts}}
   @options={{this.options}}
 >
   <:label>{{this.label}}</:label>
@@ -249,18 +234,15 @@ module('Integration | Component | multi-select', function (hooks) {
         // given
         this.label = 'multiSelectLabel';
         this.options = DEFAULT_OPTIONS;
-
-        this.placeholder = 'MultiSelectTest';
-        this.emptyMessage = 'no result';
+        this.texts = { emptySearchMessage: 'no result', placeholder: 'MultiSelectTest' };
         this.values = ['1', '2'];
         this.id = 'id-MultiSelectTest';
         this.onChange = sinon.spy();
 
         const screen = await render(hbs`<PixMultiSelect
   @onChange={{this.onChange}}
-  @placeholder={{this.placeholder}}
   @id={{this.id}}
-  @emptyMessage={{this.emptyMessage}}
+  @texts={{this.texts}}
   @options={{this.options}}
 >
   <:label>{{this.label}}</:label>
@@ -286,16 +268,15 @@ module('Integration | Component | multi-select', function (hooks) {
         this.label = 'multiSelectLabel';
         this.options = DEFAULT_OPTIONS;
 
-        this.placeholder = 'MultiSelectTest';
-        this.emptyMessage = 'no result';
+        this.texts = { emptySearchMessage: 'no result', placeholder: 'MultiSelectTest' };
+
         this.id = 'id-MultiSelectTest';
         this.onChange = sinon.spy();
 
         const screen = await render(hbs`<PixMultiSelect
   @onChange={{this.onChange}}
-  @placeholder={{this.placeholder}}
   @id={{this.id}}
-  @emptyMessage={{this.emptyMessage}}
+  @texts={{this.texts}}
   @options={{this.options}}
 >
   <:label>{{this.label}}</:label>
@@ -321,16 +302,14 @@ module('Integration | Component | multi-select', function (hooks) {
         this.label = 'multiSelectLabel';
         this.options = DEFAULT_OPTIONS;
 
-        this.placeholder = 'MultiSelectTest';
-        this.emptyMessage = 'no result';
+        this.texts = { emptySearchMessage: 'no result', placeholder: 'MultiSelectTest' };
         this.id = 'id-MultiSelectTest';
         this.onChange = sinon.spy();
 
         const screen = await render(hbs`<PixMultiSelect
   @onChange={{this.onChange}}
-  @placeholder={{this.placeholder}}
   @id={{this.id}}
-  @emptyMessage={{this.emptyMessage}}
+  @texts={{this.texts}}
   @options={{this.options}}
 >
   <:label>{{this.label}}</:label>
@@ -355,17 +334,14 @@ module('Integration | Component | multi-select', function (hooks) {
         // given
         this.label = 'multiSelectLabel';
         this.options = DEFAULT_OPTIONS;
-
-        this.placeholder = 'MultiSelectTest';
-        this.emptyMessage = 'no result';
+        this.texts = { emptySearchMessage: 'no result', placeholder: 'MultiSelectTest' };
         this.id = 'id-MultiSelectTest';
         this.onChange = sinon.spy();
 
         const screen = await render(hbs`<PixMultiSelect
   @onChange={{this.onChange}}
-  @placeholder={{this.placeholder}}
   @id={{this.id}}
-  @emptyMessage={{this.emptyMessage}}
+  @texts={{this.texts}}
   @options={{this.options}}
 >
   <:label>{{this.label}}</:label>
@@ -390,16 +366,14 @@ module('Integration | Component | multi-select', function (hooks) {
         this.label = 'multiSelectLabel';
         this.options = DEFAULT_OPTIONS;
 
-        this.placeholder = 'MultiSelectTest';
-        this.emptyMessage = 'no result';
+        this.texts = { emptySearchMessage: 'no result', placeholder: 'MultiSelectTest' };
         this.id = 'id-MultiSelectTest';
         this.onChange = sinon.spy();
 
         const screen = await render(hbs`<PixMultiSelect
   @onChange={{this.onChange}}
-  @placeholder={{this.placeholder}}
   @id={{this.id}}
-  @emptyMessage={{this.emptyMessage}}
+  @texts={{this.texts}}
   @options={{this.options}}
 >
   <:label>{{this.label}}</:label>
@@ -425,16 +399,14 @@ module('Integration | Component | multi-select', function (hooks) {
         this.label = 'multiSelectLabel';
         this.options = DEFAULT_OPTIONS;
 
-        this.placeholder = 'MultiSelectTest';
-        this.emptyMessage = 'no result';
+        this.texts = { emptySearchMessage: 'no result', placeholder: 'MultiSelectTest' };
         this.id = 'id-MultiSelectTest';
         this.onChange = sinon.spy();
 
         const screen = await render(hbs`<PixMultiSelect
   @onChange={{this.onChange}}
-  @placeholder={{this.placeholder}}
   @id={{this.id}}
-  @emptyMessage={{this.emptyMessage}}
+  @texts={{this.texts}}
   @options={{this.options}}
 >
   <:label>{{this.label}}</:label>
@@ -464,16 +436,14 @@ module('Integration | Component | multi-select', function (hooks) {
         this.label = 'multiSelectLabel';
         this.options = DEFAULT_OPTIONS;
 
-        this.placeholder = 'MultiSelectTest';
-        this.emptyMessage = 'no result';
+        this.texts = { emptySearchMessage: 'no result', placeholder: 'MultiSelectTest' };
         this.id = 'id-MultiSelectTest';
         this.onChange = sinon.spy();
 
         const screen = await render(hbs`<PixMultiSelect
   @onChange={{this.onChange}}
-  @placeholder={{this.placeholder}}
   @id={{this.id}}
-  @emptyMessage={{this.emptyMessage}}
+  @texts={{this.texts}}
   @options={{this.options}}
 >
   <:label>{{this.label}}</:label>
@@ -498,215 +468,6 @@ module('Integration | Component | multi-select', function (hooks) {
   });
 
   module('When it is a searchable multiselect', function () {
-    test('it should renders searchable PixMultiSelect multi select list', async function (assert) {
-      // given
-      this.label = 'multiSelectLabel';
-      this.options = DEFAULT_OPTIONS;
-      this.values = [];
-      this.onChange = () => {};
-      this.emptyMessage = 'no result';
-      this.placeholder = 'MultiSelectTest';
-      this.id = 'id-MultiSelectTest';
-      this.isSearchable = true;
-
-      // when
-      const screen = await render(hbs`<PixMultiSelect
-  @isSearchable={{this.isSearchable}}
-  @values={{this.values}}
-  @onChange={{this.onChange}}
-  @placeholder={{this.placeholder}}
-  @id={{this.id}}
-  @emptyMessage={{this.emptyMessage}}
-  @options={{this.options}}
->
-  <:label>{{this.label}}</:label>
-  <:default as |option|>{{option.label}}</:default>
-</PixMultiSelect>`);
-
-      await click(screen.getByRole('button', { name: 'multiSelectLabel' }));
-      await screen.findByRole('menu');
-      await fillByLabel('multiSelectLabel', '');
-
-      // then
-
-      assert.strictEqual(screen.getByLabelText('multiSelectLabel').innerText, this.placeholder);
-      assert.strictEqual(screen.getAllByRole('checkbox').length, 3);
-    });
-
-    test('it should renders filtered given case insensitive', async function (assert) {
-      // given
-      this.label = 'multiSelectLabel';
-      this.options = DEFAULT_OPTIONS;
-      this.values = [];
-      this.onChange = () => {};
-      this.emptyMessage = 'no result';
-      this.placeholder = 'MultiSelectTest';
-      this.id = 'id-MultiSelectTest';
-      this.isSearchable = true;
-      this.placeholder = 'Placeholder test';
-
-      const screen = await render(hbs`<PixMultiSelect
-  @isSearchable={{this.isSearchable}}
-  @values={{this.values}}
-  @onChange={{this.onChange}}
-  @placeholder={{this.placeholder}}
-  @id={{this.id}}
-  @emptyMessage={{this.emptyMessage}}
-  @options={{this.options}}
->
-  <:label>{{this.label}}</:label>
-  <:default as |option|>{{option.label}}</:default>
-</PixMultiSelect>`);
-
-      // when
-      await click(screen.getByRole('button', { name: 'multiSelectLabel' }));
-      await screen.findByRole('menu');
-      await fillByLabel('Rechercher', 'tomate');
-
-      // then
-      assert.strictEqual(screen.getAllByRole('checkbox').length, 1);
-      assert.contains('Tomate');
-    });
-
-    test('it should renders no result given case sensitive', async function (assert) {
-      // given
-      this.label = 'multiSelectLabel';
-      this.options = DEFAULT_OPTIONS;
-      this.values = [];
-      this.onChange = () => {};
-      this.emptyMessage = 'no result';
-      this.placeholder = 'MultiSelectTest';
-      this.id = 'id-MultiSelectTest';
-      this.isSearchable = true;
-      this.strictSearch = true;
-      this.placeholder = 'Placeholder test';
-
-      const screen = await render(hbs`<PixMultiSelect
-  @isSearchable={{this.isSearchable}}
-  @strictSearch={{this.strictSearch}}
-  @values={{this.values}}
-  @onChange={{this.onChange}}
-  @placeholder={{this.placeholder}}
-  @id={{this.id}}
-  @emptyMessage={{this.emptyMessage}}
-  @options={{this.options}}
->
-  <:label>{{this.label}}</:label>
-  <:default as |option|>{{option.label}}</:default>
-</PixMultiSelect>`);
-
-      // when
-      await click(screen.getByRole('button', { name: 'multiSelectLabel' }));
-      await screen.findByRole('menu');
-      await fillByLabel('Rechercher', 'tomate');
-
-      // then
-      assert.contains('no result');
-    });
-
-    test('it should give deprecation warning when using @strictSearch', async function (assert) {
-      // given
-      this.label = 'multiSelectLabel';
-      this.options = DEFAULT_OPTIONS;
-      this.values = [];
-      this.onChange = () => {};
-      this.emptyMessage = 'no result';
-      this.placeholder = 'MultiSelectTest';
-      this.id = 'id-MultiSelectTest';
-      this.isSearchable = true;
-      this.strictSearch = true;
-      this.placeholder = 'Placeholder test';
-      const warnStub = sinon.stub(console, 'warn');
-
-      await render(hbs`<PixMultiSelect
-  @isSearchable={{this.isSearchable}}
-  @strictSearch={{this.strictSearch}}
-  @values={{this.values}}
-  @onChange={{this.onChange}}
-  @placeholder={{this.placeholder}}
-  @id={{this.id}}
-  @emptyMessage={{this.emptyMessage}}
-  @options={{this.options}}
->
-  <:label>{{this.label}}</:label>
-  <:default as |option|>{{option.label}}</:default>
-</PixMultiSelect>`);
-
-      // then
-      assert.ok(
-        warnStub.calledWithExactly(
-          'WARNING: PixMultiSelect: @strictSearch is deprecated in favour of @onSearch',
-        ),
-      );
-      warnStub.restore();
-    });
-
-    test('it should display list PixMultiSelect on focus', async function (assert) {
-      // given
-      this.label = 'multiSelectLabel';
-      this.options = DEFAULT_OPTIONS;
-      this.values = [];
-      this.onChange = () => {};
-      this.emptyMessage = 'no result';
-      this.placeholder = 'MultiSelectTest';
-      this.id = 'id-MultiSelectTest';
-      this.isSearchable = true;
-      this.placeholder = 'Placeholder test';
-
-      const screen = await render(hbs`<PixMultiSelect
-  @isSearchable={{this.isSearchable}}
-  @values={{this.values}}
-  @onChange={{this.onChange}}
-  @placeholder={{this.placeholder}}
-  @id={{this.id}}
-  @emptyMessage={{this.emptyMessage}}
-  @options={{this.options}}
->
-  <:label>{{this.label}}</:label>
-  <:default as |option|>{{option.label}}</:default>
-</PixMultiSelect>`);
-
-      // when
-      await click(screen.getByRole('button', { name: 'multiSelectLabel' }));
-      await screen.findByRole('menu');
-      await fillByLabel('multiSelectLabel', '');
-
-      // then
-      assert.strictEqual(screen.getByRole('menu').className.trim(), 'pix-multi-select-list');
-    });
-
-    test('should be disabled', async function (assert) {
-      // given
-      this.label = 'multiSelectLabel';
-      this.options = DEFAULT_OPTIONS;
-      this.values = [];
-      this.onChange = () => {};
-      this.emptyMessage = 'no result';
-      this.placeholder = 'MultiSelectTest';
-      this.id = 'id-MultiSelectTest';
-      this.isSearchable = true;
-      this.placeholder = 'Placeholder test';
-      this.isDisabled = true;
-
-      // when
-      const screen = await render(hbs`<PixMultiSelect
-  @isSearchable={{this.isSearchable}}
-  @values={{this.values}}
-  @onChange={{this.onChange}}
-  @placeholder={{this.placeholder}}
-  @id={{this.id}}
-  @emptyMessage={{this.emptyMessage}}
-  @showOptionsOnInput={{true}}
-  @options={{this.options}}
-  @isDisabled={{this.isDisabled}}
->
-  <:label>{{this.label}}</:label>
-  <:default as |option|>{{option.label}}</:default>
-</PixMultiSelect>`);
-      // then
-      assert.true(screen.queryByRole('button').disabled);
-    });
-
     module('when @onSearch is passed', function () {
       test('it should call @onSearch on text input', async function (assert) {
         // given
@@ -718,16 +479,17 @@ module('Integration | Component | multi-select', function (hooks) {
         this.placeholder = 'MultiSelectTest';
         this.id = 'id-MultiSelectTest';
         this.isSearchable = true;
-        this.placeholder = 'Placeholder test';
+        this.texts = {
+          searchLabel: 'Rechercher',
+        };
         this.onSearch = sinon.spy();
 
         const screen = await render(hbs`<PixMultiSelect
   @isSearchable={{this.isSearchable}}
   @values={{this.values}}
   @onChange={{this.onChange}}
-  @placeholder={{this.placeholder}}
+  @texts={{this.texts}}
   @id={{this.id}}
-  @emptyMessage={{this.emptyMessage}}
   @options={{this.options}}
   @onSearch={{this.onSearch}}
 >
@@ -755,16 +517,14 @@ module('Integration | Component | multi-select', function (hooks) {
         this.placeholder = 'MultiSelectTest';
         this.id = 'id-MultiSelectTest';
         this.isSearchable = true;
-        this.placeholder = 'Placeholder test';
         this.onSearch = sinon.stub();
 
         const screen = await render(hbs`<PixMultiSelect
   @isSearchable={{this.isSearchable}}
   @values={{this.values}}
   @onChange={{this.onChange}}
-  @placeholder={{this.placeholder}}
   @id={{this.id}}
-  @emptyMessage={{this.emptyMessage}}
+  @texts={{this.texts}}
   @options={{this.options}}
   @onSearch={{this.onSearch}}
 >
@@ -798,10 +558,9 @@ module('Integration | Component | multi-select', function (hooks) {
       // when
       await render(hbs`<PixMultiSelect
   @onChange={{this.onChange}}
-  @placeholder={{this.placeholder}}
   @id={{this.id}}
   @values={{this.values}}
-  @emptyMessage={{this.emptyMessage}}
+  @texts={{this.texts}}
   @isSearchable={{true}}
   @className={{this.className}}
   @options={{this.options}}
@@ -826,7 +585,6 @@ module('Integration | Component | multi-select', function (hooks) {
       // when
       const screen = await render(hbs`<PixMultiSelect
   @onChange={{this.onChange}}
-  @placeholder={{this.placeholder}}
   @id={{this.id}}
   @values={{this.values}}
   @isSearchable={{false}}
@@ -859,9 +617,8 @@ module('Integration | Component | multi-select', function (hooks) {
       const screen = await render(hbs`<PixMultiSelect
   @values={{this.values}}
   @onChange={{this.onChange}}
-  @placeholder={{this.placeholder}}
   @id={{this.id}}
-  @emptyMessage={{this.emptyMessage}}
+  @texts={{this.texts}}
   @options={{this.options}}
   @isDisabled={{this.isDisabled}}
 >

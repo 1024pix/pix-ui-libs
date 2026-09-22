@@ -43,6 +43,7 @@ export default class FilterableSelectDemo extends Component {
       @placeholder="Choisissez un type d'établissement"
       @categoriesPlaceholder="Catégories"
       @isSearchable={{true}}
+      @searchLabel="Rechercher"
     >
       <:label>Type d'établissement</:label>
       <:categoriesLabel>Filtrer par catégorie</:categoriesLabel>
@@ -61,6 +62,10 @@ d'écran : ne les laissez pas vides.
 
 `@categoriesPlaceholder` est suivi automatiquement du nombre de catégories
 cochées.
+
+`@isSearchable` ajoute un champ de recherche à la liste des options.
+`@searchLabel` fournit alors l'intitulé de ce champ, lu par les lecteurs
+d'écran (accessible uniquement) — sans lui, le champ n'a pas de nom annoncé.
 
 ## Erreur
 

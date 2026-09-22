@@ -1,6 +1,7 @@
 import './select-page.css';
 
 import { PixButton, PixMultiSelect, PixPagination, PixSelect } from '@1024pix/nebulix-ember';
+import { hash } from '@ember/helper';
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
@@ -129,7 +130,12 @@ export default class SelectPage extends Component {
           @onChange={{this.onChange}}
           @value={{this.selectedOption}}
           @hideDefaultOption={{true}}
-          @placeholder="Select an option"
+          @texts={{hash
+            placeholder="Select an option"
+            selectSearchLabel="Rechercher"
+            searchPlaceholder="Euhhhh"
+            emptySearchMessage="Pas d'option"
+          }}
           @isSearchable={{true}}
           @onSearch={{this.onSearch}}
         >
@@ -145,10 +151,12 @@ export default class SelectPage extends Component {
           @onChange={{this.onMultiChange}}
           @onSearch={{this.onMultiSearch}}
           @isSearchable={{true}}
-          @placeholder="Rechercher une option"
-          @searchPlaceholder="Euuuuuh"
-          @emptySearchMessage="Aucun résultat"
-          @emptyMessage="Pas d'options"
+          @texts={{hash
+            placeholder="Rechercher une option"
+            searchLabel="Rechercher"
+            searchPlaceholder="Euhhhh"
+            emptySearchMessage="Pas d'option"
+          }}
           class="full"
         >
           <:label>Kebab</:label>
@@ -164,8 +172,13 @@ export default class SelectPage extends Component {
           @onChange={{this.onChangeCountry}}
           @value={{this.selectedCountry}}
           @hideDefaultOption={{true}}
-          @placeholder="Select an option"
-          @requiredLabel="Required"
+          @texts={{hash
+            placeholder="Select an option"
+            requiredLabel="Required"
+            selectSearchLabel="Rechercher"
+            searchPlaceholder="Euhhhh"
+            emptySearchMessage="Pas d'option"
+          }}
           @errorMessage={{if this.countriesError "You must select a country"}}
           {{!-- @isFullWidth={{true}} --}}
           @inlineLabel={{true}}
