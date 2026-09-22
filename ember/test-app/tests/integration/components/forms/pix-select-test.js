@@ -1,6 +1,11 @@
-import { clickByName, fillByLabel, render } from '@1024pix/ember-testing-library';
+import {
+  clickByName,
+  fillByLabel,
+  render,
+  waitForElementToBeRemoved,
+} from '@1024pix/ember-testing-library';
 import { click, fillIn } from '@ember/test-helpers';
-import { fireEvent, waitForElementToBeRemoved } from '@testing-library/dom';
+import { fireEvent } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 import { hbs } from 'ember-cli-htmlbars';
 import { setupRenderingTest } from 'ember-qunit';
@@ -58,6 +63,18 @@ module('Integration | Component | PixSelect', function (hooks) {
 
       // then
       assert.dom(screen.queryByRole('option', { name: 'Oignon' })).doesNotExist();
+    });
+
+    test('it keeps the closed dropdown hidden despite floating ui inline styles', async function (assert) {
+      // given & when
+      await render(
+        hbs`<PixSelect @options={{this.options}} @texts={{this.texts}}><:label
+  >{{this.label}}</:label></PixSelect>`,
+      );
+
+      // then
+      const dropdown = document.querySelector('.pix-select__dropdown');
+      assert.strictEqual(getComputedStyle(dropdown).visibility, 'hidden');
     });
 
     test('it opens the dropdown', async function (assert) {
