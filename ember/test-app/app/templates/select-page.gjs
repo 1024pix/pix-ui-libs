@@ -1,6 +1,12 @@
 import './select-page.css';
 
-import { PixButton, PixMultiSelect, PixPagination, PixSelect } from '@1024pix/nebulix-ember';
+import {
+  PixButton,
+  PixMultiSelect,
+  PixPagination,
+  PixSearchInput,
+  PixSelect,
+} from '@1024pix/nebulix-ember';
 import { hash } from '@ember/helper';
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
@@ -89,6 +95,9 @@ export default class SelectPage extends Component {
   onMultiSearch(search) {
     this.multiSearchValue = search;
   }
+
+  @action
+  triggerFiltering() {}
 
   countriesOptions = [
     { value: '1', label: 'England' },
@@ -189,5 +198,14 @@ export default class SelectPage extends Component {
 
       <PixPagination @pagination={{this.pagination}} />
     </div>
+
+    <PixSearchInput
+      @id="123"
+      @placeholder="Rechercher"
+      @debounceTimeInMs="500"
+      @triggerFiltering={{this.triggerFiltering}}
+    >
+      <:label>Rechercher ici</:label>
+    </PixSearchInput>
   </template>
 }
