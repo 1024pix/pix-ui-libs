@@ -1,0 +1,90 @@
+// Styles for `app/components/TextsSignature.gjs` and `PageTextsSignature.gjs`.
+//
+// These intentionally duplicate the visual style of kolay's own
+// `ComponentSignature` output (its `.typedoc__*` classes) rather than
+// reusing those classes directly: kolay is pre-1.0, and its internal,
+// undocumented class names could be renamed or restyled on an upgrade
+// without notice, silently breaking this section. Owning the values here
+// means that can't happen — keeping them visually aligned with
+// `ComponentSignature` going forward is a manual, deliberate choice.
+
+// Same frame as the `.repl-sdk__demo` box the live-rendered "API Docs"
+// section above sits in (see `_kolay-override.scss`) — copied rather than
+// reused, for the same reason as the rest of this file: we don't render
+// through kolay's live-code sandbox, so we don't get that frame for free.
+.texts-signature-frame {
+  padding: var(--doc-space-4x);
+  border: 1px solid var(--doc-border);
+  border-radius: var(--doc-space-2x);
+  margin: var(--doc-space-4x) 0;
+}
+
+// Matches kolay's "Element" heading style in the section above.
+.texts-signature__heading {
+  margin: 0 0 var(--doc-space-4x);
+  font-family: var(--doc-font);
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.texts-signature__arg {
+  display: block;
+  padding: var(--doc-space-3x) 0;
+}
+
+.texts-signature__arg-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--doc-space-2x);
+}
+
+.texts-signature__name {
+  margin: 0;
+  font-family: var(--doc-font-mono);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.texts-signature__type {
+  border: 1px solid rgba(21, 128, 61, 0.3);
+  border-radius: 4px;
+  padding: 1px 6px;
+  background-color: rgba(21, 128, 61, 0.06);
+  color: rgb(21, 128, 61);
+  font-family: var(--doc-font-mono);
+  font-size: 0.8rem;
+}
+
+.texts-signature__flags {
+  display: block;
+  margin-top: var(--doc-space-1x);
+  padding-top: var(--doc-space-1x);
+  border-top: 1px dashed var(--doc-border);
+}
+
+.texts-signature__flag {
+  display: inline-block;
+  padding: 0 var(--doc-space-2x);
+  border: 1px solid rgba(31, 41, 55, 0.3);
+  color: rgb(31, 41, 55);
+  font-family: var(--doc-font-mono);
+  font-size: 0.75rem;
+}
+
+.texts-signature__flag--required {
+  border-color: var(--doc-border);
+  border-radius: 4px;
+  background-color: var(--doc-surface-hover);
+  color: var(--doc-muted);
+}
+
+.texts-signature__comment {
+  margin-top: var(--doc-space-2x);
+  color: var(--doc-text);
+}
+
+.texts-signature__comment code {
+  font-family: var(--doc-font-mono);
+  font-size: 0.85em;
+}
