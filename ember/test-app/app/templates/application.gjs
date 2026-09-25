@@ -106,6 +106,11 @@ export default class ApplicationPage extends Component {
               @icon="check"
             >PixCheckbox</PixNavigationButton>
             <PixNavigationButton
+              @route="textarea-page"
+              @icon="edit"
+            >PixTextarea</PixNavigationButton>
+            <PixNavigationSeparator />
+            <PixNavigationButton
               href="https://pix.fr"
               @icon="book"
             >Documentation</PixNavigationButton>

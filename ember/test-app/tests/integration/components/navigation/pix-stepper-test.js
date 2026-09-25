@@ -1,4 +1,5 @@
 import { render } from '@1024pix/ember-testing-library';
+import { click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
@@ -34,42 +35,15 @@ module('Integration | Component | PixStepper', function (hooks) {
       // given
       this.set('steps', [{ title: 'Étape 1' }, { title: 'Étape 2' }, { title: 'Étape 3' }]);
       this.set('currentStep', 2);
+      this.set('texts', { ariaLabel: 'Étape 2 sur 3' });
 
       // when
       const screen = await render(
-        hbs`<PixStepper @steps={{this.steps}} @currentStep={{this.currentStep}} />`,
+        hbs`<PixStepper @steps={{this.steps}} @texts={{this.texts}} @currentStep={{this.currentStep}} />`,
       );
 
       // then
-      assert.dom(screen.getByRole('list', { name: 'Étape 2 sur 3' })).exists();
-    });
-
-    test('it translates aria-label according to @locale', async function (assert) {
-      // given
-      this.set('steps', [{ title: 'Step 1' }, { title: 'Step 2' }]);
-      this.set('currentStep', 1);
-
-      // when
-      const screen = await render(
-        hbs`<PixStepper @steps={{this.steps}} @currentStep={{this.currentStep}} @locale='en' />`,
-      );
-
-      // then
-      assert.dom(screen.getByRole('list', { name: 'Step 1 of 2' })).exists();
-    });
-
-    test('it allows overriding aria-label via splattributes', async function (assert) {
-      // given
-      this.set('steps', [{ title: 'Étape 1' }]);
-      this.set('currentStep', 1);
-
-      // when
-      const screen = await render(
-        hbs`<PixStepper @steps={{this.steps}} @currentStep={{this.currentStep}} aria-label='Inscription' />`,
-      );
-
-      // then
-      assert.dom(screen.getByRole('list', { name: 'Inscription' })).exists();
+      assert.dom(screen.getByRole('list', { name: this.texts.ariaLabel })).exists();
     });
   });
 
@@ -149,6 +123,86 @@ module('Integration | Component | PixStepper', function (hooks) {
 
       // then
       assert.dom('.pix-stepper').hasClass('pix-stepper--long');
+    });
+  });
+
+  module('navigation', function () {
+    test('it renders all steps as non-interactive when @onStepClick is not provided', async function (assert) {
+      // given
+      this.set('steps', [{ title: 'Étape 1' }, { title: 'Étape 2' }, { title: 'Étape 3' }]);
+      this.set('currentStep', 2);
+
+      // when
+      const screen = await render(
+        hbs`<PixStepper @steps={{this.steps}} @currentStep={{this.currentStep}} />`,
+      );
+
+      // then
+      assert.strictEqual(screen.queryAllByRole('button').length, 0);
+    });
+
+    test('it renders all steps as buttons when @onStepClick is provided without @canNavigateTo', async function (assert) {
+      // given
+      this.set('steps', [{ title: 'Étape 1' }, { title: 'Étape 2' }, { title: 'Étape 3' }]);
+      this.set('currentStep', 2);
+      this.set('onStepClick', () => {});
+
+      // when
+      const screen = await render(
+        hbs`<PixStepper
+  @steps={{this.steps}}
+  @currentStep={{this.currentStep}}
+  @onStepClick={{this.onStepClick}}
+/>`,
+      );
+
+      // then
+      assert.strictEqual(screen.getAllByRole('button').length, 3);
+    });
+
+    test('it renders only navigable steps as buttons when @canNavigateTo is provided', async function (assert) {
+      // given
+      this.set('steps', [{ title: 'Étape 1' }, { title: 'Étape 2' }, { title: 'Étape 3' }]);
+      this.set('currentStep', 3);
+      this.set('onStepClick', () => {});
+      this.set('canNavigateTo', (n) => n > 1 && n < 3);
+
+      // when
+      const screen = await render(
+        hbs`<PixStepper
+  @steps={{this.steps}}
+  @currentStep={{this.currentStep}}
+  @onStepClick={{this.onStepClick}}
+  @canNavigateTo={{this.canNavigateTo}}
+/>`,
+      );
+
+      // then
+      assert.strictEqual(screen.getAllByRole('button').length, 1);
+      assert.dom(screen.getByRole('button')).containsText('Étape 2');
+    });
+
+    test('it calls @onStepClick with the step number when a navigable step is clicked', async function (assert) {
+      // given
+      let clickedStep = null;
+      this.set('steps', [{ title: 'Étape 1' }, { title: 'Étape 2' }, { title: 'Étape 3' }]);
+      this.set('currentStep', 3);
+      this.set('onStepClick', (stepNumber) => (clickedStep = stepNumber));
+      this.set('canNavigateTo', (n) => n === 2);
+
+      // when
+      const screen = await render(
+        hbs`<PixStepper
+  @steps={{this.steps}}
+  @currentStep={{this.currentStep}}
+  @onStepClick={{this.onStepClick}}
+  @canNavigateTo={{this.canNavigateTo}}
+/>`,
+      );
+      await click(screen.getByRole('button'));
+
+      // then
+      assert.strictEqual(clickedStep, 2);
     });
   });
 

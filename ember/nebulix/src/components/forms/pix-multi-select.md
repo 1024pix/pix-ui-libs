@@ -11,6 +11,7 @@ Le champ affiche ensuite la liste des options retenues (leur label), séparées 
 
 ```gjs live preview nebulix
 import { PixMultiSelect } from '@1024pix/nebulix-ember';
+import { hash } from '@ember/helper';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 
@@ -33,7 +34,7 @@ export default class MultiSelectDemo extends Component {
       @options={{options}}
       @values={{this.values}}
       @onChange={{this.onChange}}
-      @placeholder="Choisissez un ou plusieurs niveaux"
+      @texts={{hash placeholder="Choisissez un ou plusieurs niveaux"}}
     >
       <:label>Niveaux concernés</:label>
       <:default as |option|>{{option.label}}</:default>
@@ -45,13 +46,15 @@ export default class MultiSelectDemo extends Component {
 Deux blocs obligatoires sont attendus : `:label` intitule le champ, et le bloc par défaut
 reçoit chaque option pour en rendre le texte.
 `@onChange` est appelée avec la **liste complète** des valeurs sélectionnées, jamais avec la seule option qui vient de changer.
+`@texts` regroupe tous les textes du composant ; `@texts.placeholder` est le seul obligatoire.
 
 ## Bloc `:placeholder`
 
-Le bloc `:placeholder` permet de surcharger le comportement par défaut du placeholder, à savoir le texte qui s'affiche lorsqu'aucune option n'est cochée vient de `@placeholder`, puis il est remplacé par la liste des options cochées. Avec `:placeholder` c'est ce qu'il y a dedans qui s'affiche tout le temps.
+Le bloc `:placeholder` permet de surcharger le comportement par défaut du placeholder, à savoir le texte qui s'affiche lorsqu'aucune option n'est cochée vient de `@texts.placeholder`, puis il est remplacé par la liste des options cochées. Avec `:placeholder` c'est ce qu'il y a dedans qui s'affiche tout le temps.
 
 ```gjs live preview nebulix
 import { PixMultiSelect } from '@1024pix/nebulix-ember';
+import { hash } from '@ember/helper';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 
@@ -74,7 +77,7 @@ export default class MultiSelectDemo extends Component {
       @options={{options}}
       @values={{this.values}}
       @onChange={{this.onChange}}
-      @placeholder="Choisissez un ou plusieurs niveaux"
+      @texts={{hash placeholder="Choisissez un ou plusieurs niveaux"}}
     >
       <:label>Niveaux concernés</:label>
       <:default as |option|>{{option.label}}</:default>
@@ -92,7 +95,7 @@ Il est possible d'utiliser un composant enfant comme option. Par exemples le `Pi
 import { PixMultiSelect, PixStars } from '@1024pix/nebulix-ember';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { fn } from '@ember/helper';
+import { fn, hash } from '@ember/helper';
 
 const options = [
   { label: '0', value: '0', total: 3 },
@@ -117,7 +120,7 @@ export default class MultiSelectDemo extends Component {
       @options={{options}}
       @values={{this.values}}
       @onChange={{this.onChange}}
-      @placeholder="Choisissez un ou plusieurs niveaux"
+      @texts={{hash placeholder="Choisissez un ou plusieurs niveaux"}}
     >
       <:label>Niveaux concernés</:label>
       <:default as |option|>
@@ -137,12 +140,13 @@ export default class MultiSelectDemo extends Component {
 `@isSearchable` ajoute un champ de recherche en tête de liste. La recherche
 interne ignore la casse et les accents.
 
-On peut utiliser `@emptyMessage` pour indiquer le message à afficher lorsqu'aucune option ne correspond.
+On peut utiliser `@texts.emptySearchMessage` pour indiquer le message à afficher lorsqu'aucune option ne correspond.
 
-Lorsque `@isSearchable` est à `true` il est obligatoire de renseigner `@searchPlaceholder`.
+Lorsque `@isSearchable` est à `true` il est obligatoire de renseigner `@texts.searchPlaceholder`.
 
 ```gjs live preview nebulix
 import { PixMultiSelect } from '@1024pix/nebulix-ember';
+import { hash } from '@ember/helper';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 
@@ -166,10 +170,12 @@ export default class SearchableMultiSelectDemo extends Component {
       @options={{options}}
       @values={{this.values}}
       @onChange={{this.onChange}}
-      @placeholder="Choisissez une ou plusieurs académies"
       @isSearchable={{true}}
-      @searchPlaceholder="Rechercher"
-      @emptyMessage="Aucune académie ne correspond"
+      @texts={{hash
+        placeholder="Choisissez une ou plusieurs académies"
+        searchPlaceholder="Rechercher"
+        emptySearchMessage="Aucune académie ne correspond"
+      }}
     >
       <:label>Académies</:label>
       <:default as |option|>{{option.label}}</:default>
@@ -187,6 +193,7 @@ L'attribut `@className` permet de surcharger la classe du bouton d'ouverture.
 
 ```gjs live nebulix
 import { PixMultiSelect } from '@1024pix/nebulix-ember';
+import { hash } from '@ember/helper';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 
@@ -210,7 +217,7 @@ export default class ClassnameMultiSelectDemo extends Component {
       @options={{options}}
       @values={{this.values}}
       @onChange={{this.onChange}}
-      @placeholder="Choisissez une ou plusieurs couleurs"
+      @texts={{hash placeholder="Choisissez une ou plusieurs couleurs"}}
       @className="my-custom-class"
     >
       <:label>Couleurs</:label>

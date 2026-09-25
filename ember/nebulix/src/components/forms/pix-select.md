@@ -14,6 +14,7 @@ demande un clic de moins.
 
 ```gjs live preview nebulix
 import { PixSelect } from '@1024pix/nebulix-ember';
+import { hash } from '@ember/helper';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 
@@ -35,7 +36,7 @@ export default class SelectDemo extends Component {
       @options={{options}}
       @value={{this.value}}
       @onChange={{this.onChange}}
-      @placeholder="Choisissez un type d'établissement"
+      @texts={{hash placeholder="Choisissez un type d'établissement"}}
     >
       <:label>Type d'établissement</:label>
     </PixSelect>
@@ -45,9 +46,10 @@ export default class SelectDemo extends Component {
 
 `@options` et `@onChange` sont obligatoires. Chaque option est un objet
 `{ value, label }` : `label` est ce que voit l'utilisateur, `value` ce que reçoit
-`@onChange`.
+`@onChange`. `@texts` regroupe tous les textes du composant ; `@texts.placeholder`
+est le seul obligatoire.
 
-`@placeholder` sert deux rôles : il s'affiche tant qu'aucune option n'est
+`@texts.placeholder` sert deux rôles : il s'affiche tant qu'aucune option n'est
 choisie, et il intitule l'option qui permet de revenir à cet état. Écrivez-y une
 invitation à choisir, pas une option parmi les autres.
 
@@ -58,6 +60,7 @@ dizaine d'options, il devient nécessaire.
 
 ```gjs live nebulix
 import { PixSelect } from '@1024pix/nebulix-ember';
+import { hash } from '@ember/helper';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 
@@ -82,10 +85,12 @@ export default class SearchableSelectDemo extends Component {
       @options={{options}}
       @value={{this.value}}
       @onChange={{this.onChange}}
-      @placeholder="Choisissez un département"
       @isSearchable={{true}}
-      @searchPlaceholder="Rechercher"
-      @emptySearchMessage="Aucun département ne correspond"
+      @texts={{hash
+        placeholder="Choisissez un département"
+        searchPlaceholder="Rechercher"
+        emptySearchMessage="Aucun département ne correspond"
+      }}
     >
       <:label>Département</:label>
     </PixSelect>
@@ -97,7 +102,7 @@ Par défaut, la recherche filtre les options fournies. `@onSearch` prend la main
 sur ce filtrage : utilisez-le pour interroger un serveur et fournir vous-même
 les options correspondantes.
 
-`@emptySearchMessage` est le seul retour dont dispose l'utilisateur quand rien ne
+`@texts.emptySearchMessage` est le seul retour dont dispose l'utilisateur quand rien ne
 correspond. Ne le laissez pas vide.
 
 ## Regrouper les options
@@ -107,6 +112,7 @@ options relèvent de familles distinctes.
 
 ```gjs live nebulix
 import { PixSelect } from '@1024pix/nebulix-ember';
+import { hash } from '@ember/helper';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 
@@ -129,7 +135,7 @@ export default class GroupedSelectDemo extends Component {
       @options={{options}}
       @value={{this.value}}
       @onChange={{this.onChange}}
-      @placeholder="Choisissez un type d'établissement"
+      @texts={{hash placeholder="Choisissez un type d'établissement"}}
     >
       <:label>Type d'établissement</:label>
     </PixSelect>

@@ -21,6 +21,9 @@ importers:
       '@changesets/cli':
         specifier: ^3.0.1
         version: 3.0.1
+      '@types/sinon':
+        specifier: ^22.0.0
+        version: 22.0.0
       concurrently:
         specifier: ^9.2.4
         version: 9.2.4
@@ -211,30 +214,21 @@ importers:
       '@embroider/addon-shim':
         specifier: ^1.8.9
         version: 1.10.3(supports-color@8.1.1)
-      '@formatjs/intl':
-        specifier: ^4.1.19
-        version: 4.1.19
+      '@floating-ui/dom':
+        specifier: ^1.8.0
+        version: 1.8.0
       decorator-transforms:
         specifier: ^2.2.2
         version: 2.4.0(@babel/core@7.29.7(supports-color@8.1.1))
       ember-click-outside:
         specifier: ^6.1.1
         version: 6.1.1(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1)
-      ember-lifeline:
-        specifier: ^7.1.0
-        version: 7.1.0(@ember/test-helpers@5.4.3(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(supports-color@8.1.1)
       ember-modifier:
         specifier: ^4.3.0
         version: 4.3.0(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1)
-      ember-popperjs:
-        specifier: ^3.0.0
-        version: 3.0.0(ember-modifier@4.3.0(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(ember-source@7.2.0(@glimmer/component@2.1.1(supports-color@8.1.1))(supports-color@8.1.1))(supports-color@8.1.1)
       ember-truth-helpers:
         specifier: ^5.0.0
         version: 5.0.0(supports-color@8.1.1)
-      tracked-toolbox:
-        specifier: ^3.0.0
-        version: 3.0.0(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1)
     devDependencies:
       '@1024pix/eslint-plugin':
         specifier: ^3.0.4
@@ -1494,18 +1488,6 @@ packages:
   '@floating-ui/utils@0.2.12':
     resolution: {integrity: sha512-HpCo8tmWzLVad5s2d19EhAz5zqrrQ6s69qd6moPMQvkOuSwDT1YgRfWSVuc4ennqrgv3OHppiOGMQ7oC13yIww==}
 
-  '@formatjs/fast-memoize@3.1.7':
-    resolution: {integrity: sha512-zXfhLpvA6T7+efdt9JLbBwZ00tT7NsBMDVnDu8rpHeNNv8KfRZAMo2gkG0k9lK/Nzc//3kJ9pImsfuJxk3KhUA==}
-
-  '@formatjs/icu-messageformat-parser@3.5.17':
-    resolution: {integrity: sha512-cN9jhVqT7u0K9tix43fhjoUwL0nazyW6zsNIXs2QdPADr+nurPfYyssUiMqcSCGlPcCiqnYVxgSn7zBSuI+5Bg==}
-
-  '@formatjs/icu-skeleton-parser@2.1.11':
-    resolution: {integrity: sha512-j8cUmOJzVgkHuS0QiQ6ga76UIoLOFSAMWhs7aZJztH3aAdCOAE6vpC8KVvFB4cU10ON0y2/5oOVmPJ43s2lTwA==}
-
-  '@formatjs/intl@4.1.19':
-    resolution: {integrity: sha512-bZMROATl+rzfL8wsDZ53i8XWHx5e6rVr8QlGT5GDvHImEUro4WE9pxUd2dobzmI3CtD+zkt/wkEdqcb+3CK8Fg==}
-
   '@gerrit0/mini-shiki@3.23.0':
     resolution: {integrity: sha512-bEMORlG0cqdjVyCEuU0cDQbORWX+kYCeo0kV1lbxF5bt4r7SID2l9bqsxJEM0zndaxpOUT7riCyIVEuqq/Ynxg==}
 
@@ -1953,9 +1935,6 @@ packages:
   '@pnpm/npm-conf@3.0.3':
     resolution: {integrity: sha512-//0sR/cow/s4ICQaYoAobOl4aU8cjU6x/V24V7XkKotb9+O+3zySIYp146vpaobYHnxa4pZX8NkV54Z5AwbDKA==}
     engines: {node: '>=12'}
-
-  '@popperjs/core@2.11.8':
-    resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
 
   '@publint/pack@0.1.7':
     resolution: {integrity: sha512-4EDEmvxWtgsCnnVeBvtFIFZtUhPPt1+bA9JrSwU4Sa//6oKtzCSlGGXYJr44OD9aGISymbieJ4mCKHUygUDU+g==}
@@ -2473,6 +2452,12 @@ packages:
 
   '@types/rsvp@4.0.9':
     resolution: {integrity: sha512-F6vaN5mbxw2MBCu/AD9fSKwrhnto2pE77dyUsi415qz9IP9ni9ZOWXHxnXfsM4NW9UjW+it189jvvqnhv37Z7Q==}
+
+  '@types/sinon@22.0.0':
+    resolution: {integrity: sha512-TDbVpbccc2HfiqHR09Argj3mHV1KMW7sCCKj52fsl8lbRLkEn7fB1966EWhOKWUBcqfBueZuPoA7/OK1CKiy3g==}
+
+  '@types/sinonjs__fake-timers@15.0.1':
+    resolution: {integrity: sha512-Ko2tjWJq8oozHzHV+reuvS5KYIRAokHnGbDwGh/J64LntgpbuylF74ipEL24HCyRjf9FOlBiBHWBR1RlVKsI1w==}
 
   '@types/symlink-or-copy@1.2.2':
     resolution: {integrity: sha512-MQ1AnmTLOncwEf9IVU+B2e4Hchrku5N67NkgcAHW0p3sdzPe0FNMANxEm6OJUzPniEQGkeT3OROLlCwZJLWFZA==}
@@ -3156,6 +3141,7 @@ packages:
 
   charm@1.0.2:
     resolution: {integrity: sha512-wqW3VdPnlSWT4eRiYX+hcs+C6ViBPUWk1qTCd+37qw9kEm/a5n2qcyQDMBWvSYKN/ctqZzeXNQaeBjOetJJUkw==}
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
 
   chokidar@5.0.0:
     resolution: {integrity: sha512-TQMmc3w+5AxjpL8iIiwebF73dRDF4fBIieAqGn9RGCWaEVwQ6Fb2cGe31Yns0RRIzii5goJ1Y7xbMwo1TxMplw==}
@@ -3862,15 +3848,6 @@ packages:
       '@typescript-eslint/parser':
         optional: true
 
-  ember-lifeline@7.1.0:
-    resolution: {integrity: sha512-hd3r0jwZLgXNn3l2YSX6wVnD1KD5h+WUG6P/xo4rJXFboy7nOwix38fZt9SbuO66QVZSkdqMeUqW6Z/NPWa9kg==}
-    engines: {node: 16.* || >= 18}
-    peerDependencies:
-      '@ember/test-helpers': '>= 1.0.0'
-    peerDependenciesMeta:
-      '@ember/test-helpers':
-        optional: true
-
   ember-load-initializers@3.0.1:
     resolution: {integrity: sha512-qV3vxJKw5+7TVDdtdLPy8PhVsh58MlK8jwzqh5xeOwJPNP7o0+BlhvwoIlLYTPzGaHdfjEIFCgVSyMRGd74E1g==}
     engines: {node: '>= 18.*'}
@@ -3883,12 +3860,6 @@ packages:
   ember-page-title@9.0.3:
     resolution: {integrity: sha512-fedRHUsvq8tIZgOii8jTrfAyeq+la/9H5eAzhNNwEyzo7nDMmqK2SxsyBUGXprd8fOacsPabLlzlucMi/4mUpA==}
     engines: {node: 16.* || >= 18}
-
-  ember-popperjs@3.0.0:
-    resolution: {integrity: sha512-6adPoWNeV5Q97d6nf5gsEYy/AQ8V3HKtofNcxO0xCQ2coOWWhBUGEwI3i9LPeOcfikFB6sbsLvwbeqLmqXeSoQ==}
-    peerDependencies:
-      ember-modifier: '>= 3.2.7'
-      ember-source: '>= 3.25.0'
 
   ember-primitives@0.61.1:
     resolution: {integrity: sha512-bnr9XEQCqYb86a0yBn9hP5xDuWZwmyT12oPzZrNR8GZJmRjVanlvk64NjVbYVKs56/xxs/zYk4/oct5S9MmsIw==}
@@ -4916,9 +4887,6 @@ packages:
   internal-slot@1.1.0:
     resolution: {integrity: sha512-4gd7VpWNQNB4UKKCFFVcp1AVv+FMOgs9NKzjHKusc8jTMhd5eL1NqQqOpE0KzMds804/yHlglp3uxgluOqAPLw==}
     engines: {node: '>= 0.4'}
-
-  intl-messageformat@11.2.14:
-    resolution: {integrity: sha512-9f2VD1HFuxUvMw0RxsaP8WmMns6JRTnsNB/zghTFrp11ZktiXWwVDeZBPQchBKEmo+Gx/ZhxI7Qht7YglFD4PA==}
 
   invert-kv@3.0.1:
     resolution: {integrity: sha512-CYdFeFexxhv/Bcny+Q0BfOV+ltRlJcd4BBZBYFX/O0u4npJrgZtIcjokegtiSMAvlMTJ+Koq0GBCc//3bueQxw==}
@@ -9399,20 +9367,6 @@ snapshots:
 
   '@floating-ui/utils@0.2.12': {}
 
-  '@formatjs/fast-memoize@3.1.7': {}
-
-  '@formatjs/icu-messageformat-parser@3.5.17':
-    dependencies:
-      '@formatjs/icu-skeleton-parser': 2.1.11
-
-  '@formatjs/icu-skeleton-parser@2.1.11': {}
-
-  '@formatjs/intl@4.1.19':
-    dependencies:
-      '@formatjs/fast-memoize': 3.1.7
-      '@formatjs/icu-messageformat-parser': 3.5.17
-      intl-messageformat: 11.2.14
-
   '@gerrit0/mini-shiki@3.23.0':
     dependencies:
       '@shikijs/engine-oniguruma': 3.23.0
@@ -9929,8 +9883,6 @@ snapshots:
       '@pnpm/network.ca-file': 1.0.2
       config-chain: 1.1.13
 
-  '@popperjs/core@2.11.8': {}
-
   '@publint/pack@0.1.7':
     dependencies:
       tinyexec: 1.3.0
@@ -10331,6 +10283,12 @@ snapshots:
   '@types/qunit@2.19.14': {}
 
   '@types/rsvp@4.0.9': {}
+
+  '@types/sinon@22.0.0':
+    dependencies:
+      '@types/sinonjs__fake-timers': 15.0.1
+
+  '@types/sinonjs__fake-timers@15.0.1': {}
 
   '@types/symlink-or-copy@1.2.2': {}
 
@@ -12130,14 +12088,6 @@ snapshots:
       - eslint
       - typescript
 
-  ember-lifeline@7.1.0(@ember/test-helpers@5.4.3(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(supports-color@8.1.1):
-    dependencies:
-      '@embroider/addon-shim': 1.10.3(supports-color@8.1.1)
-    optionalDependencies:
-      '@ember/test-helpers': 5.4.3(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1)
-    transitivePeerDependencies:
-      - supports-color
-
   ember-load-initializers@3.0.1(ember-source@7.2.0(@glimmer/component@2.1.1(supports-color@8.1.1))(supports-color@8.1.1)):
     dependencies:
       ember-source: 7.2.0(@glimmer/component@2.1.1(supports-color@8.1.1))(supports-color@8.1.1)
@@ -12154,15 +12104,6 @@ snapshots:
     dependencies:
       '@embroider/addon-shim': 1.10.3(supports-color@8.1.1)
       '@simple-dom/document': 1.4.0
-    transitivePeerDependencies:
-      - supports-color
-
-  ember-popperjs@3.0.0(ember-modifier@4.3.0(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(ember-source@7.2.0(@glimmer/component@2.1.1(supports-color@8.1.1))(supports-color@8.1.1))(supports-color@8.1.1):
-    dependencies:
-      '@embroider/addon-shim': 1.10.3(supports-color@8.1.1)
-      '@popperjs/core': 2.11.8
-      ember-modifier: 4.3.0(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1)
-      ember-source: 7.2.0(@glimmer/component@2.1.1(supports-color@8.1.1))(supports-color@8.1.1)
     transitivePeerDependencies:
       - supports-color
 
@@ -13543,11 +13484,6 @@ snapshots:
       es-errors: 1.3.0
       hasown: 2.0.4
       side-channel: 1.1.1
-
-  intl-messageformat@11.2.14:
-    dependencies:
-      '@formatjs/fast-memoize': 3.1.7
-      '@formatjs/icu-messageformat-parser': 3.5.17
 
   invert-kv@3.0.1: {}
 

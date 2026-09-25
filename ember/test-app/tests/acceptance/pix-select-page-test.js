@@ -38,6 +38,8 @@ module('Acceptance | PixSelectPageTest', function (hooks) {
       // when
       const multiSelect = screen.getByRole('button', { name: 'Kebab' });
       await click(multiSelect);
+      // await fillIn(await screen.findByLabelText('Rechercher'), '[A-Z]{1}[a-z]{6}');
+
       await fillIn(await screen.findByRole('textbox', { name: 'Rechercher' }), '[A-Z]{1}[a-z]{6}');
       await screen.findByRole('menu');
 
@@ -53,7 +55,7 @@ module('Acceptance | PixSelectPageTest', function (hooks) {
       const screen = await visit('/select-page');
 
       // when
-      await screen.getByLabelText('Fruits').focus();
+      await screen.getByLabelText(/Fruits/).focus();
       await userEvent.keyboard('[ArrowDown]');
       await screen.findByRole('listbox');
 
@@ -63,7 +65,7 @@ module('Acceptance | PixSelectPageTest', function (hooks) {
       await click(screen.getByRole('button', { name: 'Ajouter un citron' }));
 
       // then
-      await screen.getByLabelText('Fruits').focus();
+      await screen.getByLabelText(/Fruits/).focus();
       await userEvent.keyboard('[ArrowDown]');
       await screen.findByRole('listbox');
 

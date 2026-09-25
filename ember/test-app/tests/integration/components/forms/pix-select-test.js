@@ -17,19 +17,18 @@ module('Integration | Component | PixSelect', function (hooks) {
   ];
 
   this.label = 'Mon menu déroulant';
-  this.subLabel = 'Mon sous label';
-  this.placeholder = 'Choisissez une option';
-  this.searchLabel = 'Rechercher';
-  this.screenReaderOnly = 'Rechercher';
-  this.searchPlaceholder = 'Placeholder de la recherche';
+  this.texts = {
+    placeholder: 'Choisissez une option',
+    selectSearchLabel: 'Rechercher',
+    searchPlaceholder: 'Placeholder de la recherche',
+  };
 
   test('it renders Select', async function (assert) {
     // given & when
-    const screen = await render(hbs`<PixSelect
-  @options={{this.options}}
-  @subLabel={{this.subLabel}}
-  @placeholder={{this.placeholder}}
-><:label>{{this.label}}</:label></PixSelect>`);
+    this.texts = { ...this.texts, subLabel: 'Mon sous label' };
+    const screen =
+      await render(hbs`<PixSelect @options={{this.options}} @texts={{this.texts}}><:label
+  >{{this.label}}</:label></PixSelect>`);
 
     // then
     assert.strictEqual(
@@ -41,7 +40,7 @@ module('Integration | Component | PixSelect', function (hooks) {
   module('#id', function () {
     test('it puts a custom id on pix-select', async function (assert) {
       // given & when
-      await render(hbs`<PixSelect @id='custom' @options={{this.options}} @placeholder={{this.placeholder}}><:label
+      await render(hbs`<PixSelect @id='custom' @options={{this.options}} @texts={{this.texts}}><:label
   >{{this.label}}</:label></PixSelect>`);
 
       // then
@@ -53,7 +52,7 @@ module('Integration | Component | PixSelect', function (hooks) {
     test('it hides the dropdown unless there is a click on the button', async function (assert) {
       // given & when
       const screen = await render(
-        hbs`<PixSelect @options={{this.options}} @placeholder={{this.placeholder}}><:label
+        hbs`<PixSelect @options={{this.options}} @texts={{this.texts}}><:label
   >{{this.label}}</:label></PixSelect>`,
       );
 
@@ -61,10 +60,22 @@ module('Integration | Component | PixSelect', function (hooks) {
       assert.dom(screen.queryByRole('option', { name: 'Oignon' })).doesNotExist();
     });
 
+    test('it keeps the closed dropdown hidden despite floating ui inline styles', async function (assert) {
+      // given & when
+      await render(
+        hbs`<PixSelect @options={{this.options}} @texts={{this.texts}}><:label
+  >{{this.label}}</:label></PixSelect>`,
+      );
+
+      // then
+      const dropdown = document.querySelector('.pix-select__dropdown');
+      assert.strictEqual(getComputedStyle(dropdown).visibility, 'hidden');
+    });
+
     test('it opens the dropdown', async function (assert) {
       // given
       const screen = await render(
-        hbs`<PixSelect @options={{this.options}} @placeholder={{this.placeholder}}><:label
+        hbs`<PixSelect @options={{this.options}} @texts={{this.texts}}><:label
   >{{this.label}}</:label></PixSelect>`,
       );
 
@@ -78,18 +89,16 @@ module('Integration | Component | PixSelect', function (hooks) {
 
     test('it hides default option', async function (assert) {
       // given
-      const screen = await render(hbs`<PixSelect
-  @options={{this.options}}
-  @placeholder={{this.placeholder}}
-  @hideDefaultOption={{true}}
-><:label>{{this.label}}</:label></PixSelect>`);
+      const screen =
+        await render(hbs`<PixSelect @options={{this.options}} @texts={{this.texts}} @hideDefaultOption={{true}}><:label
+  >{{this.label}}</:label></PixSelect>`);
 
       // when
       await clickByName('Mon menu déroulant');
 
       await screen.findByRole('listbox');
       // then
-      assert.strictEqual(screen.queryByRole('option', { name: this.placeholder }), null);
+      assert.strictEqual(screen.queryByRole('option', { name: this.texts.placeholder }), null);
     });
   });
 
@@ -102,7 +111,7 @@ module('Integration | Component | PixSelect', function (hooks) {
         { value: '3', label: 'Oignon', category: 'Autre' },
       ];
       const screen = await render(
-        hbs`<PixSelect @options={{this.options}} @placeholder={{this.placeholder}}><:label
+        hbs`<PixSelect @options={{this.options}} @texts={{this.texts}}><:label
   >{{this.label}}</:label></PixSelect>`,
       );
 
@@ -122,7 +131,7 @@ module('Integration | Component | PixSelect', function (hooks) {
       test('it should not display list on click', async function (assert) {
         // given
         const screen =
-          await render(hbs`<PixSelect @options={{this.options}} @placeholder={{this.placeholder}} @isDisabled={{true}}><:label
+          await render(hbs`<PixSelect @options={{this.options}} @texts={{this.texts}} @isDisabled={{true}}><:label
   >{{this.label}}</:label></PixSelect>`);
 
         // when
@@ -137,7 +146,7 @@ module('Integration | Component | PixSelect', function (hooks) {
       test('it should display list, focus selected element on arrow up press', async function (assert) {
         // given
         const screen =
-          await render(hbs`<PixSelect @options={{this.options}} @value='3' @placeholder={{this.placeholder}}><:label
+          await render(hbs`<PixSelect @options={{this.options}} @value='3' @texts={{this.texts}}><:label
   >{{this.label}}</:label></PixSelect>`);
 
         // when
@@ -157,7 +166,7 @@ module('Integration | Component | PixSelect', function (hooks) {
       test('it should display list, focus selected element on arrow down press', async function (assert) {
         // given
         const screen =
-          await render(hbs`<PixSelect @options={{this.options}} @value='2' @placeholder={{this.placeholder}}><:label
+          await render(hbs`<PixSelect @options={{this.options}} @value='2' @texts={{this.texts}}><:label
   >{{this.label}}</:label></PixSelect>`);
 
         // when
@@ -177,7 +186,7 @@ module('Integration | Component | PixSelect', function (hooks) {
       test('it should display list, focus selected element on space press', async function (assert) {
         // given
         const screen =
-          await render(hbs`<PixSelect @options={{this.options}} @value='1' @placeholder={{this.placeholder}}><:label
+          await render(hbs`<PixSelect @options={{this.options}} @value='1' @texts={{this.texts}}><:label
   >{{this.label}}</:label></PixSelect>`);
 
         // when
@@ -199,7 +208,7 @@ module('Integration | Component | PixSelect', function (hooks) {
       test('it should focus first element on arrow down press', async function (assert) {
         // given
         const screen = await render(
-          hbs`<PixSelect @options={{this.options}} @placeholder={{this.placeholder}}><:label
+          hbs`<PixSelect @options={{this.options}} @texts={{this.texts}}><:label
   >{{this.label}}</:label></PixSelect>`,
         );
 
@@ -212,9 +221,7 @@ module('Integration | Component | PixSelect', function (hooks) {
 
         await userEvent.keyboard('[ArrowDown]');
 
-        const option = screen.getByRole('option', {
-          name: 'Choisissez une option',
-        });
+        const option = screen.getByRole('option', { name: 'Choisissez une option' });
         // then
         assert.dom(option).isFocused();
       });
@@ -222,7 +229,7 @@ module('Integration | Component | PixSelect', function (hooks) {
       test('it should focus last element on arrow up press', async function (assert) {
         // given
         const screen = await render(
-          hbs`<PixSelect @options={{this.options}} @placeholder={{this.placeholder}}><:label
+          hbs`<PixSelect @options={{this.options}} @texts={{this.texts}}><:label
   >{{this.label}}</:label></PixSelect>`,
         );
 
@@ -243,7 +250,7 @@ module('Integration | Component | PixSelect', function (hooks) {
       test('it should close menu on escape press, focus select element', async function (assert) {
         // given
         const screen = await render(
-          hbs`<PixSelect @options={{this.options}} @placeholder={{this.placeholder}}><:label
+          hbs`<PixSelect @options={{this.options}} @texts={{this.texts}}><:label
   >{{this.label}}</:label></PixSelect>`,
         );
 
@@ -266,11 +273,9 @@ module('Integration | Component | PixSelect', function (hooks) {
         // given
         this.onChange = sinon.spy();
 
-        const screen = await render(hbs`<PixSelect
-  @options={{this.options}}
-  @placeholder={{this.placeholder}}
-  @onChange={{this.onChange}}
-><:label>{{this.label}}</:label></PixSelect>`);
+        const screen =
+          await render(hbs`<PixSelect @options={{this.options}} @texts={{this.texts}} @onChange={{this.onChange}}><:label
+  >{{this.label}}</:label></PixSelect>`);
 
         // when
         await screen.getByLabelText('Mon menu déroulant').focus();
@@ -294,7 +299,7 @@ module('Integration | Component | PixSelect', function (hooks) {
 
         const screen = await render(hbs`<button id='focus' type='button'>Focus me</button><PixSelect
   @options={{this.options}}
-  @placeholder={{this.placeholder}}
+  @texts={{this.texts}}
   @onChange={{this.onChange}}
 ><:label>{{this.label}}</:label></PixSelect>`);
 
@@ -317,11 +322,9 @@ module('Integration | Component | PixSelect', function (hooks) {
         // given
         this.onChange = sinon.spy();
 
-        const screen = await render(hbs`<PixSelect
-  @options={{this.options}}
-  @placeholder={{this.placeholder}}
-  @onChange={{this.onChange}}
-><:label>{{this.label}}</:label></PixSelect>`);
+        const screen =
+          await render(hbs`<PixSelect @options={{this.options}} @texts={{this.texts}} @onChange={{this.onChange}}><:label
+  >{{this.label}}</:label></PixSelect>`);
 
         // when
         await screen.getByLabelText('Mon menu déroulant').focus();
@@ -341,11 +344,9 @@ module('Integration | Component | PixSelect', function (hooks) {
 
       test('it should focus on the search input when tab is pressed', async function (assert) {
         // given
-        const screen = await render(hbs`<PixSelect
-  @options={{this.options}}
-  @isSearchable={{true}}
-  @placeholder={{this.placeholder}}
-><:label>{{this.label}}</:label></PixSelect>`);
+        const screen =
+          await render(hbs`<PixSelect @options={{this.options}} @isSearchable={{true}} @texts={{this.texts}}><:label
+  >{{this.label}}</:label></PixSelect>`);
 
         // when
         screen.getByLabelText('Mon menu déroulant').focus();
@@ -362,13 +363,9 @@ module('Integration | Component | PixSelect', function (hooks) {
 
       test('it should focus on the input when escape is pressed', async function (assert) {
         // given
-        this.searchLabel = 'Label du search';
-        const screen = await render(hbs`<PixSelect
-  @options={{this.options}}
-  @isSearchable={{true}}
-  @placeholder={{this.placeholder}}
-  @searchLabel={{this.searchLabel}}
-><:label>{{this.label}}</:label></PixSelect>`);
+        const screen =
+          await render(hbs`<PixSelect @options={{this.options}} @isSearchable={{true}} @texts={{this.texts}}><:label
+  >{{this.label}}</:label></PixSelect>`);
 
         // when
         screen.getByLabelText('Mon menu déroulant').focus();
@@ -395,7 +392,7 @@ module('Integration | Component | PixSelect', function (hooks) {
     </span>
   </div>
 </div>
-<PixSelect @options={{this.options}} @placeholder={{this.placeholder}}><:label
+<PixSelect @options={{this.options}} @texts={{this.texts}}><:label
   >{{this.label}}</:label></PixSelect>`,
         );
 
@@ -407,9 +404,7 @@ module('Integration | Component | PixSelect', function (hooks) {
         await screen.findByRole('listbox');
         fireEvent(document.querySelector('.pix-select__dropdown'), new Event('transitionend'));
 
-        const option = screen.getByRole('option', {
-          name: 'Choisissez une option',
-        });
+        const option = screen.getByRole('option', { name: 'Choisissez une option' });
 
         // then
         assert.dom(option).isFocused();
@@ -422,11 +417,9 @@ module('Integration | Component | PixSelect', function (hooks) {
       // given
       this.onChange = sinon.spy();
 
-      const screen = await render(hbs`<PixSelect
-  @options={{this.options}}
-  @placeholder={{this.placeholder}}
-  @onChange={{this.onChange}}
-><:label>{{this.label}}</:label></PixSelect>`);
+      const screen =
+        await render(hbs`<PixSelect @options={{this.options}} @texts={{this.texts}} @onChange={{this.onChange}}><:label
+  >{{this.label}}</:label></PixSelect>`);
 
       // when
       await clickByName('Mon menu déroulant');
@@ -449,7 +442,7 @@ module('Integration | Component | PixSelect', function (hooks) {
 
       const screen = await render(hbs`<PixSelect
   @options={{this.options}}
-  @placeholder={{this.placeholder}}
+  @texts={{this.texts}}
   @onChange={{this.onChange}}
   @value={{this.value}}
 ><:label>{{this.label}}</:label></PixSelect>`);
@@ -471,7 +464,7 @@ module('Integration | Component | PixSelect', function (hooks) {
 
       const screen = await render(hbs`<PixSelect
   @options={{this.options}}
-  @placeholder={{this.placeholder}}
+  @texts={{this.texts}}
   @onChange={{this.onChange}}
   @isSearchable={{this.isSearchable}}
 ><:label>{{this.label}}</:label></PixSelect>`);
@@ -494,9 +487,7 @@ module('Integration | Component | PixSelect', function (hooks) {
       this.isSearchable = true;
       const screen = await render(hbs`<PixSelect
   @options={{this.options}}
-  @placeholder={{this.placeholder}}
-  @searchLabel={{this.searchLabel}}
-  @searchPlaceholder={{this.searchPlaceholder}}
+  @texts={{this.texts}}
   @isSearchable={{this.isSearchable}}
 ><:label>{{this.label}}</:label></PixSelect>`);
 
@@ -511,9 +502,7 @@ module('Integration | Component | PixSelect', function (hooks) {
       this.isSearchable = true;
       const screen = await render(hbs`<PixSelect
   @options={{this.options}}
-  @placeholder={{this.placeholder}}
-  @searchLabel={{this.searchLabel}}
-  @searchPlaceholder={{this.searchPlaceholder}}
+  @texts={{this.texts}}
   @isSearchable={{this.isSearchable}}
 ><:label>{{this.label}}</:label></PixSelect>`);
 
@@ -528,9 +517,7 @@ module('Integration | Component | PixSelect', function (hooks) {
       this.isSearchable = true;
       const screen = await render(hbs`<PixSelect
   @options={{this.options}}
-  @placeholder={{this.placeholder}}
-  @searchLabel={{this.searchLabel}}
-  @searchPlaceholder={{this.searchPlaceholder}}
+  @texts={{this.texts}}
   @isSearchable={{this.isSearchable}}
 ><:label>{{this.label}}</:label></PixSelect>`);
 
@@ -549,9 +536,7 @@ module('Integration | Component | PixSelect', function (hooks) {
       this.isSearchable = true;
       const screen = await render(hbs`<PixSelect
   @options={{this.options}}
-  @placeholder={{this.placeholder}}
-  @searchLabel={{this.searchLabel}}
-  @searchPlaceholder={{this.searchPlaceholder}}
+  @texts={{this.texts}}
   @isSearchable={{this.isSearchable}}
 ><:label>{{this.label}}</:label></PixSelect>`);
 
@@ -567,9 +552,7 @@ module('Integration | Component | PixSelect', function (hooks) {
       this.isSearchable = true;
       const screen = await render(hbs`<PixSelect
   @options={{this.options}}
-  @placeholder={{this.placeholder}}
-  @searchLabel={{this.searchLabel}}
-  @searchPlaceholder={{this.searchPlaceholder}}
+  @texts={{this.texts}}
   @isSearchable={{this.isSearchable}}
 ><:label>{{this.label}}</:label></PixSelect>`);
 
@@ -585,9 +568,7 @@ module('Integration | Component | PixSelect', function (hooks) {
       this.isSearchable = true;
       const screen = await render(hbs`<PixSelect
   @options={{this.options}}
-  @placeholder={{this.placeholder}}
-  @searchLabel={{this.searchLabel}}
-  @searchPlaceholder={{this.searchPlaceholder}}
+  @texts={{this.texts}}
   @isSearchable={{this.isSearchable}}
 ><:label>{{this.label}}</:label></PixSelect>`);
 
@@ -600,14 +581,11 @@ module('Integration | Component | PixSelect', function (hooks) {
 
     test('when there is no options found it displays the empty search result message', async function (assert) {
       this.isSearchable = true;
-      this.emptySearchMessage = 'Aucune option';
+      this.texts = { ...this.texts, emptySearchMessage: 'Aucune option' };
       const screen = await render(hbs`<PixSelect
   @options={{this.options}}
-  @placeholder={{this.placeholder}}
-  @searchLabel={{this.searchLabel}}
-  @searchPlaceholder={{this.searchPlaceholder}}
+  @texts={{this.texts}}
   @isSearchable={{this.isSearchable}}
-  @emptySearchMessage={{this.emptySearchMessage}}
 ><:label>{{this.label}}</:label></PixSelect>`);
 
       // when
@@ -624,9 +602,7 @@ module('Integration | Component | PixSelect', function (hooks) {
 
         await render(hbs`<PixSelect
   @options={{this.options}}
-  @placeholder={{this.placeholder}}
-  @searchLabel={{this.searchLabel}}
-  @searchPlaceholder={{this.searchPlaceholder}}
+  @texts={{this.texts}}
   @isSearchable={{this.isSearchable}}
   @onSearch={{this.onSearch}}
 >
@@ -647,9 +623,7 @@ module('Integration | Component | PixSelect', function (hooks) {
 
         const screen = await render(hbs`<PixSelect
   @options={{this.options}}
-  @placeholder={{this.placeholder}}
-  @searchLabel={{this.searchLabel}}
-  @searchPlaceholder={{this.searchPlaceholder}}
+  @texts={{this.texts}}
   @isSearchable={{this.isSearchable}}
   @onSearch={{this.onSearch}}
 >
@@ -670,13 +644,11 @@ module('Integration | Component | PixSelect', function (hooks) {
 
   module('#required', function () {
     test('it displays the astérisque', async function (assert) {
-      this.requiredLabel = 'Title requis';
+      this.texts = { ...this.texts, requiredLabel: 'Title requis' };
 
-      const screen = await render(hbs`<PixSelect
-  @options={{this.options}}
-  @placeholder={{this.placeholder}}
-  @requiredLabel={{this.requiredLabel}}
-><:label>{{this.label}}</:label></PixSelect>`);
+      const screen =
+        await render(hbs`<PixSelect @options={{this.options}} @texts={{this.texts}}><:label
+  >{{this.label}}</:label></PixSelect>`);
       assert.dom(screen.getByLabelText('Mon menu déroulant *')).exists();
     });
   });
@@ -687,7 +659,7 @@ module('Integration | Component | PixSelect', function (hooks) {
 
       const screen = await render(hbs`<PixSelect
   @options={{this.options}}
-  @placeholder={{this.placeholder}}
+  @texts={{this.texts}}
   @errorMessage={{this.errorMessage}}
 ><:label>{{this.label}}</:label></PixSelect>`);
       assert.dom(screen.getByText("Tu t'es trompé !")).exists();
@@ -725,26 +697,14 @@ module('Integration | Component | PixSelect', function (hooks) {
       test('should display option icon with title provided', async function (assert) {
         // given
         this.selectOptions = [
-          {
-            value: '1',
-            label: 'Pika',
-            icon: 'play',
-            iconTitle: 'title play icon',
-          },
-          {
-            value: '2',
-            label: 'Chu',
-            icon: 'warning',
-            iconTitle: 'title warning icon',
-          },
+          { value: '1', label: 'Pika', icon: 'play', iconTitle: 'title play icon' },
+          { value: '2', label: 'Chu', icon: 'warning', iconTitle: 'title warning icon' },
         ];
 
         // when
-        const screen = await render(hbs`<PixSelect
-  @options={{this.selectOptions}}
-  @subLabel={{this.subLabel}}
-  @placeholder={{this.placeholder}}
-><:label>{{this.label}}</:label></PixSelect>`);
+        const screen =
+          await render(hbs`<PixSelect @options={{this.selectOptions}} @texts={{this.texts}}><:label
+  >{{this.label}}</:label></PixSelect>`);
 
         // then
 
@@ -760,11 +720,9 @@ module('Integration | Component | PixSelect', function (hooks) {
         ];
 
         // when
-        const screen = await render(hbs`<PixSelect
-  @options={{this.selectOptions}}
-  @subLabel={{this.subLabel}}
-  @placeholder={{this.placeholder}}
-><:label>{{this.label}}</:label></PixSelect>`);
+        const screen =
+          await render(hbs`<PixSelect @options={{this.selectOptions}} @texts={{this.texts}}><:label
+  >{{this.label}}</:label></PixSelect>`);
 
         // then
         assert.notOk(screen.queryByTitle('title play icon'));

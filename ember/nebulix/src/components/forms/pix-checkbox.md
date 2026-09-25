@@ -50,6 +50,30 @@ import { PixCheckbox, PixLabel } from '@1024pix/nebulix-ember';
 </template>
 ```
 
+## Textes affichés (@texts)
+
+`@texts` fournit tous les textes du composant qui ne sont pas déjà passés par
+le bloc `:label` : l'infobulle de l'astérisque obligatoire (`requiredLabel`),
+le complément d'information sous le libellé (`subLabel`), et les messages
+annoncés aux lecteurs d'écran pour chaque état de correction (`stateSuccess`,
+`stateError`, `stateDeclarative`). Nebulix ne traduit rien lui-même : c'est à
+l'application consommatrice de fournir ces textes, déjà traduits.
+
+```gjs live preview nebulix
+import { PixCheckbox } from '@1024pix/nebulix-ember';
+
+const texts = {
+  requiredLabel: 'Ce champ est obligatoire',
+  subLabel: 'Vous pourrez modifier ce choix plus tard',
+};
+
+<template>
+  <PixCheckbox @id="cgu-texts" @texts={{texts}}>
+    <:label>J'accepte les conditions générales d'utilisation</:label>
+  </PixCheckbox>
+</template>
+```
+
 ## Case désactivée
 
 - L'attribut `@isDisabled` permet de désactiver la checkbox en conservant la possibilité de naviguer avec le clavier ou le lecteur d'écran. Il est préféré à l'attribut natif `disabled` qui empêche ces usages.
@@ -144,6 +168,11 @@ Dans Modulix, après soumission de la réponse, la PixCheckbox est désactivée 
 ```gjs live preview nebulix
 import { PixCheckbox } from '@1024pix/nebulix-ember';
 
+const texts = {
+  stateSuccess: 'Sélection correcte',
+  stateError: 'Sélection incorrecte',
+};
+
 <template>
   <div class="demo-stack">
     <PixCheckbox
@@ -151,6 +180,7 @@ import { PixCheckbox } from '@1024pix/nebulix-ember';
       @variant="modulix"
       @isDisabled={{true}}
       @state="success"
+      @texts={{texts}}
       checked={{true}}
     >
       <:label>Réponse succès</:label>
@@ -161,6 +191,7 @@ import { PixCheckbox } from '@1024pix/nebulix-ember';
       @variant="modulix"
       @isDisabled={{true}}
       @state="error"
+      @texts={{texts}}
       checked={{true}}
     >
       <:label>Réponse erreur</:label>
@@ -184,8 +215,12 @@ L'état `@state="declarative"` est utilisé pour les réponses d'un module qui n
 ```gjs live preview nebulix
 import { PixCheckbox } from '@1024pix/nebulix-ember';
 
+const texts = {
+  stateDeclarative: 'Sélection sans bonne ou mauvaise réponse',
+};
+
 <template>
-  <PixCheckbox @id="modulix" @variant="modulix" @state="declarative">
+  <PixCheckbox @id="modulix" @variant="modulix" @state="declarative" @texts={{texts}}>
     <:label>Case avec variant modulix</:label>
   </PixCheckbox>
 </template>
@@ -198,8 +233,18 @@ Combiné à `@isDisabled`, il permet d'afficher l'état après soumission :
 ```gjs live preview nebulix
 import { PixCheckbox } from '@1024pix/nebulix-ember';
 
+const texts = {
+  stateDeclarative: 'Sélection sans bonne ou mauvaise réponse',
+};
+
 <template>
-  <PixCheckbox @id="modulix" @variant="modulix" @isDisabled="true" @state="declarative-selected">
+  <PixCheckbox
+    @id="modulix"
+    @variant="modulix"
+    @isDisabled="true"
+    @state="declarative-selected"
+    @texts={{texts}}
+  >
     <:label>Case avec variant modulix</:label>
   </PixCheckbox>
 </template>

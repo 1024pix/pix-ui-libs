@@ -1,3 +1,4 @@
+import { on } from '@ember/modifier';
 import Component from '@glimmer/component';
 
 /**
@@ -6,6 +7,8 @@ import Component from '@glimmer/component';
  * @property {string} [title] - Intitulé de l'étape.
  * @property {string} [subtitle] - Précision affichée sous l'intitulé.
  * @property {boolean} [isCurrent] - Désigne l'étape en cours.
+ * @property {boolean} [isClickable] - Rend l'étape cliquable (affichée sous forme de bouton).
+ * @property {() => void} [onClick] - Callback appelé au clic sur l'étape. Sans effet si `isClickable` n'est pas fourni.
  */
 
 /**
@@ -36,18 +39,16 @@ export default class PixStepComponent extends Component {
 
   <template>
     <li class={{this.cssClass}} aria-current={{this.ariaCurrent}} ...attributes>
-      <div class="pix-step__index" aria-hidden="true">
-        {{this.displayIndex}}
-      </div>
-      {{#if @title}}
-        <div class="pix-step__title">
-          {{@title}}
-        </div>
-      {{/if}}
-      {{#if @subtitle}}
-        <div class="pix-step__subtitle">
-          {{@subtitle}}
-        </div>
+      {{#if @isClickable}}
+        <button type="button" class="pix-step__button" {{on "click" @onClick}}>
+          <div class="pix-step__index" aria-hidden="true">{{this.displayIndex}}</div>
+          {{#if @title}}<div class="pix-step__title">{{@title}}</div>{{/if}}
+          {{#if @subtitle}}<div class="pix-step__subtitle">{{@subtitle}}</div>{{/if}}
+        </button>
+      {{else}}
+        <div class="pix-step__index" aria-hidden="true">{{this.displayIndex}}</div>
+        {{#if @title}}<div class="pix-step__title">{{@title}}</div>{{/if}}
+        {{#if @subtitle}}<div class="pix-step__subtitle">{{@subtitle}}</div>{{/if}}
       {{/if}}
     </li>
   </template>

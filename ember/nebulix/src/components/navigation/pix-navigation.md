@@ -15,12 +15,16 @@ Il s'installe dans le bloc `:navigation` de `PixAppLayout`.
 ```gjs live preview nebulix
 import { PixNavigation, PixNavigationButton, PixNavigationSeparator } from '@1024pix/nebulix-ember';
 
+const texts = {
+  openMenu: 'Ouvrir le menu',
+  closeMenu: 'Fermer le menu',
+  mainNavigation: 'Navigation principale',
+  expandNavigation: 'Revenir à la largeur initiale du menu de navigation',
+  shrinkNavigation: 'Réduire la largeur du menu de navigation',
+};
+
 <template>
-  <PixNavigation
-    @openLabel="Ouvrir le menu"
-    @closeLabel="Fermer le menu"
-    @navigationAriaLabel="Navigation principale"
-  >
+  <PixNavigation @texts={{texts}}>
     <:brand>Pix Orga</:brand>
 
     <:navElements>
@@ -37,9 +41,11 @@ import { PixNavigation, PixNavigationButton, PixNavigationSeparator } from '@102
 </template>
 ```
 
-`@openLabel` et `@closeLabel` sont **obligatoires** : ils nomment le bouton du
-menu burger, qui n'a pas de texte visible. Renseignez également
-`@navigationAriaLabel` dès que la page compte plusieurs navigations.
+`@texts` fournit tous les libellés annoncés aux lecteurs d'écran : le nom du
+bouton du menu burger ouvert et fermé (`openMenu`, `closeMenu` — le bouton n'a
+pas de texte visible), le nom de la navigation elle-même (`mainNavigation`),
+et les libellés du bouton pour ouvrir / fermer la (`expandNavigation`, `shrinkNavigation`).
+Tous sont **obligatoires**.
 
 ## Les entrées
 

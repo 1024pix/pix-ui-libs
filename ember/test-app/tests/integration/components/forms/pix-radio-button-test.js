@@ -40,6 +40,20 @@ module('Integration | Component | pix-radio-button', function (hooks) {
     assert.true(screen.getByLabelText('Abricot').checked);
   });
 
+  test('it should display the required and sub label given in @texts', async function (assert) {
+    // given
+    this.set('texts', { requiredLabel: 'Obligatoire', subLabel: 'Complément' });
+
+    // when
+    const screen = await render(
+      hbs`<PixRadioButton @texts={{this.texts}}><:label>Abricot</:label></PixRadioButton>`,
+    );
+
+    // then
+    assert.dom(screen.getByTitle('Obligatoire')).exists();
+    assert.dom(screen.getByText('Complément')).exists();
+  });
+
   module('@isDisabled', function (hooks) {
     let warnStub;
 
@@ -81,10 +95,11 @@ module('Integration | Component | pix-radio-button', function (hooks) {
     test(`it should read success state info if given`, async function (assert) {
       // given
       this.set('isDisabled', true);
+      this.set('texts', { stateSuccess: 'Sélection correcte' });
 
       // when
       const screen = await render(
-        hbs`<PixRadioButton checked @isDisabled={{this.isDisabled}} @state='success'><:label>Recevoir la
+        hbs`<PixRadioButton checked @isDisabled={{this.isDisabled}} @state='success' @texts={{this.texts}}><:label>Recevoir la
     newsletter</:label></PixRadioButton>`,
       );
 
@@ -102,10 +117,11 @@ module('Integration | Component | pix-radio-button', function (hooks) {
     test(`it should read error state info if given`, async function (assert) {
       // given
       this.set('isDisabled', true);
+      this.set('texts', { stateError: 'Sélection incorrecte' });
 
       // when
       const screen = await render(
-        hbs`<PixRadioButton checked @isDisabled={{this.isDisabled}} @state='error'><:label>Recevoir la
+        hbs`<PixRadioButton checked @isDisabled={{this.isDisabled}} @state='error' @texts={{this.texts}}><:label>Recevoir la
     newsletter</:label></PixRadioButton>`,
       );
 

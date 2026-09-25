@@ -11,6 +11,7 @@ import PixIcon from '../graphics/pix-icon.gjs';
  * @property {string} ariaLabel - Nom de l'action, lu par les lecteurs d'écran. Obligatoire : sans lui, le bouton n'a aucun libellé.
  * @property {(event: MouseEvent) => unknown} [triggerAction] - Appelée au clic.
  * @property {'big' | 'small' | 'xsmall'} [size] - Diamètre du bouton. Par défaut : `big`.
+ * @property {'secondary'} [variant] - Variante visuelle du bouton. Par défaut : bouton neutre sans bordure.
  * @property {boolean} [plainIcon] - Affiche l'icône dans sa variante pleine.
  * @property {boolean} [isDisabled] - Désactive le bouton.
  */
@@ -31,6 +32,20 @@ export default class PixIconButton extends Component {
 
   get color() {
     return this.args.color || 'light-grey';
+  }
+
+  get variant() {
+    return this.args.variant;
+  }
+
+  get className() {
+    const classNames = ['pix-icon-button', `pix-icon-button--${this.size}`];
+
+    if (this.variant) {
+      classNames.push(`pix-icon-button--${this.variant}`);
+    }
+
+    return classNames.join(' ');
   }
 
   get isDisabled() {
@@ -69,7 +84,7 @@ export default class PixIconButton extends Component {
   <template>
     <button
       type="button"
-      class="pix-icon-button pix-icon-button--{{this.size}}"
+      class={{this.className}}
       {{on "click" this.triggerAction}}
       aria-disabled="{{this.isDisabled}}"
       ...attributes

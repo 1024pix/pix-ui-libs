@@ -17,6 +17,7 @@ Router.map(function () {
   this.route('gauge-page');
   this.route('stepper-page');
   this.route('checkbox-page');
+  this.route('textarea-page');
 
   // Route for integration tests
   this.route('hello', { path: '/hello-world' });

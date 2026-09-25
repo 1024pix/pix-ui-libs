@@ -85,6 +85,58 @@ const noop = () => {};
 </template>
 ```
 
+## Variantes
+
+`@variant` ajuste l'apparence du bouton. Par défaut, le bouton est neutre, sans bordure.
+
+```gjs live nebulix
+import { PixIconButton } from '@1024pix/nebulix-ember';
+
+const noop = () => {};
+
+<template>
+  <div class="demo-variants">
+    <figure>
+      <PixIconButton @iconName="delete" @ariaLabel="Supprimer" @triggerAction={{noop}} />
+      <figcaption>par défaut</figcaption>
+    </figure>
+
+    <figure>
+      <PixIconButton
+        @iconName="delete"
+        @ariaLabel="Supprimer"
+        @variant="secondary"
+        @triggerAction={{noop}}
+      />
+      <figcaption>secondary</figcaption>
+    </figure>
+  </div>
+
+  <style>
+    .demo-variants {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: flex-end;
+    }
+
+    .demo-variants figure {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: center;
+      margin: 0;
+    }
+
+    .demo-variants figcaption {
+      font-family: monospace;
+      font-size: 0.8rem;
+      color: var(--pix-neutral-500);
+    }
+  </style>
+</template>
+```
+
 ## API Docs
 
 ```hbs live
