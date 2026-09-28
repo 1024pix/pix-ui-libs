@@ -35,5 +35,17 @@ export default class StepperPage extends Component {
       @onStepClick={{this.goToStep}}
       @canNavigateTo={{this.canNavigateTo}}
     />
+
+    <h2>Sur fond clair</h2>
+    <div style="background-color:var(--pix-primary-300);padding:8px">
+      <PixStepper
+        @steps={{this.steps}}
+        @variant="primary-light"
+        @hideLabel={{true}}
+        @currentStep={{this.currentStep}}
+        @onStepClick={{this.goToStep}}
+        @canNavigateTo={{this.canNavigateTo}}
+      />
+    </div>
   </template>
 }

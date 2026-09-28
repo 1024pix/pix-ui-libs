@@ -4,6 +4,53 @@
 
 .pix-stepper {
   display: flex;
+
+  &--primary-light {
+    .pix-step {
+      &__title,
+      &__subtitle {
+        color: var(--pix-neutral-0);
+      }
+
+      &__index {
+        background: var(--pix-neutral-0);
+        color: var(--pix-primary-700);
+
+        &::before,
+        &::after {
+          display: none;
+        }
+      }
+
+      &:not(:last-child)::after {
+        background: white;
+      }
+
+      &.pix-step--current {
+        &:not(:last-child)::after {
+          background:
+            linear-gradient(90deg, var(--pix-neutral-0) 0%, var(--pix-primary-100) 60%),
+            var(--pix-neutral-0);
+        }
+
+        .pix-step__index {
+          background: var(--pix-primary-700);
+          border: 3px solid var(--pix-neutral-0);
+        }
+
+        & ~ .pix-step {
+          .pix-step__index {
+            color: var(--pix-neutral-0);
+          }
+
+          .pix-step__title,
+          .pix-step__subtitle {
+            color: var(--pix-neutral-0);
+          }
+        }
+      }
+    }
+  }
 }
 
 .pix-step {
@@ -92,7 +139,11 @@
     width: calc(100% - 2.5rem);
     height: 4px;
     background:
-      linear-gradient(90deg, rgba(69, 45, 157, 0.8) 0%, rgba(69, 45, 157, 0) 60%),
+      linear-gradient(
+        90deg,
+        rgba(var(--pix-primary-700-inline), 0.8) 0%,
+        rgba(var(--pix-primary-700-inline), 0) 60%
+      ),
       var(--pix-primary-300);
     border-radius: 2px;
     content: '';
@@ -101,7 +152,11 @@
   &.pix-step--current {
     &:not(:last-child)::after {
       background:
-        linear-gradient(90deg, rgba(69, 45, 157, 0.8) 0%, rgba(69, 45, 157, 0) 60%),
+        linear-gradient(
+          90deg,
+          rgba(var(--pix-primary-700-inline), 0.8) 0%,
+          rgba(var(--pix-primary-700-inline), 0) 60%
+        ),
         var(--pix-neutral-100);
     }
 
@@ -110,7 +165,11 @@
 
       color: var(--pix-neutral-0);
       background:
-        linear-gradient(90deg, rgba(69, 45, 157, 0.8) 0%, rgba(69, 45, 157, 0) 60%),
+        linear-gradient(
+          90deg,
+          rgba(var(--pix-primary-700-inline), 0.8) 0%,
+          rgba(var(--pix-primary-700-inline), 0) 60%
+        ),
         var(--pix-primary-300);
 
       &::before,
@@ -140,39 +199,6 @@
     .pix-step__title,
     .pix-step__subtitle {
       color: var(--pix-neutral-500);
-    }
-  }
-}
-
-@include breakpoints.device-is('mobile') {
-  .pix-stepper--long {
-    .pix-step {
-      flex: 1;
-
-      &:not(:last-child)::after {
-        left: calc(50% + 1rem + 4px);
-        width: calc(100% - 2rem - 8px);
-      }
-    }
-
-    .pix-step:has(+ .pix-step--current):not(:last-child)::after {
-      width: calc(200% - 2rem - 8px);
-    }
-
-    .pix-step--current {
-      flex: 3;
-
-      &:not(:last-child)::after {
-        left: calc(50% + 1rem + 4px);
-        width: calc(66.667% - 2rem - 8px);
-      }
-    }
-
-    .pix-step:not(.pix-step--current) {
-      .pix-step__title,
-      .pix-step__subtitle {
-        display: none;
-      }
     }
   }
 }

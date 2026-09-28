@@ -42,13 +42,25 @@ export default class PixStepComponent extends Component {
       {{#if @isClickable}}
         <button type="button" class="pix-step__button" {{on "click" @onClick}}>
           <div class="pix-step__index" aria-hidden="true">{{this.displayIndex}}</div>
-          {{#if @title}}<div class="pix-step__title">{{@title}}</div>{{/if}}
-          {{#if @subtitle}}<div class="pix-step__subtitle">{{@subtitle}}</div>{{/if}}
+          {{#if @title}}<div
+              class="pix-step__title {{if @hideLabel 'screen-reader-only'}}"
+            >{{@title}}</div>{{/if}}
+          {{#if @subtitle}}<div
+              class="pix-step__subtitle {{if @hideLabel 'screen-reader-only'}}"
+            >{{@subtitle}}</div>{{/if}}
         </button>
       {{else}}
         <div class="pix-step__index" aria-hidden="true">{{this.displayIndex}}</div>
-        {{#if @title}}<div class="pix-step__title">{{@title}}</div>{{/if}}
-        {{#if @subtitle}}<div class="pix-step__subtitle">{{@subtitle}}</div>{{/if}}
+        {{#if @title}}
+          <div class="pix-step__title {{if @hideLabel 'screen-reader-only'}}">
+            {{@title}}
+          </div>
+        {{/if}}
+        {{#if @subtitle}}
+          <div class="pix-step__subtitle {{if @hideLabel 'screen-reader-only'}}">
+            {{@subtitle}}
+          </div>
+        {{/if}}
       {{/if}}
     </li>
   </template>

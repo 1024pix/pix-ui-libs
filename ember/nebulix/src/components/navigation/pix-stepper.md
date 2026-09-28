@@ -12,6 +12,8 @@ son affichage (mode long).
 
 ## Utilisation
 
+### Mode Clair
+
 ```gjs live preview nebulix
 import { PixStepper } from '@1024pix/nebulix-ember';
 
@@ -26,6 +28,30 @@ const texts = {
 };
 
 <template><PixStepper @steps={{etapes}} @currentStep={{1}} @texts={{texts}} /></template>
+```
+
+### Mode Sombre
+
+```gjs live preview nebulix
+import { PixStepper } from '@1024pix/nebulix-ember';
+
+const etapes = [{ title: 'Question 1' }, { title: 'Question 2' }, { title: 'Question 3' }];
+
+const texts = {
+  ariaLabel: 'Question 2 sur 3',
+};
+
+<template>
+  <div
+    style="background:linear-gradient(90deg, rgba(69, 45, 157, 0.80) 0%, rgba(69, 45, 157, 0.00) 60%), #957EE8;;padding:20px 40px"
+  ><PixStepper
+      @variant="primary-light"
+      @steps={{etapes}}
+      @currentStep={{2}}
+      @texts={{texts}}
+      @hideLabel={{true}}
+    /></div>
+</template>
 ```
 
 `@currentStep` se compte à partir de 1. `@texts.ariaLabel` fournit le résumé
