@@ -2,7 +2,7 @@
   "name": "@1024pix/pix-ui-libs",
   "version": "0.0.0",
   "private": true,
-  "description": "Project managing all front-end utilities",
+  "description": "All libraries for Pix frontend apps",
   "license": "AGPL-3.0",
   "author": "GIP Pix",
   "repository": {
