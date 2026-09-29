@@ -2,7 +2,7 @@ packages:
   - "ember/*"
 
 overrides:
-  "@glint/template": "1.8.0"
+  "@glint/template": "1.9.0"
 
 allowBuilds:
   "@parcel/watcher": false
