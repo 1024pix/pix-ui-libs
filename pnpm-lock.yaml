@@ -234,13 +234,13 @@ importers:
         specifier: ^3.0.4
         version: 3.0.4(eslint@9.39.5(jiti@2.7.0)(supports-color@8.1.1))
       '@babel/core':
-        specifier: ^7.25.2
+        specifier: ^7.29.7
         version: 7.29.7(supports-color@8.1.1)
       '@babel/eslint-parser':
         specifier: ^7.25.1
         version: 7.29.7(@babel/core@7.29.7(supports-color@8.1.1))(eslint@9.39.5(jiti@2.7.0)(supports-color@8.1.1))
       '@babel/runtime':
-        specifier: ^7.25.6
+        specifier: ^7.29.7
         version: 7.29.7
       '@ember/app-tsconfig':
         specifier: ^2.0.0
