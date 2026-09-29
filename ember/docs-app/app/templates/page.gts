@@ -1,3 +1,4 @@
+import PageTextsSignature from 'docs-app/components/PageTextsSignature';
 import { humanize, labelFor } from 'docs-app/utils/humanize';
 import type { Page as KolayPage } from 'kolay';
 import { Page } from 'kolay/components';
@@ -27,7 +28,7 @@ import { PageNav } from 'kolay/components';
     <Page>
       <:pending>Loading…</:pending>
       <:error as |error|><pre>{{reasonFor error}}</pre></:error>
-      <:success as |Prose|><Prose /></:success>
+      <:success as |Prose|><Prose /><PageTextsSignature /></:success>
     </Page>
   </main>
 </template>
