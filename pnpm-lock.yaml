@@ -306,7 +306,7 @@ importers:
         specifier: ^2.0.4
         version: 2.1.8(prettier@3.9.6)(supports-color@8.1.1)
       publint:
-        specifier: ^0.3.16
+        specifier: ^0.3.24
         version: 0.3.24
       rollup:
         specifier: ^4.22.5

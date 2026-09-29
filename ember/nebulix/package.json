@@ -87,7 +87,7 @@
     "globals": "^16.1.0",
     "prettier": "^3.4.2",
     "prettier-plugin-ember-template-tag": "^2.0.4",
-    "publint": "^0.3.16",
+    "publint": "^0.3.24",
     "rollup": "^4.22.5",
     "svg-sprite": "^2.0.4",
     "svgo": "^4.0.2",
