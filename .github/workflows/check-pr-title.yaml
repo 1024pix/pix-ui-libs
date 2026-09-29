@@ -6,6 +6,6 @@ on:
 
 jobs:
   lint-pr-title:
-    runs-on: ubuntu-26
+    runs-on: ubuntu-26.04
     steps:
       - uses: 1024pix/pix-actions/check-pr-title@main
