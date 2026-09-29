@@ -90,7 +90,7 @@
     "publint": "^0.3.24",
     "rollup": "^4.22.5",
     "svg-sprite": "^2.0.4",
-    "svgo": "^4.0.2",
+    "svgo": "^4.1.0",
     "typescript": "^6.0.3"
   },
   "ember": {
