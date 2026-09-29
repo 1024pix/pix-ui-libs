@@ -390,8 +390,8 @@ importers:
         specifier: ^2.1.1
         version: 2.1.1(supports-color@8.1.1)
       '@glint/ember-tsc':
-        specifier: ^1.10.0
-        version: 1.10.0(ember-source@7.2.0(@glimmer/component@2.1.1(supports-color@8.1.1))(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3)
+        specifier: ^1.11.4
+        version: 1.11.6(ember-source@7.2.0(@glimmer/component@2.1.1(supports-color@8.1.1))(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3)
       '@glint/template':
         specifier: 1.9.0
         version: 1.9.0
