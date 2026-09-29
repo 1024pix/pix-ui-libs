@@ -78,7 +78,7 @@
     "qunit": "^2.26.0",
     "qunit-dom": "^3.6.0",
     "sass-embedded": "^1.102.0",
-    "sinon": "^21.0.0",
+    "sinon": "^21.1.2",
     "testem": "^3.20.1",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.66.0",
