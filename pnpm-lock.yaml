@@ -324,8 +324,8 @@ importers:
   ember/test-app:
     devDependencies:
       '@1024pix/ember-testing-library':
-        specifier: ^3.0.41
-        version: 3.0.41(@babel/core@7.29.7(supports-color@8.1.1))(@glint/template@1.8.0)(ember-source@7.2.0(@glimmer/component@2.1.1(supports-color@8.1.1))(supports-color@8.1.1))(supports-color@8.1.1)
+        specifier: ^3.0.44
+        version: 3.0.44(@babel/core@7.29.7(supports-color@8.1.1))(@glint/template@1.8.0)(ember-source@7.2.0(@glimmer/component@2.1.1(supports-color@8.1.1))(supports-color@8.1.1))(supports-color@8.1.1)
       '@1024pix/eslint-plugin':
         specifier: ^3.0.4
         version: 3.0.4(eslint@9.39.5(jiti@2.7.0)(supports-color@8.1.1))
@@ -500,8 +500,8 @@ importers:
 
 packages:
 
-  '@1024pix/ember-testing-library@3.0.41':
-    resolution: {integrity: sha512-tAbw/ei4wa5K0QWsAP7iLzE5sEh0dGiq2hkgD4hQ94EbJDzNJvB0Jc3A5tSqltx4ecgKKZ/voUwuN04MfjYWSg==}
+  '@1024pix/ember-testing-library@3.0.44':
+    resolution: {integrity: sha512-Afg8HK4PTfa7BxqwXKETAWP/S+NTnLtq+IJ1CdMV4NUa2vhL41+hGLLEwYROpOR9eX9X0zwQbpn0LErMrBNZZQ==}
     engines: {node: ^20 || ^22 || ^24}
     peerDependencies:
       ember-source: '>= 4.0.0'
@@ -2729,6 +2729,10 @@ packages:
   array-equal@1.0.2:
     resolution: {integrity: sha512-gUHx76KtnhEgB3HOuFYiCm3FIdEs6ocM2asHvNTkfu/Y09qQVrrVVaOKENmS2KkSaGoxgXNqC+ZVtR/n0MOkSA==}
 
+  array-equal@2.0.0:
+    resolution: {integrity: sha512-omyuT98dFFarEaqhHvhzcJ6/lX+qxT1kzdNzaAp3Dr/6AkmU2+tXeDXYkdB8n84w0/QhrX6FFRUY6l7U250oCQ==}
+    engines: {node: '>=20'}
+
   array-includes@3.1.9:
     resolution: {integrity: sha512-FmeCCAenzH0KH381SPT5FZmiA/TmpndpcaShhfgEN9eCVjnFBqq3l1xrI42y8+PPLI6hypzou4GXw00WHmPBLQ==}
     engines: {node: '>= 0.4'}
@@ -2981,6 +2985,10 @@ packages:
     resolution: {integrity: sha512-ng4eIhPYiXqMw6SyGoxPHR3YAwEd2lr9FgBI1CyTbspl4txZovOsmzFkMkGAlu88xyvYXJqHiM2crfLa65T1BQ==}
     engines: {node: 10.* || >= 12.*}
 
+  broccoli-funnel@4.0.0:
+    resolution: {integrity: sha512-VsEjKM5XBzm2osABRL3gYuK/qD22IFG2URWjNL5Pgh2VsHvhpZ6cFIllR9e1PlmaKTr2tp4x2n7pPiqRizHNdQ==}
+    engines: {node: 10.* || >= 12.*}
+
   broccoli-merge-trees@3.0.2:
     resolution: {integrity: sha512-ZyPAwrOdlCddduFbsMyyFzJUrvW6b04pMvDiAQZrCwghlvgowJDY+EfoXn+eR1RRA5nmGHJ+B68T63VnpRiT1A==}
     engines: {node: '>=6.0.0'}
@@ -3022,6 +3030,10 @@ packages:
   broccoli-plugin@4.0.7:
     resolution: {integrity: sha512-a4zUsWtA1uns1K7p9rExYVYG99rdKeGRymW0qOCNkvDPHQxVi3yVyJHhQbM3EZwdt2E0mnhr5e0c/bPpJ7p3Wg==}
     engines: {node: 10.* || >= 12.*}
+
+  broccoli-plugin@6.0.0:
+    resolution: {integrity: sha512-EyZ7CroBVosQZN9AfCdC9aIoaLytE601AQfmKg2U9EiuNS2K8Gj6Q8gmr8hGOUMGFKSf+yNMn7UCAncCWvgXUg==}
+    engines: {node: '>= 14.14'}
 
   broccoli-slow-trees@3.1.0:
     resolution: {integrity: sha512-FRI7mRTk2wjIDrdNJd6znS7Kmmne4VkAkl8Ix1R/VoePFMD0g0tEl671xswzFqaRjpT9Qu+CC4hdXDLDJBuzMw==}
@@ -3187,6 +3199,7 @@ packages:
   clone-buffer@1.0.0:
     resolution: {integrity: sha512-KLLTJWrvwIP+OPfMn0x2PheDEP20RPUcGXj/ERegTgdmPEZylALQldygiqrPPu8P45uNuPs7ckmReLY6v/iA5g==}
     engines: {node: '>= 0.10'}
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
 
   clone-stats@1.0.0:
     resolution: {integrity: sha512-au6ydSpg6nsrigcZ4m8Bc9hxjeW+GJ8xh5G3BJCMt4WXe1H10UNaVOamqQTmrx1kjVuxAHIQSNU6hY4Nsn9/ag==}
@@ -7742,10 +7755,10 @@ packages:
 
 snapshots:
 
-  '@1024pix/ember-testing-library@3.0.41(@babel/core@7.29.7(supports-color@8.1.1))(@glint/template@1.8.0)(ember-source@7.2.0(@glimmer/component@2.1.1(supports-color@8.1.1))(supports-color@8.1.1))(supports-color@8.1.1)':
+  '@1024pix/ember-testing-library@3.0.44(@babel/core@7.29.7(supports-color@8.1.1))(@glint/template@1.8.0)(ember-source@7.2.0(@glimmer/component@2.1.1(supports-color@8.1.1))(supports-color@8.1.1))(supports-color@8.1.1)':
     dependencies:
       '@testing-library/dom': 10.4.1
-      broccoli-funnel: 3.0.8(supports-color@8.1.1)
+      broccoli-funnel: 4.0.0(supports-color@8.1.1)
       ember-auto-import: 2.13.1(@glint/template@1.8.0)(supports-color@8.1.1)
       ember-cli-babel: 8.3.1(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1)
       ember-cli-htmlbars: 7.0.1(@babel/core@7.29.7(supports-color@8.1.1))(ember-source@7.2.0(@glimmer/component@2.1.1(supports-color@8.1.1))(supports-color@8.1.1))(supports-color@8.1.1)
@@ -10625,6 +10638,8 @@ snapshots:
 
   array-equal@1.0.2: {}
 
+  array-equal@2.0.0: {}
+
   array-includes@3.1.9:
     dependencies:
       call-bind: 1.0.9
@@ -11006,6 +11021,18 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  broccoli-funnel@4.0.0(supports-color@8.1.1):
+    dependencies:
+      array-equal: 2.0.0
+      broccoli-plugin: 6.0.0(supports-color@8.1.1)
+      debug: 4.4.3(supports-color@8.1.1)
+      fs-tree-diff: 2.0.1(supports-color@8.1.1)
+      heimdalljs: 0.2.6
+      minimatch: 10.2.6
+      walk-sync: 4.0.2
+    transitivePeerDependencies:
+      - supports-color
+
   broccoli-merge-trees@3.0.2(supports-color@8.1.1):
     dependencies:
       broccoli-plugin: 1.3.1
@@ -11096,6 +11123,16 @@ snapshots:
       promise-map-series: 0.3.0
       quick-temp: 0.1.9
       rimraf: 3.0.2
+      symlink-or-copy: 1.3.1
+    transitivePeerDependencies:
+      - supports-color
+
+  broccoli-plugin@6.0.0(supports-color@8.1.1):
+    dependencies:
+      broccoli-node-api: 1.7.0
+      broccoli-output-wrapper: 3.2.5(supports-color@8.1.1)
+      fs-merger: 3.2.1(supports-color@8.1.1)
+      promise-map-series: 0.3.0
       symlink-or-copy: 1.3.1
     transitivePeerDependencies:
       - supports-color
