@@ -237,8 +237,8 @@ importers:
         specifier: ^7.29.7
         version: 7.29.7(supports-color@8.1.1)
       '@babel/eslint-parser':
-        specifier: ^7.25.1
-        version: 7.29.7(@babel/core@7.29.7(supports-color@8.1.1))(eslint@9.39.5(jiti@2.7.0)(supports-color@8.1.1))
+        specifier: ^7.29.9
+        version: 7.29.9(@babel/core@7.29.7(supports-color@8.1.1))(eslint@9.39.5(jiti@2.7.0)(supports-color@8.1.1))
       '@babel/runtime':
         specifier: ^7.29.7
         version: 7.29.7
@@ -297,7 +297,7 @@ importers:
         specifier: ^5.5.6
         version: 5.5.6(@types/eslint@8.56.12)(eslint-config-prettier@10.1.8(eslint@9.39.5(jiti@2.7.0)(supports-color@8.1.1)))(eslint@9.39.5(jiti@2.7.0)(supports-color@8.1.1))(prettier@3.9.9)
       globals:
-        specifier: ^16.1.0
+        specifier: ^16.5.0
         version: 16.5.0
       prettier:
         specifier: ^3.9.8
@@ -553,13 +553,6 @@ packages:
   '@babel/core@7.29.7':
     resolution: {integrity: sha512-RgHBCvtjbOK2gXSNBNIkNoEc9qoVEtau3hj8gEqKQuL3HZAibKarWFEI3Lfm6EYKkLalOh8eSrj9b+ch9H/VBA==}
     engines: {node: '>=6.9.0'}
-
-  '@babel/eslint-parser@7.29.7':
-    resolution: {integrity: sha512-zxt+UJTOMKvUt3yOg+D58MLuz334pHp93qifMFcjIIO+9hN6t+ufw2gi7vDPMpxvfnHRR+3VVXvIjineCcgyXw==}
-    engines: {node: ^10.13.0 || ^12.13.0 || >=14.0.0}
-    peerDependencies:
-      '@babel/core': ^7.11.0
-      eslint: ^7.5.0 || ^8.0.0 || ^9.0.0
 
   '@babel/eslint-parser@7.29.9':
     resolution: {integrity: sha512-GmrJTAtiRbNip+eKFqeuSvoHMJhKlH36j8U0yE3Gqn45B+SIO7NvsEiHtsmzkBqV1hLSMqYr41dI1aZLTkJ37g==}
@@ -1548,16 +1541,6 @@ packages:
 
   '@glimmer/wire-format@0.94.8':
     resolution: {integrity: sha512-A+Cp5m6vZMAEu0Kg/YwU2dJZXyYxVJs2zI57d3CP6NctmX7FsT8WjViiRUmt5abVmMmRH5b8BUovqY6GSMAdrw==}
-
-  '@glint/ember-tsc@1.10.0':
-    resolution: {integrity: sha512-861yPIu5fNTZwCkKrnTiP2r+roc2JwxCHljoihDpv7eduzpeuiXZxh+hCpvSxume6znv8oRBX96u86FBtk0YqA==}
-    hasBin: true
-    peerDependencies:
-      ember-source: '>=3.28.0'
-      typescript: '>=5.6.0'
-    peerDependenciesMeta:
-      ember-source:
-        optional: true
 
   '@glint/ember-tsc@1.11.6':
     resolution: {integrity: sha512-+UEkP71/fCijNBd2teUm3fjlnY9A22ZY20VNSYVnMf+i+TO4Zp91Ws4zJpjjAFc2TMppjscMluQLrbKrUHn/BQ==}
@@ -8105,14 +8088,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@babel/eslint-parser@7.29.7(@babel/core@7.29.7(supports-color@8.1.1))(eslint@9.39.5(jiti@2.7.0)(supports-color@8.1.1))':
-    dependencies:
-      '@babel/core': 7.29.7(supports-color@8.1.1)
-      '@nicolo-ribaudo/eslint-scope-5-internals': 5.1.1-v1
-      eslint: 9.39.5(jiti@2.7.0)(supports-color@8.1.1)
-      eslint-visitor-keys: 2.1.0
-      semver: 6.3.1
-
   '@babel/eslint-parser@7.29.9(@babel/core@7.29.7(supports-color@8.1.1))(eslint@9.39.5(jiti@2.7.0)(supports-color@8.1.1))':
     dependencies:
       '@babel/core': 7.29.7(supports-color@8.1.1)
@@ -9802,30 +9777,6 @@ snapshots:
   '@glimmer/wire-format@0.94.8':
     dependencies:
       '@glimmer/interfaces': 0.94.6
-
-  '@glint/ember-tsc@1.10.0(ember-source@7.2.0(@glimmer/component@2.1.1(supports-color@8.1.1))(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3)':
-    dependencies:
-      '@glimmer/syntax': 0.95.0
-      '@glint/template': 1.9.0
-      '@volar/kit': 2.4.28(typescript@6.0.3)
-      '@volar/language-core': 2.4.28
-      '@volar/language-server': 2.4.28(typescript@6.0.3)
-      '@volar/language-service': 2.4.28(typescript@6.0.3)
-      '@volar/source-map': 2.4.28
-      '@volar/test-utils': 2.4.28(typescript@6.0.3)
-      '@volar/typescript': 2.4.28(typescript@6.0.3)
-      content-tag: 4.2.0
-      silent-error: 1.1.1(supports-color@8.1.1)
-      typescript: 6.0.3
-      volar-service-html: 0.0.71(@volar/language-service@2.4.28(typescript@6.0.3))
-      volar-service-typescript: 0.0.71(@volar/language-service@2.4.28(typescript@6.0.3))(typescript@6.0.3)
-      vscode-languageserver-protocol: 3.18.2
-      vscode-languageserver-textdocument: 1.0.12
-      vscode-uri: 3.1.0
-    optionalDependencies:
-      ember-source: 7.2.0(@glimmer/component@2.1.1(supports-color@8.1.1))(supports-color@8.1.1)
-    transitivePeerDependencies:
-      - supports-color
 
   '@glint/ember-tsc@1.11.6(ember-source@7.2.0(@glimmer/component@2.1.1(supports-color@8.1.1))(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3)':
     dependencies:
