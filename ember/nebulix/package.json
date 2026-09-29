@@ -91,7 +91,7 @@
     "rollup": "^4.22.5",
     "svg-sprite": "^2.0.4",
     "svgo": "^4.0.2",
-    "typescript": "^6.0.3"
+    "typescript": "^7.0.2"
   },
   "ember": {
     "edition": "octane"
