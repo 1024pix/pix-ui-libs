@@ -134,8 +134,8 @@ importers:
         specifier: ^2.4.0
         version: 2.4.0(@babel/core@7.29.7(supports-color@8.1.1))
       ember-cli:
-        specifier: ~7.2.0
-        version: 7.2.0(@babel/core@7.29.7(supports-color@8.1.1))(@types/node@26.2.0)(debug@4.4.3(supports-color@8.1.1))(ejs@3.1.10)(handlebars@4.7.9)(supports-color@8.1.1)(underscore@1.13.8)
+        specifier: ~7.3.0
+        version: 7.3.0(@babel/core@7.29.7(supports-color@8.1.1))(@types/node@26.2.0)(debug@4.4.3(supports-color@8.1.1))(ejs@3.1.10)(handlebars@4.7.9)(supports-color@8.1.1)(underscore@1.13.8)
       ember-cli-babel:
         specifier: ^8.3.2
         version: 8.3.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1)
@@ -1083,9 +1083,6 @@ packages:
     peerDependencies:
       '@babel/core': ^7.0.0-0 || ^8.0.0-0 <8.0.0
 
-  '@babel/runtime@7.12.18':
-    resolution: {integrity: sha512-BogPQ7ciE6SYAUPtlm9tWbgI9+2AgqSam6QivMgXgAT+fKbgppaj4ZX15MHeLC1PVF5sNk70huBu20XxWOs8Cg==}
-
   '@babel/runtime@7.29.7':
     resolution: {integrity: sha512-Nq8OhGWiZIZGV6hLHoyAKLLcJihP/xFeBMGJoUrxTX2psI8dCifzLhZISFb+VWS3wFMRDmCGw5R+dOySCqPLhw==}
     engines: {node: '>=6.9.0'}
@@ -1327,11 +1324,20 @@ packages:
   '@ember-tooling/classic-build-addon-blueprint@7.2.0':
     resolution: {integrity: sha512-/pUXRe2k6pZ4YVNAVMZfMdN00GUJgNrerNY2eajhUNgtTfQvdmK8MBNUNQ7e1fBC+x0UptR7lmQtVssDy2uKWw==}
 
+  '@ember-tooling/classic-build-addon-blueprint@7.3.0':
+    resolution: {integrity: sha512-czapzVozpPlITjnMDEBUgX1zP0iiO2drmEnQmK2Z3fC5aW0mW7zJVAFRFsACfi46pL6Rhujvn6N0nr4acQIHaw==}
+
   '@ember-tooling/classic-build-app-blueprint@7.2.0':
     resolution: {integrity: sha512-7CsesB6uM+0Ca1RqvzzHb+elXC7Bv2tj+t6KVEhhcDEqfyxvmtzjm4fnsO3g0hmFhm4buhJ+StyIiyd3owP1Lw==}
 
+  '@ember-tooling/classic-build-app-blueprint@7.3.0':
+    resolution: {integrity: sha512-b8yI/kWqmxWKiZUfObL0hsJu61wUGXQAgmIr4HnerW2Uyge/Jta7py/cNVa+GLDl/xOWjZJltIr1EqIyoF6Sng==}
+
   '@ember/app-blueprint@7.2.1':
     resolution: {integrity: sha512-Nxyirrm6rAnZwZUZlTahR34vyFpRYL8zGAbztBKu1kgXvl3TIceDjXgCxjRLFciNM6k/LGQOkkK5doNVxsT++w==}
+
+  '@ember/app-blueprint@7.3.1':
+    resolution: {integrity: sha512-wCZ5pkNvSOU6ZBofSR6xtXs+vL5Z8wQm49qn6VmATxiPhc5IYHYqX5FdLLXVWOe8iQQ4XVxEL6w1iTc/f2hE9Q==}
 
   '@ember/app-tsconfig@2.0.0':
     resolution: {integrity: sha512-NmD1OZFtCF49k4WDaPdhGP4OKoRbPaXpTBO3AsJe0okIJeCVUiEiC8YUpfTJmld9EJOEa9mW/p0tJQS70GktOA==}
@@ -1544,9 +1550,6 @@ packages:
 
   '@glint/template@1.8.0':
     resolution: {integrity: sha512-TeVv3JnM0wbF86Sl2YyNhxeTEPnR5Q0xtIKqZueVzX8ouL3bj49Rk1gS0jFq7FNL7u6R+1oqToZBQmI+OCL4QA==}
-
-  '@glint/tsserver-plugin@2.7.0':
-    resolution: {integrity: sha512-sID/TfqvIZL6Igf3zrBeSQ32Y1xlSLiBqX6GkNNeiu5nxUHSxrala0zzDT/vgLm8E/BcvqcfzX6E1L040N+iWg==}
 
   '@glint/tsserver-plugin@2.7.9':
     resolution: {integrity: sha512-W8J8ild0o1WV6Fy4SaZzhKOVYr3u0D5hKoTIonNOh3ixKMASzlz+xwNZ6YH30jY7N7GCt6pB4jYD7nUrxjiZxQ==}
@@ -3492,6 +3495,10 @@ packages:
     resolution: {integrity: sha512-9mAqGPHLakhCLeNyxPkK4xVo746zQ/czLH1Ky+vkitMnWfWZps8r0qXuwhwizagCRttsL4lfG4pIOvaWLpAP0w==}
     engines: {node: '>= 0.8.0'}
 
+  compression@1.8.2:
+    resolution: {integrity: sha512-o8vI5RE5A6EVVOd9o41jKp41aJom+QTEO/Bx8MYNjexMo/Bv2WOjUfZr+aL0WnYSgymUy6zeguqLTsIhV0gMvQ==}
+    engines: {node: '>= 0.8.0'}
+
   concat-map@0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
 
@@ -3867,6 +3874,10 @@ packages:
     resolution: {integrity: sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA==}
     engines: {node: '>=6'}
 
+  destroy@1.2.0:
+    resolution: {integrity: sha512-2sJGJTaXIIaR1w4iJSNoN0hnMY7Gpc/n8D4qSCJw8QqFWXf7cuAgnEHxBpweaVcPevC2l3KpjYCx3NypQQgaJg==}
+    engines: {node: '>= 0.8', npm: 1.2.8000 || >= 1.4.16}
+
   detect-file@1.0.0:
     resolution: {integrity: sha512-DtCOLG98P007x7wiiOmfI0fi3eIKyWiLTGJ2MDnVi/E04lWGbf+JzrRHMm0rgIIZJGtHpKpbVgLWHrv8xXpc3Q==}
     engines: {node: '>=0.10.0'}
@@ -3968,12 +3979,6 @@ packages:
     resolution: {integrity: sha512-sKvOiPNHr5F/60NLd7SFzMpYPte/nnGkq/tMIfXejfKHIhaiIkYFqX8Z9UFTKWLLn+V7NOaby6niNPZUdvKCRw==}
     engines: {node: 6.* || 8.* || >= 10.*}
 
-  ember-cli-babel@8.3.1:
-    resolution: {integrity: sha512-Pxm5JP0jQ6fCBlXuh1BFmhrg2/5YXjhf16JI/n8ReOR6Nl+fEbudMpdO69LlqZRsMmTgdjCRmfSxMh26Wsw/rw==}
-    engines: {node: 16.* || 18.* || >= 20}
-    peerDependencies:
-      '@babel/core': ^7.12.0
-
   ember-cli-babel@8.3.2:
     resolution: {integrity: sha512-Thvqx+jwGYhimYbkkL0gwhwMlhghTIR3uQ9R0yNaTjBIttZIfSWJ/2W40kaJlwhnsElXq7zbFjZcff22p6nzCg==}
     engines: {node: 16.* || 18.* || >= 20}
@@ -4015,6 +4020,11 @@ packages:
 
   ember-cli@7.2.0:
     resolution: {integrity: sha512-EafquLJ+EVHz0nNo32NWwAfHr5UxTXn9zdlukuKZFSFrR4G6RRStmBPQ5O0bLSaQVDtU+jOe5gGTHSS4Xy3uQA==}
+    engines: {node: '>= 20.19.0'}
+    hasBin: true
+
+  ember-cli@7.3.0:
+    resolution: {integrity: sha512-FZX9IoFioIn6V86t2TwbNtcr+TyzYoSf+dMR6tA/tFCePDJtIhnrMOChnYrgsSbuTecwSP3vivjHfrezrQHOOA==}
     engines: {node: '>= 20.19.0'}
     hasBin: true
 
@@ -4555,6 +4565,10 @@ packages:
     resolution: {integrity: sha512-RlCVs9CY+oSsRnNZn95J9vDXjNjOwddKyTFjOYtA4yxYVIxBnwiVVGJX+TFhsmu3uUf81JDGyijtYL9xgawlTw==}
     engines: {node: '>= 10.8.0'}
 
+  filesize@11.0.25:
+    resolution: {integrity: sha512-oPVK4S+B5nRK8eL5FORi4RSzbz/1PmUx17NQLMIWv8tlNVDUFgLY0GNApL7tEebL4WgkBqSJGB3AJsCXUs01hw==}
+    engines: {node: '>= 10.8.0'}
+
   fill-range@7.1.1:
     resolution: {integrity: sha512-YsGpe3WHLK8ZYi4tWDg2Jy3ebRz2rXowDxnld4bkQB00cc/1Zw9AWnC0i9ztDJitivtQvaI9KaLyKrc+hBW0yg==}
     engines: {node: '>=8'}
@@ -4976,6 +4990,9 @@ packages:
     resolution: {integrity: sha512-vK9P5/iUfdl95AI+JVyUuIcVtd4ofvtrOr3HNtM2yxC9bnMbEdp3x01OhQNnjb8IJYi38VlTE3mBXwcfvywuSw==}
     engines: {node: '>= 14'}
 
+  httpxy@0.5.5:
+    resolution: {integrity: sha512-uDjmnPyp1q4Sgzf3w+J/Fc6UqcCEj0x4Wjp7OqK5dGhNeDgpyrAmnS6ey8QWrX3SWDon2DMKf9sBa5X9+CVyMA==}
+
   human-id@4.2.1:
     resolution: {integrity: sha512-zPGsiS+dWoTZtZ4AtpA9Y+BdSFSNWvnouNlWNoUFyAM6xHOHmdCvqO3k8AIbdamCOv4gUFUVNPf6rJFfc4UiJw==}
     hasBin: true
@@ -5161,6 +5178,10 @@ packages:
 
   is-language-code@5.2.0:
     resolution: {integrity: sha512-MPeUhXo4aMuHk/rwPywUY1frKY/QJy4EP/VWocqmvQiqPdHBknWrjLMNr5H5YRQP1CmjHTv56yjy6xlm0j8s6w==}
+    engines: {node: '>=18.20.8'}
+
+  is-language-code@5.2.2:
+    resolution: {integrity: sha512-k1sHKmFnGUwKYgzEX4lLrRONPOQZ49sxI1unasz+ldcddmJj3c7PLmxVxazZtRGJO4Aiww6CrRbCp3upJBa5Gw==}
     engines: {node: '>=18.20.8'}
 
   is-map@2.0.3:
@@ -5597,6 +5618,10 @@ packages:
     resolution: {integrity: sha512-RCEsPjR+sr0x+AuYp601tKTkgFG4YEPLCzHST3cQ/fhlJkqAkz1L2/Qbp1j9qw5SBwQHFBoW8+hoN5xssOF0Tw==}
     hasBin: true
 
+  markdown-it@14.3.2:
+    resolution: {integrity: sha512-sHHjZ5fJKlgrG4qns2YwVcdNep35h5fERrfkD2YNsb9UFk0UIHarbiTaHKVMlPuWAoiilyK8Fv/jAm11slsY7Q==}
+    hasBin: true
+
   markdown-table@3.0.4:
     resolution: {integrity: sha512-wiYz4+JrLyb/DqW2hkFJxP7Vd7JuTDm77fvbM8VfEQdmSMqcImWeeRbHwZjBjIFki/VaMK2BhFi7oUUZeM5bqw==}
 
@@ -5882,6 +5907,10 @@ packages:
 
   morgan@1.11.0:
     resolution: {integrity: sha512-zSkVu3t18r39pw4ixfBKvfZi3y2UOqr7d4WYwcj3m8nXpEQK4rPO6GLzs/CExoRgmX3y9EjmmcXqv6jq0SK46g==}
+    engines: {node: '>= 0.8.0'}
+
+  morgan@1.12.1:
+    resolution: {integrity: sha512-tljKC0ex20AjO58Ob/eZ53JloycbVswbVNCHx6V6VLGzqt/w8dIynVGL0G8qVjNKwiA7sYSogCrN6QtJ82IV+g==}
     engines: {node: '>= 0.8.0'}
 
   mri@1.2.0:
@@ -6446,9 +6475,6 @@ packages:
 
   regenerate@1.4.2:
     resolution: {integrity: sha512-zrceR/XhGYU/d/opr2EKO7aRHUeiBI8qjtfHqADTwZd6Szfy16la6kqD0MIUs5z5hx6AaKa+PixpPrR289+I0A==}
-
-  regenerator-runtime@0.13.11:
-    resolution: {integrity: sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==}
 
   regex-recursion@6.0.2:
     resolution: {integrity: sha512-0YCaSCq2VRIebiaUviZNs0cBz1kg5kVS2UKUfNIx8YVs1cN3AV7NTctO5FOKBA+UT2BPJIWZauYHPqJODG50cg==}
@@ -7252,6 +7278,11 @@ packages:
     engines: {node: ^20.19.0 || ^22.12.0 || >=24.0.0}
     hasBin: true
 
+  testem@3.21.0:
+    resolution: {integrity: sha512-7DLAgvhK0qRfr7mFVD69o3Z2Jb8GDAJ9LfCre7jJJqsa88SDqE2M686SXTQHIpRFUEYi2RrXSu5414kSjX50uw==}
+    engines: {node: ^20.19.0 || ^22.12.0 || ^24.0.0 || >= 26.0.0}
+    hasBin: true
+
   text-hex@1.0.0:
     resolution: {integrity: sha512-uuVGNWzgJ4yhRaNSiubPY7OjISw4sw4E5Uv0wbjp+OzcbmVU/rsT8ujgcXJhn9ypzsgr5vlzpPqP+MBBKcGvbg==}
 
@@ -7751,6 +7782,10 @@ packages:
 
   watch-detector@1.0.2:
     resolution: {integrity: sha512-MrJK9z7kD5Gl3jHBnnBVHvr1saVGAfmkyyrvuNzV/oe0Gr1nwZTy5VSA0Gw2j2Or0Mu8HcjUa44qlBvC2Ofnpg==}
+    engines: {node: '>= 8'}
+
+  watch-detector@1.0.3:
+    resolution: {integrity: sha512-c9gP6tfJ8vK+eH84IF4+8r4Z/g2KhRc+XwLGl208tAIHR1mz0o7zy5Hkm+4XpACh8lNp9/EHqXHIQkw2nBbdYA==}
     engines: {node: '>= 8'}
 
   wcwidth@1.0.1:
@@ -8733,10 +8768,6 @@ snapshots:
       '@babel/types': 7.29.8
       esutils: 2.0.3
 
-  '@babel/runtime@7.12.18':
-    dependencies:
-      regenerator-runtime: 0.13.11
-
   '@babel/runtime@7.29.7': {}
 
   '@babel/template@7.29.7':
@@ -9222,7 +9253,29 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  '@ember-tooling/classic-build-addon-blueprint@7.3.0(supports-color@8.1.1)':
+    dependencies:
+      '@ember-tooling/blueprint-model': 0.7.1(supports-color@8.1.1)
+      chalk: 5.6.2
+      ember-cli-normalize-entity-name: 1.0.0(supports-color@8.1.1)
+      ember-cli-string-utils: 1.1.0
+      fs-extra: 11.4.0
+      lodash: 4.18.1
+      silent-error: 1.1.1(supports-color@8.1.1)
+      sort-package-json: 2.15.1
+      walk-sync: 3.0.0
+    transitivePeerDependencies:
+      - supports-color
+
   '@ember-tooling/classic-build-app-blueprint@7.2.0(supports-color@8.1.1)':
+    dependencies:
+      '@ember-tooling/blueprint-model': 0.7.1(supports-color@8.1.1)
+      chalk: 5.6.2
+      ember-cli-string-utils: 1.1.0
+    transitivePeerDependencies:
+      - supports-color
+
+  '@ember-tooling/classic-build-app-blueprint@7.3.0(supports-color@8.1.1)':
     dependencies:
       '@ember-tooling/blueprint-model': 0.7.1(supports-color@8.1.1)
       chalk: 5.6.2
@@ -9236,6 +9289,13 @@ snapshots:
       ember-cli-string-utils: 1.1.0
       lodash: 4.18.1
       sort-package-json: 3.7.1
+      walk-sync: 4.0.2
+
+  '@ember/app-blueprint@7.3.1':
+    dependencies:
+      ejs: 3.1.10
+      ember-cli-string-utils: 1.1.0
+      lodash: 4.18.1
       walk-sync: 4.0.2
 
   '@ember/app-tsconfig@2.0.0': {}
@@ -9624,30 +9684,6 @@ snapshots:
     dependencies:
       '@glimmer/interfaces': 0.94.6
 
-  '@glint/ember-tsc@1.10.0(ember-source@7.2.0(@glimmer/component@2.1.1(supports-color@8.1.1))(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3)':
-    dependencies:
-      '@glimmer/syntax': 0.95.0
-      '@glint/template': 1.8.0
-      '@volar/kit': 2.4.28(typescript@5.9.3)
-      '@volar/language-core': 2.4.28
-      '@volar/language-server': 2.4.28(typescript@5.9.3)
-      '@volar/language-service': 2.4.28(typescript@5.9.3)
-      '@volar/source-map': 2.4.28
-      '@volar/test-utils': 2.4.28(typescript@5.9.3)
-      '@volar/typescript': 2.4.28(typescript@5.9.3)
-      content-tag: 4.2.0
-      silent-error: 1.1.1(supports-color@8.1.1)
-      typescript: 5.9.3
-      volar-service-html: 0.0.71(@volar/language-service@2.4.28(typescript@5.9.3))
-      volar-service-typescript: 0.0.71(@volar/language-service@2.4.28(typescript@5.9.3))(typescript@5.9.3)
-      vscode-languageserver-protocol: 3.18.2
-      vscode-languageserver-textdocument: 1.0.12
-      vscode-uri: 3.1.0
-    optionalDependencies:
-      ember-source: 7.2.0(@glimmer/component@2.1.1(supports-color@8.1.1))(supports-color@8.1.1)
-    transitivePeerDependencies:
-      - supports-color
-
   '@glint/ember-tsc@1.10.0(ember-source@7.2.0(@glimmer/component@2.1.1(supports-color@8.1.1))(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3)':
     dependencies:
       '@glimmer/syntax': 0.95.0
@@ -9698,17 +9734,6 @@ snapshots:
       - supports-color
 
   '@glint/template@1.8.0': {}
-
-  '@glint/tsserver-plugin@2.7.0(ember-source@7.2.0(@glimmer/component@2.1.1(supports-color@8.1.1))(supports-color@8.1.1))(supports-color@8.1.1)':
-    dependencies:
-      '@glint/ember-tsc': 1.10.0(ember-source@7.2.0(@glimmer/component@2.1.1(supports-color@8.1.1))(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3)
-      '@volar/language-core': 2.4.28
-      '@volar/typescript': 2.4.28(typescript@5.9.3)
-      jiti: 2.7.0
-      typescript: 5.9.3
-    transitivePeerDependencies:
-      - ember-source
-      - supports-color
 
   '@glint/tsserver-plugin@2.7.9(ember-source@7.2.0(@glimmer/component@2.1.1(supports-color@8.1.1))(supports-color@8.1.1))(supports-color@8.1.1)':
     dependencies:
@@ -11818,6 +11843,19 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  compression@1.8.2(supports-color@8.1.1):
+    dependencies:
+      bytes: 3.1.2
+      compressible: 2.0.18
+      debug: 2.6.9(supports-color@8.1.1)
+      destroy: 1.2.0
+      negotiator: 0.6.4
+      on-headers: 1.1.0
+      safe-buffer: 5.2.1
+      vary: 1.1.2
+    transitivePeerDependencies:
+      - supports-color
+
   concat-map@0.0.1: {}
 
   concurrently@9.2.4:
@@ -12072,6 +12110,8 @@ snapshots:
 
   dequal@2.0.3: {}
 
+  destroy@1.2.0: {}
+
   detect-file@1.0.0: {}
 
   detect-indent@7.0.2: {}
@@ -12207,39 +12247,6 @@ snapshots:
       - webpack
 
   ember-cli-babel-plugin-helpers@1.1.1: {}
-
-  ember-cli-babel@8.3.1(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1):
-    dependencies:
-      '@babel/core': 7.29.7(supports-color@8.1.1)
-      '@babel/helper-compilation-targets': 7.29.7
-      '@babel/plugin-proposal-decorators': 7.29.7(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1)
-      '@babel/plugin-transform-class-properties': 7.29.7(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1)
-      '@babel/plugin-transform-class-static-block': 7.29.7(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1)
-      '@babel/plugin-transform-modules-amd': 7.29.7(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1)
-      '@babel/plugin-transform-private-methods': 7.29.7(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1)
-      '@babel/plugin-transform-private-property-in-object': 7.29.7(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1)
-      '@babel/plugin-transform-runtime': 7.29.7(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1)
-      '@babel/plugin-transform-typescript': 7.29.9(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1)
-      '@babel/preset-env': 7.29.7(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1)
-      '@babel/runtime': 7.12.18
-      amd-name-resolver: 1.3.1
-      babel-plugin-debug-macros: 0.3.4(@babel/core@7.29.7(supports-color@8.1.1))
-      babel-plugin-ember-data-packages-polyfill: 0.1.2
-      babel-plugin-ember-modules-api-polyfill: 3.5.0
-      babel-plugin-module-resolver: 5.0.3
-      broccoli-babel-transpiler: 8.0.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1)
-      broccoli-debug: 0.6.5(supports-color@8.1.1)
-      broccoli-funnel: 3.0.8(supports-color@8.1.1)
-      broccoli-source: 3.0.1
-      calculate-cache-key-for-tree: 2.0.0
-      clone: 2.1.2
-      ember-cli-babel-plugin-helpers: 1.1.1
-      ember-cli-version-checker: 5.1.2(supports-color@8.1.1)
-      ensure-posix-path: 1.1.1
-      resolve-package-path: 4.0.3
-      semver: 7.8.5
-    transitivePeerDependencies:
-      - supports-color
 
   ember-cli-babel@8.3.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1):
     dependencies:
@@ -12413,6 +12420,146 @@ snapshots:
       tree-sync: 2.1.0(supports-color@8.1.1)
       walk-sync: 4.0.2
       watch-detector: 1.0.2(supports-color@8.1.1)
+      workerpool: 10.0.3
+      yam: 1.0.0
+    transitivePeerDependencies:
+      - '@babel/core'
+      - '@types/node'
+      - arc-templates
+      - atpl
+      - bracket-template
+      - bufferutil
+      - coffee-script
+      - debug
+      - dot
+      - dust
+      - dustjs-helpers
+      - dustjs-linkedin
+      - eco
+      - ect
+      - ejs
+      - haml-coffee
+      - hamlet
+      - hamljs
+      - handlebars
+      - hogan.js
+      - htmling
+      - jazz
+      - jqtpl
+      - just
+      - liquid-node
+      - liquor
+      - mote
+      - nunjucks
+      - plates
+      - pug
+      - qejs
+      - ractive
+      - react
+      - react-dom
+      - slm
+      - supports-color
+      - swig
+      - swig-templates
+      - teacup
+      - templayed
+      - then-pug
+      - tinyliquid
+      - toffee
+      - twig
+      - twing
+      - underscore
+      - utf-8-validate
+      - vash
+      - velocityjs
+      - walrus
+      - whiskers
+
+  ember-cli@7.3.0(@babel/core@7.29.7(supports-color@8.1.1))(@types/node@26.2.0)(debug@4.4.3(supports-color@8.1.1))(ejs@3.1.10)(handlebars@4.7.9)(supports-color@8.1.1)(underscore@1.13.8):
+    dependencies:
+      '@ember-tooling/blueprint-blueprint': 0.3.0
+      '@ember-tooling/blueprint-model': 0.7.1(supports-color@8.1.1)
+      '@ember-tooling/classic-build-addon-blueprint': 7.3.0(supports-color@8.1.1)
+      '@ember-tooling/classic-build-app-blueprint': 7.3.0(supports-color@8.1.1)
+      '@ember/app-blueprint': 7.3.1
+      '@pnpm/find-workspace-dir': 1000.1.5
+      babel-remove-types: 2.0.0(supports-color@8.1.1)
+      broccoli: 4.0.0(supports-color@8.1.1)
+      broccoli-concat: 4.2.7(supports-color@8.1.1)
+      broccoli-config-loader: 1.0.1(supports-color@8.1.1)
+      broccoli-config-replace: 1.1.3(supports-color@8.1.1)
+      broccoli-debug: 0.6.5(supports-color@8.1.1)
+      broccoli-funnel: 3.0.8(supports-color@8.1.1)
+      broccoli-funnel-reducer: 1.0.0
+      broccoli-merge-trees: 4.2.0(supports-color@8.1.1)
+      broccoli-middleware: 2.1.2
+      broccoli-slow-trees: 3.1.0
+      broccoli-source: 3.0.1
+      broccoli-stew: 3.0.0(supports-color@8.1.1)
+      calculate-cache-key-for-tree: 2.0.0
+      capture-exit: 2.0.0
+      chalk: 5.6.2
+      ci-info: 4.4.0
+      clean-base-url: 1.0.0
+      compression: 1.8.2(supports-color@8.1.1)
+      configstore: 8.0.0
+      console-ui: 3.1.2
+      content-tag: 4.2.0
+      core-object: 3.1.5
+      dag-map: 2.0.2
+      diff: 8.0.4
+      ember-cli-is-package-missing: 1.0.0
+      ember-cli-normalize-entity-name: 1.0.0(supports-color@8.1.1)
+      ember-cli-preprocess-registry: 5.0.1(supports-color@8.1.1)
+      ember-cli-string-utils: 1.1.0
+      ensure-posix-path: 1.1.1
+      execa: 9.6.1
+      exit: 0.1.2
+      express: 5.2.1(supports-color@8.1.1)
+      filesize: 11.0.25
+      find-up: 8.0.0
+      find-yarn-workspace-root: 2.0.0
+      fs-extra: 11.4.0
+      fs-tree-diff: 2.0.1(supports-color@8.1.1)
+      get-caller-file: 2.0.5
+      git-repo-info: 2.1.1
+      glob: 13.0.6
+      heimdalljs: 0.2.6
+      heimdalljs-fs-monitor: 1.1.2(supports-color@8.1.1)
+      heimdalljs-graph: 1.0.0
+      heimdalljs-logger: 0.1.10(supports-color@8.1.1)
+      http-proxy: 1.18.1(debug@4.4.3(supports-color@8.1.1))
+      inflection: 3.0.2
+      inquirer: 13.4.3(@types/node@26.2.0)
+      is-git-url: 1.0.0
+      is-language-code: 5.2.2
+      lodash: 4.18.1
+      markdown-it: 14.3.2
+      markdown-it-terminal: 0.4.0(markdown-it@14.3.2)
+      minimatch: 10.2.6
+      morgan: 1.12.1(supports-color@8.1.1)
+      nopt: 3.0.6
+      npm-package-arg: 13.0.2
+      os-locale: 6.0.2
+      p-defer: 4.0.1
+      portfinder: 1.0.38(supports-color@8.1.1)
+      promise-map-series: 0.3.0
+      promise.hash.helper: 1.0.8
+      quick-temp: 0.1.9
+      resolve: 1.22.12
+      resolve-package-path: 4.0.3
+      safe-stable-stringify: 2.5.0
+      sane: 5.0.1
+      semver: 7.8.5
+      semver-deprecate: 1.1.0
+      silent-error: 1.1.1(supports-color@8.1.1)
+      sort-package-json: 3.7.1
+      symlink-or-copy: 1.3.1
+      testem: 3.21.0(@babel/core@7.29.7(supports-color@8.1.1))(ejs@3.1.10)(handlebars@4.7.9)(supports-color@8.1.1)(underscore@1.13.8)
+      tiny-lr: 2.0.0(supports-color@8.1.1)
+      tree-sync: 2.1.0(supports-color@8.1.1)
+      walk-sync: 4.0.2
+      watch-detector: 1.0.3(supports-color@8.1.1)
       workerpool: 10.0.3
       yam: 1.0.0
     transitivePeerDependencies:
@@ -13242,6 +13389,8 @@ snapshots:
 
   filesize@11.0.22: {}
 
+  filesize@11.0.25: {}
+
   fill-range@7.1.1:
     dependencies:
       to-regex-range: 5.0.1
@@ -13811,6 +13960,8 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  httpxy@0.5.5: {}
+
   human-id@4.2.1: {}
 
   human-signals@1.1.1: {}
@@ -13980,6 +14131,8 @@ snapshots:
       is-extglob: 2.1.1
 
   is-language-code@5.2.0: {}
+
+  is-language-code@5.2.2: {}
 
   is-map@2.0.3: {}
 
@@ -14448,7 +14601,24 @@ snapshots:
       lodash.merge: 4.6.2
       markdown-it: 14.3.0
 
+  markdown-it-terminal@0.4.0(markdown-it@14.3.2):
+    dependencies:
+      ansi-styles: 3.2.1
+      cardinal: 1.0.0
+      cli-table: 0.3.11
+      lodash.merge: 4.6.2
+      markdown-it: 14.3.2
+
   markdown-it@14.3.0:
+    dependencies:
+      argparse: 2.0.1
+      entities: 4.5.0
+      linkify-it: 5.0.2
+      mdurl: 2.1.0
+      punycode.js: 2.3.1
+      uc.micro: 2.1.0
+
+  markdown-it@14.3.2:
     dependencies:
       argparse: 2.0.1
       entities: 4.5.0
@@ -14900,6 +15070,16 @@ snapshots:
   mktemp@2.0.3: {}
 
   morgan@1.11.0(supports-color@8.1.1):
+    dependencies:
+      basic-auth: 2.0.1
+      debug: 2.6.9(supports-color@8.1.1)
+      depd: 2.0.0
+      on-finished: 2.4.1
+      on-headers: 1.1.0
+    transitivePeerDependencies:
+      - supports-color
+
+  morgan@1.12.1(supports-color@8.1.1):
     dependencies:
       basic-auth: 2.0.1
       debug: 2.6.9(supports-color@8.1.1)
@@ -15473,8 +15653,6 @@ snapshots:
       regenerate: 1.4.2
 
   regenerate@1.4.2: {}
-
-  regenerator-runtime@0.13.11: {}
 
   regex-recursion@6.0.2:
     dependencies:
@@ -16581,6 +16759,81 @@ snapshots:
       - walrus
       - whiskers
 
+  testem@3.21.0(@babel/core@7.29.7(supports-color@8.1.1))(ejs@3.1.10)(handlebars@4.7.9)(supports-color@8.1.1)(underscore@1.13.8):
+    dependencies:
+      '@xmldom/xmldom': 0.9.11
+      backbone: 1.6.1
+      charm: 1.0.2
+      chokidar: 5.0.0
+      commander: 14.0.3
+      compression: 1.8.1(supports-color@8.1.1)
+      consolidate: 1.0.4(@babel/core@7.29.7(supports-color@8.1.1))(ejs@3.1.10)(handlebars@4.7.9)(lodash@4.18.1)(mustache@4.2.0)(underscore@1.13.8)
+      execa: 9.6.1
+      express: 5.2.1(supports-color@8.1.1)
+      glob: 13.0.6
+      httpxy: 0.5.5
+      js-yaml: 5.3.0
+      lodash: 4.18.1
+      minimatch: 10.2.6
+      mustache: 4.2.0
+      proc-log: 6.1.0
+      rimraf: 6.1.3
+      socket.io: 4.8.3(supports-color@8.1.1)
+      spawn-args: 0.2.0
+      styled_string: 0.0.1
+      tap-parser: 18.3.4
+      toasted-notifier: 10.1.0
+    transitivePeerDependencies:
+      - '@babel/core'
+      - arc-templates
+      - atpl
+      - bracket-template
+      - bufferutil
+      - coffee-script
+      - dot
+      - dust
+      - dustjs-helpers
+      - dustjs-linkedin
+      - eco
+      - ect
+      - ejs
+      - haml-coffee
+      - hamlet
+      - hamljs
+      - handlebars
+      - hogan.js
+      - htmling
+      - jazz
+      - jqtpl
+      - just
+      - liquid-node
+      - liquor
+      - mote
+      - nunjucks
+      - plates
+      - pug
+      - qejs
+      - ractive
+      - react
+      - react-dom
+      - slm
+      - supports-color
+      - swig
+      - swig-templates
+      - teacup
+      - templayed
+      - then-pug
+      - tinyliquid
+      - toffee
+      - twig
+      - twing
+      - underscore
+      - utf-8-validate
+      - vash
+      - velocityjs
+      - walrus
+      - whiskers
+
   text-hex@1.0.0: {}
 
   textextensions@2.6.0: {}
@@ -17096,6 +17349,14 @@ snapshots:
       heimdalljs-logger: 0.1.10(supports-color@8.1.1)
       silent-error: 1.1.1(supports-color@8.1.1)
       tmp: 0.1.0
+    transitivePeerDependencies:
+      - supports-color
+
+  watch-detector@1.0.3(supports-color@8.1.1):
+    dependencies:
+      heimdalljs-logger: 0.1.10(supports-color@8.1.1)
+      silent-error: 1.1.1(supports-color@8.1.1)
+      tmp: 0.2.7
     transitivePeerDependencies:
       - supports-color
 
