@@ -20,8 +20,6 @@
     "build": "vite build",
     "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\" --prefixColors auto",
     "lint:fix": "concurrently \"pnpm:lint:*:fix\" --names \"fix:\" --prefixColors auto",
-    "lint:format": "prettier . --cache --check",
-    "lint:format:fix": "prettier . --cache --write",
     "lint:template": "ember-template-lint .",
     "lint:template:fix": "ember-template-lint . --fix",
     "lint:js": "eslint . --cache",
