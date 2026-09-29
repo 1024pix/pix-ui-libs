@@ -382,7 +382,7 @@ importers:
         version: 3.0.6(@embroider/core@4.6.7(@glint/template@1.9.0)(supports-color@8.1.1))(supports-color@8.1.1)
       '@embroider/vite':
         specifier: ^1.7.13
-        version: 1.7.13(@embroider/core@4.6.7(@glint/template@1.9.0)(supports-color@8.1.1))(@glint/template@1.9.0)(supports-color@8.1.1)(vite@8.2.2(@types/node@26.2.0)(jiti@2.7.0)(sass-embedded@1.102.0)(sass@1.102.0)(terser@5.50.0)(yaml@2.9.0))
+        version: 1.7.13(@embroider/core@4.6.7(@glint/template@1.9.0)(supports-color@8.1.1))(@glint/template@1.9.0)(supports-color@8.1.1)(vite@8.3.1(@types/node@26.2.0)(jiti@2.7.0)(sass-embedded@1.102.0)(sass@1.102.0)(terser@5.50.0)(yaml@2.9.0))
       '@eslint/js':
         specifier: ^9.39.5
         version: 9.39.5
@@ -495,8 +495,8 @@ importers:
         specifier: ^8.70.1
         version: 8.70.1(eslint@9.39.5(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3)
       vite:
-        specifier: ^8.2.1
-        version: 8.2.2(@types/node@26.2.0)(jiti@2.7.0)(sass-embedded@1.102.0)(sass@1.102.0)(terser@5.50.0)(yaml@2.9.0)
+        specifier: ^8.3.0
+        version: 8.3.1(@types/node@26.2.0)(jiti@2.7.0)(sass-embedded@1.102.0)(sass@1.102.0)(terser@5.50.0)(yaml@2.9.0)
 
 packages:
 
