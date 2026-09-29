@@ -197,8 +197,8 @@ importers:
         specifier: ^3.6.0
         version: 3.6.0
       testem:
-        specifier: ^3.20.1
-        version: 3.20.1(@babel/core@7.29.7(supports-color@8.1.1))(debug@4.4.3(supports-color@8.1.1))(ejs@3.1.10)(handlebars@4.7.9)(supports-color@8.1.1)(underscore@1.13.8)
+        specifier: ^3.21.0
+        version: 3.21.0(@babel/core@7.29.7(supports-color@8.1.1))(ejs@3.1.10)(handlebars@4.7.9)(supports-color@8.1.1)(underscore@1.13.8)
       typescript:
         specifier: ^6.0.3
         version: 6.0.3
@@ -16824,7 +16824,7 @@ snapshots:
       charm: 1.0.2
       chokidar: 5.0.0
       commander: 14.0.3
-      compression: 1.8.1(supports-color@8.1.1)
+      compression: 1.8.2(supports-color@8.1.1)
       consolidate: 1.0.4(@babel/core@7.29.7(supports-color@8.1.1))(ejs@3.1.10)(handlebars@4.7.9)(lodash@4.18.1)(mustache@4.2.0)(underscore@1.13.8)
       execa: 9.6.1
       express: 5.2.1(supports-color@8.1.1)
