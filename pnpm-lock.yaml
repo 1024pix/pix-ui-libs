@@ -396,8 +396,8 @@ importers:
         specifier: 1.8.0
         version: 1.8.0
       '@glint/tsserver-plugin':
-        specifier: ^2.7.0
-        version: 2.7.0(ember-source@7.2.0(@glimmer/component@2.1.1(supports-color@8.1.1))(supports-color@8.1.1))(supports-color@8.1.1)
+        specifier: ^2.7.7
+        version: 2.7.9(ember-source@7.2.0(@glimmer/component@2.1.1(supports-color@8.1.1))(supports-color@8.1.1))(supports-color@8.1.1)
       '@rollup/plugin-babel':
         specifier: ^7.1.0
         version: 7.1.0(@babel/core@7.29.7(supports-color@8.1.1))(rollup@4.62.4)(supports-color@8.1.1)
