@@ -8,6 +8,7 @@ import PixStep from './pix-step.gjs';
  * @typedef {object} PixStepperStep
  * @property {string} [title] - Intitulé de l'étape.
  * @property {string} [subtitle] - Précision affichée sous l'intitulé.
+ * @property {boolean} hideLabel - Ne pas afficher le titre et sous titre des étapes
  */
 
 /**
@@ -18,6 +19,8 @@ import PixStep from './pix-step.gjs';
 /**
  * @typedef {object} PixStepperArgs
  * @property {PixStepperStep[]} steps - Étapes du parcours, dans l'ordre. Obligatoire.
+ * @property {'default' | 'primary--light'} variant - Change l'aspect du stepper en fonction de son fond
+ * @property {boolean} hideLabel - Ne pas afficher le titre et sous titre des étapes
  * @property {number} currentStep - Numéro de l'étape en cours, à partir de 1. Obligatoire.
  * @property {PixStepperTexts} texts - Textes affichés par le composant. À fournir par l'application consommatrice, dans la langue de son choix. Obligatoire.
  * @property {(stepNumber: number) => void} [onStepClick] - Callback appelé avec le numéro de l'étape au clic. Active le mode navigation. Sans cette prop, le composant est non-interactif.
@@ -50,6 +53,10 @@ export default class PixStepperComponent extends Component {
       classes.push('pix-stepper--long');
     }
 
+    if (this.args.variant) {
+      classes.push(`pix-stepper--${this.args.variant}`);
+    }
+
     return classes.join(' ');
   }
 
@@ -70,6 +77,7 @@ export default class PixStepperComponent extends Component {
       {{#each this.stepsWithState as |step index|}}
         <PixStep
           @index={{index}}
+          @hideLabel={{@hideLabel}}
           @title={{step.title}}
           @subtitle={{step.subtitle}}
           @isCurrent={{step.isCurrent}}

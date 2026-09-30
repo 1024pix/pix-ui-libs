@@ -165,6 +165,9 @@ settings:
 overrides:
   '@glint/template': 1.9.0
 
+patchedDependencies:
+  kolay: 7e6fb9fd4a66dfb99916ac9ed5c7ac0542ae5294780929714b4bd194b5bf5874
+
 importers:
 
   .:
@@ -195,7 +198,7 @@ importers:
         version: 8.2.3(@babel/core@7.29.7(supports-color@10.2.2))(@codemirror/lang-css@6.3.1)(@glimmer/component@2.1.1(supports-color@10.2.2))(@glint/template@1.9.0)(@lezer/javascript@1.5.5)(@lezer/lr@1.4.10)(ember-modifier@4.3.0(@babel/core@7.29.7(supports-color@10.2.2))(supports-color@10.2.2))(supports-color@10.2.2)
       kolay:
         specifier: github:universal-ember/kolay#cdbda81a605477020e6720b43488922e2d5d9231
-        version: https://codeload.github.com/universal-ember/kolay/tar.gz/cdbda81a605477020e6720b43488922e2d5d9231(@babel/core@7.29.7(supports-color@10.2.2))(@codemirror/lang-css@6.3.1)(@ember/test-helpers@5.5.1(@babel/core@7.29.7(supports-color@10.2.2))(supports-color@10.2.2))(@lezer/javascript@1.5.5)(@lezer/lr@1.4.10)(rolldown@1.2.11)(rollup@4.63.5)(supports-color@10.2.2)(typescript@6.0.3)(vite@8.3.1(@types/node@26.6.3)(jiti@2.7.0)(sass-embedded@1.105.0)(sass@1.105.0)(terser@5.51.2)(yaml@2.9.1))
+        version: https://codeload.github.com/universal-ember/kolay/tar.gz/cdbda81a605477020e6720b43488922e2d5d9231(patch_hash=7e6fb9fd4a66dfb99916ac9ed5c7ac0542ae5294780929714b4bd194b5bf5874)(@babel/core@7.29.7(supports-color@10.2.2))(@codemirror/lang-css@6.3.1)(@ember/test-helpers@5.5.1(@babel/core@7.29.7(supports-color@10.2.2))(supports-color@10.2.2))(@lezer/javascript@1.5.5)(@lezer/lr@1.4.10)(rolldown@1.2.11)(rollup@4.63.5)(supports-color@10.2.2)(typescript@6.0.3)(vite@8.3.1(@types/node@26.6.3)(jiti@2.7.0)(sass-embedded@1.105.0)(sass@1.105.0)(terser@5.51.2)(yaml@2.9.1))
       shiki:
         specifier: ^4.4.3
         version: 4.4.3
@@ -13597,7 +13600,7 @@ snapshots:
 
   kind-of@6.0.3: {}
 
-  kolay@https://codeload.github.com/universal-ember/kolay/tar.gz/cdbda81a605477020e6720b43488922e2d5d9231(@babel/core@7.29.7(supports-color@10.2.2))(@codemirror/lang-css@6.3.1)(@ember/test-helpers@5.5.1(@babel/core@7.29.7(supports-color@10.2.2))(supports-color@10.2.2))(@lezer/javascript@1.5.5)(@lezer/lr@1.4.10)(rolldown@1.2.11)(rollup@4.63.5)(supports-color@10.2.2)(typescript@6.0.3)(vite@8.3.1(@types/node@26.6.3)(jiti@2.7.0)(sass-embedded@1.105.0)(sass@1.105.0)(terser@5.51.2)(yaml@2.9.1)):
+  kolay@https://codeload.github.com/universal-ember/kolay/tar.gz/cdbda81a605477020e6720b43488922e2d5d9231(patch_hash=7e6fb9fd4a66dfb99916ac9ed5c7ac0542ae5294780929714b4bd194b5bf5874)(@babel/core@7.29.7(supports-color@10.2.2))(@codemirror/lang-css@6.3.1)(@ember/test-helpers@5.5.1(@babel/core@7.29.7(supports-color@10.2.2))(supports-color@10.2.2))(@lezer/javascript@1.5.5)(@lezer/lr@1.4.10)(rolldown@1.2.11)(rollup@4.63.5)(supports-color@10.2.2)(typescript@6.0.3)(vite@8.3.1(@types/node@26.6.3)(jiti@2.7.0)(sass-embedded@1.105.0)(sass@1.105.0)(terser@5.51.2)(yaml@2.9.1)):
     dependencies:
       '@11ty/gray-matter': 3.0.0
       '@ember/test-waiters': 4.1.2(supports-color@10.2.2)
