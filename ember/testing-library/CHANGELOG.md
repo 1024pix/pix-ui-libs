@@ -1,5 +1,11 @@
 # @1024pix/ember-testing-library
 
+## 4.0.1
+
+### Patch Changes
+
+- [#111](https://github.com/1024pix/pix-ui-libs/pull/111) [`9a70ddc`](https://github.com/1024pix/pix-ui-libs/commit/9a70ddc606a3f80419f6e65d7e9c4e5231e67427) - Missing repository.url in package.json for publication
+
 ## 4.0.0
 
 ### Major Changes
