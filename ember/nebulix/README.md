@@ -13,4 +13,4 @@ pnpm dev
 
 # Documentation
 
-https://pix-nebulix-integration.osc-fr1.scalingo.io/
+https://ui.pix.fr
