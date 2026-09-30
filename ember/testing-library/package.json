@@ -1,0 +1,21 @@
+{
+  "name": "@1024pix/ember-testing-library",
+  "version": "3.0.44",
+  "description": "Package for Testing Library usage in Ember applications.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "license": "AGPL-3.0",
+  "author": "GIP Pix",
+  "type": "module",
+  "devDependencies": {
+    "@ember/test-helpers": "^5.4.3",
+    "@testing-library/dom": "^10.4.1"
+  },
+  "peerDependencies": {
+    "@ember/test-helpers": ">=5",
+    "@testing-library/dom": ">=10"
+  }
+}
