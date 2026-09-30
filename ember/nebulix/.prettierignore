@@ -13,3 +13,4 @@ config/ember-cli-update.json
 *.yaml
 *.yml
 *.html
+CHANGELOG.md
