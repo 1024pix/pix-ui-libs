@@ -2,6 +2,9 @@
   "name": "@1024pix/ember-testing-library",
   "version": "4.0.0",
   "description": "Package for Testing Library usage in Ember applications.",
+  "repository": {
+    "url": "https://github.com/1024pix/pix-ui-libs"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
