@@ -343,7 +343,7 @@ importers:
         specifier: ^17.12.0
         version: 17.12.0
       prettier:
-        specifier: ^3.9.8
+        specifier: ^3.9.9
         version: 3.9.9
       prettier-plugin-ember-template-tag:
         specifier: ^2.1.8
@@ -458,7 +458,7 @@ importers:
         specifier: ^17.12.0
         version: 17.12.0
       prettier:
-        specifier: ^3.9.8
+        specifier: ^3.9.9
         version: 3.9.9
       prettier-plugin-ember-template-tag:
         specifier: ^2.1.8
@@ -626,7 +626,7 @@ importers:
         specifier: ^17.12.0
         version: 17.12.0
       prettier:
-        specifier: ^3.9.8
+        specifier: ^3.9.9
         version: 3.9.9
       prettier-plugin-ember-template-tag:
         specifier: ^2.1.8
