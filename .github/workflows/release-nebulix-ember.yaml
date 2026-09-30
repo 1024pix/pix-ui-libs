@@ -57,6 +57,9 @@ jobs:
       - name: Version packages
         id: version
         uses: changesets/action/version@v2
+        with:
+          commit-message: "[TECH] Release packages"
+          pr-title: "[TECH] Release packages"
 
   pack:
     if: needs.select-mode.outputs.mode == 'publish'
