@@ -128,8 +128,8 @@ importers:
         specifier: ^4.0.0
         version: 4.0.0
       concurrently:
-        specifier: ^9.2.4
-        version: 9.2.4
+        specifier: ^10.0.5
+        version: 10.0.5
       decorator-transforms:
         specifier: ^2.4.0
         version: 2.4.0(@babel/core@7.29.7(supports-color@10.2.2))
