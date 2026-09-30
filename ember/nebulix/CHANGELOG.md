@@ -1,5 +1,13 @@
 # @1024pix/ember-nebulix
 
+## 1.1.0
+
+### Minor Changes
+
+- [#38](https://github.com/1024pix/pix-ui-libs/pull/38) [`e8489cb`](https://github.com/1024pix/pix-ui-libs/commit/e8489cb7c6c85d288b7f134a57833c96dc894d39) - PixStepper :
+   - Add props `@variant` with value `primary-light` to display stepper on darkest background
+   - Add props `@hideLabel` to hide title subtitle
+
 ## 1.0.0
 
 ### Major Changes
