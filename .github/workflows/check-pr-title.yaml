@@ -8,4 +8,4 @@ jobs:
   lint-pr-title:
     runs-on: ubuntu-26.04
     steps:
-      - uses: 1024pix/pix-actions/check-pr-title@main
+      - uses: 1024pix/pix-actions/check-pr-title@b4d102041ba82f1304923ae5ea3d2fc2c477e8fe # main
