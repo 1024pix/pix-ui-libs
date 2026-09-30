@@ -109,6 +109,7 @@ export default class ApplicationPage extends Component {
               @route="textarea-page"
               @icon="edit"
             >PixTextarea</PixNavigationButton>
+            <PixNavigationButton @route="tag-page" @icon="close">PixTag</PixNavigationButton>
             <PixNavigationSeparator />
             <PixNavigationButton
               href="https://pix.fr"

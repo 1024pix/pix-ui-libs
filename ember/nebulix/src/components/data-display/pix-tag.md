@@ -39,11 +39,13 @@ const colors = [
   'green',
   'green-light',
   'success',
+  'success-light',
   'purple',
   'purple-light',
   'orange',
   'orange-light',
   'error',
+  'error-light',
   'orga',
 ];
 <template>
@@ -63,6 +65,94 @@ const colors = [
     }
     figcaption {
       text-align: center;
+    }
+  </style>
+</template>
+```
+
+## Icon
+
+Il est possible de d'ajouter des icons `@iconBefore` `@iconAfter` et le type de l'icon `@plainIcon`
+
+```gjs live nebulix
+import { PixTag } from '@1024pix/nebulix-ember';
+
+<template>
+  <div class="demo-tags">
+    <PixTag @color="success-light" @iconBefore="checkCircle" @plainIcon={{true}}>checkCircle plain</PixTag>
+    <PixTag @color="success-light" @iconAfter="checkCircle" @iconPosition="after">checkCircle basic
+    </PixTag>
+  </div>
+  <style>
+    .demo-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+  </style>
+</template>
+```
+
+## Texte
+
+Il est possible de passer le texte en majuscule avec `@textTransform`
+
+```gjs live nebulix
+import { PixTag } from '@1024pix/nebulix-ember';
+
+<template>
+  <div class="demo-tags">
+    <PixTag @color="success-light" @textTransform="uppercase">success uppercase</PixTag>
+  </div>
+  <style>
+    .demo-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+  </style>
+</template>
+```
+
+Il est possible de passer le texte en petit avec `@size`
+
+```gjs live nebulix
+import { PixTag } from '@1024pix/nebulix-ember';
+
+<template>
+  <div class="demo-tags">
+    <PixTag @color="error-light" @size="small" @iconBefore="close">Oups i did i again</PixTag>
+  </div>
+  <style>
+    .demo-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+  </style>
+</template>
+```
+
+## Arrondi
+
+Il est possible de changer l'arrondi du PixTag avec `@type`
+
+```gjs live nebulix
+import { PixTag } from '@1024pix/nebulix-ember';
+
+<template>
+  <div class="demo-tags">
+    <PixTag @color="success-light" @type="squircle">squircle tag</PixTag>
+  </div>
+  <style>
+    .demo-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: flex-start;
     }
   </style>
 </template>
