@@ -1,5 +1,115 @@
 @use 'pix-design-tokens/typography';
 
+.pix-app-layout--primary-light {
+  @media (width <= 768px) {
+    .pix-navigation-button:has([aria-current='step']) {
+      &:focus {
+        outline: 1px solid var(--pix-neutral-0);
+        outline-offset: -3px;
+      }
+    }
+
+    .pix-navigation-button:has(~ .pix-navigation-button[aria-current]:not([aria-current='false'])) {
+      color: currentColor;
+      background-color: rgb(var(--pix-primary-700-inline), 0.2);
+
+      &:focus {
+        outline: 1px solid var(--pix-neutral-0);
+        outline-offset: -3px;
+      }
+    }
+
+    .pix-navigation-button[aria-current]:not([aria-current='false']) ~ .pix-navigation-button {
+      cursor: not-allowed;
+      background-color: unset;
+      color: var(--pix-neutral-300);
+
+      &:focus {
+        color: currentColor;
+        background-color: var(--pix-neutral-0);
+        border: 1px solid var(--pix-primary-100);
+      }
+    }
+  }
+
+  .navigation-tooltip:has(~ .navigation-tooltip > [aria-current]:not([aria-current='false'])) {
+    .navigation-tooltip__content {
+      background:
+        linear-gradient(
+          0deg,
+          rgb(var(--pix-primary-700-inline), 0.2) 0%,
+          rgb(var(--pix-primary-700-inline), 0.2) 100%
+        ),
+        var(--pix-neutral-0);
+    }
+
+    .pix-navigation-button {
+      color: currentColor;
+      background-color: rgb(var(--pix-primary-700-inline), 0.2);
+
+      &:focus {
+        outline: 1px solid var(--pix-neutral-0);
+        outline-offset: -3px;
+      }
+    }
+  }
+
+  .navigation-tooltip:has(> [aria-current]:not([aria-current='false'])) ~ .navigation-tooltip {
+    .navigation-tooltip__content {
+      border: 1px solid var(--pix-primary-100);
+    }
+
+    .pix-navigation-button {
+      cursor: not-allowed;
+      background-color: unset;
+      color: var(--pix-neutral-300);
+
+      &:focus {
+        color: currentColor;
+        background-color: var(--pix-neutral-0);
+        border: 1px solid var(--pix-primary-100);
+      }
+    }
+  }
+
+  .pix-navigation-button {
+    border-radius: var(--pix-spacing-2x);
+  }
+
+  .pix-navigation-button[aria-current='step'] {
+    background-color: rgb(var(--pix-primary-700-inline), 0.6);
+    color: var(--pix-neutral-0);
+    border-radius: var(--pix-spacing-2x);
+    font-weight: var(--pix-font-bold);
+  }
+
+  .pix-navigation-button:not([aria-current='step']) {
+    &:focus,
+    &:focus-visible,
+    &.active {
+      color: var(--pix-neutral-0);
+    }
+
+    &:hover {
+      background-color: rgb(var(--pix-primary-700-inline), 0.2);
+      color: var(--pix-neutral-700);
+    }
+
+    &:focus,
+    &:focus-visible {
+      background-color: rgb(var(--pix-primary-700-inline), 0.6);
+      color: var(--pix-neutral-0);
+      border-radius: var(--pix-spacing-2x);
+      outline: none;
+    }
+
+    &.active {
+      background-color: rgb(var(--pix-primary-700-inline), 0.6);
+      font-weight: var(--pix-font-bold);
+    }
+  }
+}
+
 .pix-navigation-button {
   @extend %pix-body-s;
 
@@ -14,40 +124,18 @@
   // stylelint-disable-next-line custom-property-pattern
   font-family: var(--_pix-font-family-title);
 
-  &:focus::before,
-  &:focus-visible::before,
-  &.active::before,
-  &:hover::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: currentcolor;
+  &:focus,
+  &:focus-visible,
+  &.active,
+  &:hover {
+    background-color: rgb(var(--pix-navigation-text-color), 0.3);
     border-radius: var(--pix-spacing-2x);
-    content: '';
-  }
-
-  &:hover::before {
-    opacity: 0.3;
   }
 
   &:focus,
   &:focus-visible {
     border-radius: var(--pix-spacing-2x);
-    outline: 1px solid currentcolor;
-
-    &::before {
-      opacity: 0.3;
-    }
-  }
-
-  &:active::before {
-    opacity: 0.5;
-  }
-
-  &.active::before {
-    opacity: 0.2;
+    outline: 1px solid rgb(var(--pix-navigation-text-color));
   }
 
   &.active {
