@@ -51,6 +51,16 @@ export default class ApplicationPage extends Component {
     },
   ];
 
+  get texts() {
+    return {
+      openMenu: 'OPEN',
+      closeMenu: 'CLOSE',
+      expandNavigation: 'Expand',
+      shrinkNavigation: 'Shrink',
+      mainNavigation: 'Navigation Principale',
+    };
+  }
+
   @action
   setStructure(option) {
     this.structure = option;
@@ -68,7 +78,7 @@ export default class ApplicationPage extends Component {
       </:banner>
 
       <:navigation>
-        <PixNavigation>
+        <PixNavigation @texts={{this.texts}} @displayShrunkNavigationButton={{true}}>
           <:brand>
             <a href="/">
               <img src="/pix-orga.svg" alt="pix orga" />
@@ -150,27 +160,25 @@ export default class ApplicationPage extends Component {
         {{outlet}}
       </:main>
       <:footer>
-        <footer>
-          <ul>
-            <li>
-              <a href="https://pix.fr/mentions-legales" target="_blank" rel="noopener noreferrer">
-                Mentions légales
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://pix.fr/accessibilite-pix-certif"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Accessibilité : partiellement conforme
-              </a>
-            </li>
-          </ul>
-          <div>
-            <span>© 2024 Pix</span>
-          </div>
-        </footer>
+        <ul>
+          <li>
+            <a href="https://pix.fr/mentions-legales" target="_blank" rel="noopener noreferrer">
+              Mentions légales
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://pix.fr/accessibilite-pix-certif"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Accessibilité : partiellement conforme
+            </a>
+          </li>
+        </ul>
+        <div>
+          <span>© 2024 Pix</span>
+        </div>
       </:footer>
     </PixAppLayout>
   </template>
