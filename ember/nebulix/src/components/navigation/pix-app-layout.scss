@@ -1,18 +1,71 @@
 @use 'pix-design-tokens/breakpoints';
 
 .pix-app-layout {
-  display: grid;
-  grid-template-areas:
-    'banner banner'
-    'navigation main'
-    'navigation footer';
-  grid-template-rows: min-content 1fr;
-  grid-template-columns: min-content 1fr;
+  display: flex;
+  flex-direction: column;
   min-height: 100dvh;
 
-  @include breakpoints.device-is('mobile') {
-    display: flex;
-    flex-direction: column;
+  @include breakpoints.device-is('tablet') {
+    display: grid;
+    grid-template-areas:
+      'banner banner'
+      'navigation main'
+      'navigation footer';
+    grid-template-rows: min-content 1fr;
+    grid-template-columns: min-content 1fr;
+  }
+
+  &--without-footer {
+    .pix-app-layout__footer {
+      padding: 0;
+      display: none;
+      width: 0;
+    }
+  }
+
+  &--without-navigation {
+    @include breakpoints.device-is('tablet') {
+      & > .pix-app-layout__main,
+      .pix-app-layout__footer {
+        max-width: calc(100vw - 2 * var(--pix-spacing-6x));
+      }
+    }
+
+    @include breakpoints.device-is('desktop') {
+      & > .pix-app-layout__main,
+      .pix-app-layout__footer {
+        max-width: min(calc(100vw - 2 * var(--pix-spacing-6x)), 73rem);
+      }
+    }
+
+    .pix-app-layout__navigation {
+      padding: 0;
+      display: none;
+      width: 0;
+    }
+  }
+
+  &--without-padding {
+    & > .pix-app-layout__main {
+      max-width: 100%;
+      padding: 0;
+    }
+
+    & > .pix-app-layout__footer {
+      max-width: 100%;
+    }
+  }
+
+  &--sticky-navigation {
+    & > .pix-app-layout__navigation {
+      position: sticky;
+      z-index: 100;
+
+      @include breakpoints.device-is('mobile') {
+        top: 0;
+        padding: calc(var(--pix-app-layout-top) + var(--pix-spacing-2x)) var(--pix-spacing-2x) 0 var(--pix-spacing-2x);
+      }
+    }
   }
 
   &__banner {
