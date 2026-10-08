@@ -14,7 +14,7 @@
   "author": "GIP Pix",
   "type": "module",
   "devDependencies": {
-    "@ember/test-helpers": "^5.5.2",
+    "@ember/test-helpers": "5.7.0",
     "@testing-library/dom": "^10.4.2"
   },
   "peerDependencies": {

@@ -658,7 +658,7 @@ importers:
   ember/testing-library:
     devDependencies:
       '@ember/test-helpers':
-        specifier: ^5.5.2
+        specifier: 5.7.0
         version: 5.7.0(@babel/core@7.29.7(supports-color@10.2.2))(supports-color@10.2.2)
       '@testing-library/dom':
         specifier: ^10.4.2
