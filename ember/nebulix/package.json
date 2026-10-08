@@ -88,7 +88,7 @@
     "prettier": "3.9.9",
     "prettier-plugin-ember-template-tag": "2.1.8",
     "publint": "0.3.24",
-    "rollup": "4.63.5",
+    "rollup": "4.63.6",
     "svg-sprite": "2.0.4",
     "svgo": "4.1.0",
     "typescript": "6.0.3"
