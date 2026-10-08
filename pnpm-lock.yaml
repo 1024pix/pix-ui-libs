@@ -222,8 +222,8 @@ importers:
         specifier: 7.29.7
         version: 7.29.7
       '@ember/app-tsconfig':
-        specifier: 2.0.0
-        version: 2.0.0
+        specifier: 2.1.0
+        version: 2.1.0
       '@ember/optional-features':
         specifier: 3.0.0
         version: 3.0.0(@types/node@26.6.3)(supports-color@10.2.2)
