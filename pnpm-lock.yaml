@@ -544,7 +544,7 @@ importers:
         specifier: 9.39.5
         version: 9.39.5
       '@glimmer/component':
-        specifier: ^2.1.1
+        specifier: 2.1.1
         version: 2.1.1(supports-color@10.2.2)
       '@glint/ember-tsc':
         specifier: 1.11.6
