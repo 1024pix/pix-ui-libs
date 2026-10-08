@@ -354,8 +354,8 @@ importers:
         specifier: ^3.6.0
         version: 3.6.0
       testem:
-        specifier: ^3.21.0
-        version: 3.21.0(@babel/core@7.29.7(supports-color@10.2.2))(ejs@3.1.10)(handlebars@4.7.9)(supports-color@10.2.2)(underscore@1.13.8)
+        specifier: ^3.21.2
+        version: 3.21.3(@babel/core@7.29.7(supports-color@10.2.2))(ejs@3.1.10)(handlebars@4.7.9)(supports-color@10.2.2)(underscore@1.13.8)
       typescript:
         specifier: ^6.0.3
         version: 6.0.3
@@ -7158,6 +7158,11 @@ packages:
     engines: {node: ^20.19.0 || ^22.12.0 || ^24.0.0 || >= 26.0.0}
     hasBin: true
 
+  testem@3.21.3:
+    resolution: {integrity: sha512-vZTaZajvrWjRnImBGGrkdFlGNqM9Llg9xdvYL7Yrb2BSzIjlZjV+7pc3FJTgagNgJaNsatp4s/Wtam5MSQrFvg==}
+    engines: {node: ^20.19.0 || ^22.12.0 || ^24.0.0 || >= 26.0.0}
+    hasBin: true
+
   text-hex@1.0.0:
     resolution: {integrity: sha512-uuVGNWzgJ4yhRaNSiubPY7OjISw4sw4E5Uv0wbjp+OzcbmVU/rsT8ujgcXJhn9ypzsgr5vlzpPqP+MBBKcGvbg==}
 
@@ -11987,7 +11992,7 @@ snapshots:
       silent-error: 1.1.1(supports-color@10.2.2)
       sort-package-json: 3.7.1
       symlink-or-copy: 1.3.1
-      testem: 3.21.0(@babel/core@7.29.7(supports-color@10.2.2))(ejs@3.1.10)(handlebars@4.7.9)(supports-color@10.2.2)(underscore@1.13.8)
+      testem: 3.21.3(@babel/core@7.29.7(supports-color@10.2.2))(ejs@3.1.10)(handlebars@4.7.9)(supports-color@10.2.2)(underscore@1.13.8)
       tiny-lr: 2.0.0(supports-color@10.2.2)
       tree-sync: 2.1.0(supports-color@10.2.2)
       walk-sync: 4.0.2
@@ -15981,6 +15986,81 @@ snapshots:
       source-map-support: 0.5.21
 
   testem@3.21.0(@babel/core@7.29.7(supports-color@10.2.2))(ejs@3.1.10)(handlebars@4.7.9)(supports-color@10.2.2)(underscore@1.13.8):
+    dependencies:
+      '@xmldom/xmldom': 0.9.12
+      backbone: 1.6.1
+      charm: 1.0.2
+      chokidar: 5.0.0
+      commander: 14.0.3
+      compression: 1.8.2(supports-color@10.2.2)
+      consolidate: 1.0.4(@babel/core@7.29.7(supports-color@10.2.2))(ejs@3.1.10)(handlebars@4.7.9)(lodash@4.18.1)(mustache@4.2.0)(underscore@1.13.8)
+      execa: 9.6.1
+      express: 5.2.1(supports-color@10.2.2)
+      glob: 13.0.6
+      httpxy: 0.5.5
+      js-yaml: 5.4.2
+      lodash: 4.18.1
+      minimatch: 10.2.6
+      mustache: 4.2.0
+      proc-log: 6.1.0
+      rimraf: 6.1.3
+      socket.io: 4.8.4(supports-color@10.2.2)
+      spawn-args: 0.2.0
+      styled_string: 0.0.1
+      tap-parser: 18.3.4
+      toasted-notifier: 10.1.0
+    transitivePeerDependencies:
+      - '@babel/core'
+      - arc-templates
+      - atpl
+      - bracket-template
+      - bufferutil
+      - coffee-script
+      - dot
+      - dust
+      - dustjs-helpers
+      - dustjs-linkedin
+      - eco
+      - ect
+      - ejs
+      - haml-coffee
+      - hamlet
+      - hamljs
+      - handlebars
+      - hogan.js
+      - htmling
+      - jazz
+      - jqtpl
+      - just
+      - liquid-node
+      - liquor
+      - mote
+      - nunjucks
+      - plates
+      - pug
+      - qejs
+      - ractive
+      - react
+      - react-dom
+      - slm
+      - supports-color
+      - swig
+      - swig-templates
+      - teacup
+      - templayed
+      - then-pug
+      - tinyliquid
+      - toffee
+      - twig
+      - twing
+      - underscore
+      - utf-8-validate
+      - vash
+      - velocityjs
+      - walrus
+      - whiskers
+
+  testem@3.21.3(@babel/core@7.29.7(supports-color@10.2.2))(ejs@3.1.10)(handlebars@4.7.9)(supports-color@10.2.2)(underscore@1.13.8):
     dependencies:
       '@xmldom/xmldom': 0.9.12
       backbone: 1.6.1
