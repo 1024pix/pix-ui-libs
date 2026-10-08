@@ -20,10 +20,10 @@
     "ci:publish": "pnpm publish -r --access=public"
   },
   "devDependencies": {
-    "@changesets/changelog-github": "^1.0.1",
-    "@changesets/cli": "^3.0.3",
+    "@changesets/changelog-github": "1.0.1",
+    "@changesets/cli": "3.0.3",
     "@types/sinon": "^22.0.0",
-    "concurrently": "^10.0.5"
+    "concurrently": "10.0.5"
   },
   "packageManager": "pnpm@12.8.1",
   "engines": {
