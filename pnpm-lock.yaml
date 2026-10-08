@@ -505,8 +505,8 @@ importers:
         specifier: 7.29.7
         version: 7.29.7
       '@ember/app-tsconfig':
-        specifier: 2.0.0
-        version: 2.0.0
+        specifier: 2.1.0
+        version: 2.1.0
       '@ember/optional-features':
         specifier: 3.0.0
         version: 3.0.0(@types/node@26.6.3)(supports-color@10.2.2)
@@ -1456,9 +1456,6 @@ packages:
 
   '@ember/app-blueprint@7.3.1':
     resolution: {integrity: sha512-wCZ5pkNvSOU6ZBofSR6xtXs+vL5Z8wQm49qn6VmATxiPhc5IYHYqX5FdLLXVWOe8iQQ4XVxEL6w1iTc/f2hE9Q==}
-
-  '@ember/app-tsconfig@2.0.0':
-    resolution: {integrity: sha512-NmD1OZFtCF49k4WDaPdhGP4OKoRbPaXpTBO3AsJe0okIJeCVUiEiC8YUpfTJmld9EJOEa9mW/p0tJQS70GktOA==}
 
   '@ember/app-tsconfig@2.1.0':
     resolution: {integrity: sha512-s44smHIQVM2Ews1+bIAwqibVF6OHsw3/G14xV0DA0/GchVolqTG/Kfzqn/jZnU4zlXPEndJdTpn+PFEsuFs7mg==}
@@ -9246,8 +9243,6 @@ snapshots:
       ember-cli-string-utils: 1.1.0
       lodash: 4.18.1
       walk-sync: 4.0.2
-
-  '@ember/app-tsconfig@2.0.0': {}
 
   '@ember/app-tsconfig@2.1.0': {}
 
