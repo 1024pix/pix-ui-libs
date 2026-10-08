@@ -15,7 +15,7 @@
   "type": "module",
   "devDependencies": {
     "@ember/test-helpers": "5.7.0",
-    "@testing-library/dom": "^10.4.2"
+    "@testing-library/dom": "10.4.2"
   },
   "peerDependencies": {
     "@ember/test-helpers": ">=5",
