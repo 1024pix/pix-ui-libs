@@ -369,22 +369,22 @@ importers:
   ember/nebulix:
     dependencies:
       '@embroider/addon-shim':
-        specifier: 1.10.3
+        specifier: ^1.10.3
         version: 1.10.3(supports-color@10.2.2)
       '@floating-ui/dom':
-        specifier: 1.8.0
+        specifier: ^1.8.0
         version: 1.8.0
       decorator-transforms:
-        specifier: 2.4.0
+        specifier: ^2.4.0
         version: 2.4.0(@babel/core@7.29.7(supports-color@10.2.2))
       ember-click-outside:
-        specifier: 6.1.1
+        specifier: ^6.1.1
         version: 6.1.1(@babel/core@7.29.7(supports-color@10.2.2))(supports-color@10.2.2)
       ember-modifier:
-        specifier: 4.3.0
+        specifier: ^4.3.0
         version: 4.3.0(@babel/core@7.29.7(supports-color@10.2.2))(supports-color@10.2.2)
       ember-truth-helpers:
-        specifier: 5.0.0
+        specifier: ^5.0.0
         version: 5.0.0(supports-color@10.2.2)
     devDependencies:
       '@1024pix/eslint-plugin':
