@@ -1,5 +1,15 @@
 # @1024pix/ember-nebulix
 
+## 1.2.0
+
+### Minor Changes
+
+- [#121](https://github.com/1024pix/pix-ui-libs/pull/121) [`2dddfcb`](https://github.com/1024pix/pix-ui-libs/commit/2dddfcbc037ac3f93236f8125cbdd7160e34a62f) - Add `success-light` `error-light` on`@color` args
+  Add `@textTransform` with 'uppercase' mode
+  Add `@iconBefore` / `@iconAfter` to display icon with iconName value
+  Add `@size` to display text with a smaller font-size
+  Add `@type` to change border radius `squircle`
+
 ## 1.1.0
 
 ### Minor Changes
