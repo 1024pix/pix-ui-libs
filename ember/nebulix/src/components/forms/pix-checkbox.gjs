@@ -125,8 +125,10 @@ export default class PixCheckbox extends Component {
             id={{this.id}}
             class={{this.inputClasses}}
             checked={{@checked}}
+            aria-invalid="{{if @requiredLabel true false}}"
             aria-disabled={{this.isDisabled}}
             aria-describedby={{this.stateId}}
+            required={{if @requiredLabel true false}}
             {{on "click" this.avoidCheckedStateChangeIfIsDisabled}}
             ...attributes
           />
