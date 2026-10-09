@@ -195,14 +195,6 @@
   font-family: var(--_pix-font-family-body);
 }
 
-%pix-cta-s {
-  @extend %-pix-body;
-
-  font-weight: var(--pix-font-bold);
-  font-size: 0.875rem;
-  line-height: 1.429;
-}
-
 %pix-cta-l {
   @extend %-pix-body;
 
@@ -211,21 +203,24 @@
   line-height: 1.556;
 }
 
-%pix-body-xs,
-.pix-body-xs {
+%pix-cta-s {
   @extend %-pix-body;
 
-  font-size: 0.75rem;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
+  font-weight: var(--pix-font-bold);
+  font-size: 0.875rem;
+  line-height: 1.429;
 }
 
-%pix-body-s,
-.pix-body-s {
+%pix-body-l,
+.pix-body-l {
   @extend %-pix-body;
 
-  font-size: 0.875rem;
+  font-size: 1rem;
   line-height: 1.5;
+
+  @include breakpoints.device-is('tablet') {
+    font-size: 1.125rem;
+  }
 }
 
 %pix-body-m,
@@ -240,16 +235,21 @@
   }
 }
 
-%pix-body-l,
-.pix-body-l {
+%pix-body-s,
+.pix-body-s {
   @extend %-pix-body;
 
-  font-size: 1rem;
+  font-size: 0.875rem;
   line-height: 1.5;
+}
 
-  @include breakpoints.device-is('tablet') {
-    font-size: 1.125rem;
-  }
+%pix-body-xs,
+.pix-body-xs {
+  @extend %-pix-body;
+
+  font-size: 0.75rem;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
 }
 
 %pix-monospace,
