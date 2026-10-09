@@ -143,38 +143,45 @@ module('Integration | Component | checkbox', function (hooks) {
       );
 
       // then
-      assert
-        .dom(
-          screen.getByRole('checkbox', {
-            description: 'Sélection correcte',
-            hidden: true,
-          }),
-        )
-        .exists();
+      const checkbox = screen.queryByRole('checkbox', {
+        description: 'Sélection correcte',
+        hidden: true,
+      });
+      assert.dom(checkbox).exists();
+      assert.dom(checkbox).hasAttribute('aria-invalid', 'false');
     });
 
-    test(`it should read error state info if given`, async function (assert) {
+    test(`it should read error state info if given when field is required`, async function (assert) {
       // given
       const isDisabled = true;
-      const texts = { stateError: 'Sélection incorrecte' };
+      const texts = {
+        requiredLabel: 'Ce champ est obligatoire',
+        stateError: 'Sélection incorrecte',
+      };
 
       // when
       const screen = await render(
         <template>
-          <PixCheckbox checked @isDisabled={{isDisabled}} @state="error" @texts={{texts}}>
+          <PixCheckbox
+            checked
+            @isDisabled={{isDisabled}}
+            @requiredLabel={{texts.requiredLabel}}
+            @state="error"
+            @texts={{texts}}
+          >
             <:label>Recevoir la newsletter</:label></PixCheckbox>
         </template>,
       );
 
       // then
-      assert
-        .dom(
-          screen.getByRole('checkbox', {
-            description: 'Sélection incorrecte',
-            hidden: true,
-          }),
-        )
-        .exists();
+      const checkbox = screen.queryByRole('checkbox', {
+        description: 'Sélection incorrecte',
+        hidden: true,
+      });
+
+      assert.dom(checkbox).exists();
+      assert.dom(checkbox).hasAttribute('aria-invalid', 'true');
+      assert.dom(checkbox).hasAttribute('required', '');
     });
 
     test(`it should read declarative state info if given`, async function (assert) {
