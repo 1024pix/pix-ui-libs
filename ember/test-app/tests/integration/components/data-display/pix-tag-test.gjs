@@ -34,17 +34,43 @@ module('Integration | Component | pix-tag', function (hooks) {
         </template>,
       );
 
-      assert.dom(screen.getByRole('img', { hidden: true })).exists();
+      const tag = screen.getByText('tag text');
+      const icon = screen.getByRole('img', { hidden: true });
+
+      assert.dom(icon).exists();
+      assert.strictEqual(tag.firstElementChild, icon, 'icon is rendered before the text');
     });
 
     test('Display icons when it provided after', async function (assert) {
       const screen = await render(
         <template>
-          <PixTag @iconAfter="open">tag text</PixTag>
+          <PixTag @iconAfter="openNew">tag text</PixTag>
         </template>,
       );
 
-      assert.dom(screen.getByRole('img', { hidden: true })).exists();
+      const tag = screen.getByText('tag text');
+      const icon = screen.getByRole('img', { hidden: true });
+
+      assert.dom(icon).exists();
+      assert.strictEqual(tag.lastElementChild, icon, 'icon is rendered after the text');
+    });
+
+    test('Display icons when both are provided', async function (assert) {
+      const screen = await render(
+        <template>
+          <PixTag @iconBefore="close" @iconAfter="openNew">tag text</PixTag>
+        </template>,
+      );
+
+      const tag = screen.getByText('tag text');
+      const [iconBefore, iconAfter] = screen.getAllByRole('img', { hidden: true });
+
+      assert.strictEqual(
+        tag.firstElementChild,
+        iconBefore,
+        'first icon is rendered before the text',
+      );
+      assert.strictEqual(tag.lastElementChild, iconAfter, 'second icon is rendered after the text');
     });
 
     test('should not display icons when not provided', async function (assert) {
