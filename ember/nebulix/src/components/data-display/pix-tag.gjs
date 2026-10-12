@@ -47,6 +47,45 @@ export default class PixTag extends Component {
         id: 'pix-ui.pix-tag.color.deprecated',
       });
     }
+
+    if (this.args.color || this.args.variant) {
+      warn(
+        `PixTag: ${this.args.color ?? this.args.variant} is deprecated refers to Design System to handle correct value`,
+        (this.args.color &&
+          ![
+            'grey',
+            'grey-light',
+            'yellow-light',
+            'yellow',
+            'blue0',
+            'green-light',
+            'green',
+            'orange',
+            'orange-light',
+            'orga',
+            'purple',
+            'purple-light',
+          ].includes(this.args.color)) ||
+          (this.args.variant &&
+            ![
+              'grey',
+              'grey-light',
+              'yellow-light',
+              'yellow',
+              'blue0',
+              'green-light',
+              'green',
+              'orange',
+              'orange-light',
+              'orga',
+              'purple',
+              'purple-light',
+            ].includes(this.args.variant)),
+        {
+          id: 'pix-ui.pix-tag.deprecated-color',
+        },
+      );
+    }
   }
 
   get classes() {
