@@ -42,7 +42,6 @@ import { PixBlock } from '@1024pix/nebulix-ember';
     <PixBlock @variant="orga">orga</PixBlock>
     <PixBlock @variant="certif">certif</PixBlock>
     <PixBlock @variant="admin">admin</PixBlock>
-    <PixBlock @variant="modulix">modulix</PixBlock>
   </div>
 
   <style>
@@ -61,6 +60,28 @@ import { PixBlock } from '@1024pix/nebulix-ember';
 `@condensed` réduit les marges intérieures. Employez-le quand le bloc est
 répété dans une liste, où la hauteur cumulée compte davantage que le confort de
 lecture d'un bloc isolé.
+
+```gjs live nebulix
+import { PixBlock } from '@1024pix/nebulix-ember';
+
+<template>
+  <div class="demo-blocks">
+    <PixBlock @variant="primary" @condensed={{true}}>primary</PixBlock>
+    <PixBlock @variant="orga" @condensed={{true}}>orga</PixBlock>
+    <PixBlock @variant="certif" @condensed={{true}}>certif</PixBlock>
+    <PixBlock @variant="admin" @condensed={{true}}>admin</PixBlock>
+  </div>
+
+  <style>
+    .demo-blocks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+  </style>
+</template>
+```
 
 ## API Docs
 

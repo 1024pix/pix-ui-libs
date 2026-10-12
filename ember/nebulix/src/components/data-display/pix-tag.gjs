@@ -11,7 +11,8 @@ import PixIcon from '../graphics/pix-icon.gjs';
 
 /**
  * @typedef {object} PixTagArgs
- * @property {'neutral' | 'secondary' | 'tertiary' | 'success' | 'success-light' | 'error' | 'error-light' | 'orga' | 'blue' | 'blue-light' | 'green' | 'green-light' | 'yellow' | 'yellow-light' | 'orange' | 'orange-light' | 'purple' | 'purple-light' | 'grey' | 'grey-light' | 'dark' | 'white'} [color] - Couleur de l'étiquette.
+ * @property {'neutral' | 'neutral-light' | 'secondary' | 'tertiary' | 'success' | 'success-light' | 'error' | 'error-light' | 'orga' | 'blue' | 'blue-light' | 'green' | 'green-light' | 'yellow' | 'yellow-light' | 'orange' | 'orange-light' | 'purple' | 'purple-light' | 'grey' | 'grey-light' | 'dark' | 'white'} [color] - Deprécié, utiliser variant à la place Couleur de l'étiquette.
+ * @property {'neutral' | 'neutral-light' | 'secondary' | 'tertiary' | 'success' | 'success-light' | 'error' | 'error-light' | 'orga' | 'blue' | 'blue-light' | 'green' | 'green-light' | 'yellow' | 'yellow-light' | 'orange' | 'orange-light' | 'purple' | 'purple-light' | 'grey' | 'grey-light' | 'dark' | 'white'} [variant] - Couleur de l'étiquette.
  * @property {(event: MouseEvent) => unknown} [onRemove] - Appelée au clic sur le bouton de suppression. Ajoute le bouton de suppression lorsqu'elle est fournie.
  * @property {PixTagTexts} [texts] - Textes affichés par le composant. À fournir par l'application consommatrice, dans la langue de son choix.
  * @property {'squircle'} [type] - Permet de modifier les arrondis du composant
@@ -40,13 +41,58 @@ export default class PixTag extends Component {
         },
       );
     }
+
+    if (this.args.color) {
+      warn('PixTag: @color is deprecated use @variant instead', false, {
+        id: 'pix-ui.pix-tag.color.deprecated',
+      });
+    }
+
+    if (this.args.color || this.args.variant) {
+      warn(
+        `PixTag: ${this.args.color ?? this.args.variant} is deprecated refers to Design System to handle correct value`,
+        (this.args.color &&
+          ![
+            'grey',
+            'grey-light',
+            'yellow-light',
+            'yellow',
+            'blue0',
+            'green-light',
+            'green',
+            'orange',
+            'orange-light',
+            'orga',
+            'purple',
+            'purple-light',
+          ].includes(this.args.color)) ||
+          (this.args.variant &&
+            ![
+              'grey',
+              'grey-light',
+              'yellow-light',
+              'yellow',
+              'blue0',
+              'green-light',
+              'green',
+              'orange',
+              'orange-light',
+              'orga',
+              'purple',
+              'purple-light',
+            ].includes(this.args.variant)),
+        {
+          id: 'pix-ui.pix-tag.deprecated-color',
+        },
+      );
+    }
   }
 
   get classes() {
-    const { color, type, textTransform, size } = this.args;
+    const { color, variant, type, textTransform, size } = this.args;
     const classes = [];
     if (size) classes.push(`pix-tag--${size}`);
-    if (color) classes.push(`pix-tag--${color}`);
+    if (color || variant) classes.push(`pix-tag--${variant ?? color}`);
     if (type) classes.push(`pix-tag--${type}`);
     if (textTransform) classes.push(`pix-tag--${textTransform}`);
     return classes.join(' ');
