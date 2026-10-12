@@ -1,5 +1,5 @@
 ---
 "@1024pix/nebulix-ember": minor
 ---
-
-Add @variant and deprecated @color
+PixTag
+Add args @variant and deprecated @color args
