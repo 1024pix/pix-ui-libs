@@ -2,14 +2,12 @@
 
 .pix-block {
   position: relative;
-  padding: var(--pix-spacing-3x);
+  padding: var(--pix-spacing-6x);
   background-color: var(--pix-neutral-0);
   border-radius: var(--pix-spacing-5x);
 
   &--variant-primary {
     @extend %pix-shadow-default;
-
-    padding: var(--pix-spacing-6x);
   }
 
   &--variant-orga {
@@ -25,6 +23,6 @@
   }
 
   &--condensed {
-    padding: 0;
+    padding: var(--pix-spacing-3x);
   }
 }
