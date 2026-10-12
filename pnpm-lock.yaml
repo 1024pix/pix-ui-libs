@@ -484,8 +484,8 @@ importers:
         specifier: workspace:*
         version: link:../testing-library
       '@1024pix/eslint-plugin':
-        specifier: 3.0.4
-        version: 3.0.4(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
+        specifier: 3.0.5
+        version: 3.0.5(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
       '@1024pix/nebulix-ember':
         specifier: workspace:*
         version: link:../nebulix
@@ -668,6 +668,12 @@ packages:
 
   '@1024pix/eslint-plugin@3.0.4':
     resolution: {integrity: sha512-BXDs0VWoR+lNKvYrVMB150tnkWQbfVmQEB07an8WoMvW0ZGWb03UgAGlMHpgHBfceNzY9r0Jo+qIUJjJfKcGvA==}
+    engines: {node: ^20.19 || ^22.13 || ^24}
+    peerDependencies:
+      eslint: '>=9.38.0'
+
+  '@1024pix/eslint-plugin@3.0.5':
+    resolution: {integrity: sha512-3MAKN8A10UhL4thsJX5Ej/t7Bv2quWJhXTeXCYdB9wP6ibJD0DT/oi2QoPRRSm3ExWe+oxCLKBWuSMzdRMkmIA==}
     engines: {node: ^20.19 || ^22.13 || ^24}
     peerDependencies:
       eslint: '>=9.38.0'
@@ -4293,19 +4299,6 @@ packages:
       '@typescript-eslint/parser':
         optional: true
 
-  eslint-plugin-n@18.4.0:
-    resolution: {integrity: sha512-TEm6Nqn9+l7EWfJXOL6pmrEdpiM2ZTgo4fNMRDvBTM70jeQ7x3X3Akcx+sRCIRfpcSVwMypH3ZAA33PLyNKmYw==}
-    engines: {node: ^20.19.0 || ^22.13.0 || >=24}
-    peerDependencies:
-      eslint: '>=8.57.1'
-      ts-declaration-location: ^1.0.6
-      typescript: '>=5.0.0'
-    peerDependenciesMeta:
-      ts-declaration-location:
-        optional: true
-      typescript:
-        optional: true
-
   eslint-plugin-n@18.4.1:
     resolution: {integrity: sha512-2sBReWOvCbzgkPri9M5SFmD5EbIwZLa1xz6B5RZsrI19WSFKpyx1sOMr+pdk8puCiXuEgCbErEHy1PuaUrc/4w==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
@@ -7772,6 +7765,14 @@ packages:
 snapshots:
 
   '@1024pix/eslint-plugin@3.0.4(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))':
+    dependencies:
+      '@eslint-community/eslint-plugin-eslint-comments': 4.8.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
+      '@eslint/js': 10.0.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
+      eslint: 9.39.5(jiti@2.7.0)(supports-color@10.2.2)
+      eslint-plugin-simple-import-sort: 14.0.0(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
+      eslint-plugin-yml: 3.8.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
+
+  '@1024pix/eslint-plugin@3.0.5(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))':
     dependencies:
       '@eslint-community/eslint-plugin-eslint-comments': 4.8.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
       '@eslint/js': 10.0.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
@@ -12391,22 +12392,6 @@ snapshots:
       - eslint-import-resolver-typescript
       - eslint-import-resolver-webpack
       - supports-color
-
-  eslint-plugin-n@18.4.0(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))(ts-declaration-location@1.0.7(typescript@6.0.3))(typescript@6.0.3):
-    dependencies:
-      '@eslint-community/eslint-utils': 4.10.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
-      enhanced-resolve: 5.25.1
-      eslint: 9.39.5(jiti@2.7.0)(supports-color@10.2.2)
-      eslint-plugin-es-x: 7.8.0(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
-      get-tsconfig: 4.14.3
-      globals: 15.15.0
-      globrex: 0.1.2
-      ignore: 5.3.2
-      js-yaml: 5.4.2
-      semver: 7.8.5
-    optionalDependencies:
-      ts-declaration-location: 1.0.7(typescript@6.0.3)
-      typescript: 6.0.3
 
   eslint-plugin-n@18.4.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))(ts-declaration-location@1.0.7(typescript@6.0.3))(typescript@6.0.3):
     dependencies:
