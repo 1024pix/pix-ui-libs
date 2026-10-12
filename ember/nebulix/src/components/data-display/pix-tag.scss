@@ -46,6 +46,12 @@
     background-color: var(--pix-neutral-100);
   }
 
+  &--neutral-light {
+    color: var(--pix-neutral-700);
+    background-color: var(--pix-neutral-50);
+  }
+
+
   &--yellow-light,
   &--secondary,
   &--yellow {
