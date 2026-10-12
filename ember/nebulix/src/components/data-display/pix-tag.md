@@ -15,7 +15,7 @@ title: PixTag
 import { PixTag } from '@1024pix/nebulix-ember';
 
 <template>
-  <PixTag @variant="green-light">Terminée</PixTag>
+  <PixTag @variant="success-light">Terminée</PixTag>
 </template>
 ```
 
@@ -29,25 +29,17 @@ import { PixTag } from '@1024pix/nebulix-ember';
 const colors = [
   'white',
   'dark',
-  'grey',
-  'grey-light',
   'neutral',
   'neutral-light',
-  'yellow',
-  'yellow-light',
-  'blue',
+  'secondary',
+  'tertiary',
   'blue-light',
-  'green',
-  'green-light',
   'success',
   'success-light',
-  'purple',
-  'purple-light',
-  'orange',
-  'orange-light',
+  'primary',
+  'primary-light',
   'error',
   'error-light',
-  'orga',
 ];
 <template>
   <div class="demo-tags">
@@ -81,7 +73,8 @@ import { PixTag } from '@1024pix/nebulix-ember';
 <template>
   <div class="demo-tags">
     <PixTag @variant="success-light" @iconBefore="checkCircle" @plainIcon={{true}}>checkCircle plain</PixTag>
-    <PixTag @variant="success-light" @iconAfter="checkCircle" @iconPosition="after">checkCircle basic
+    <PixTag @variant="success-light" @iconAfter="checkCircle" @iconPosition="after">checkCircle
+      basic
     </PixTag>
   </div>
   <style>
