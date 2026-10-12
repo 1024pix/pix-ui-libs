@@ -1,5 +1,17 @@
 # @1024pix/ember-nebulix
 
+## 1.3.0
+
+### Minor Changes
+
+- [#200](https://github.com/1024pix/pix-ui-libs/pull/200) [`5118f10`](https://github.com/1024pix/pix-ui-libs/commit/5118f10da4ec6b937ed8d53d720f064a53a41775) - PixTag
+  Add args @variant and deprecated @color args
+
+### Patch Changes
+
+- [#200](https://github.com/1024pix/pix-ui-libs/pull/200) [`5118f10`](https://github.com/1024pix/pix-ui-libs/commit/5118f10da4ec6b937ed8d53d720f064a53a41775) - PixBlock :
+  Default padding 6x applied only on primary variant instead of default block. condensed use 3x instead of none.
+
 ## 1.2.0
 
 ### Minor Changes
