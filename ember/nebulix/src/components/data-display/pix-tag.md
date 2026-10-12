@@ -15,7 +15,7 @@ title: PixTag
 import { PixTag } from '@1024pix/nebulix-ember';
 
 <template>
-  <PixTag @color="green-light">Terminée</PixTag>
+  <PixTag @variant="green-light">Terminée</PixTag>
 </template>
 ```
 
@@ -32,6 +32,7 @@ const colors = [
   'grey',
   'grey-light',
   'neutral',
+  'neutral-light',
   'yellow',
   'yellow-light',
   'blue',
@@ -51,7 +52,7 @@ const colors = [
 <template>
   <div class="demo-tags">
     {{#each colors as |color|}}
-      <figure><PixTag @color={{color}}> tag {{color}} </PixTag><figcaption
+      <figure><PixTag @variant={{color}}> tag {{color}} </PixTag><figcaption
           class="pix-body-xs"
         >{{color}}</figcaption></figure>
     {{/each}}
@@ -79,8 +80,8 @@ import { PixTag } from '@1024pix/nebulix-ember';
 
 <template>
   <div class="demo-tags">
-    <PixTag @color="success-light" @iconBefore="checkCircle" @plainIcon={{true}}>checkCircle plain</PixTag>
-    <PixTag @color="success-light" @iconAfter="checkCircle" @iconPosition="after">checkCircle basic
+    <PixTag @variant="success-light" @iconBefore="checkCircle" @plainIcon={{true}}>checkCircle plain</PixTag>
+    <PixTag @variant="success-light" @iconAfter="checkCircle" @iconPosition="after">checkCircle basic
     </PixTag>
   </div>
   <style>
@@ -103,7 +104,7 @@ import { PixTag } from '@1024pix/nebulix-ember';
 
 <template>
   <div class="demo-tags">
-    <PixTag @color="success-light" @textTransform="uppercase">success uppercase</PixTag>
+    <PixTag @variant="success-light" @textTransform="uppercase">success uppercase</PixTag>
   </div>
   <style>
     .demo-tags {
@@ -123,7 +124,7 @@ import { PixTag } from '@1024pix/nebulix-ember';
 
 <template>
   <div class="demo-tags">
-    <PixTag @color="error-light" @size="small" @iconBefore="close">Oups i did i again</PixTag>
+    <PixTag @variant="error-light" @size="small" @iconBefore="close">Oups i did i again</PixTag>
   </div>
   <style>
     .demo-tags {
@@ -145,7 +146,7 @@ import { PixTag } from '@1024pix/nebulix-ember';
 
 <template>
   <div class="demo-tags">
-    <PixTag @color="success-light" @type="squircle">squircle tag</PixTag>
+    <PixTag @variant="success-light" @type="squircle">squircle tag</PixTag>
   </div>
   <style>
     .demo-tags {
@@ -176,7 +177,7 @@ const texts = {
 };
 
 <template>
-  <PixTag @color="tertiary" @onRemove={{retirer}} @texts={{texts}}>
+  <PixTag @variant="tertiary" @onRemove={{retirer}} @texts={{texts}}>
     Collège Jean Moulin
   </PixTag>
 </template>
