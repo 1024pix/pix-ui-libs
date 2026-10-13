@@ -4,11 +4,7 @@ packages:
 overrides:
   "@glint/template": "1.9.0"
 
-# kolay assumes POSIX path separators in two places, which breaks the docs
-# build on Windows: it reads the wrong repl-sdk manifest path, and it builds
-# the page tree from glob entries that come back with backslashes, so every
-# page lands at the root and meta.jsonc ordering fails.
-# Drop once the fix lands upstream and the pinned commit is bumped.
+# kolay assumes POSIX path separators in two places, which breaks the docs build on Windows.
 patchedDependencies:
   kolay: patches/kolay.patch
 
@@ -24,3 +20,7 @@ resolvePeersFromWorkspaceRoot: false
 
 # branches where packages are published
 publishBranch: dev
+
+# exclude pix libs from minimumReleaseAge to be coherent with Renovate policy
+minimumReleaseAgeExclude:
+  - "@1024pix/*"
