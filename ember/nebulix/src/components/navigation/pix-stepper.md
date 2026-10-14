@@ -27,7 +27,27 @@ const texts = {
   ariaLabel: 'Étape 1 sur 3',
 };
 
-<template><PixStepper @steps={{etapes}} @currentStep={{1}} @texts={{texts}} /></template>
+<template><PixStepper @steps={{etapes}} @currentStep={{2}} @texts={{texts}} /></template>
+```
+
+### Mode Clair sans coche de validation
+
+```gjs live preview nebulix
+import { PixStepper } from '@1024pix/nebulix-ember';
+
+const etapes = [
+  { title: 'Informations', subtitle: 'Renseignez vos informations' },
+  { title: 'Confirmation', subtitle: 'Vérifiez vos données' },
+  { title: 'Validation', subtitle: 'Finalisez votre inscription' },
+];
+
+const texts = {
+  ariaLabel: 'Étape 1 sur 3',
+};
+
+<template>
+  <PixStepper @steps={{etapes}} @currentStep={{2}} @texts={{texts}} @hideValidationCheck={{true}} />
+</template>
 ```
 
 ### Mode Sombre
@@ -50,6 +70,31 @@ const texts = {
       @currentStep={{2}}
       @texts={{texts}}
       @hideLabel={{true}}
+    /></div>
+</template>
+```
+
+### Mode Sombre sans coche de validation
+
+```gjs live preview nebulix
+import { PixStepper } from '@1024pix/nebulix-ember';
+
+const etapes = [{ title: 'Question 1' }, { title: 'Question 2' }, { title: 'Question 3' }];
+
+const texts = {
+  ariaLabel: 'Question 2 sur 3',
+};
+
+<template>
+  <div
+    style="background:linear-gradient(90deg, rgba(69, 45, 157, 0.80) 0%, rgba(69, 45, 157, 0.00) 60%), #957EE8;;padding:20px 40px"
+  ><PixStepper
+      @variant="primary-light"
+      @steps={{etapes}}
+      @currentStep={{2}}
+      @texts={{texts}}
+      @hideLabel={{true}}
+      @hideValidationCheck={{true}}
     /></div>
 </template>
 ```
