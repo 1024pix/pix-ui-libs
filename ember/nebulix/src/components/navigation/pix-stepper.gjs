@@ -57,6 +57,10 @@ export default class PixStepperComponent extends Component {
       classes.push(`pix-stepper--${this.args.variant}`);
     }
 
+    if (this.args.hideValidationCheck) {
+      classes.push(`pix-stepper--hide-previous-cross-validation`);
+    }
+
     return classes.join(' ');
   }
 
