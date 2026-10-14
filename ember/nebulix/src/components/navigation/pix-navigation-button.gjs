@@ -36,11 +36,22 @@ export default class PixNavigationButton extends Component {
     return this.args?.target === '_blank';
   }
 
+  get displayFullButton() {
+    return this.shrinkNavigationService.isShrunk || this.args.displayTooltip;
+  }
+
+  get plainIcon() {
+    return this.args.iconPlain ?? this.isActiveRoute;
+  }
+
   <template>
-    {{#if this.shrinkNavigationService.isShrunk}}
+    {{#if this.displayFullButton}}
       <PixNavigationShrunkButton
         @route={{@route}}
         @icon={{@icon}}
+        @plainIcon={{this.plainIcon}}
+        @isLinkOpenInANewWindow={{this.isLinkOpenInANewWindow}}
+        ...attributes
       >{{yield}}</PixNavigationShrunkButton>
     {{else}}
       {{#if @route}}
@@ -57,7 +68,7 @@ export default class PixNavigationButton extends Component {
               class="pix-navigation-button__icon"
               @ariaHidden={{true}}
               @name={{@icon}}
-              @plainIcon={{if this.isActiveRoute true false}}
+              @plainIcon={{this.plainIcon}}
             />
           {{/if}}
           {{yield}}
@@ -81,7 +92,7 @@ export default class PixNavigationButton extends Component {
               class="pix-navigation-button__icon"
               @ariaHidden={{true}}
               @name={{@icon}}
-              @plainIcon={{@iconPlain}}
+              @plainIcon={{this.plainIcon}}
             />
           {{/if}}
           {{yield}}

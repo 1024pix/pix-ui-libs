@@ -21,6 +21,7 @@ import PixIconButton from '../actions/pix-icon-button.gjs';
 /**
  * @typedef {object} PixNavigationArgs
  * @property {PixNavigationTexts} texts - Textes affichés par le composant. À fournir par l'application consommatrice, dans la langue de son choix. Obligatoire.
+ * @property {boolean} displayShrunkNavigationButton - Permet de réduire ou d'agrandir le composant.
  */
 
 /**
@@ -111,6 +112,12 @@ export default class PixNavigation extends Component {
     return `${this._navigationId}-footer`;
   }
 
+  get displayShrunkNavigationButton() {
+    return (
+      this.args.displayShrunkNavigationButton || this.shrinkNavigationService.canNavigationBeShrunk
+    );
+  }
+
   <template>
     <aside
       ...attributes
@@ -119,7 +126,7 @@ export default class PixNavigation extends Component {
         {{if this.shrinkNavigationService.isShrunk 'pix-navigation--shrunk'}}"
     >
       <header class="pix-navigation__brand">{{yield to="brand"}}
-        {{#if this.shrinkNavigationService.canNavigationBeShrunk}}
+        {{#if this.displayShrunkNavigationButton}}
           <div class="pix-navigation__shrunk-container">
             <PixIconButton
               class="pix-navigation-shrunk-button"
