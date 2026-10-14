@@ -14,7 +14,7 @@
   }
 
   display: inline-flex;
-  gap: 0.5rem;
+  gap: var(--pix-spacing-1x);
   align-items: center;
   padding: var(--pix-spacing-1x) var(--pix-spacing-4x);
   color: var(--pix-primary-900);
