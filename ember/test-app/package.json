@@ -53,7 +53,7 @@
     "@testing-library/user-event": "14.6.7",
     "@types/qunit": "2.19.14",
     "@types/rsvp": "4.0.9",
-    "babel-plugin-ember-template-compilation": "4.0.0",
+    "babel-plugin-ember-template-compilation": "4.0.1",
     "concurrently": "10.0.5",
     "decorator-transforms": "2.4.0",
     "ember-cli": "7.3.0",
