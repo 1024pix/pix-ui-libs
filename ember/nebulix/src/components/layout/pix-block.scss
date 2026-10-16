@@ -1,4 +1,5 @@
 @use 'pix-design-tokens/shadows';
+@use 'pix-design-tokens/breakpoints';
 
 .pix-block {
   position: relative;
@@ -24,5 +25,10 @@
 
   &--condensed {
     padding: var(--pix-spacing-3x);
+    border-radius: var(--pix-spacing-3x);
+
+    @include breakpoints.device-is('tablet') {
+      border-radius: var(--pix-spacing-5x);
+    }
   }
 }
