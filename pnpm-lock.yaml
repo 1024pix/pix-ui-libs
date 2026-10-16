@@ -427,8 +427,8 @@ importers:
         specifier: 7.1.0
         version: 7.1.0(@babel/core@7.29.7(supports-color@10.2.2))(rollup@4.64.0)(supports-color@10.2.2)
       babel-plugin-ember-template-compilation:
-        specifier: 4.0.0
-        version: 4.0.0
+        specifier: 4.0.1
+        version: 4.0.1
       concurrently:
         specifier: 10.0.5
         version: 10.0.5
