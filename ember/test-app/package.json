@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@1024pix/ember-testing-library": "workspace:*",
-    "@1024pix/eslint-plugin": "3.0.5",
+    "@1024pix/eslint-plugin": "3.0.6",
     "@1024pix/nebulix-ember": "workspace:*",
     "@babel/core": "7.29.7",
     "@babel/eslint-parser": "7.29.9",
@@ -63,10 +63,10 @@
     "ember-qunit": "9.2.0",
     "ember-resolver": "13.2.0",
     "ember-source": "7.3.0",
-    "ember-template-lint": "7.9.3",
+    "ember-template-lint": "7.9.4",
     "eslint": "9.39.5",
     "eslint-config-prettier": "10.1.8",
-    "eslint-plugin-ember": "13.6.0",
+    "eslint-plugin-ember": "13.6.1",
     "eslint-plugin-n": "18.4.1",
     "eslint-plugin-prettier": "5.5.6",
     "eslint-plugin-qunit": "8.2.6",
@@ -79,7 +79,7 @@
     "sinon": "22.1.0",
     "testem": "3.21.3",
     "typescript": "6.0.3",
-    "typescript-eslint": "8.71.0",
+    "typescript-eslint": "8.71.1",
     "vite": "8.3.2"
   },
   "engines": {
