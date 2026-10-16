@@ -76,7 +76,7 @@
     "@glint/template": "1.9.0",
     "@rollup/plugin-babel": "7.1.0",
     "babel-plugin-ember-template-compilation": "4.0.1",
-    "concurrently": "10.0.5",
+    "concurrently": "10.0.6",
     "ember-source": "7.3.0",
     "ember-template-lint": "7.9.4",
     "eslint": "9.39.5",
