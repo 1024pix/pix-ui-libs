@@ -282,8 +282,8 @@ importers:
         specifier: 4.0.9
         version: 4.0.9
       babel-plugin-ember-template-compilation:
-        specifier: 4.0.0
-        version: 4.0.0
+        specifier: 4.0.1
+        version: 4.0.1
       concurrently:
         specifier: 10.0.5
         version: 10.0.5
@@ -665,12 +665,6 @@ importers:
         version: 10.4.2
 
 packages:
-
-  '@1024pix/eslint-plugin@3.0.4':
-    resolution: {integrity: sha512-BXDs0VWoR+lNKvYrVMB150tnkWQbfVmQEB07an8WoMvW0ZGWb03UgAGlMHpgHBfceNzY9r0Jo+qIUJjJfKcGvA==}
-    engines: {node: ^20.19 || ^22.13 || ^24}
-    peerDependencies:
-      eslint: '>=9.38.0'
 
   '@1024pix/eslint-plugin@3.0.5':
     resolution: {integrity: sha512-3MAKN8A10UhL4thsJX5Ej/t7Bv2quWJhXTeXCYdB9wP6ibJD0DT/oi2QoPRRSm3ExWe+oxCLKBWuSMzdRMkmIA==}
@@ -3035,6 +3029,10 @@ packages:
 
   babel-plugin-ember-template-compilation@4.0.0:
     resolution: {integrity: sha512-J2dR6ZPfPNuIR7vzhneO9xR0aTvOHITszuGif2EOYw3Qg3KlIVEd/hNnEeubyWgjYXn06Sgm6/NdNXEMNSsWYQ==}
+    engines: {node: '>= 18.*'}
+
+  babel-plugin-ember-template-compilation@4.0.1:
+    resolution: {integrity: sha512-t1o2O+91u4oLtku0sysC2nAuwBoyH9lDWmRoKHdAktt5fFaD8b2slKsWq2dyXrZ+/FW/jFa5rWdN3zK9VB0qvQ==}
     engines: {node: '>= 18.*'}
 
   babel-plugin-module-resolver@5.0.3:
@@ -7764,14 +7762,6 @@ packages:
 
 snapshots:
 
-  '@1024pix/eslint-plugin@3.0.4(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))':
-    dependencies:
-      '@eslint-community/eslint-plugin-eslint-comments': 4.8.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
-      '@eslint/js': 10.0.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
-      eslint: 9.39.5(jiti@2.7.0)(supports-color@10.2.2)
-      eslint-plugin-simple-import-sort: 14.0.0(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
-      eslint-plugin-yml: 3.8.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
-
   '@1024pix/eslint-plugin@3.0.5(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))':
     dependencies:
       '@eslint-community/eslint-plugin-eslint-comments': 4.8.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
@@ -10726,6 +10716,12 @@ snapshots:
       import-meta-resolve: 4.2.0
 
   babel-plugin-ember-template-compilation@4.0.0:
+    dependencies:
+      '@glimmer/syntax': 0.95.0
+      babel-import-util: 3.0.1
+      import-meta-resolve: 4.2.0
+
+  babel-plugin-ember-template-compilation@4.0.1:
     dependencies:
       '@glimmer/syntax': 0.95.0
       babel-import-util: 3.0.1
