@@ -25,7 +25,7 @@
     "@types/sinon": "22.0.0",
     "concurrently": "10.0.6"
   },
-  "packageManager": "pnpm@12.11.2",
+  "packageManager": "pnpm@12.12.1",
   "engines": {
     "node": "24.21.0",
     "pnpm": ">= 11"
