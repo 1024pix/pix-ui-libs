@@ -617,7 +617,7 @@ importers:
         version: 18.4.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))(ts-declaration-location@1.0.7(typescript@6.0.3))(typescript@6.0.3)
       eslint-plugin-prettier:
         specifier: 5.5.6
-        version: 5.5.6(@types/eslint@8.56.12)(eslint-config-prettier@10.1.8(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2)))(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))(prettier@3.9.9)
+        version: 5.5.6(@types/eslint@8.56.12)(eslint-config-prettier@10.1.8(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2)))(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))(prettier@3.9.10)
       eslint-plugin-qunit:
         specifier: 8.2.6
         version: 8.2.6(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
@@ -625,11 +625,11 @@ importers:
         specifier: 17.13.0
         version: 17.13.0
       prettier:
-        specifier: 3.9.9
-        version: 3.9.9
+        specifier: 3.9.10
+        version: 3.9.10
       prettier-plugin-ember-template-tag:
         specifier: 2.1.8
-        version: 2.1.8(prettier@3.9.9)(supports-color@10.2.2)
+        version: 2.1.8(prettier@3.9.10)(supports-color@10.2.2)
       qunit:
         specifier: 3.0.0
         version: 3.0.0
