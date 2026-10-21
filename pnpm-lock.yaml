@@ -484,8 +484,8 @@ importers:
         specifier: workspace:*
         version: link:../testing-library
       '@1024pix/eslint-plugin':
-        specifier: 3.0.9
-        version: 3.0.9(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
+        specifier: 3.0.10
+        version: 3.0.10(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
       '@1024pix/nebulix-ember':
         specifier: workspace:*
         version: link:../nebulix
@@ -666,8 +666,8 @@ importers:
 
 packages:
 
-  '@1024pix/eslint-plugin@3.0.8':
-    resolution: {integrity: sha512-0Ul3U5CHC3TDPWthVD1kGHSPha6t8OoL+qMI4KJpwYPPSIzlMLNAJJ/tCwLiTD8B/v3JSeg6maUoLZUmSwWxKA==}
+  '@1024pix/eslint-plugin@3.0.10':
+    resolution: {integrity: sha512-0pREv2A8r60/6t9zrj1LibU4CxdpQ3mjxyHO6z6a/Yzx4sgd61mlwb4uWyIdcoLbdI/0wfrSPuuWT7UGFqacWw==}
     engines: {node: ^20.19 || ^22.13 || ^24}
     peerDependencies:
       eslint: '>=9.38.0'
@@ -7787,7 +7787,7 @@ packages:
 
 snapshots:
 
-  '@1024pix/eslint-plugin@3.0.8(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))':
+  '@1024pix/eslint-plugin@3.0.10(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))':
     dependencies:
       '@eslint-community/eslint-plugin-eslint-comments': 4.8.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
       '@eslint/js': 10.0.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
