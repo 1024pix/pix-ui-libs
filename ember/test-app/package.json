@@ -62,7 +62,7 @@
     "ember-modifier": "4.3.0",
     "ember-qunit": "9.2.0",
     "ember-resolver": "13.2.0",
-    "ember-source": "7.3.0",
+    "ember-source": "7.3.1",
     "ember-template-lint": "7.9.4",
     "eslint": "9.39.5",
     "eslint-config-prettier": "10.1.8",
