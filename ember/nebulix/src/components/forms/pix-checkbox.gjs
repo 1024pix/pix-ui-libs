@@ -75,6 +75,10 @@ export default class PixCheckbox extends Component {
     return classes.join(' ');
   }
 
+  get ariaInvalidAttribute() {
+    return this.args.requiredLabel && this.hasErrorState;
+  }
+
   get isDisabled() {
     warn(
       'PixCheckbox: @isDisabled attribute should be a boolean.',
@@ -125,8 +129,10 @@ export default class PixCheckbox extends Component {
             id={{this.id}}
             class={{this.inputClasses}}
             checked={{@checked}}
+            aria-invalid="{{this.ariaInvalidAttribute}}"
             aria-disabled={{this.isDisabled}}
             aria-describedby={{this.stateId}}
+            required={{if @requiredLabel true false}}
             {{on "click" this.avoidCheckedStateChangeIfIsDisabled}}
             ...attributes
           />
