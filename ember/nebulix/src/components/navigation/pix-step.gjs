@@ -41,7 +41,7 @@ export default class PixStepComponent extends Component {
     <li class={{this.cssClass}} aria-current={{this.ariaCurrent}} ...attributes>
       {{#if @isClickable}}
         <button type="button" class="pix-step__button" {{on "click" @onClick}}>
-          <div class="pix-step__index" aria-hidden="true">{{this.displayIndex}}</div>
+          <div class="pix-step__index" aria-hidden="true"><span>{{this.displayIndex}}</span></div>
           {{#if @title}}<div
               class="pix-step__title {{if @hideLabel 'screen-reader-only'}}"
             >{{@title}}</div>{{/if}}
@@ -50,7 +50,7 @@ export default class PixStepComponent extends Component {
             >{{@subtitle}}</div>{{/if}}
         </button>
       {{else}}
-        <div class="pix-step__index" aria-hidden="true">{{this.displayIndex}}</div>
+        <div class="pix-step__index" aria-hidden="true"><span>{{this.displayIndex}}</span></div>
         {{#if @title}}
           <div class="pix-step__title {{if @hideLabel 'screen-reader-only'}}">
             {{@title}}

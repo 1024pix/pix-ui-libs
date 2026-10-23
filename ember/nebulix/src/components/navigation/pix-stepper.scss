@@ -5,6 +5,19 @@
 .pix-stepper {
   display: flex;
 
+  &--hide-previous-cross-validation {
+    .pix-step__index {
+      & > span {
+        visibility: visible;
+      }
+
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+  }
+
   &--primary-light {
     .pix-step {
       &__title,
@@ -13,17 +26,12 @@
       }
 
       &__index {
-        background: var(--pix-neutral-0);
         color: var(--pix-primary-700);
-
-        &::before,
-        &::after {
-          display: none;
-        }
+        background: var(--pix-neutral-0);
       }
 
       &:not(:last-child)::after {
-        background: white;
+        background: var(--pix-neutral-0);
       }
 
       &.pix-step--current {
@@ -67,12 +75,14 @@
     justify-content: center;
     width: 2rem;
     height: 2rem;
-    color: transparent;
-    font-weight: 600;
-    line-height: 1;
+    color: var(--pix-neutral-0);
     background: var(--pix-primary-700);
     border-radius: var(--radius-6x, 24px);
     margin-inline: auto;
+
+    & > span {
+      visibility: hidden;
+    }
 
     &::before,
     &::after {
@@ -80,7 +90,7 @@
       display: block;
       height: 3px;
       margin-left: -1px;
-      background-color: var(--pix-neutral-0);
+      background-color: currentColor;
       border-radius: 2px;
       content: '';
     }
@@ -163,6 +173,11 @@
     .pix-step__index {
       @extend %pix-shadow-default;
 
+      & > span {
+        visibility: visible;
+      }
+
+      font-weight: 600;
       color: var(--pix-neutral-0);
       background:
         linear-gradient(
@@ -186,9 +201,12 @@
 
     .pix-step__index {
       color: var(--pix-neutral-500);
-      font-weight: normal;
       background: transparent;
       border: 1px solid currentcolor;
+
+      & > span {
+        visibility: visible;
+      }
 
       &::before,
       &::after {
