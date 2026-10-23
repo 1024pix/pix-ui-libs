@@ -24,3 +24,7 @@ publishBranch: dev
 # exclude pix libs from minimumReleaseAge to be coherent with Renovate policy
 minimumReleaseAgeExclude:
   - "@1024pix/*"
+
+# Define a catalog of version ranges.
+catalog:
+  ember-source: 7.3.1
