@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@1024pix/ember-testing-library": "workspace:*",
-    "@1024pix/eslint-plugin": "3.0.11",
+    "@1024pix/eslint-plugin": "3.0.12",
     "@1024pix/nebulix-ember": "workspace:*",
     "@babel/core": "7.29.7",
     "@babel/eslint-parser": "7.29.9",
