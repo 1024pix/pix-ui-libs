@@ -204,8 +204,8 @@ importers:
         version: 4.5.0
     devDependencies:
       '@1024pix/eslint-plugin':
-        specifier: 3.0.12
-        version: 3.0.12(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
+        specifier: 3.0.14
+        version: 3.0.14(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
       '@babel/core':
         specifier: 7.29.7
         version: 7.29.7(supports-color@10.2.2)
