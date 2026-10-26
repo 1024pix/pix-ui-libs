@@ -19,7 +19,7 @@ jobs:
 
     docker:
       - image: node:<<parameters.node-version>>
-    resource_class: small
+    resource_class: medium
     environment:
       SHELL: bash
       PNPM_HOME: /root/.local/share/pnpm
