@@ -16,7 +16,7 @@
     "doc": "concurrently \"pnpm --filter @1024pix/nebulix-ember dev\" \"pnpm --filter docs-app start\" --names \"addon,app\" --prefixColors auto",
     "lint": "pnpm -r lint",
     "lint:fix": "pnpm -r lint:fix",
-    "test": "pnpm build && pnpm --filter test-app test",
+    "test": "pnpm build && pnpm --filter test-app --filter docs-app test",
     "ci:publish": "pnpm publish -r --access=public"
   },
   "devDependencies": {
