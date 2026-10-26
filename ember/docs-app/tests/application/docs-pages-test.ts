@@ -31,4 +31,10 @@ module('Application | docs pages', function (hooks) {
     assert.dom('nav[aria-label="Groups"] a').exists({ count: 2 });
     assert.dom('nav[aria-label="Groups"]').hasText('Nebulix Components');
   });
+
+  test('renders a pix-button component', async function (assert) {
+    await visit('/components/actions/pix-button.md');
+
+    assert.dom('button').hasText('Enregistrer');
+  });
 });
