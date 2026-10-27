@@ -421,11 +421,11 @@ importers:
         specifier: 9.39.5
         version: 9.39.5
       '@glimmer/component':
-        specifier: 2.1.1
-        version: 2.1.1(supports-color@10.2.2)
+        specifier: 2.2.0
+        version: 2.2.0(supports-color@10.2.2)
       '@glint/ember-tsc':
         specifier: 1.13.1
-        version: 1.13.1(ember-source@7.3.1(@glimmer/component@2.1.1(supports-color@10.2.2))(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+        version: 1.13.1(ember-source@7.3.1(@glimmer/component@2.2.0(supports-color@10.2.2))(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       '@glint/template':
         specifier: 1.11.0
         version: 1.11.0
@@ -440,7 +440,7 @@ importers:
         version: 10.0.6
       ember-source:
         specifier: 'catalog:'
-        version: 7.3.1(@glimmer/component@2.1.1(supports-color@10.2.2))(supports-color@10.2.2)
+        version: 7.3.1(@glimmer/component@2.2.0(supports-color@10.2.2))(supports-color@10.2.2)
       ember-template-lint:
         specifier: 7.9.4
         version: 7.9.4
@@ -671,12 +671,6 @@ importers:
         version: 10.4.2
 
 packages:
-
-  '@1024pix/eslint-plugin@3.0.14':
-    resolution: {integrity: sha512-d6NHSmYy20sNeM30V+7h1EawLleOJXB5m9C297sqPj6a56J310HjvyxTnJxk1mzOB+jxoOiu9bWyeBresEubFw==}
-    engines: {node: ^20.19 || ^22.13 || ^24}
-    peerDependencies:
-      eslint: '>=9.38.0'
 
   '@1024pix/eslint-plugin@3.0.15':
     resolution: {integrity: sha512-pxHjAoTpV0yjrNMlg2d7YQKzDGp0g6LDkfLd6cmOERfGxGh8QN3KNoVK/9VsGDpFixHsTa0QAEmP/mTXCQBIbA==}
@@ -1641,6 +1635,10 @@ packages:
 
   '@glimmer/component@2.1.1':
     resolution: {integrity: sha512-zFZFaMbWy+9WOcDg/kCgrkGgqkLT39EE4FgyFD0MIkQO5coQsrRZyLsiBu1tbchyM+8hT8jAv+EQVUd8u+MdSQ==}
+    engines: {node: '>= 18'}
+
+  '@glimmer/component@2.2.0':
+    resolution: {integrity: sha512-C0L4yd7ZOpTG2GVSOUdfbu4ve5zyx8iQp2uRBhtn/hsNpR4pYmaKa7qJuhCPct+eLwxz6rLEXYZVoAJL2cqVPA==}
     engines: {node: '>= 18'}
 
   '@glimmer/env@0.1.7':
@@ -7786,14 +7784,6 @@ packages:
 
 snapshots:
 
-  '@1024pix/eslint-plugin@3.0.14(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))':
-    dependencies:
-      '@eslint-community/eslint-plugin-eslint-comments': 4.8.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
-      '@eslint/js': 10.0.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
-      eslint: 9.39.5(jiti@2.7.0)(supports-color@10.2.2)
-      eslint-plugin-simple-import-sort: 14.0.0(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
-      eslint-plugin-yml: 3.8.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
-
   '@1024pix/eslint-plugin@3.0.15(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))':
     dependencies:
       '@eslint-community/eslint-plugin-eslint-comments': 4.8.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
@@ -9357,6 +9347,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  '@glimmer/component@2.2.0(supports-color@10.2.2)':
+    dependencies:
+      '@embroider/addon-shim': 1.10.3(supports-color@10.2.2)
+    transitivePeerDependencies:
+      - supports-color
+
   '@glimmer/env@0.1.7': {}
 
   '@glimmer/interfaces@0.94.6':
@@ -9427,6 +9423,31 @@ snapshots:
       vscode-uri: 3.2.0
     optionalDependencies:
       ember-source: 7.3.1(@glimmer/component@2.1.1(supports-color@10.2.2))(supports-color@10.2.2)
+    transitivePeerDependencies:
+      - supports-color
+
+  '@glint/ember-tsc@1.13.1(ember-source@7.3.1(@glimmer/component@2.2.0(supports-color@10.2.2))(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)':
+    dependencies:
+      '@glimmer/syntax': 0.95.0
+      '@glint/template': 1.11.0
+      '@volar/kit': 2.4.28(typescript@6.0.3)
+      '@volar/language-core': 2.4.28
+      '@volar/language-server': 2.4.28(typescript@6.0.3)
+      '@volar/language-service': 2.4.28(typescript@6.0.3)
+      '@volar/source-map': 2.4.28
+      '@volar/test-utils': 2.4.28(typescript@6.0.3)
+      '@volar/typescript': 2.4.28(typescript@6.0.3)
+      content-tag: 4.2.0
+      ember-estree: 0.8.1
+      silent-error: 1.1.1(supports-color@10.2.2)
+      typescript: 6.0.3
+      volar-service-html: 0.0.71(@volar/language-service@2.4.28(typescript@6.0.3))
+      volar-service-typescript: 0.0.71(@volar/language-service@2.4.28(typescript@6.0.3))(typescript@6.0.3)
+      vscode-languageserver-protocol: 3.18.4
+      vscode-languageserver-textdocument: 1.0.15
+      vscode-uri: 3.2.0
+    optionalDependencies:
+      ember-source: 7.3.1(@glimmer/component@2.2.0(supports-color@10.2.2))(supports-color@10.2.2)
     transitivePeerDependencies:
       - supports-color
 
@@ -12139,6 +12160,29 @@ snapshots:
       '@babel/core': 7.29.7(supports-color@10.2.2)
       '@embroider/addon-shim': 1.10.3(supports-color@10.2.2)
       '@glimmer/component': 2.1.1(supports-color@10.2.2)
+      '@simple-dom/interface': 1.4.0
+      backburner.js: 2.8.0
+      broccoli-file-creator: 2.1.1
+      chalk: 4.1.2
+      ember-cli-get-component-path-option: 1.0.0
+      ember-cli-normalize-entity-name: 1.0.0(supports-color@10.2.2)
+      ember-cli-path-utils: 1.0.0
+      ember-cli-string-utils: 1.1.0
+      ember-cli-typescript-blueprint-polyfill: 0.1.0(supports-color@10.2.2)
+      ember-router-generator: 2.0.0(supports-color@10.2.2)
+      inflection: 2.0.1
+      route-recognizer: 0.3.4
+      semver: 7.8.5
+      silent-error: 1.1.1(supports-color@10.2.2)
+      simple-html-tokenizer: 0.5.11
+    transitivePeerDependencies:
+      - supports-color
+
+  ember-source@7.3.1(@glimmer/component@2.2.0(supports-color@10.2.2))(supports-color@10.2.2):
+    dependencies:
+      '@babel/core': 7.29.7(supports-color@10.2.2)
+      '@embroider/addon-shim': 1.10.3(supports-color@10.2.2)
+      '@glimmer/component': 2.2.0(supports-color@10.2.2)
       '@simple-dom/interface': 1.4.0
       backburner.js: 2.8.0
       broccoli-file-creator: 2.1.1
