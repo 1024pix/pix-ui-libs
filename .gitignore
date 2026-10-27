@@ -18,8 +18,11 @@ node_modules/
 testem.log
 pnpm-debug.log
 
-# Webstorm
+# IDE
+#Webstorm
 .idea/
+#VS Code
+*.code-workspace
 
 # broccoli-debug
 DEBUG/

@@ -99,32 +99,50 @@ export default class PixTag extends Component {
   }
 
   <template>
-    <div class="pix-tag {{this.classes}}" ...attributes>
-      {{#if @iconBefore}}
-        <PixIcon
-          class="pix-tag__icon"
-          @name={{@iconBefore}}
-          @ariaHidden={{true}}
+    {{#if @onRemove}}
+      <div class="pix-tag {{this.classes}}" ...attributes>
+        <TagContent
+          @iconBefore={{@iconBefore}}
+          @iconAfter={{@iconAfter}}
           @plainIcon={{@plainIcon}}
-        />
-      {{/if}}
-      {{yield}}
-      {{#if @onRemove}}
-        <PixIconButton
-          @ariaLabel={{@texts.removeButtonLabel}}
-          @iconName="close"
-          @size="xsmall"
-          @triggerAction={{@onRemove}}
-        />
-      {{/if}}
-      {{#if @iconAfter}}
-        <PixIcon
-          class="pix-tag__icon"
-          @name={{@iconAfter}}
-          @ariaHidden={{true}}
+        >{{yield}}
+          <PixIconButton
+            @ariaLabel={{@texts.removeButtonLabel}}
+            @iconName="close"
+            @size="xsmall"
+            @triggerAction={{@onRemove}}
+          />
+        </TagContent>
+      </div>
+    {{else}}
+      <span class="pix-tag {{this.classes}}" ...attributes>
+        <TagContent
+          @iconBefore={{@iconBefore}}
+          @iconAfter={{@iconAfter}}
           @plainIcon={{@plainIcon}}
-        />
-      {{/if}}
-    </div>
+        >{{yield}}
+        </TagContent>
+      </span>
+    {{/if}}
   </template>
 }
+
+const TagContent = <template>
+  {{#if @iconBefore}}
+    <PixIcon
+      class="pix-tag__icon"
+      @name={{@iconBefore}}
+      @ariaHidden={{true}}
+      @plainIcon={{@plainIcon}}
+    />
+  {{/if}}
+  {{yield}}
+  {{#if @iconAfter}}
+    <PixIcon
+      class="pix-tag__icon"
+      @name={{@iconAfter}}
+      @ariaHidden={{true}}
+      @plainIcon={{@plainIcon}}
+    />
+  {{/if}}
+</template>;
