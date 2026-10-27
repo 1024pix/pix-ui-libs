@@ -2,7 +2,7 @@ packages:
   - "ember/*"
 
 overrides:
-  "@glint/template": "1.9.0"
+  "@glint/template": "1.11.0"
 
 # kolay assumes POSIX path separators in two places, which breaks the docs build on Windows.
 patchedDependencies:
