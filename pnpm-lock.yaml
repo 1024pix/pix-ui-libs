@@ -490,8 +490,8 @@ importers:
         specifier: workspace:*
         version: link:../testing-library
       '@1024pix/eslint-plugin':
-        specifier: 3.0.14
-        version: 3.0.14(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
+        specifier: 3.0.15
+        version: 3.0.15(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
       '@1024pix/nebulix-ember':
         specifier: workspace:*
         version: link:../nebulix
