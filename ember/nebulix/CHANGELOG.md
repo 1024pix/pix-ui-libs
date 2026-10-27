@@ -1,5 +1,16 @@
 # @1024pix/ember-nebulix
 
+## 1.4.0
+
+### Minor Changes
+
+- [#207](https://github.com/1024pix/pix-ui-libs/pull/207) [`4cacef6`](https://github.com/1024pix/pix-ui-libs/commit/4cacef6dde0b2ecbe98a81bf7b32b9ee69850b7d) - PixTag :
+  Switch from inline element to block element when remove button displayed
+  PixStepper :
+  Remove bolder weight text on previous bullet point
+  PixBlock:
+  Add breakpoint to render different border radiusont mobile
+
 ## 1.3.0
 
 ### Minor Changes
