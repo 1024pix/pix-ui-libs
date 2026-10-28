@@ -44,7 +44,7 @@
     "@embroider/router": "3.0.6",
     "@embroider/vite": "1.7.15",
     "@eslint/js": "9.39.5",
-    "@glimmer/component": "2.1.1",
+    "@glimmer/component": "catalog:",
     "@glint/ember-tsc": "1.13.1",
     "@glint/template": "1.11.0",
     "@glint/tsserver-plugin": "2.7.12",
