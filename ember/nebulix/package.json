@@ -72,7 +72,7 @@
     "@embroider/macros": "1.21.3",
     "@eslint/js": "9.39.5",
     "@glimmer/component": "catalog:",
-    "@glint/ember-tsc": "1.13.1",
+    "@glint/ember-tsc": "1.14.1",
     "@glint/template": "1.11.0",
     "@rollup/plugin-babel": "7.1.0",
     "babel-plugin-ember-template-compilation": "4.0.1",
