@@ -45,7 +45,7 @@
     "@embroider/vite": "1.7.15",
     "@eslint/js": "9.39.5",
     "@glimmer/component": "catalog:",
-    "@glint/ember-tsc": "1.13.1",
+    "@glint/ember-tsc": "1.14.1",
     "@glint/template": "1.11.0",
     "@glint/tsserver-plugin": "2.7.14",
     "@rollup/plugin-babel": "7.1.0",
