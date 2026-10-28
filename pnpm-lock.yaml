@@ -545,7 +545,7 @@ importers:
         version: 3.0.6(@embroider/core@4.6.9(@glint/template@1.11.0)(supports-color@10.2.2))(supports-color@10.2.2)
       '@embroider/vite':
         specifier: 1.7.15
-        version: 1.7.15(@babel/core@7.29.7(supports-color@10.2.2))(@embroider/core@4.6.9(@glint/template@1.11.0)(supports-color@10.2.2))(@glint/template@1.11.0)(supports-color@10.2.2)(vite@8.3.4(@types/node@26.6.3)(jiti@2.7.0)(sass-embedded@1.106.0)(sass@1.106.0)(terser@5.51.2)(yaml@2.9.1))
+        version: 1.7.15(@babel/core@7.29.7(supports-color@10.2.2))(@embroider/core@4.6.9(@glint/template@1.11.0)(supports-color@10.2.2))(@glint/template@1.11.0)(supports-color@10.2.2)(vite@8.3.5(@types/node@26.6.3)(jiti@2.7.0)(sass-embedded@1.106.0)(sass@1.106.0)(terser@5.51.2)(yaml@2.9.1))
       '@eslint/js':
         specifier: 9.39.5
         version: 9.39.5
@@ -658,8 +658,8 @@ importers:
         specifier: 8.72.0
         version: 8.72.0(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       vite:
-        specifier: 8.3.4
-        version: 8.3.4(@types/node@26.6.3)(jiti@2.7.0)(sass-embedded@1.106.0)(sass@1.106.0)(terser@5.51.2)(yaml@2.9.1)
+        specifier: 8.3.5
+        version: 8.3.5(@types/node@26.6.3)(jiti@2.7.0)(sass-embedded@1.106.0)(sass@1.106.0)(terser@5.51.2)(yaml@2.9.1)
 
   ember/testing-library:
     devDependencies:
