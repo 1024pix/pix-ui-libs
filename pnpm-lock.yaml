@@ -562,8 +562,8 @@ importers:
         specifier: 1.11.0
         version: 1.11.0
       '@glint/tsserver-plugin':
-        specifier: 2.7.14
-        version: 2.7.14(ember-source@7.3.1(@glimmer/component@2.2.0(supports-color@10.2.2))(supports-color@10.2.2))(supports-color@10.2.2)
+        specifier: 2.7.15
+        version: 2.7.15(ember-source@7.3.1(@glimmer/component@2.2.0(supports-color@10.2.2))(supports-color@10.2.2))(supports-color@10.2.2)
       '@rollup/plugin-babel':
         specifier: 7.1.0
         version: 7.1.0(@babel/core@7.29.7(supports-color@10.2.2))(rollup@4.65.0)(supports-color@10.2.2)
@@ -674,12 +674,6 @@ importers:
         version: 10.4.2
 
 packages:
-
-  '@1024pix/eslint-plugin@3.0.15':
-    resolution: {integrity: sha512-pxHjAoTpV0yjrNMlg2d7YQKzDGp0g6LDkfLd6cmOERfGxGh8QN3KNoVK/9VsGDpFixHsTa0QAEmP/mTXCQBIbA==}
-    engines: {node: ^20.19 || ^22.13 || ^24}
-    peerDependencies:
-      eslint: '>=9.38.0'
 
   '@1024pix/eslint-plugin@3.0.16':
     resolution: {integrity: sha512-re/xTmeAvr8JnkgfjjiSQH3p1IPaEipUDGvTFU8tJ5rl7I+3PoZHXJyfCLbozRRdwYHaF7q9rdOh4xULzNR4ZQ==}
@@ -1723,6 +1717,9 @@ packages:
 
   '@glint/tsserver-plugin@2.7.14':
     resolution: {integrity: sha512-JYvnZKISPzMu1cmapVtzrqrOxn+rJI2KbxRmdiiJzUpHDV3niqOu+tbbOdt6wC3QJIYtRGDIf7hiM2wd75RnFA==}
+
+  '@glint/tsserver-plugin@2.7.15':
+    resolution: {integrity: sha512-IcfvD2vTl87ifVUaVCuy603AQk4Uy6taa+EJydBLAWp08/dgL5vmXC2GfO8riiR9IfndIyL5ei4weNHDXoVbmA==}
 
   '@handlebars/parser@2.2.2':
     resolution: {integrity: sha512-n/SZW+12rwikx/f8YcSv9JCi5p9vn1Bnts9ZtVvfErG4h0gbjHI1H1ZMhVUnaOC7yzFc6PtsCKIK8XeTnL90Gw==}
@@ -7865,14 +7862,6 @@ packages:
 
 snapshots:
 
-  '@1024pix/eslint-plugin@3.0.15(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))':
-    dependencies:
-      '@eslint-community/eslint-plugin-eslint-comments': 4.8.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
-      '@eslint/js': 10.0.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
-      eslint: 9.39.5(jiti@2.7.0)(supports-color@10.2.2)
-      eslint-plugin-simple-import-sort: 14.0.0(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
-      eslint-plugin-yml: 3.8.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
-
   '@1024pix/eslint-plugin@3.0.16(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))':
     dependencies:
       '@eslint-community/eslint-plugin-eslint-comments': 4.8.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
@@ -9668,6 +9657,31 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  '@glint/ember-tsc@1.14.2(ember-source@7.3.1(@glimmer/component@2.2.0(supports-color@10.2.2))(supports-color@10.2.2))(supports-color@10.2.2)(typescript@5.9.3)':
+    dependencies:
+      '@glimmer/syntax': 0.95.0
+      '@glint/template': 1.11.0
+      '@volar/kit': 2.4.30(typescript@5.9.3)
+      '@volar/language-core': 2.4.30
+      '@volar/language-server': 2.4.30(typescript@5.9.3)
+      '@volar/language-service': 2.4.30(typescript@5.9.3)
+      '@volar/source-map': 2.4.30
+      '@volar/test-utils': 2.4.30(typescript@5.9.3)
+      '@volar/typescript': 2.4.30(typescript@5.9.3)
+      content-tag: 4.2.0
+      ember-estree: 0.9.0
+      silent-error: 1.1.1(supports-color@10.2.2)
+      typescript: 5.9.3
+      volar-service-html: 0.0.71(@volar/language-service@2.4.30(typescript@5.9.3))
+      volar-service-typescript: 0.0.71(@volar/language-service@2.4.30(typescript@5.9.3))(typescript@5.9.3)
+      vscode-languageserver-protocol: 3.18.4
+      vscode-languageserver-textdocument: 1.0.15
+      vscode-uri: 3.2.0
+    optionalDependencies:
+      ember-source: 7.3.1(@glimmer/component@2.2.0(supports-color@10.2.2))(supports-color@10.2.2)
+    transitivePeerDependencies:
+      - supports-color
+
   '@glint/ember-tsc@1.14.2(ember-source@7.3.1(@glimmer/component@2.2.0(supports-color@10.2.2))(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)':
     dependencies:
       '@glimmer/syntax': 0.95.0
@@ -9700,6 +9714,17 @@ snapshots:
       '@glint/ember-tsc': 1.14.1(ember-source@7.3.1(@glimmer/component@2.2.0(supports-color@10.2.2))(supports-color@10.2.2))(supports-color@10.2.2)(typescript@5.9.3)
       '@volar/language-core': 2.4.28
       '@volar/typescript': 2.4.28(typescript@5.9.3)
+      jiti: 2.7.0
+      typescript: 5.9.3
+    transitivePeerDependencies:
+      - ember-source
+      - supports-color
+
+  '@glint/tsserver-plugin@2.7.15(ember-source@7.3.1(@glimmer/component@2.2.0(supports-color@10.2.2))(supports-color@10.2.2))(supports-color@10.2.2)':
+    dependencies:
+      '@glint/ember-tsc': 1.14.2(ember-source@7.3.1(@glimmer/component@2.2.0(supports-color@10.2.2))(supports-color@10.2.2))(supports-color@10.2.2)(typescript@5.9.3)
+      '@volar/language-core': 2.4.30
+      '@volar/typescript': 2.4.30(typescript@5.9.3)
       jiti: 2.7.0
       typescript: 5.9.3
     transitivePeerDependencies:
@@ -10702,6 +10727,15 @@ snapshots:
       vscode-languageserver-textdocument: 1.0.15
       vscode-uri: 3.2.0
 
+  '@volar/kit@2.4.30(typescript@5.9.3)':
+    dependencies:
+      '@volar/language-service': 2.4.30(typescript@5.9.3)
+      '@volar/typescript': 2.4.30(typescript@5.9.3)
+      typesafe-path: 0.2.2
+      typescript: 5.9.3
+      vscode-languageserver-textdocument: 1.0.15
+      vscode-uri: 3.2.0
+
   '@volar/kit@2.4.30(typescript@6.0.3)':
     dependencies:
       '@volar/language-service': 2.4.30(typescript@6.0.3)
@@ -10747,6 +10781,20 @@ snapshots:
     optionalDependencies:
       typescript: 6.0.3
 
+  '@volar/language-server@2.4.30(typescript@5.9.3)':
+    dependencies:
+      '@volar/language-core': 2.4.30
+      '@volar/language-service': 2.4.30(typescript@5.9.3)
+      '@volar/typescript': 2.4.30(typescript@5.9.3)
+      path-browserify: 1.0.1
+      request-light: 0.7.0
+      vscode-languageserver: 9.0.1
+      vscode-languageserver-protocol: 3.18.4
+      vscode-languageserver-textdocument: 1.0.15
+      vscode-uri: 3.2.0
+    optionalDependencies:
+      typescript: 5.9.3
+
   '@volar/language-server@2.4.30(typescript@6.0.3)':
     dependencies:
       '@volar/language-core': 2.4.30
@@ -10779,6 +10827,15 @@ snapshots:
     optionalDependencies:
       typescript: 6.0.3
 
+  '@volar/language-service@2.4.30(typescript@5.9.3)':
+    dependencies:
+      '@volar/language-core': 2.4.30
+      vscode-languageserver-protocol: 3.18.4
+      vscode-languageserver-textdocument: 1.0.15
+      vscode-uri: 3.2.0
+    optionalDependencies:
+      typescript: 5.9.3
+
   '@volar/language-service@2.4.30(typescript@6.0.3)':
     dependencies:
       '@volar/language-core': 2.4.30
@@ -10810,6 +10867,15 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
+  '@volar/test-utils@2.4.30(typescript@5.9.3)':
+    dependencies:
+      '@volar/language-core': 2.4.30
+      '@volar/language-server': 2.4.30(typescript@5.9.3)
+      vscode-languageserver-textdocument: 1.0.15
+      vscode-uri: 3.2.0
+    transitivePeerDependencies:
+      - typescript
+
   '@volar/test-utils@2.4.30(typescript@6.0.3)':
     dependencies:
       '@volar/language-core': 2.4.30
@@ -10834,6 +10900,15 @@ snapshots:
       vscode-uri: 3.2.0
     optionalDependencies:
       typescript: 6.0.3
+
+  '@volar/typescript@2.4.30(typescript@5.9.3)':
+    dependencies:
+      '@volar/language-core': 2.4.30
+      '@volar/language-service': 2.4.30(typescript@5.9.3)
+      path-browserify: 1.0.1
+      vscode-uri: 3.2.0
+    optionalDependencies:
+      typescript: 5.9.3
 
   '@volar/typescript@2.4.30(typescript@6.0.3)':
     dependencies:
@@ -16638,6 +16713,14 @@ snapshots:
     optionalDependencies:
       '@volar/language-service': 2.4.28(typescript@6.0.3)
 
+  volar-service-html@0.0.71(@volar/language-service@2.4.30(typescript@5.9.3)):
+    dependencies:
+      vscode-html-languageservice: 5.6.2
+      vscode-languageserver-textdocument: 1.0.15
+      vscode-uri: 3.2.0
+    optionalDependencies:
+      '@volar/language-service': 2.4.30(typescript@5.9.3)
+
   volar-service-html@0.0.71(@volar/language-service@2.4.30(typescript@6.0.3)):
     dependencies:
       vscode-html-languageservice: 5.6.2
@@ -16669,6 +16752,18 @@ snapshots:
     optionalDependencies:
       '@volar/language-service': 2.4.28(typescript@6.0.3)
       typescript: 6.0.3
+
+  volar-service-typescript@0.0.71(@volar/language-service@2.4.30(typescript@5.9.3))(typescript@5.9.3):
+    dependencies:
+      path-browserify: 1.0.1
+      semver: 7.8.5
+      typescript-auto-import-cache: 0.3.6
+      vscode-languageserver-textdocument: 1.0.15
+      vscode-nls: 5.2.0
+      vscode-uri: 3.2.0
+    optionalDependencies:
+      '@volar/language-service': 2.4.30(typescript@5.9.3)
+      typescript: 5.9.3
 
   volar-service-typescript@0.0.71(@volar/language-service@2.4.30(typescript@6.0.3))(typescript@6.0.3):
     dependencies:
