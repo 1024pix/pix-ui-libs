@@ -336,8 +336,8 @@ importers:
         specifier: 10.1.8
         version: 10.1.8(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
       eslint-plugin-ember:
-        specifier: 13.8.0
-        version: 13.8.0(@babel/eslint-parser@7.29.9(@babel/core@7.29.7(supports-color@10.2.2))(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2)))(@typescript-eslint/parser@8.72.0(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))(typescript@6.0.3)
+        specifier: 13.8.1
+        version: 13.8.1(@babel/eslint-parser@7.29.9(@babel/core@7.29.7(supports-color@10.2.2))(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2)))(@typescript-eslint/parser@8.72.0(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))(typescript@6.0.3)
       eslint-plugin-n:
         specifier: 18.5.0
         version: 18.5.0(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))(ts-declaration-location@1.0.7(typescript@6.0.3))(typescript@6.0.3)
@@ -674,12 +674,6 @@ importers:
         version: 10.4.2
 
 packages:
-
-  '@1024pix/eslint-plugin@3.0.16':
-    resolution: {integrity: sha512-re/xTmeAvr8JnkgfjjiSQH3p1IPaEipUDGvTFU8tJ5rl7I+3PoZHXJyfCLbozRRdwYHaF7q9rdOh4xULzNR4ZQ==}
-    engines: {node: ^20.19 || ^22.13 || ^24}
-    peerDependencies:
-      eslint: '>=9.38.0'
 
   '@1024pix/eslint-plugin@3.0.17':
     resolution: {integrity: sha512-gW+IO83hIFCxekg1Xm8DxwbsGeLa3PPBtfANZwYmFCb0Odw6ANjQHIDOxb8yooHoZ2i8qE4JWfarDKUvLkf/lQ==}
@@ -4296,6 +4290,16 @@ packages:
       '@typescript-eslint/parser':
         optional: true
 
+  eslint-plugin-ember@13.8.1:
+    resolution: {integrity: sha512-MLkDuUaQTTOmseOlLn006MEjZJDhFfwRHsaHrlanUo/bKk7/RGO5RJ1R0s3M0JAi7RZhW6lzRpd+CW9A1NKX1g==}
+    engines: {node: '>= 20.19'}
+    peerDependencies:
+      '@typescript-eslint/parser': '*'
+      eslint: '>= 8.40.0'
+    peerDependenciesMeta:
+      '@typescript-eslint/parser':
+        optional: true
+
   eslint-plugin-es-x@7.8.0:
     resolution: {integrity: sha512-7Ds8+wAAoV3T+LAKeu39Y5BzXCrGKrcISfgKEqTS4BDN8SFEDQd0S43jiQ8vIa3wUKD07qitZdfzlenSi8/0qQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
@@ -7776,14 +7780,6 @@ packages:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
 
 snapshots:
-
-  '@1024pix/eslint-plugin@3.0.16(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))':
-    dependencies:
-      '@eslint-community/eslint-plugin-eslint-comments': 4.8.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
-      '@eslint/js': 10.0.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
-      eslint: 9.39.5(jiti@2.7.0)(supports-color@10.2.2)
-      eslint-plugin-simple-import-sort: 14.0.0(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
-      eslint-plugin-yml: 3.8.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
 
   '@1024pix/eslint-plugin@3.0.17(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))':
     dependencies:
@@ -12357,6 +12353,32 @@ snapshots:
       - supports-color
 
   eslint-plugin-ember@13.8.0(@babel/eslint-parser@7.29.9(@babel/core@7.29.7(supports-color@10.2.2))(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2)))(@typescript-eslint/parser@8.72.0(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))(typescript@6.0.3):
+    dependencies:
+      '@ember-data/rfc395-data': 0.0.4
+      aria-query: 5.3.2
+      axobject-query: 4.1.0
+      css-tree: 3.2.1
+      editorconfig: 3.0.2
+      ember-eslint-parser: 0.16.1(@babel/eslint-parser@7.29.9(@babel/core@7.29.7(supports-color@10.2.2))(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2)))(@typescript-eslint/parser@8.72.0(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(typescript@6.0.3)
+      ember-rfc176-data: 0.3.18
+      eslint: 9.39.5(jiti@2.7.0)(supports-color@10.2.2)
+      eslint-utils: 3.0.0(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
+      estraverse: 5.3.0
+      html-tags: 3.3.1
+      language-tags: 1.0.9
+      lodash.camelcase: 4.3.0
+      lodash.kebabcase: 4.1.1
+      mathml-tag-names: 4.0.0
+      requireindex: 1.2.0
+      snake-case: 3.0.4
+      svg-tags: 1.0.0
+    optionalDependencies:
+      '@typescript-eslint/parser': 8.72.0(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+    transitivePeerDependencies:
+      - '@babel/eslint-parser'
+      - typescript
+
+  eslint-plugin-ember@13.8.1(@babel/eslint-parser@7.29.9(@babel/core@7.29.7(supports-color@10.2.2))(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2)))(@typescript-eslint/parser@8.72.0(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))(typescript@6.0.3):
     dependencies:
       '@ember-data/rfc395-data': 0.0.4
       aria-query: 5.3.2
