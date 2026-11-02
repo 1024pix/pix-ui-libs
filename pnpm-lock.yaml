@@ -493,8 +493,8 @@ importers:
         specifier: workspace:*
         version: link:../testing-library
       '@1024pix/eslint-plugin':
-        specifier: 3.0.17
-        version: 3.0.17(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
+        specifier: 3.0.18
+        version: 3.0.18(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
       '@1024pix/nebulix-ember':
         specifier: workspace:*
         version: link:../nebulix
@@ -677,6 +677,12 @@ packages:
 
   '@1024pix/eslint-plugin@3.0.17':
     resolution: {integrity: sha512-gW+IO83hIFCxekg1Xm8DxwbsGeLa3PPBtfANZwYmFCb0Odw6ANjQHIDOxb8yooHoZ2i8qE4JWfarDKUvLkf/lQ==}
+    engines: {node: ^20.19 || ^22.13 || ^24}
+    peerDependencies:
+      eslint: '>=9.38.0'
+
+  '@1024pix/eslint-plugin@3.0.18':
+    resolution: {integrity: sha512-Vryo0Dxy9q13JgUKwokb6DCEs8HG6cPW2IGK4T5ShZykCkzpBiUgR9aVhIfxDy6RxZL3rHCtZxPVtaYE+hPW0Q==}
     engines: {node: ^20.19 || ^22.13 || ^24}
     peerDependencies:
       eslint: '>=9.38.0'
@@ -7772,6 +7778,14 @@ packages:
 snapshots:
 
   '@1024pix/eslint-plugin@3.0.17(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))':
+    dependencies:
+      '@eslint-community/eslint-plugin-eslint-comments': 4.8.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
+      '@eslint/js': 10.0.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
+      eslint: 9.39.5(jiti@2.7.0)(supports-color@10.2.2)
+      eslint-plugin-simple-import-sort: 14.0.0(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
+      eslint-plugin-yml: 3.8.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
+
+  '@1024pix/eslint-plugin@3.0.18(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))':
     dependencies:
       '@eslint-community/eslint-plugin-eslint-comments': 4.8.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
       '@eslint/js': 10.0.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
