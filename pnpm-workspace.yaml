@@ -27,5 +27,5 @@ minimumReleaseAgeExclude:
 
 # Define a catalog of version ranges.
 catalog:
-  ember-source: 7.3.1
+  ember-source: 7.4.0
   "@glimmer/component": 2.2.1
