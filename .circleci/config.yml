@@ -46,6 +46,9 @@ jobs:
           paths:
             - .pnpm-store
       - run:
+          name: Lint Nebulix Styles files
+          command: pnpm --filter @1024pix/nebulix-styles lint
+      - run:
           name: Lint Nebulix Ember files
           command: pnpm --filter @1024pix/nebulix-ember lint
       - run:
