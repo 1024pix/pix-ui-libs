@@ -11,9 +11,9 @@
   },
   "homepage": "https://github.com/1024pix/pix-ui-libs#readme",
   "scripts": {
-    "build": "pnpm --filter @1024pix/nebulix-ember build",
-    "dev": "concurrently \"pnpm --filter @1024pix/nebulix-ember dev\" \"pnpm --filter test-app start\" --names \"addon,app\" --prefixColors auto",
-    "doc": "concurrently \"pnpm --filter @1024pix/nebulix-ember dev\" \"pnpm --filter docs-app start\" --names \"addon,app\" --prefixColors auto",
+    "build": "pnpm --filter @1024pix/nebulix-styles --filter @1024pix/nebulix-ember build",
+    "dev": "concurrently \"pnpm --filter @1024pix/nebulix-styles dev\" \"pnpm --filter @1024pix/nebulix-ember dev\" \"pnpm --filter test-app start\" --names \"styles,addon,app\" --prefixColors auto",
+    "doc": "concurrently \"pnpm --filter @1024pix/nebulix-styles dev\" \"pnpm --filter @1024pix/nebulix-ember dev\" \"pnpm --filter docs-app start\" --names \"styles,addon,app\" --prefixColors auto",
     "lint": "pnpm -r lint",
     "lint:fix": "pnpm -r lint:fix",
     "test": "pnpm build && pnpm --filter test-app --filter docs-app test",

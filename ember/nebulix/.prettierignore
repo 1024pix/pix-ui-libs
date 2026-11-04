@@ -14,3 +14,6 @@ config/ember-cli-update.json
 *.yml
 *.html
 CHANGELOG.md
+
+# copied from @1024pix/nebulix-styles at build time
+/public-styles/

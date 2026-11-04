@@ -48,7 +48,7 @@ export default defineConfig(({ mode }) => ({
 
 /**
  * Nebulix declares its icon sprite and its fonts as addon public assets, served
- * at absolute URLs (`/@1024pix/nebulix-ember/…`)
+ * at absolute URLs (`/@1024pix/nebulix-styles/…`)
  * Without this, the requests fall through to the SPA's index.html and fail
  * silently: icons render as empty `<svg>`, fonts fall back to system faces.
  */

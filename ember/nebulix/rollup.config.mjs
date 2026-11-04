@@ -1,10 +1,16 @@
-import { dirname, resolve } from 'node:path';
+import { createRequire } from 'node:module';
+import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { Addon } from '@embroider/addon-dev/rollup';
 import { babel } from '@rollup/plugin-babel';
 
 import { publishedSources } from './rollup-plugin-published-sources.mjs';
+import { stylesAssets } from './rollup-plugin-styles-assets.mjs';
+
+const require = createRequire(import.meta.url);
+const stylesRoot = dirname(require.resolve('@1024pix/nebulix-styles/package.json'));
+
 const addon = new Addon({
   srcDir: 'src',
   destDir: 'dist',
@@ -66,16 +72,25 @@ export default {
     // to leave alone and keep in the published output.
     addon.keepAssets(['**/*.css', '**/*.scss']),
 
-    // Sass reachable only through `@use`, and the fonts its `@font-face` rules
-    // point at, are invisible to rollup's module graph, so they have to be
-    // copied over explicitly. See the plugin for why `publicEntrypoints`
-    // cannot do this.
-    publishedSources({ srcDir: 'src' }),
+    // The Sass lives in @1024pix/nebulix-styles and is invisible to rollup's
+    // module graph, so it is copied over explicitly to keep `dist/styles` as
+    // the load path consumers already use. See the plugin for why
+    // `publicEntrypoints` cannot do this.
+    publishedSources({ srcDir: join(stylesRoot, 'src') }),
 
     // Fonts and the icon sprite are served at a stable absolute URL rather than
     // bundled: Sass reached through `loadPaths` keeps its `url()` verbatim, so
-    // a relative path would never resolve in the consuming app.
-    addon.publicAssets('src/assets'),
+    // a relative path would never resolve in the consuming app. They are
+    // namespaced under the package that owns them, so every framework binding
+    // shares the same URLs (see `$nebulix-assets-url`). The plugin also inlines
+    // the icon map, since @1024pix/nebulix-styles is not published.
+    stylesAssets({
+      assetsDir: join(stylesRoot, 'assets'),
+      to: 'public-styles',
+      iconsSource: require.resolve('@1024pix/nebulix-styles/icons'),
+      iconsModule: 'src/helpers/icons.js',
+    }),
+    addon.publicAssets('public-styles', { namespace: '@1024pix/nebulix-styles' }),
 
     // Remove leftover build artifacts when starting a new build.
     addon.clean(),

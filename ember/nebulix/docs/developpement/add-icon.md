@@ -10,7 +10,7 @@ La procédure suivante permet d'ajouter, de remplacer ou de supprimer une icône
 
 ## 1. Copier les fichiers fournis par le design
 
-Poser les `.svg` dans `ember/nebulix/tooling/generate-svg-sprite/icons`, en
+Poser les `.svg` dans `core/nebulix-styles/tooling/generate-svg-sprite/icons`, en
 gardant le nommage du design :
 
 ```sh
@@ -22,24 +22,28 @@ Ne copier `fill_true` que si la variante pleine est réellement utilisée, chaqu
 
 ## 2. Régénérer le sprite
 
-Depuis `ember/nebulix` :
+Depuis `core/nebulix-styles` :
 
 ```bash
 pnpm svg:generate-sprite
 ```
 
-La commande réécrit `src/assets/svg/pix-sprite.svg`.
+La commande réécrit `assets/svg/pix-sprite.svg`.
 
 ## 3. Déclarer l'icône
 
-Ajouter une entrée dans `src/helpers/icons.js` : c'est elle qui donne à l'icône le nom attendu par `@name` et reprend le nom du fichier.
+Ajouter une entrée dans `core/nebulix-styles/src/icons.js` : c'est elle qui donne à l'icône le nom attendu par `@name` et reprend le nom du fichier.
 
 ```js
 accountOff: { default: 'accountOff', plainIcon: 'accountOff_plain' },
 add: { default: 'add' },
 ```
 
-## 4. Vérifier dans la galerie
+## 4. Ajouter un changeset
+
+`@1024pix/nebulix-styles` n'est pas publié : ajouter un changeset sur `@1024pix/nebulix-ember` (`pnpm changeset`) pour livrer l'icône.
+
+## 5. Vérifier dans la galerie
 
 Depuis la racine du dépôt :
 
