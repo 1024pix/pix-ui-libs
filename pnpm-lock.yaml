@@ -209,6 +209,18 @@ importers:
         specifier: 10.0.7
         version: 10.0.7
 
+  core/nebulix-styles:
+    devDependencies:
+      prettier:
+        specifier: 3.10.0
+        version: 3.10.0
+      svg-sprite:
+        specifier: 2.0.4
+        version: 2.0.4
+      svgo:
+        specifier: 4.1.0
+        version: 4.1.0
+
   ember/docs-app:
     dependencies:
       '@1024pix/nebulix-ember':
@@ -420,6 +432,9 @@ importers:
       '@1024pix/eslint-plugin':
         specifier: 3.1.1
         version: 3.1.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
+      '@1024pix/nebulix-styles':
+        specifier: workspace:*
+        version: link:../../core/nebulix-styles
       '@babel/core':
         specifier: 'catalog:'
         version: 7.29.13(supports-color@10.2.2)
@@ -498,12 +513,6 @@ importers:
       rollup:
         specifier: 4.68.2
         version: 4.68.2
-      svg-sprite:
-        specifier: 2.0.4
-        version: 2.0.4
-      svgo:
-        specifier: 4.1.0
-        version: 4.1.0
       typescript:
         specifier: 6.0.3
         version: 6.0.3
@@ -6973,10 +6982,6 @@ packages:
     engines: {node: '>=20'}
     hasBin: true
 
-  source-map-js@1.2.1:
-    resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
-    engines: {node: '>=0.10.0'}
-
   source-map-js@1.2.2:
     resolution: {integrity: sha512-KGj/8Y43x35aZVDtt+J4mK1hoLGHULMYfSkODJNQjNDC3oW1PqPoxMwo0pLUsWM/UEGzON/NxeHywEfNXNP3Vw==}
     engines: {node: '>=0.10.0'}
@@ -11763,7 +11768,7 @@ snapshots:
   css-tree@2.2.1:
     dependencies:
       mdn-data: 2.0.28
-      source-map-js: 1.2.1
+      source-map-js: 1.2.2
 
   css-tree@3.2.1:
     dependencies:
@@ -15865,8 +15870,6 @@ snapshots:
       semver: 7.8.5
       sort-object-keys: 2.1.0
       tinyglobby: 0.2.17
-
-  source-map-js@1.2.1: {}
 
   source-map-js@1.2.2: {}
 

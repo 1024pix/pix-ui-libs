@@ -3,28 +3,18 @@ import { readFile } from 'node:fs/promises';
 import { join, relative } from 'node:path';
 
 /**
- * Files shipped to consumers as-is, as decided in the addon's public API.
+ * Sass shipped to consumers as-is. It lives in `@1024pix/nebulix-styles` and is
+ * re-published here, at the same position as before, so that apps configured
+ * with `loadPaths: ['…/@1024pix/nebulix-ember/dist/styles']` keep working.
  *
  * Consumers compile the Sass themselves, so `dist/` must be self-sufficient:
  * every `@use` target referenced from these patterns has to be published too,
- * at the same relative position it has in `src/`.
+ * at the same relative position it has in the source directory.
  *
  * Fonts are not here: Vite does not rebase relative `url()` in Sass reached
  * through `loadPaths`, so they ship as public assets under an absolute URL.
- *
- * Deliberately excluded: `styles/_pix-*.scss` and `styles/addon.scss` (the
- * pix-ui dump kept as a migration staging area) and `styles/component-state/`
- * (only reachable from that dump).
  */
-const PUBLISHED_PATTERNS = [
-  'components/**/*.scss',
-  'styles/normalize-reset/**/*.scss',
-  'styles/pix-design-tokens/**/*.scss',
-  'styles/_base.scss',
-  'styles/_a11y.scss',
-  'styles/_trap-focus.scss',
-  'styles/nebulix-styles.scss',
-];
+const PUBLISHED_PATTERNS = ['components/**/*.scss', 'styles/**/*.scss'];
 
 /**
  * @param {string} srcDir
@@ -35,17 +25,18 @@ function publishedFiles(srcDir) {
 }
 
 /**
- * Copies the published sources verbatim from `srcDir` into the rollup output
- * directory, preserving their relative paths.
+ * Copies the published sources verbatim from `srcDir` (the `src/` directory of
+ * `@1024pix/nebulix-styles`) into the rollup output directory, preserving
+ * their relative paths.
  *
  * `publicEntrypoints` cannot be used for this: rollup treats the listed files
  * as JavaScript entry points and replaces them with JS stubs that keep the
  * original extension, which corrupts every file it touches.
  *
- * @param {{ srcDir?: string }} [options]
+ * @param {{ srcDir: string }} options
  * @returns {import('rollup').Plugin}
  */
-export function publishedSources({ srcDir = 'src' } = {}) {
+export function publishedSources({ srcDir }) {
   return {
     name: 'nebulix-published-sources',
 
@@ -64,8 +55,7 @@ export function publishedSources({ srcDir = 'src' } = {}) {
         this.error(`No published source matched in "${srcDir}". Check PUBLISHED_PATTERNS.`);
       }
 
-      // Sass imported from JavaScript is already emitted by `keepAssets`;
-      // only the files reachable through `@use` or `url()` alone are missing.
+      // Skip anything another plugin (e.g. `keepAssets`) already emitted.
       const missing = files.filter((file) => !Object.hasOwn(bundle, relative(srcDir, file)));
 
       await Promise.all(
@@ -73,7 +63,6 @@ export function publishedSources({ srcDir = 'src' } = {}) {
           this.emitFile({
             type: 'asset',
             fileName: relative(srcDir, file),
-            // Read as a Buffer so font binaries survive the copy intact.
             source: await readFile(file),
           }),
         ),

@@ -22,7 +22,6 @@ Le fichier de documentation porte le nom du composant et vit dans **le même dos
 
 ```sh
 src/components/graphics/pix-icon.gjs    # le code du composant
-src/components/graphics/pix-icon.scss   # les styles
 src/components/graphics/pix-icon.md     # la documentation
 ```
 

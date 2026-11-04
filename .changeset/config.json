@@ -5,11 +5,18 @@
   "format": "auto",
   "changelog": [
     "@changesets/changelog-github",
-    { "repo": "1024pix/pix-ui-libs", "disableThanks": true }
+    {
+      "repo": "1024pix/pix-ui-libs",
+      "disableThanks": true
+    }
   ],
   "commit": true,
   "ignore": [],
   "fixed": [],
   "linked": [],
-  "updateInternalDependencies": "patch"
+  "updateInternalDependencies": "patch",
+  "privatePackages": {
+    "version": false,
+    "tag": false
+  }
 }
