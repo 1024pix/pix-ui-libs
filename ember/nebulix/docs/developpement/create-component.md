@@ -11,22 +11,22 @@ documentation.
 
 ## Les étapes
 
-1. Créer `src/components/<catégorie>/pix-mon-composant.gjs`, et son `.scss` s'il a des styles.
+1. Créer `src/components/<catégorie>/pix-mon-composant.gjs`, et son `.scss` dans `core/nebulix-styles/src/components/<catégorie>/` s'il a des styles.
 2. Écrire le composant : la classe, son `<template>` et la JSDoc qui le type.
-3. Déclarer son `.scss` dans `src/components/index.scss`.
+3. Déclarer son `.scss` dans `core/nebulix-styles/src/components/index.scss`.
 4. Exporter le composant dans `src/index.js`.
 5. Écrire son test, dans `ember/test-app/tests`. Voir [Tester un composant](/nebulix/developpement/test-component.md).
 6. Écrire sa page de documentation, à côté du `.gjs`. Voir [Documenter un composant](/nebulix/developpement/document-component.md).
-7. Ajouter un changeset avec `pnpm changeset`, sans quoi la modification ne sera pas publiée. Voir [Publier une version](/nebulix/developpement/release.md).
+7. Ajouter un changeset sur `@1024pix/nebulix-ember` avec `pnpm changeset`, sans quoi la modification ne sera pas publiée, y compris pour un changement de styles seul. Voir [Publier une version](/nebulix/developpement/release.md).
 
 ## Les fichiers
 
-Un composant est composé de trois fichiers portant le même nom, dans le même dossier :
+Un composant est composé de trois fichiers portant le même nom. Les styles vivent dans le package `@1024pix/nebulix-styles`, partagé entre les frameworks, au même chemin :
 
 ```sh
-src/components/layout/pix-block.gjs   # la logique et le template
-src/components/layout/pix-block.scss  # les styles
-src/components/layout/pix-block.md    # la documentation
+ember/nebulix/src/components/layout/pix-block.gjs          # la logique et le template
+ember/nebulix/src/components/layout/pix-block.md           # la documentation
+core/nebulix-styles/src/components/layout/pix-block.scss   # les styles
 ```
 
 Le `.gjs` est toujours là. Le `.md` et `.scss` sont facultatifs : un composant non public n'a pas de documentation et un composant peut ne pas avoir de styles.
@@ -102,7 +102,7 @@ Le reste tient en six conventions :
 ## Les styles
 
 ```css
-/* src/components/layout/pix-block.scss */
+/* core/nebulix-styles/src/components/layout/pix-block.scss */
 .pix-mon-composant {
   padding: var(--pix-spacing-3x);
   background-color: var(--pix-neutral-0);
@@ -119,7 +119,7 @@ Le reste tient en six conventions :
 
 Toutes les valeurs viennent des **design tokens**, sous forme de variables `var(--pix-*)` : couleurs, espacements, shadow, typographies. Aucune valeur en dur.
 
-Le fichier n'est pas importé depuis le `.gjs` : il faut l'ajouter à `src/components/index.scss`, qui rassemble les styles de tous les composants.
+Le fichier n'est pas importé depuis le `.gjs` : il faut l'ajouter à `core/nebulix-styles/src/components/index.scss`, qui rassemble les styles de tous les composants.
 
 ```scss
 @use './layout/pix-mon-composant';

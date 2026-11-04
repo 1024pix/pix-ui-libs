@@ -16,6 +16,8 @@ Les versions de `@1024pix/nebulix-ember` sont gérées avec [changesets](https:/
 
 Dès que le contenu publié de Nebulix change, c'est-à-dire dès que vous touchez à `ember/nebulix/src/`, aux dépendances du package ou à sa configuration de build.
 
+C'est aussi le cas quand vous touchez à `core/nebulix-styles` (styles, fonts, sprite, icônes). Ce package est interne et n'est jamais publié : chaque package de composants l'embarque au build. Ajoutez donc un changeset sur **chaque package de composants** qui doit livrer la modification (`@1024pix/nebulix-ember`, …), sans quoi elle ne sera pas publiée.
+
 Pas de changeset pour ce qui ne part pas dans le paquet : `docs-app`, `test-app`, les tests, la CI, les pages de documentation, le lint et le formatage.
 
 ## Ajouter un changeset
