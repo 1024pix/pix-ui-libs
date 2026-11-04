@@ -6,7 +6,7 @@ import { module, test } from 'qunit';
 module('Integration | Component | pix-icon', function (hooks) {
   setupRenderingTest(hooks);
 
-  const SPRITE_URL = '/@1024pix/nebulix-ember/svg/pix-sprite.svg';
+  const SPRITE_URL = '/@1024pix/nebulix-styles/svg/pix-sprite.svg';
 
   test('it points at the sprite served as a public asset', async function (assert) {
     // when

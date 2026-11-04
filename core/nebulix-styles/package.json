@@ -1,0 +1,48 @@
+{
+  "name": "@1024pix/nebulix-styles",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Internal, framework-agnostic styles, fonts and icon sprite of the Pix Design-System. Not published: framework packages embed it.",
+  "keywords": [
+    "design-system",
+    "scss",
+    "css",
+    "svg-sprite"
+  ],
+  "license": "AGPL-3.0",
+  "author": "GIP Pix",
+  "repository": {
+    "url": "https://github.com/1024pix/pix-ui-libs"
+  },
+  "type": "module",
+  "exports": {
+    "./package.json": "./package.json",
+    "./nebulix.css": "./dist/nebulix.css",
+    "./tokens.css": "./dist/tokens.css",
+    "./icons": {
+      "types": "./src/icons.d.ts",
+      "default": "./src/icons.js"
+    },
+    "./scss/*": "./src/*",
+    "./fonts/*": "./assets/fonts/*",
+    "./svg/*": "./assets/svg/*"
+  },
+  "scripts": {
+    "build": "node scripts/build-css.mjs",
+    "dev": "node scripts/build-css.mjs --watch",
+    "lint": "pnpm lint:format",
+    "lint:fix": "pnpm lint:format:fix",
+    "lint:format": "prettier . --cache --check",
+    "lint:format:fix": "prettier . --cache --write",
+    "svg:generate-sprite": "pnpm svg:compile && pnpm svg:optimize && pnpm run svg:rename-id",
+    "svg:compile": "svg-sprite -C 'tooling/generate-svg-sprite/svg-sprite.config.json' 'tooling/generate-svg-sprite/icons/*.svg'",
+    "svg:optimize": "svgo --config='./tooling/generate-svg-sprite/svgo.config.js' -i 'assets/svg/' -o 'assets/svg/'",
+    "svg:rename-id": "bash ./tooling/generate-svg-sprite/rename-icon-id-in-sprite.sh"
+  },
+  "devDependencies": {
+    "prettier": "3.9.9",
+    "sass-embedded": "1.105.1",
+    "svg-sprite": "2.0.4",
+    "svgo": "4.1.0"
+  }
+}

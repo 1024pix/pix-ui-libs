@@ -1,0 +1,7 @@
+// Base URL under which the fonts (`fonts/…`) and the icon sprite (`svg/…`) are
+// served. Absolute by default: Sass reached through `loadPaths` keeps `url()`
+// verbatim, so a relative path would never resolve in the consuming app.
+//
+// Override it once, before any other Nebulix module is loaded:
+//   @use 'config' with ($nebulix-assets-url: '/my/assets');
+$nebulix-assets-url: '/@1024pix/nebulix-styles' !default;
