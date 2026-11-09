@@ -213,8 +213,8 @@ importers:
         version: 4.5.0
     devDependencies:
       '@1024pix/eslint-plugin':
-        specifier: 3.0.20
-        version: 3.0.20(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
+        specifier: 3.0.22
+        version: 3.0.22(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
       '@babel/core':
         specifier: 7.29.7
         version: 7.29.7(supports-color@10.2.2)
@@ -677,6 +677,12 @@ packages:
 
   '@1024pix/eslint-plugin@3.0.20':
     resolution: {integrity: sha512-oGRgo+mYNGG707BX3ZmRo/pU8SAqIo15r++xgv3cTk8rV3b53+p50sZQPuExYm9tMQDtg7qnzm+/9tWtnA86Ag==}
+    engines: {node: ^20.19 || ^22.13 || ^24}
+    peerDependencies:
+      eslint: '>=9.38.0'
+
+  '@1024pix/eslint-plugin@3.0.22':
+    resolution: {integrity: sha512-0tc4dZTwFeyZe6MrxUSsPyFRlVj+Da3Zq7G3uZ5I6bEzZaw2rzziMRtel4Tsp58FcbMKYz/9M+W+V6qXZxOQUQ==}
     engines: {node: ^20.19 || ^22.13 || ^24}
     peerDependencies:
       eslint: '>=9.38.0'
@@ -7780,6 +7786,14 @@ packages:
 snapshots:
 
   '@1024pix/eslint-plugin@3.0.20(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))':
+    dependencies:
+      '@eslint-community/eslint-plugin-eslint-comments': 4.8.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
+      '@eslint/js': 10.0.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
+      eslint: 9.39.5(jiti@2.7.0)(supports-color@10.2.2)
+      eslint-plugin-simple-import-sort: 14.0.0(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
+      eslint-plugin-yml: 3.8.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
+
+  '@1024pix/eslint-plugin@3.0.22(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))':
     dependencies:
       '@eslint-community/eslint-plugin-eslint-comments': 4.8.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
       '@eslint/js': 10.0.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
