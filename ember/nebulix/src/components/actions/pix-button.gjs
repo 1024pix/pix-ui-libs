@@ -13,7 +13,7 @@ import PixButtonContent from './pix-button-content.gjs';
  * @property {'button' | 'submit' | 'reset'} [type] - Type natif du bouton. Par défaut : `button`.
  * @property {(event: MouseEvent) => unknown} [triggerAction] - Appelée au clic. Tant que la promesse retournée n'est pas résolue, le bouton affiche son chargeur et refuse les clics suivants. Obligatoire, sauf si `type` vaut `submit`.
  * @property {boolean} [isLoading] - Force l'état de chargement, indépendamment de `triggerAction`.
- * @property {'white' | 'grey'} [loadingColor] - Couleur du chargeur. Par défaut : `white`.
+ * @property {'white' | 'grey' | 'current'} [loadingColor] - Couleur du chargeur. `current` reprend la couleur du texte du bouton. Par défaut : `current` pour la variante `tertiary`, `white` sinon.
  * @property {boolean} [isDisabled] - Désactive le bouton.
  * @property {boolean} [isBorderVisible] - Ajoute une bordure. N'a d'effet qu'avec la variante `transparent-dark`.
  * @property {string} [iconBefore] - Nom d'une icône affichée avant le libellé.
@@ -72,7 +72,11 @@ export default class PixButton extends PixButtonBase {
   }
 
   get loadingColor() {
-    return this.args.loadingColor || this.args['loading-color'] || 'white';
+    return (
+      this.args.loadingColor ||
+      this.args['loading-color'] ||
+      (this.variant === 'tertiary' ? 'current' : 'white')
+    );
   }
 
   get isDisabled() {
