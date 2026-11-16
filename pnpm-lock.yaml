@@ -548,7 +548,7 @@ importers:
         version: 3.0.6(@embroider/core@4.6.10(@glint/template@1.11.1)(supports-color@10.2.2))(supports-color@10.2.2)
       '@embroider/vite':
         specifier: 1.8.0
-        version: 1.8.0(@babel/core@7.29.13(supports-color@10.2.2))(@embroider/core@4.6.10(@glint/template@1.11.1)(supports-color@10.2.2))(@glint/template@1.11.1)(supports-color@10.2.2)(vite@8.3.5(@types/node@26.6.3)(jiti@2.7.0)(sass-embedded@1.107.1)(sass@1.107.1)(terser@5.51.2)(yaml@2.9.1))
+        version: 1.8.0(@babel/core@7.29.13(supports-color@10.2.2))(@embroider/core@4.6.10(@glint/template@1.11.1)(supports-color@10.2.2))(@glint/template@1.11.1)(supports-color@10.2.2)(vite@8.3.6(@types/node@26.6.3)(jiti@2.7.0)(sass-embedded@1.107.1)(sass@1.107.1)(terser@5.51.2)(yaml@2.9.1))
       '@eslint/js':
         specifier: 9.39.5
         version: 9.39.5
@@ -661,8 +661,8 @@ importers:
         specifier: 8.72.1
         version: 8.72.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       vite:
-        specifier: 8.3.5
-        version: 8.3.5(@types/node@26.6.3)(jiti@2.7.0)(sass-embedded@1.107.1)(sass@1.107.1)(terser@5.51.2)(yaml@2.9.1)
+        specifier: 8.3.6
+        version: 8.3.6(@types/node@26.6.3)(jiti@2.7.0)(sass-embedded@1.107.1)(sass@1.107.1)(terser@5.51.2)(yaml@2.9.1)
 
   ember/testing-library:
     devDependencies:
@@ -10141,7 +10141,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@embroider/vite@1.8.0(@babel/core@7.29.13(supports-color@10.2.2))(@embroider/core@4.6.10(@glint/template@1.11.1)(supports-color@10.2.2))(@glint/template@1.11.1)(supports-color@10.2.2)(vite@8.3.5(@types/node@26.6.3)(jiti@2.7.0)(sass-embedded@1.107.1)(sass@1.107.1)(terser@5.51.2)(yaml@2.9.1))':
+  '@embroider/vite@1.8.0(@babel/core@7.29.13(supports-color@10.2.2))(@embroider/core@4.6.10(@glint/template@1.11.1)(supports-color@10.2.2))(@glint/template@1.11.1)(supports-color@10.2.2)(vite@8.3.6(@types/node@26.6.3)(jiti@2.7.0)(sass-embedded@1.107.1)(sass@1.107.1)(terser@5.51.2)(yaml@2.9.1))':
     dependencies:
       '@embroider/core': 4.6.10(@glint/template@1.11.1)(supports-color@10.2.2)
       '@embroider/macros': 1.21.4(@babel/core@7.29.13(supports-color@10.2.2))(@glint/template@1.11.1)(supports-color@10.2.2)
@@ -10157,7 +10157,7 @@ snapshots:
       jsdom: 25.0.1(supports-color@10.2.2)
       send: 1.2.1(supports-color@10.2.2)
       terser: 5.51.2
-      vite: 8.3.5(@types/node@26.6.3)(jiti@2.7.0)(sass-embedded@1.107.1)(sass@1.107.1)(terser@5.51.2)(yaml@2.9.1)
+      vite: 8.3.6(@types/node@26.6.3)(jiti@2.7.0)(sass-embedded@1.107.1)(sass@1.107.1)(terser@5.51.2)(yaml@2.9.1)
     optionalDependencies:
       '@babel/core': 7.29.13(supports-color@10.2.2)
     transitivePeerDependencies:
