@@ -36,6 +36,10 @@
   background-color: var(--pix-neutral-800);
 }
 
+.loader--current > div {
+  background-color: currentcolor;
+}
+
 .loader .bounce1 {
   animation-delay: -0.32s;
 }

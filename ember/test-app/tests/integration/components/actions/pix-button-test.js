@@ -120,5 +120,29 @@ module('Integration | Component | PixButton', function (hooks) {
       const loadingComponent = this.element.querySelector('.loader');
       assert.ok(loadingComponent);
     });
+
+    test('should display a white loader by default', async function (assert) {
+      // when
+      await render(hbs`<PixButton @isLoading={{true}} />`);
+
+      // then
+      assert.dom('.loader').hasClass('loader--white');
+    });
+
+    test('should display a current color loader on tertiary variant', async function (assert) {
+      // when
+      await render(hbs`<PixButton @variant='tertiary' @isLoading={{true}} />`);
+
+      // then
+      assert.dom('.loader').hasClass('loader--current');
+    });
+
+    test('should display the loader with the given loadingColor', async function (assert) {
+      // when
+      await render(hbs`<PixButton @variant='tertiary' @loadingColor='grey' @isLoading={{true}} />`);
+
+      // then
+      assert.dom('.loader').hasClass('loader--grey');
+    });
   });
 });
