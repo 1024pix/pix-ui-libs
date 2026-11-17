@@ -1,4 +1,4 @@
-import { currentURL, visit, waitFor } from '@ember/test-helpers';
+import { click, currentURL, visit, waitFor } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 
@@ -35,6 +35,22 @@ module('Application | docs pages', function (hooks) {
   test('renders a pix-button component', async function (assert) {
     await visit('/components/actions/pix-button.md');
 
-    assert.dom('button').hasText('Enregistrer');
+    assert.dom('main button').hasText('Enregistrer');
+  });
+
+  test('the header shows the search trigger', async function (assert) {
+    await visit('/');
+
+    assert.dom('header .kolay__search__trigger').exists();
+  });
+
+  test('the search palette only shows once its trigger is clicked', async function (assert) {
+    await visit('/');
+
+    assert.dom('.kolay__search').isNotVisible();
+
+    await click('header .kolay__search__trigger');
+
+    assert.dom('.kolay__search').isVisible();
   });
 });

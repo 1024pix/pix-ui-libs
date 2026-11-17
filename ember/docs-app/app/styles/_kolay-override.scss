@@ -17,3 +17,24 @@
 .repl-sdk__snippet > .shiki {
   background-color: var(--doc-code-bg) !important;
 }
+
+// Search palette (<Search />): align its theme with the doc app tokens.
+:root {
+  --kolay-search-bg: #fff;
+  --kolay-search-fg: var(--doc-text);
+  --kolay-search-muted: var(--doc-muted);
+  --kolay-search-border: var(--doc-border);
+  --kolay-search-active: var(--doc-surface-hover);
+  --kolay-search-accent: var(--doc-accent);
+}
+
+// kolay sets `display: flex` on the palette's <dialog>, which overrides the
+// browser's `dialog:not([open]) { display: none }`: hide it again while closed.
+.kolay__search:not([open]) {
+  display: none;
+}
+
+// Push the search trigger to the end of the header.
+.app-layout > header .kolay__search__trigger {
+  margin-inline-start: auto;
+}
