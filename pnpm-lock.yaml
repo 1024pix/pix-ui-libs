@@ -234,8 +234,8 @@ importers:
         specifier: 7.29.9
         version: 7.29.9(@babel/core@7.29.13(supports-color@10.2.2))(supports-color@10.2.2)
       '@babel/runtime':
-        specifier: 7.29.10
-        version: 7.29.10
+        specifier: 7.29.13
+        version: 7.29.13
       '@ember/app-tsconfig':
         specifier: 2.1.0
         version: 2.1.0
