@@ -8,6 +8,10 @@ import onWindowResize from '../../modifiers/on-window-resize.js';
 /**
  * @typedef {object} PixAppLayoutArgs
  * @property {'primary' | 'orga' | 'certif' | 'admin' | 'modulix'} [variant] - Application à laquelle la mise en page appartient, qui détermine ses couleurs. Par défaut : `primary`. La valeur `admin` active le bouton de repli de la navigation.
+ * @property {boolean} hideNavBar - Cache la partie navigation dans la page en cours
+ * @property {boolean} hideFooter - Cache la partie footer la page en cours
+ * @property {boolean} isFullWidth - Prend 100% de la width dans pix-app-layout__main sans padding
+ * @property {boolean} isStickyNavBar - Permet de passer la navigation en sticky afin qu'elle ne disparaisse pas au scroll.
  */
 
 /**
@@ -58,7 +62,29 @@ export default class PixAppLayout extends Component {
     return value;
   }
   get classNames() {
-    return ['pix-app-layout', `pix-app-layout--${this.variant}`].join(' ');
+    const cssClassNames = ['pix-app-layout', `pix-app-layout--${this.variant}`];
+
+    if (this.args.isFullWidth) {
+      cssClassNames.push('pix-app-layout--without-padding');
+    }
+
+    if (this.args.hideFooter) {
+      cssClassNames.push('pix-app-layout--without-footer');
+    }
+
+    if (this.args.hideNavBar) {
+      cssClassNames.push('pix-app-layout--without-navigation');
+    }
+
+    if (this.args.hideFooter) {
+      cssClassNames.push('pix-app-layout--without-footer');
+    }
+
+    if (this.args.isStickyNavBar) {
+      cssClassNames.push('pix-app-layout--sticky-navigation');
+    }
+
+    return cssClassNames.join(' ');
   }
 
   <template>
@@ -70,9 +96,9 @@ export default class PixAppLayout extends Component {
       >
         {{yield to="banner"}}
       </section>
-      <div class="pix-app-layout__navigation">{{yield to="navigation"}}</div>
-      <div class="pix-app-layout__main">{{yield to="main"}}</div>
-      <div class="pix-app-layout__footer">{{yield to="footer"}}</div>
+      <section class="pix-app-layout__navigation">{{yield to="navigation"}}</section>
+      <main class="pix-app-layout__main">{{yield to="main"}}</main>
+      <footer class="pix-app-layout__footer">{{yield to="footer"}}</footer>
     </div>
   </template>
 }
