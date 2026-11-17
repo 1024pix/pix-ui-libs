@@ -16,7 +16,7 @@ The repo docs are the source of truth — read them, do not guess.
 
 ## New component
 
-Follow `create-component.md`, but build it **test-first with the `tdd` skill**:
+Follow `create-component.md`, but build it **test-first with `tdd`**:
 create the empty `.gjs` (+ `.scss`), declare the `.scss` in `src/components/index.scss` and
 export the component from `src/index.js` right away, then red-green-refactor from
 `ember/test-app/tests`.
@@ -26,7 +26,7 @@ fail: tests import from the public entrypoint `@1024pix/nebulix-ember`.
 
 ## Existing component
 
-Drive the change with the `tdd` skill: a failing test for the new behaviour first.
+Drive the change with `tdd`: a failing test for the new behaviour first.
 Then add a changeset, picking the bump deliberately: a public API change must not break
 consumers: deprecate instead (`docs/guidelines/conventions.md`).
 
