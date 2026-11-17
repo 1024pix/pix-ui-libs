@@ -1,5 +1,14 @@
 # @1024pix/ember-nebulix
 
+## 1.5.0
+
+### Minor Changes
+
+- [#382](https://github.com/1024pix/pix-ui-libs/pull/382) [`4a099c5`](https://github.com/1024pix/pix-ui-libs/commit/4a099c5e5c87dac073eeb2216046cd2b254a570a) - PixButton :
+  Add `current` value on `@loadingColor` args, which uses the button text color. It is the default loader color for the `tertiary` variant.
+
+- [#404](https://github.com/1024pix/pix-ui-libs/pull/404) [`637a0e6`](https://github.com/1024pix/pix-ui-libs/commit/637a0e643efbc0799d43acc048e35b91ee5fbdcc) - Adds pix-spacing-20x to spacing.scss
+
 ## 1.4.0
 
 ### Minor Changes
