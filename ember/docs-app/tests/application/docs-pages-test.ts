@@ -32,6 +32,18 @@ module('Application | docs pages', function (hooks) {
     assert.dom('nav[aria-label="Groups"]').hasText('Nebulix Components');
   });
 
+  test('the page navigation links stay inside the app', async function (assert) {
+    await visit(FIRST_NEBULIX_PAGE);
+
+    const link = document.querySelector<HTMLAnchorElement>('aside a:not(.active)');
+    assert.ok(link, 'the page navigation has a link to another page');
+
+    // a full page load would leave the test app, so currentURL would not move
+    await click(link!);
+
+    assert.strictEqual(currentURL(), link!.getAttribute('href'));
+  });
+
   test('renders a pix-button component', async function (assert) {
     await visit('/components/actions/pix-button.md');
 
