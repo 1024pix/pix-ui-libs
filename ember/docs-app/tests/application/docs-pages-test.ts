@@ -1,4 +1,12 @@
-import { click, currentURL, visit, waitFor } from '@ember/test-helpers';
+import {
+  click,
+  currentURL,
+  fillIn,
+  find,
+  triggerKeyEvent,
+  visit,
+  waitFor,
+} from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 
@@ -64,5 +72,24 @@ module('Application | docs pages', function (hooks) {
     await click('header .kolay__search__trigger');
 
     assert.dom('.kolay__search').isVisible();
+  });
+
+  test('the search results can be reached and opened with the keyboard', async function (assert) {
+    await visit('/components/actions/pix-button.md');
+    await click('header .kolay__search__trigger');
+    await fillIn('.kolay__search__input', 'installer');
+    await waitFor('.kolay__search__result');
+
+    await triggerKeyEvent('.kolay__search__input', 'keydown', 'ArrowDown');
+
+    const activeId = find('.kolay__search__input')?.getAttribute('aria-activedescendant');
+    assert.ok(activeId, 'ArrowDown makes a result active');
+
+    const active = document.getElementById(activeId!);
+    assert.dom(active).hasClass('kolay__search__result');
+
+    await triggerKeyEvent('.kolay__search__input', 'keydown', 'Enter');
+
+    assert.strictEqual(currentURL(), active!.getAttribute('href'));
   });
 });

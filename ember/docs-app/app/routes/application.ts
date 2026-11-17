@@ -4,6 +4,7 @@ import type Transition from '@ember/routing/transition';
 import { service } from '@ember/service';
 import rehypeShikiFromHighlighter from '@shikijs/rehype/core';
 import DemoFrame from 'docs-app/components/DemoFrame.gjs';
+import { setupTabster } from 'ember-primitives/tabster';
 import type { Manifest } from 'kolay';
 import { docsManager, handlePotentialIndexVisit } from 'kolay';
 import { setupKolay } from 'kolay/setup';
@@ -17,10 +18,23 @@ import { createOnigurumaEngine } from 'shiki/engine/oniguruma';
  */
 const NEBULIX_GROUP = 'nebulix';
 
+/**
+ * The search palette (kolay's `<Search />`, built on ember-primitives'
+ * `<CommandPalette>`) needs tabster to move through its results with the
+ * arrow keys. Tabster is one instance per window, so it is set up once for
+ * the page, against a context that is never destroyed: `setupTabster`
+ * disposes tabster with its context, and tests build and tear down an
+ * application instance per test.
+ */
+const TABSTER_HOST = {};
+let tabster: Promise<void> | undefined;
+
 export default class ApplicationRoute extends Route {
   @service declare router: RouterService;
 
   async model(): Promise<{ manifest: Manifest }> {
+    await (tabster ??= setupTabster(TABSTER_HOST));
+
     const highlighter = await createHighlighterCore({
       themes: [import('shiki/themes/github-dark.mjs'), import('shiki/themes/github-light.mjs')],
       langs: [
