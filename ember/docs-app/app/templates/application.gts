@@ -1,6 +1,7 @@
 import DocsGroupNav from 'docs-app/components/DocsGroupNav.gts';
 import { nebulixVersion } from 'docs-app/utils/build-info';
 import { pageTitle } from 'ember-page-title';
+import { Search } from 'kolay/components';
 
 <template>
   {{pageTitle "Pix UI Libs"}}
@@ -9,6 +10,7 @@ import { pageTitle } from 'ember-page-title';
     <header>
       <img src="https://assets.pix.org/communication/pix.png" alt="" />
       <DocsGroupNav />
+      <Search />
     </header>
 
     {{outlet}}
