@@ -234,8 +234,8 @@ importers:
         version: 4.6.0
     devDependencies:
       '@1024pix/eslint-plugin':
-        specifier: 3.1.0
-        version: 3.1.0(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
+        specifier: 3.1.1
+        version: 3.1.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
       '@babel/core':
         specifier: 'catalog:'
         version: 7.29.13(supports-color@10.2.2)
@@ -418,8 +418,8 @@ importers:
         version: 5.0.0(supports-color@10.2.2)
     devDependencies:
       '@1024pix/eslint-plugin':
-        specifier: 3.1.0
-        version: 3.1.0(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
+        specifier: 3.1.1
+        version: 3.1.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
       '@babel/core':
         specifier: 'catalog:'
         version: 7.29.13(supports-color@10.2.2)
@@ -514,8 +514,8 @@ importers:
         specifier: workspace:*
         version: link:../testing-library
       '@1024pix/eslint-plugin':
-        specifier: 3.1.0
-        version: 3.1.0(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
+        specifier: 3.1.1
+        version: 3.1.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
       '@1024pix/nebulix-ember':
         specifier: workspace:*
         version: link:../nebulix
@@ -696,8 +696,8 @@ importers:
 
 packages:
 
-  '@1024pix/eslint-plugin@3.1.0':
-    resolution: {integrity: sha512-zP6ORmYo6Ahuf5cUqB3m4moMF9rYIlYkAWY0gLdNLDBeI/0EyQdnrGi0K3UIbrZz36ko/sjxzY1tdo7Ro9Zh7Q==}
+  '@1024pix/eslint-plugin@3.1.1':
+    resolution: {integrity: sha512-rm+I/4qaqLSqQYe0Yp74zQF3l3IcbjH1fn3yBQDqD5LQo24m/tDaP1rv4sK3l7flNTsd/61C8PXjw3MqNbnCHw==}
     engines: {node: ^20.19 || ^22.13 || ^24}
     peerDependencies:
       eslint: '>=9.38.0'
@@ -7904,7 +7904,7 @@ packages:
 
 snapshots:
 
-  '@1024pix/eslint-plugin@3.1.0(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))':
+  '@1024pix/eslint-plugin@3.1.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))':
     dependencies:
       '@eslint-community/eslint-plugin-eslint-comments': 4.8.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
       '@eslint/js': 10.0.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))
