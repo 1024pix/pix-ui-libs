@@ -8,7 +8,7 @@ La mise en place de composants responsive doit respecter les règles définies d
 
 ## Breakpoints
 
-L'ensemble des breakpoints pour les différentes résolutions sont définis le fichier `addon/styles/_breakpoints.scss` et utilisables via la mixin `device-is`
+L'ensemble des breakpoints pour les différentes résolutions sont définis le fichier `styles/pix-design-tokens/_breakpoints.scss` et utilisables via la mixin `device-is`
 
 Par exemple, ici le style s'applique si on a moins la largeure d'une tablette.
 
