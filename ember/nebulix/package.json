@@ -62,7 +62,7 @@
     "ember-truth-helpers": "^5.0.0"
   },
   "devDependencies": {
-    "@1024pix/eslint-plugin": "3.1.1",
+    "@1024pix/eslint-plugin": "3.1.2",
     "@babel/core": "catalog:",
     "@babel/eslint-parser": "7.29.13",
     "@babel/runtime": "7.29.13",
