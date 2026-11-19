@@ -1,3 +1,7 @@
+// Forwarded first so that `@use 'nebulix-styles' with ($nebulix-assets-url: …)`
+// configures the fonts module before `pix-design-tokens` loads it.
+@forward 'pix-design-tokens/fonts' show $nebulix-assets-url;
+
 @use 'normalize-reset';
 @use 'pix-design-tokens';
 @use 'base';

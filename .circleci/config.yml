@@ -57,6 +57,15 @@ jobs:
       - run:
           name: Lint Docs app files
           command: pnpm --filter docs-app lint
+      - run:
+          name: Lint Nebulix Vue files
+          command: pnpm --filter @1024pix/nebulix-vue lint
+      - run:
+          name: Lint Vue Test app files
+          command: pnpm --filter vue-test-app lint
+      - run:
+          name: Lint Vue Docs app files
+          command: pnpm --filter vue-docs-app lint
       - browser-tools/install_chrome
       - run:
           name: Launch tests

@@ -6,6 +6,10 @@ All libraries for Pix frontend apps : Design System, Docs, Toolings
 
 Design system Nebulix for Ember apps : [README](./ember/nebulix/README.md)
 
+## Pix Nebulix for Vue
+
+Design system Nebulix for Vue 3 apps : [README](./vue/nebulix/README.md)
+
 ## Ember Testing Library
 
 The Ember Testing Library is a very lightweight solution for testing Ember components : [README](./ember/testing-library/README.md)
