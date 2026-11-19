@@ -86,7 +86,7 @@ export default {
     // reference them directly (preload links, sprite). The plugin also inlines
     // the icon map, since @1024pix/nebulix-styles is not published.
     stylesAssets({
-      assetsDir: join(stylesRoot, 'assets'),
+      assetsDirs: [join(stylesRoot, 'assets'), join(stylesRoot, 'dist')],
       namespace: '@1024pix/nebulix-ember',
       iconsSource: require.resolve('@1024pix/nebulix-styles/icons'),
       iconsModule: 'src/helpers/icons.js',
