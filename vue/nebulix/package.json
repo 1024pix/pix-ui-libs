@@ -36,9 +36,10 @@
     "vite.js"
   ],
   "scripts": {
-    "build": "vite build && pnpm build:types",
+    "build": "pnpm build:styles && vite build && pnpm build:types",
+    "build:styles": "pnpm --filter @1024pix/nebulix-styles build",
     "build:types": "vue-tsc -p tsconfig.build.json",
-    "dev": "concurrently \"vite build --watch\" \"vue-tsc -p tsconfig.build.json --watch\" --names \"vite,types\" --prefixColors auto",
+    "dev": "pnpm build:styles && concurrently \"vite build --watch\" \"vue-tsc -p tsconfig.build.json --watch\" --names \"vite,types\" --prefixColors auto",
     "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\" --prefixColors auto",
     "lint:fix": "concurrently \"pnpm:lint:*:fix\" --names \"fix:\" --prefixColors auto",
     "lint:format": "prettier . --cache --check",
