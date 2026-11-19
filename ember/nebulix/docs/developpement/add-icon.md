@@ -22,13 +22,13 @@ Ne copier `fill_true` que si la variante pleine est réellement utilisée, chaqu
 
 ## 2. Régénérer le sprite
 
-Depuis `core/nebulix-styles` :
+Le sprite n'est pas versionné : il est généré dans `core/nebulix-styles/dist/svg/pix-sprite.svg` à chaque build de `@1024pix/nebulix-ember` (`pnpm build` ou `pnpm dev`), qui l'embarque ensuite.
+
+Pour le régénérer seul, depuis `core/nebulix-styles` :
 
 ```bash
-pnpm svg:generate-sprite
+pnpm build
 ```
-
-La commande réécrit `assets/svg/pix-sprite.svg`.
 
 ## 3. Déclarer l'icône
 
