@@ -1,29 +1,35 @@
+// URL under which the framework package serves the fonts (`/<package>/fonts/…`).
+// Each framework package publishes its own default (the Vue build rewrites it),
+// and apps serving the fonts elsewhere override it:
+//   @use 'nebulix-styles' with ($nebulix-assets-url: 'https://cdn.example.com');
+$nebulix-assets-url: '/@1024pix/nebulix-ember' !default;
+
 @font-face {
   font-weight: 700;
   font-family: 'Nunito';
   font-style: normal;
-  src: url('/@1024pix/nebulix-ember/fonts/Nunito/Nunito-Bold.woff2');
+  src: url('#{$nebulix-assets-url}/fonts/Nunito/Nunito-Bold.woff2');
 }
 
 @font-face {
   font-weight: 800;
   font-family: 'Nunito';
   font-style: normal;
-  src: url('/@1024pix/nebulix-ember/fonts/Nunito/Nunito-ExtraBold.woff2');
+  src: url('#{$nebulix-assets-url}/fonts/Nunito/Nunito-ExtraBold.woff2');
 }
 
 @font-face {
   font-weight: 400;
   font-family: 'Nunito';
   font-style: normal;
-  src: url('/@1024pix/nebulix-ember/fonts/Nunito/Nunito-Regular.woff2');
+  src: url('#{$nebulix-assets-url}/fonts/Nunito/Nunito-Regular.woff2');
 }
 
 @font-face {
   font-weight: 500;
   font-family: 'Roboto Condensed';
   font-style: normal;
-  src: url('/@1024pix/nebulix-ember/fonts/RobotoCondensed/RobotoCondensed-Medium.woff2');
+  src: url('#{$nebulix-assets-url}/fonts/RobotoCondensed/RobotoCondensed-Medium.woff2');
 }
 
 /* @deprecated - use Nunito */
@@ -31,35 +37,35 @@
   font-weight: 500;
   font-family: 'Open Sans';
   font-style: normal;
-  src: url('/@1024pix/nebulix-ember/fonts/OpenSans/OpenSans-Medium.woff2');
+  src: url('#{$nebulix-assets-url}/fonts/OpenSans/OpenSans-Medium.woff2');
 }
 
 @font-face {
   font-weight: 400;
   font-family: 'Roboto';
   font-style: normal;
-  src: url('/@1024pix/nebulix-ember/fonts/Roboto/Roboto-Regular.woff2');
+  src: url('#{$nebulix-assets-url}/fonts/Roboto/Roboto-Regular.woff2');
 }
 
 @font-face {
   font-weight: 500;
   font-family: 'Roboto';
   font-style: normal;
-  src: url('/@1024pix/nebulix-ember/fonts/Roboto/Roboto-Medium.woff2');
+  src: url('#{$nebulix-assets-url}/fonts/Roboto/Roboto-Medium.woff2');
 }
 
 @font-face {
   font-weight: 700;
   font-family: 'Roboto';
   font-style: normal;
-  src: url('/@1024pix/nebulix-ember/fonts/Roboto/Roboto-Bold.woff2');
+  src: url('#{$nebulix-assets-url}/fonts/Roboto/Roboto-Bold.woff2');
 }
 
 @font-face {
   font-weight: 400;
   font-family: 'Roboto Mono';
   font-style: normal;
-  src: url('/@1024pix/nebulix-ember/fonts/RobotoMono/RobotoMono-Regular.woff2');
+  src: url('#{$nebulix-assets-url}/fonts/RobotoMono/RobotoMono-Regular.woff2');
 }
 
 /* @deprecated - use Design Tokens */

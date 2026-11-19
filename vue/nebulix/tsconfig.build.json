@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  // Demos document the package as an app uses it: not part of its API.
+  "exclude": ["src/**/demos/**"],
+  "compilerOptions": {
+    // Props types and their JSDoc end up in `declarations/`: they type the
+    // components for consumers and feed the API tables of the docs.
+    "noEmit": false,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "rootDir": "src",
+    "outDir": "declarations"
+  }
+}

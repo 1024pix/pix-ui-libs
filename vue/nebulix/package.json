@@ -1,0 +1,83 @@
+{
+  "name": "@1024pix/nebulix-vue",
+  "version": "0.0.0",
+  "description": "Library implementing Pix Design-System components for Vue apps",
+  "keywords": [
+    "vue",
+    "design-system"
+  ],
+  "license": "AGPL-3.0",
+  "author": "GIP Pix",
+  "repository": {
+    "url": "https://github.com/1024pix/pix-ui-libs"
+  },
+  "type": "module",
+  "sideEffects": [
+    "*.css",
+    "*.scss"
+  ],
+  "exports": {
+    ".": {
+      "types": "./declarations/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./vite": {
+      "types": "./vite.d.ts",
+      "default": "./vite.js"
+    },
+    "./package.json": "./package.json",
+    "./*.scss": "./dist/*.scss",
+    "./public/*": "./dist/public/*"
+  },
+  "files": [
+    "declarations",
+    "dist",
+    "vite.d.ts",
+    "vite.js"
+  ],
+  "scripts": {
+    "build": "vite build && pnpm build:types",
+    "build:types": "vue-tsc -p tsconfig.build.json",
+    "dev": "concurrently \"vite build --watch\" \"vue-tsc -p tsconfig.build.json --watch\" --names \"vite,types\" --prefixColors auto",
+    "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\" --prefixColors auto",
+    "lint:fix": "concurrently \"pnpm:lint:*:fix\" --names \"fix:\" --prefixColors auto",
+    "lint:format": "prettier . --cache --check",
+    "lint:format:fix": "prettier . --cache --write",
+    "lint:js": "eslint . --cache",
+    "lint:js:fix": "eslint . --fix",
+    "lint:types": "vue-tsc --noEmit && vue-tsc -p tsconfig.node.json",
+    "lint:publish": "pnpm build && publint run --level error",
+    "prepack": "pnpm build",
+    "prepare": "pnpm build"
+  },
+  "peerDependencies": {
+    "vite": ">= 5.4.0",
+    "vue": ">= 3.5.0"
+  },
+  "peerDependenciesMeta": {
+    "vite": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@1024pix/eslint-plugin": "3.1.1",
+    "@1024pix/nebulix-styles": "workspace:*",
+    "@eslint/js": "9.39.5",
+    "@types/node": "24.10.1",
+    "@vitejs/plugin-vue": "catalog:",
+    "@vue/tsconfig": "0.9.1",
+    "concurrently": "10.0.7",
+    "eslint": "9.39.5",
+    "eslint-plugin-prettier": "5.5.7",
+    "eslint-plugin-vue": "10.12.1",
+    "globals": "17.14.0",
+    "prettier": "3.10.0",
+    "publint": "0.3.25",
+    "typescript": "catalog:",
+    "typescript-eslint": "8.72.2",
+    "vite": "catalog:",
+    "vue": "catalog:",
+    "vue-eslint-parser": "10.4.2",
+    "vue-tsc": "catalog:"
+  }
+}
