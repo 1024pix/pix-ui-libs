@@ -1,0 +1,7 @@
+.demo-frame {
+  margin: 16px 0;
+  padding: 24px;
+  overflow-x: auto;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+}
