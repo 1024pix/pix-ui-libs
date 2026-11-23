@@ -13,11 +13,11 @@
  *
  */
 import pixRecommendedConfig from '@1024pix/eslint-plugin/config';
-import babelParser from '@babel/eslint-parser/experimental-worker';
+import babelParser from '@babel/eslint-parser';
 import js from '@eslint/js';
 import { defineConfig, globalIgnores } from 'eslint/config';
 import ember from 'eslint-plugin-ember/recommended';
-import importPlugin from 'eslint-plugin-import';
+import { createNodeResolver, importX } from 'eslint-plugin-import-x';
 import n from 'eslint-plugin-n';
 import prettierRecommendedConfig from 'eslint-plugin-prettier/recommended';
 import globals from 'globals';
@@ -32,6 +32,7 @@ export default defineConfig([
   globalIgnores(['dist/', 'dist-*/', 'declarations/', 'coverage/', '!**/.*']),
   js.configs.recommended,
   prettierRecommendedConfig,
+  importX.flatConfigs.recommended,
   ember.configs.base,
   ember.configs.gjs,
   /**
@@ -59,12 +60,14 @@ export default defineConfig([
   },
   {
     files: ['src/**/*'],
-    plugins: {
-      import: importPlugin,
+    settings: {
+      'import-x/resolver-next': [createNodeResolver({ extensions: ['.js', '.json', '.gjs'] })],
     },
     rules: {
       // require relative imports use full extensions
-      'import/extensions': ['error', 'always', { ignorePackages: true }],
+      'import-x/extensions': ['error', 'always', { ignorePackages: true }],
+      // exported modules provided by ember-source
+      'import-x/no-unresolved': ['error', { ignore: ['^@ember/', '^@glimmer/tracking$'] }],
     },
   },
   /**
