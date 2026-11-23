@@ -13,7 +13,7 @@
  *
  */
 import pixRecommendedConfig from '@1024pix/eslint-plugin/config';
-import babelParser from '@babel/eslint-parser/experimental-worker';
+import babelParser from '@babel/eslint-parser';
 import js from '@eslint/js';
 import { defineConfig, globalIgnores } from 'eslint/config';
 import ember from 'eslint-plugin-ember/recommended';
