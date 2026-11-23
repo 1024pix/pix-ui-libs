@@ -64,7 +64,7 @@
   "devDependencies": {
     "@1024pix/eslint-plugin": "3.1.3",
     "@babel/core": "catalog:",
-    "@babel/eslint-parser": "7.29.13",
+    "@babel/eslint-parser": "8.1.2",
     "@babel/runtime": "7.29.14",
     "@ember/app-tsconfig": "2.1.0",
     "@embroider/addon-dev": "8.5.0",
