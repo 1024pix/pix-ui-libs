@@ -61,11 +61,13 @@ export default defineConfig([
   {
     files: ['src/**/*'],
     settings: {
-      'import-x/resolver-next': [createNodeResolver()],
+      'import-x/resolver-next': [createNodeResolver({ extensions: ['.js', '.json', '.gjs'] })],
     },
     rules: {
       // require relative imports use full extensions
       'import-x/extensions': ['error', 'always', { ignorePackages: true }],
+      // exported modules provided by ember-source
+      'import-x/no-unresolved': ['error', { ignore: ['^@ember/', '^@glimmer/tracking$'] }],
     },
   },
   /**
