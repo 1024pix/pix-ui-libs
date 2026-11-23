@@ -90,7 +90,7 @@
   }
 
   .pix-select-list-category__option--selected {
-    color: var(--pix-navigation-text-color);
+    color: rgb(var(--pix-navigation-text-color));
     font-weight: var(--pix-font-bold);
     background-color: var(--pix-navigation-color);
 
