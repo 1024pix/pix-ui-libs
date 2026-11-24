@@ -285,8 +285,8 @@ importers:
         specifier: 3.0.6
         version: 3.0.6(@embroider/core@4.6.10(@glint/template@1.11.1)(supports-color@10.2.2))(supports-color@10.2.2)
       '@embroider/vite':
-        specifier: 1.8.0
-        version: 1.8.0(@babel/core@8.1.3)(@embroider/core@4.6.10(@glint/template@1.11.1)(supports-color@10.2.2))(@glint/template@1.11.1)(supports-color@10.2.2)(vite@8.3.8(@types/node@26.6.3)(jiti@2.7.0)(sass-embedded@1.108.2)(sass@1.108.2)(terser@5.51.2)(yaml@2.9.1))
+        specifier: 1.8.1
+        version: 1.8.1(@babel/core@8.1.3)(@embroider/core@4.6.10(@glint/template@1.11.1)(supports-color@10.2.2))(@glint/template@1.11.1)(supports-color@10.2.2)(vite@8.3.8(@types/node@26.6.3)(jiti@2.7.0)(sass-embedded@1.108.2)(sass@1.108.2)(terser@5.51.2)(yaml@2.9.1))
       '@eslint/js':
         specifier: 10.0.1
         version: 10.0.1(eslint@10.15.0(jiti@2.7.0)(supports-color@10.2.2))
@@ -568,8 +568,8 @@ importers:
         specifier: 3.0.6
         version: 3.0.6(@embroider/core@4.6.10(@glint/template@1.11.1)(supports-color@10.2.2))(supports-color@10.2.2)
       '@embroider/vite':
-        specifier: 1.8.0
-        version: 1.8.0(@babel/core@8.1.3)(@embroider/core@4.6.10(@glint/template@1.11.1)(supports-color@10.2.2))(@glint/template@1.11.1)(supports-color@10.2.2)(vite@8.3.8(@types/node@26.6.3)(jiti@2.7.0)(sass-embedded@1.108.2)(sass@1.108.2)(terser@5.51.2)(yaml@2.9.1))
+        specifier: 1.8.1
+        version: 1.8.1(@babel/core@8.1.3)(@embroider/core@4.6.10(@glint/template@1.11.1)(supports-color@10.2.2))(@glint/template@1.11.1)(supports-color@10.2.2)(vite@8.3.8(@types/node@26.6.3)(jiti@2.7.0)(sass-embedded@1.108.2)(sass@1.108.2)(terser@5.51.2)(yaml@2.9.1))
       '@eslint/js':
         specifier: 10.0.1
         version: 10.0.1(eslint@10.15.0(jiti@2.7.0)(supports-color@10.2.2))
@@ -1718,8 +1718,8 @@ packages:
     resolution: {integrity: sha512-ZHTVF1Md6HiPPdpi5ESU5JlG2m4HRXIVebCka6BoMIfzyPlSjgYmpflv6Cmiq9UUyhe+/3LTMdx53vAV7O9g2Q==}
     engines: {node: 12.* || 14.* || >= 16}
 
-  '@embroider/vite@1.8.0':
-    resolution: {integrity: sha512-+g32mPMqLhrDaXks64dx1tt5jnI5Nbl6EojhJptSNBq3M+HHDS1dj+1kVjNmmpQwl0nId7ToGQZOr+Ykm19kNA==}
+  '@embroider/vite@1.8.1':
+    resolution: {integrity: sha512-XtWP/tBqWWD7r6tebzjWrmUGHjxebLxqSTYKlyHQ56gVn/HWKQ/nN8Y8WU5s2b6fmX5SQWnf0TXmow/yDyw5sg==}
     peerDependencies:
       '@babel/core': ^7.22.9 || ^8.0.0
       '@embroider/core': ^4.6.10
@@ -10106,7 +10106,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@embroider/vite@1.8.0(@babel/core@8.1.3)(@embroider/core@4.6.10(@glint/template@1.11.1)(supports-color@10.2.2))(@glint/template@1.11.1)(supports-color@10.2.2)(vite@8.3.8(@types/node@26.6.3)(jiti@2.7.0)(sass-embedded@1.108.2)(sass@1.108.2)(terser@5.51.2)(yaml@2.9.1))':
+  '@embroider/vite@1.8.1(@babel/core@8.1.3)(@embroider/core@4.6.10(@glint/template@1.11.1)(supports-color@10.2.2))(@glint/template@1.11.1)(supports-color@10.2.2)(vite@8.3.8(@types/node@26.6.3)(jiti@2.7.0)(sass-embedded@1.108.2)(sass@1.108.2)(terser@5.51.2)(yaml@2.9.1))':
     dependencies:
       '@embroider/core': 4.6.10(@glint/template@1.11.1)(supports-color@10.2.2)
       '@embroider/macros': 1.21.4(@babel/core@8.1.3)(@glint/template@1.11.1)(supports-color@10.2.2)
@@ -10115,7 +10115,7 @@ snapshots:
       browserslist: 4.29.2
       browserslist-to-esbuild: 2.1.1(browserslist@4.29.2)
       chalk: 5.6.2
-      content-tag: 4.2.0
+      content-tag: 4.3.0
       debug: 4.4.3(supports-color@10.2.2)
       fast-glob: 3.3.3
       fs-extra: 10.1.0
