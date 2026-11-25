@@ -18,7 +18,7 @@
     "./package.json": "./package.json",
     "./icons": {
       "types": "./src/icons.d.ts",
-      "default": "./src/icons.js"
+      "default": "./dist/icons.js"
     },
     "./scss/*": "./src/*",
     "./fonts/*": "./assets/fonts/*",

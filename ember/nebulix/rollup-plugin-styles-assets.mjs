@@ -7,14 +7,15 @@ const SPRITE = 'svg/pix-sprite.svg';
 
 /**
  * @param {string[]} assetsDirs
+ * @param {string} excluded Absolute path of a file to leave out.
  * @returns {{ file: string, path: string }[]} Every file of `assetsDirs`, with
  *   its path relative to its directory, sorted by path.
  */
-function assetFiles(assetsDirs) {
+function assetFiles(assetsDirs, excluded) {
   return assetsDirs
     .flatMap((dir) =>
       globSync(join(dir, '**/*'))
-        .filter((file) => statSync(file).isFile())
+        .filter((file) => statSync(file).isFile() && resolve(file) !== excluded)
         .map((file) => ({ file, path: relative(dir, file).split(sep).join('/') })),
     )
     .sort((a, b) => a.path.localeCompare(b.path));
@@ -39,13 +40,15 @@ function assetFiles(assetsDirs) {
  */
 export function stylesAssets({ assetsDirs, namespace, iconsSource, iconsModule }) {
   const iconsModulePath = resolve(iconsModule);
+  // The icon map is generated next to the sprite (`dist/`) but inlined, not served.
+  const iconsSourcePath = resolve(iconsSource);
 
   return {
     name: 'nebulix-styles-assets',
 
     buildStart() {
-      this.addWatchFile(iconsSource);
-      for (const { file } of assetFiles(assetsDirs)) {
+      this.addWatchFile(iconsSourcePath);
+      for (const { file } of assetFiles(assetsDirs, iconsSourcePath)) {
         this.addWatchFile(file);
       }
     },
@@ -56,7 +59,7 @@ export function stylesAssets({ assetsDirs, namespace, iconsSource, iconsModule }
     },
 
     async generateBundle(options) {
-      const files = assetFiles(assetsDirs);
+      const files = assetFiles(assetsDirs, iconsSourcePath);
 
       if (!files.some(({ path }) => path === SPRITE)) {
         this.error(`No icon sprite found: run \`pnpm build\` in @1024pix/nebulix-styles.`);
