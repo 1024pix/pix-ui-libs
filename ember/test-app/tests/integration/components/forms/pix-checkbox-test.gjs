@@ -1,5 +1,5 @@
 import { clickByName, render } from '@1024pix/ember-testing-library';
-import { hbs } from 'ember-cli-htmlbars';
+import { PixCheckbox } from '@1024pix/nebulix-ember';
 import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 import sinon from 'sinon';
@@ -11,7 +11,10 @@ module('Integration | Component | checkbox', function (hooks) {
     test('when label is displayed', async function (assert) {
       // when
       const screen = await render(
-        hbs`<PixCheckbox><:label>Recevoir la newsletter</:label></PixCheckbox>`,
+        <template>
+          <PixCheckbox>
+            <:label>Recevoir la newsletter</:label></PixCheckbox>
+        </template>,
       );
       await clickByName('Recevoir la newsletter');
 
@@ -22,7 +25,10 @@ module('Integration | Component | checkbox', function (hooks) {
     test('when label is hidden', async function (assert) {
       // when
       const screen = await render(
-        hbs`<PixCheckbox @screenReaderOnly={{true}}><:label>Recevoir la newsletter</:label></PixCheckbox>`,
+        <template>
+          <PixCheckbox @screenReaderOnly={{true}}>
+            <:label>Recevoir la newsletter</:label></PixCheckbox>
+        </template>,
       );
       await clickByName('Recevoir la newsletter');
 
@@ -34,8 +40,11 @@ module('Integration | Component | checkbox', function (hooks) {
   test('it should be possible to insert html in label', async function (assert) {
     // given & when
     const screen = await render(
-      hbs`<PixCheckbox><:label>Accepter les cgu,
-    <a href='https://cgu.example.net'>voir ici</a></:label></PixCheckbox>`,
+      <template>
+        <PixCheckbox>
+          <:label>Accepter les cgu,
+            <a href="https://cgu.example.net">voir ici</a></:label></PixCheckbox>
+      </template>,
     );
 
     // then
@@ -45,8 +54,12 @@ module('Integration | Component | checkbox', function (hooks) {
   test('it should be possible to control state', async function (assert) {
     // given
     this.set('checked', false);
+
     const screen = await render(
-      hbs`<PixCheckbox @checked={{this.checked}}><:label>Recevoir la newsletter</:label></PixCheckbox>`,
+      <template>
+        <PixCheckbox @checked={{this.checked}}>
+          <:label>Recevoir la newsletter</:label></PixCheckbox>
+      </template>,
     );
     const checkbox = screen.getByLabelText('Recevoir la newsletter');
     assert.false(checkbox.checked);
@@ -60,11 +73,14 @@ module('Integration | Component | checkbox', function (hooks) {
 
   test('it should display the required and sub label given in @texts', async function (assert) {
     // given
-    this.set('texts', { requiredLabel: 'Obligatoire', subLabel: 'Complément' });
+    const texts = { requiredLabel: 'Obligatoire', subLabel: 'Complément' };
 
     // when
     const screen = await render(
-      hbs`<PixCheckbox @texts={{this.texts}}><:label>Recevoir la newsletter</:label></PixCheckbox>`,
+      <template>
+        <PixCheckbox @texts={{texts}}>
+          <:label>Recevoir la newsletter</:label></PixCheckbox>
+      </template>,
     );
 
     // then
@@ -85,9 +101,13 @@ module('Integration | Component | checkbox', function (hooks) {
 
     test(`it should not be possible to interact when @isDisabled={{true}}`, async function (assert) {
       // given
-      this.set('isDisabled', true);
+      const isDisabled = true;
+
       const screen = await render(
-        hbs`<PixCheckbox checked @isDisabled={{this.isDisabled}}><:label>Recevoir la newsletter</:label></PixCheckbox>`,
+        <template>
+          <PixCheckbox checked @isDisabled={{isDisabled}}>
+            <:label>Recevoir la newsletter</:label></PixCheckbox>
+        </template>,
       );
       const checkbox = screen.getByRole('checkbox', {
         name: 'Recevoir la newsletter',
@@ -111,55 +131,70 @@ module('Integration | Component | checkbox', function (hooks) {
 
     test(`it should read success state info if given`, async function (assert) {
       // given
-      this.set('isDisabled', true);
-      this.set('texts', { stateSuccess: 'Sélection correcte' });
+      const isDisabled = true;
+      const texts = { stateSuccess: 'Sélection correcte' };
 
       // when
       const screen = await render(
-        hbs`<PixCheckbox checked @isDisabled={{this.isDisabled}} @state='success' @texts={{this.texts}}><:label>Recevoir la newsletter</:label></PixCheckbox>`,
+        <template>
+          <PixCheckbox checked @isDisabled={{isDisabled}} @state="success" @texts={{texts}}>
+            <:label>Recevoir la newsletter</:label></PixCheckbox>
+        </template>,
       );
 
       // then
-      assert
-        .dom(
-          screen.getByRole('checkbox', {
-            description: 'Sélection correcte',
-            hidden: true,
-          }),
-        )
-        .exists();
+      const checkbox = screen.queryByRole('checkbox', {
+        description: 'Sélection correcte',
+        hidden: true,
+      });
+      assert.dom(checkbox).exists();
+      assert.dom(checkbox).hasAttribute('aria-invalid', 'false');
     });
 
-    test(`it should read error state info if given`, async function (assert) {
+    test(`it should read error state info if given when field is required`, async function (assert) {
       // given
-      this.set('isDisabled', true);
-      this.set('texts', { stateError: 'Sélection incorrecte' });
+      const isDisabled = true;
+      const texts = {
+        requiredLabel: 'Ce champ est obligatoire',
+        stateError: 'Sélection incorrecte',
+      };
 
       // when
       const screen = await render(
-        hbs`<PixCheckbox checked @isDisabled={{this.isDisabled}} @state='error' @texts={{this.texts}}><:label>Recevoir la newsletter</:label></PixCheckbox>`,
+        <template>
+          <PixCheckbox
+            checked
+            @isDisabled={{isDisabled}}
+            @requiredLabel={{texts.requiredLabel}}
+            @state="error"
+            @texts={{texts}}
+          >
+            <:label>Recevoir la newsletter</:label></PixCheckbox>
+        </template>,
       );
 
       // then
-      assert
-        .dom(
-          screen.getByRole('checkbox', {
-            description: 'Sélection incorrecte',
-            hidden: true,
-          }),
-        )
-        .exists();
+      const checkbox = screen.queryByRole('checkbox', {
+        description: 'Sélection incorrecte',
+        hidden: true,
+      });
+
+      assert.dom(checkbox).exists();
+      assert.dom(checkbox).hasAttribute('aria-invalid', 'true');
+      assert.dom(checkbox).hasAttribute('required', '');
     });
 
     test(`it should read declarative state info if given`, async function (assert) {
       // given
-      this.set('isDisabled', true);
-      this.set('texts', { stateDeclarative: 'Sélection sans bonne ou mauvaise réponse' });
+      const isDisabled = true;
+      const texts = { stateDeclarative: 'Sélection sans bonne ou mauvaise réponse' };
 
       // when
       const screen = await render(
-        hbs`<PixCheckbox checked @isDisabled={{this.isDisabled}} @state='declarative' @texts={{this.texts}}><:label>La galette des
-    rois</:label></PixCheckbox>`,
+        <template>
+          <PixCheckbox checked @isDisabled={{isDisabled}} @state="declarative" @texts={{texts}}>
+            <:label>La galette des rois</:label></PixCheckbox>
+        </template>,
       );
 
       // then
@@ -176,9 +211,12 @@ module('Integration | Component | checkbox', function (hooks) {
     ['true', 'false', 'null', 'undefined'].forEach(function (testCase) {
       test(`it should not be possible to interact when @isDisabled="${testCase}"`, async function (assert) {
         // given
-        this.set('isDisabled', testCase);
+        const isDisabled = testCase;
         const screen = await render(
-          hbs`<PixCheckbox checked @isDisabled={{this.isDisabled}}><:label>Recevoir la newsletter</:label></PixCheckbox>`,
+          <template>
+            <PixCheckbox checked @isDisabled={{isDisabled}}>
+              <:label>Recevoir la newsletter</:label></PixCheckbox>
+          </template>,
         );
         const checkbox = screen.getByRole('checkbox', {
           name: 'Recevoir la newsletter',
@@ -208,9 +246,12 @@ module('Integration | Component | checkbox', function (hooks) {
     [false, null, undefined].forEach(function (testCase) {
       test(`it should be possible to interact when @isDisabled={{${testCase}}}`, async function (assert) {
         // given
-        this.set('isDisabled', testCase);
+        const isDisabled = testCase;
         const screen = await render(
-          hbs`<PixCheckbox checked @isDisabled={{this.isDisabled}}><:label>Recevoir la newsletter</:label></PixCheckbox>`,
+          <template>
+            <PixCheckbox checked @isDisabled={{isDisabled}}>
+              <:label>Recevoir la newsletter</:label></PixCheckbox>
+          </template>,
         );
         const checkbox = screen.getByRole('checkbox', {
           name: 'Recevoir la newsletter',
@@ -237,9 +278,12 @@ module('Integration | Component | checkbox', function (hooks) {
   module('when disabled', function () {
     test(`it should not be possible to interact when disabled={{true}}`, async function (assert) {
       // given
-      this.set('disabled', true);
+      const disabled = true;
       const screen = await render(
-        hbs`<PixCheckbox checked disabled={{this.disabled}}><:label>Recevoir la newsletter</:label></PixCheckbox>`,
+        <template>
+          <PixCheckbox checked disabled={{disabled}}>
+            <:label>Recevoir la newsletter</:label></PixCheckbox>
+        </template>,
       );
       const checkbox = screen.getByRole('checkbox', {
         name: 'Recevoir la newsletter',
@@ -261,9 +305,12 @@ module('Integration | Component | checkbox', function (hooks) {
     ['true', 'false', 'null', 'undefined'].forEach(function (testCase) {
       test(`it should not be possible to interact when disabled="${testCase}"`, async function (assert) {
         // given
-        this.set('disabled', testCase);
+        const disabled = testCase;
         const screen = await render(
-          hbs`<PixCheckbox checked disabled={{this.disabled}}><:label>Recevoir la newsletter</:label></PixCheckbox>`,
+          <template>
+            <PixCheckbox checked disabled={{disabled}}>
+              <:label>Recevoir la newsletter</:label></PixCheckbox>
+          </template>,
         );
         const checkbox = screen.getByRole('checkbox', {
           name: 'Recevoir la newsletter',
@@ -286,9 +333,12 @@ module('Integration | Component | checkbox', function (hooks) {
     [false, null, undefined].forEach(function (testCase) {
       test(`it should be possible to interact when disabled={{${testCase}}}`, async function (assert) {
         // given
-        this.set('disabled', testCase);
+        const disabled = testCase;
         const screen = await render(
-          hbs`<PixCheckbox checked disabled={{this.disabled}}><:label>Recevoir la newsletter</:label></PixCheckbox>`,
+          <template>
+            <PixCheckbox checked disabled={{disabled}}>
+              <:label>Recevoir la newsletter</:label></PixCheckbox>
+          </template>,
         );
         const checkbox = screen.getByRole('checkbox', {
           name: 'Recevoir la newsletter',
