@@ -223,14 +223,14 @@ module('Integration | Component | PixAccordions', function (hooks) {
 </PixAccordions>`);
 
       // then
-      assert.strictEqual(getToggleIconName(), 'chevronUp');
+      assert.strictEqual(getToggleIconName(), 'chevronTop');
 
       // when
       this.set('isExpanded', false);
       await settled();
 
       // then
-      assert.strictEqual(getToggleIconName(), 'chevronDown');
+      assert.strictEqual(getToggleIconName(), 'chevronBottom');
     });
 
     test('it should set aria-hidden on content according to the controlled state', async function (assert) {

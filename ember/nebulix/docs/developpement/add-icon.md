@@ -4,46 +4,41 @@ title: Ajouter une icône
 
 # Ajouter une icône
 
-Les icônes sont fournies par l'équipe Design. Il faut générer le sprite et déclarer l'icône pour qu'elle soit disponible via `PixIcon`.
+Les icônes sont fournies par l'équipe Design. Chaque icône a son propre dossier, dont le nom est celui attendu par `@name` : le sprite et la liste des icônes (`ICONS`) sont générés à partir de ces dossiers.
 
 La procédure suivante permet d'ajouter, de remplacer ou de supprimer une icône.
 
-## 1. Copier les fichiers fournis par le design
+## 1. Créer le dossier de l'icône
 
-Poser les `.svg` dans `core/nebulix-styles/tooling/generate-svg-sprite/icons`, en
-gardant le nommage du design :
+Dans `core/nebulix-styles/tooling/generate-svg-sprite/icons`, créer un dossier au nom de l'icône et y poser les `.svg` fournis par le design, renommés :
 
 ```sh
-maNouvelleIcone-fill_false.svg   # contour
-maNouvelleIcone-fill_true.svg    # plein
+maNouvelleIcone/
+├── default.svg   # contour (fichier `-fill_false` du design)
+└── plain.svg     # plein (fichier `-fill_true` du design), optionnel
 ```
 
-Ne copier `fill_true` que si la variante pleine est réellement utilisée, chaque variante inutile alourdit le sprite chargé par toutes les applications.
+Ne poser `plain.svg` que si la variante pleine est réellement utilisée, chaque variante inutile alourdit le sprite chargé par toutes les applications.
 
-## 2. Régénérer le sprite
+Pour supprimer une icône, supprimer son dossier ; pour la renommer, renommer son dossier.
 
-Le sprite n'est pas versionné : il est généré dans `core/nebulix-styles/dist/svg/pix-sprite.svg` à chaque build de `@1024pix/nebulix-ember` (`pnpm build` ou `pnpm dev`), qui l'embarque ensuite.
+## 2. Régénérer le sprite et la liste des icônes
 
-Pour le régénérer seul, depuis `core/nebulix-styles` :
+Ils ne sont pas versionnés : ils sont générés dans `core/nebulix-styles/dist/` (`svg/pix-sprite.svg` et `icons.js`) à chaque build de `@1024pix/nebulix-ember` (`pnpm build` ou `pnpm dev`), qui les embarque ensuite.
+
+Pour les régénérer seuls, depuis `core/nebulix-styles` :
 
 ```bash
 pnpm build
 ```
 
-## 3. Déclarer l'icône
+L'icône est alors disponible via `<PixIcon @name="maNouvelleIcone" />` (et `@plainIcon={{true}}` si `plain.svg` existe).
 
-Ajouter une entrée dans `core/nebulix-styles/src/icons.js` : c'est elle qui donne à l'icône le nom attendu par `@name` et reprend le nom du fichier.
-
-```js
-accountOff: { default: 'accountOff', plainIcon: 'accountOff_plain' },
-add: { default: 'add' },
-```
-
-## 4. Ajouter un changeset
+## 3. Ajouter un changeset
 
 `@1024pix/nebulix-styles` n'est pas publié : ajouter un changeset sur `@1024pix/nebulix-ember` (`pnpm changeset`) pour livrer l'icône.
 
-## 5. Vérifier dans la galerie
+## 4. Vérifier dans la galerie
 
 Depuis la racine du dépôt :
 
