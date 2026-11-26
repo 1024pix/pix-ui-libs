@@ -1,0 +1,10 @@
+# compiled output
+/dist/
+/declarations/
+
+# misc
+/coverage/
+*.yaml
+*.yml
+*.html
+CHANGELOG.md

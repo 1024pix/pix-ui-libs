@@ -11,12 +11,16 @@
   },
   "homepage": "https://github.com/1024pix/pix-ui-libs#readme",
   "scripts": {
-    "build": "pnpm --filter @1024pix/nebulix-ember build",
+    "build": "pnpm build:ember && pnpm build:vue",
+    "build:ember": "pnpm --filter @1024pix/nebulix-ember build",
+    "build:vue": "pnpm --filter @1024pix/nebulix-vue build",
     "dev": "concurrently \"pnpm --filter @1024pix/nebulix-ember dev\" \"pnpm --filter test-app start\" --names \"addon,app\" --prefixColors auto",
     "doc": "concurrently \"pnpm --filter @1024pix/nebulix-ember dev\" \"pnpm --filter docs-app start\" --names \"addon,app\" --prefixColors auto",
+    "dev:vue": "concurrently \"pnpm --filter @1024pix/nebulix-vue dev\" \"pnpm --filter vue-test-app start\" --names \"lib,tests\" --prefixColors auto",
+    "doc:vue": "concurrently \"pnpm --filter @1024pix/nebulix-vue dev\" \"pnpm --filter vue-docs-app start\" --names \"lib,docs\" --prefixColors auto",
     "lint": "pnpm -r lint",
     "lint:fix": "pnpm -r lint:fix",
-    "test": "pnpm build && pnpm --filter test-app --filter docs-app test",
+    "test": "pnpm build && pnpm --filter test-app --filter docs-app --filter vue-test-app --filter vue-docs-app test",
     "ci:publish": "pnpm publish -r --access=public"
   },
   "devDependencies": {
