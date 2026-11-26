@@ -18,21 +18,18 @@
     "./package.json": "./package.json",
     "./icons": {
       "types": "./src/icons.d.ts",
-      "default": "./src/icons.js"
+      "default": "./dist/icons.js"
     },
     "./scss/*": "./src/*",
     "./fonts/*": "./assets/fonts/*",
-    "./svg/*": "./assets/svg/*"
+    "./svg/*": "./dist/svg/*"
   },
   "scripts": {
+    "build": "node tooling/generate-svg-sprite/build-sprite.mjs",
     "lint": "pnpm lint:format",
     "lint:fix": "pnpm lint:format:fix",
     "lint:format": "prettier . --cache --check",
-    "lint:format:fix": "prettier . --cache --write",
-    "svg:generate-sprite": "pnpm svg:compile && pnpm svg:optimize && pnpm run svg:rename-id",
-    "svg:compile": "svg-sprite -C 'tooling/generate-svg-sprite/svg-sprite.config.json' 'tooling/generate-svg-sprite/icons/*.svg'",
-    "svg:optimize": "svgo --config='./tooling/generate-svg-sprite/svgo.config.js' -i 'assets/svg/' -o 'assets/svg/'",
-    "svg:rename-id": "bash ./tooling/generate-svg-sprite/rename-icon-id-in-sprite.sh"
+    "lint:format:fix": "prettier . --cache --write"
   },
   "devDependencies": {
     "prettier": "3.10.0",
